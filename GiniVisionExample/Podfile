@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '8.0'
+
+target 'GiniVisionExample' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  source 'https://github.com/gini/gini-podspecs.git'
+  source 'https://github.com/CocoaPods/Specs.git'
+
+  # Pods for Switch Example
+  pod ‘GiniVision’
+  pod 'Gini-iOS-SDK'
+
+  # Pods for GiniVisionExample
+
+  target 'GiniVisionExampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
