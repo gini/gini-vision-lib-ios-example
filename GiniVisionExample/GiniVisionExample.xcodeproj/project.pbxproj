@@ -13,6 +13,8 @@
 		1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01FD371FC30D7100BAA47E /* Assets.xcassets */; };
 		1F01FD3B1FC30D7100BAA47E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F01FD391FC30D7100BAA47E /* LaunchScreen.storyboard */; };
 		1F01FD461FC30D7100BAA47E /* GiniVisionExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01FD451FC30D7100BAA47E /* GiniVisionExampleTests.swift */; };
+		36765D94C817321AD844AF0D /* Pods_GiniVisionExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */; };
+		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F01FD2D1FC30D7100BAA47E /* GiniVisionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiniVisionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F01FD301FC30D7100BAA47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F01FD321FC30D7100BAA47E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		1F01FD411FC30D7100BAA47E /* GiniVisionExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F01FD451FC30D7100BAA47E /* GiniVisionExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiniVisionExampleTests.swift; sourceTree = "<group>"; };
 		1F01FD471FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
+		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36765D94C817321AD844AF0D /* Pods_GiniVisionExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +72,8 @@
 				1F01FD2F1FC30D7100BAA47E /* GiniVisionExample */,
 				1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */,
 				1F01FD2E1FC30D7100BAA47E /* Products */,
+				384F1E919148AB1217972479 /* Pods */,
+				6AE4C4082242EA353AB59A5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +108,26 @@
 			path = GiniVisionExampleTests;
 			sourceTree = "<group>";
 		};
+		384F1E919148AB1217972479 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */,
+				90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */,
+				0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */,
+				377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6AE4C4082242EA353AB59A5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */,
+				095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F01FD4A1FC30D7100BAA47E /* Build configuration list for PBXNativeTarget "GiniVisionExample" */;
 			buildPhases = (
+				CA1F97C4C83F3E6365BEC2C8 /* [CP] Check Pods Manifest.lock */,
 				1F01FD291FC30D7100BAA47E /* Sources */,
 				1F01FD2A1FC30D7100BAA47E /* Frameworks */,
 				1F01FD2B1FC30D7100BAA47E /* Resources */,
+				842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */,
+				F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F01FD4D1FC30D7100BAA47E /* Build configuration list for PBXNativeTarget "GiniVisionExampleTests" */;
 			buildPhases = (
+				805624F9CB88888A457E2107 /* [CP] Check Pods Manifest.lock */,
 				1F01FD3D1FC30D7100BAA47E /* Sources */,
 				1F01FD3E1FC30D7100BAA47E /* Frameworks */,
 				1F01FD3F1FC30D7100BAA47E /* Resources */,
+				F25DB61CB16F0998F2820DEA /* [CP] Embed Pods Frameworks */,
+				A827BCD781947A97085F7E55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +231,112 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		805624F9CB88888A457E2107 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiniVisionExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Gini-iOS-SDK/Gini_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/GiniVision/GiniVision.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gini_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GiniVision.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A827BCD781947A97085F7E55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA1F97C4C83F3E6365BEC2C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiniVisionExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F25DB61CB16F0998F2820DEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F01FD291FC30D7100BAA47E /* Sources */ = {
@@ -351,6 +495,7 @@
 		};
 		1F01FD4B1FC30D7100BAA47E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -366,6 +511,7 @@
 		};
 		1F01FD4C1FC30D7100BAA47E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -381,6 +527,7 @@
 		};
 		1F01FD4E1FC30D7100BAA47E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -398,6 +545,7 @@
 		};
 		1F01FD4F1FC30D7100BAA47E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
