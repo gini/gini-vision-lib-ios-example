@@ -5,7 +5,11 @@ pipeline {
   }
   stages {
     stage('Prerequisites') {
+      environment {
+        GEONOSIS_USER_PASSWORD = credentials('GeonosisUserPassword')
+      }
       steps {
+        sh 'security unlock-keychain -p ${GEONOSIS_USER_PASSWORD} login.keychain'
         sh '/usr/local/bin/pod install --project-directory=GiniVisionExample/'
       }
     }
