@@ -8,12 +8,24 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate: class {
+    func main(viewController: MainViewController, didTapStartAnalysis: ())
+    func main(viewController: MainViewController, didTapShowHelp: ())
+}
+
 final class MainViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    weak var delegate: MainViewControllerDelegate?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
+    @IBAction func startAnalysis(_ sender: Any) {
+        delegate?.main(viewController: self, didTapStartAnalysis: ())
+    }
+    
+    @IBAction func showHelp(_ sender: Any) {
+        delegate?.main(viewController: self, didTapShowHelp: ())
+    }
 }

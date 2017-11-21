@@ -9,17 +9,20 @@
 import XCTest
 @testable import GiniVisionExample
 
-class MainViewControllerTests: XCTestCase {
+final class MainViewControllerTests: XCTestCase {
     
-    var mainViewController: AuxMainViewController!
+    var mainViewController: MainViewController!
     
     override func setUp() {
         super.setUp()
-        mainViewController = AuxMainViewController()
+        mainViewController = MainViewController()
     }
     
     func testInitialization() {
         XCTAssertNotNil(mainViewController.view, "view should not be nil")
     }
     
+    func testStatusBarStyle() {
+        XCTAssertEqual(mainViewController.preferredStatusBarStyle, .lightContent, "status bar style should be light")
+    }
 }
