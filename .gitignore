@@ -33,6 +33,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.swiftlint.yml
 
 ## Obj-C/Swift specific
 *.hmap

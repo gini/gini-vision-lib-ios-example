@@ -26,20 +26,26 @@ pipeline {
     stage('HockeyApp upload') {
       when {
         branch 'master'
+        expression {
+            def tag = sh(returnStdout: true, script: 'git tag --contains $(git rev-parse HEAD)').trim()
+            return !tag.isEmpty()
+        }
       }
       environment {
         HOCKEYAPP_ID = credentials('VisionShowcaseHockeyAppID')
         HOCKEYAPP_API_KEY = credentials('VisionShowcaseHockeyAPIKey')
       }
       steps {
-        sh 'rm -rf build'
         sh 'mkdir build'
         sh 'scripts/build-number-bump.sh ${HOCKEYAPP_API_KEY} ${HOCKEYAPP_ID}'
         sh 'xcodebuild -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme GiniVisionExample -configuration Release archive -archivePath build/GiniVisionExample.xcarchive | /usr/local/bin/xcpretty -c'
         sh 'xcodebuild -exportArchive -archivePath build/GiniVisionExample.xcarchive -exportOptionsPlist scripts/exportOptions.plist -exportPath build -allowProvisioningUpdates | /usr/local/bin/xcpretty -c'
         step([$class: 'HockeyappRecorder', applications: [[apiToken: env.HOCKEYAPP_API_KEY, downloadAllowed: true, filePath: 'build/GiniVisionExample.ipa', mandatory: false, notifyTeam: false, releaseNotesMethod: [$class: 'NoReleaseNotes'], uploadMethod: [$class: 'VersionCreation', appId: env.HOCKEYAPP_ID]]], debugMode: false, failGracefully: false])
-
-        sh 'rm -rf build'
+      }
+      post {
+        always {
+          sh 'rm -rf build || true'
+        }
       }
     }
   }
