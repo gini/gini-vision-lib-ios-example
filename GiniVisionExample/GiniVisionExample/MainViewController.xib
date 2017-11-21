@@ -21,20 +21,24 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDf-hJ-rTG">
                     <rect key="frame" x="140.5" y="318" width="93" height="30"/>
-                    <state key="normal" title="Start analysis"/>
+                    <state key="normal" title="Start analysis">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="startAnalysis:" destination="-1" eventType="touchUpInside" id="hC9-vE-Par"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZs-ZK-0rf">
                     <rect key="frame" x="323" y="617" width="32" height="30"/>
-                    <state key="normal" title="Help"/>
+                    <state key="normal" title="Help">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="showHelp:" destination="-1" eventType="touchUpInside" id="3L2-KJ-1QY"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.27058823529411763" green="0.61176470588235299" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="NDf-hJ-rTG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6VN-c8-JeZ"/>
                 <constraint firstAttribute="trailing" secondItem="WZs-ZK-0rf" secondAttribute="trailing" constant="20" id="TUl-ou-yky"/>

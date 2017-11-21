@@ -11,7 +11,6 @@ import UIKit
 protocol MainViewControllerDelegate: class {
     func main(viewController: UIViewController, didTapStartAnalysis:())
     func main(viewController: UIViewController, didTapShowHelp:())
-
 }
 
 final class MainViewController: UIViewController {
