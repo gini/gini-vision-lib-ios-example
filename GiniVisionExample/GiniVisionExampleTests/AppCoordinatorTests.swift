@@ -19,13 +19,20 @@ final class AppCoordinatorTests: XCTestCase {
     }
     
     func testInitialization() {
-        XCTAssertEqual(appCoordinator.childCoordinators.count, 0, "child coordinators array should be empty after initialization")
+        XCTAssertEqual(appCoordinator.childCoordinators.count, 0,
+                       "child coordinators array should be empty after initialization")
         XCTAssertNotNil(appCoordinator.window, "window should not be nil after after initialization")
     }
     
-    func testWindowRootViewControllerOnStart() {
+    func testWindowRootViewControllerAfterStart() {
         appCoordinator.start()
-        XCTAssertNotNil(appCoordinator.window.rootViewController, "window should have a rootviewcontroller after starting app")
+        XCTAssertNotNil(appCoordinator.window.rootViewController,
+                        "window should have a rootviewcontroller after starting app")
+    }
+    
+    func testMainViewControllerDelegateAfterStart() {
+        appCoordinator.start()
+        XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator)
     }
     
 }

@@ -14,9 +14,13 @@ final class AppCoordinator: Coordinator {
         return mainViewController
     }
     var childCoordinators: [Coordinator] = []
-    
-    lazy var mainViewController: UIViewController = MainViewController(nibName: nil, bundle: nil)
     let window: UIWindow
+
+    lazy var mainViewController: MainViewController = {
+        let mainViewController = MainViewController(nibName: nil, bundle: nil)
+        mainViewController.delegate = self
+        return mainViewController
+    }()
     
     init(window: UIWindow) {
         self.window = window
@@ -30,4 +34,18 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+}
+
+// MARK: MainViewControllerDelegate
+
+extension AppCoordinator: MainViewControllerDelegate {
+    
+    func main(viewController: MainViewController, didTapStartAnalysis: ()) {
+        
+    }
+    
+    func main(viewController: MainViewController, didTapShowHelp: ()) {
+        
+    }
+    
 }

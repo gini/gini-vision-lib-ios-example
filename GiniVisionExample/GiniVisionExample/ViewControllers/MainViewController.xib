@@ -19,15 +19,45 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-CQ-l3F">
-                    <rect key="frame" x="166" y="323" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqR-eF-Krh">
+                    <rect key="frame" x="116.5" y="313.5" width="141" height="39"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <state key="normal" title="Start analysis">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="startAnalysis:" destination="-1" eventType="touchUpInside" id="5zY-A3-r91"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Ou-pg5">
+                    <rect key="frame" x="67" y="60" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="MxP-pq-Maz"/>
+                        <constraint firstAttribute="width" constant="240" id="na7-kF-89c"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kF-JV-0KZ">
+                    <rect key="frame" x="323" y="617" width="32" height="30"/>
+                    <state key="normal" title="Help">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="showHelp:" destination="-1" eventType="touchUpInside" id="MBU-3s-HQB"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.26970732209999998" green="0.61187356709999996" blue="0.84189760680000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8kF-JV-0KZ" secondAttribute="trailing" constant="20" id="01o-lR-DZC"/>
+                <constraint firstItem="vqR-eF-Krh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RQX-9F-CdU"/>
+                <constraint firstAttribute="bottom" secondItem="8kF-JV-0KZ" secondAttribute="bottom" constant="20" id="Thb-Ac-GYw"/>
+                <constraint firstItem="vqR-eF-Krh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VyM-8q-U4b"/>
+                <constraint firstItem="BUL-Ou-pg5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hzp-fB-cHk"/>
+                <constraint firstItem="BUL-Ou-pg5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="tf4-6q-khx"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="logo_white" width="500" height="320"/>
+    </resources>
 </document>
