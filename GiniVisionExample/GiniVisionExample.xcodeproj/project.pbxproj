@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01FD301FC30D7100BAA47E /* AppDelegate.swift */; };
 		1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01FD371FC30D7100BAA47E /* Assets.xcassets */; };
-		1F01FD461FC30D7100BAA47E /* GiniVisionExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01FD451FC30D7100BAA47E /* GiniVisionExampleTests.swift */; };
 		1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D4C1FC338EC001C0DEF /* MainViewController.swift */; };
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D511FC339CD001C0DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D501FC339CD001C0DEF /* LaunchScreen.storyboard */; };
+		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
+		1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D541FC4193A001C0DEF /* AppCoordinator.swift */; };
+		1F286D581FC419C1001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
 		36765D94C817321AD844AF0D /* Pods_GiniVisionExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -35,12 +37,15 @@
 		1F01FD371FC30D7100BAA47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F01FD3C1FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F01FD411FC30D7100BAA47E /* GiniVisionExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F01FD451FC30D7100BAA47E /* GiniVisionExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiniVisionExampleTests.swift; sourceTree = "<group>"; };
 		1F01FD471FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
 		1F286D501FC339CD001C0DEF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F286D521FC418F6001C0DEF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1F286D541FC4193A001C0DEF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1F286D561FC419C1001C0DEF /* GiniVisionExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiniVisionExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +102,8 @@
 				1F286D4C1FC338EC001C0DEF /* MainViewController.swift */,
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 				1F286D501FC339CD001C0DEF /* LaunchScreen.storyboard */,
+				1F286D521FC418F6001C0DEF /* Coordinator.swift */,
+				1F286D541FC4193A001C0DEF /* AppCoordinator.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -104,8 +111,9 @@
 		1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F01FD451FC30D7100BAA47E /* GiniVisionExampleTests.swift */,
 				1F01FD471FC30D7100BAA47E /* Info.plist */,
+				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
+				1F286D561FC419C1001C0DEF /* GiniVisionExampleTests-Bridging-Header.h */,
 			);
 			path = GiniVisionExampleTests;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 					};
 					1F01FD401FC30D7100BAA47E = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1F01FD2C1FC30D7100BAA47E;
 					};
@@ -364,8 +373,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */,
 				1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */,
 				1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */,
+				1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F01FD461FC30D7100BAA47E /* GiniVisionExampleTests.swift in Sources */,
+				1F286D581FC419C1001C0DEF /* AppCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,12 +548,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				INFOPLIST_FILE = GiniVisionExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gini.GiniVisionExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiniVisionExampleTests/GiniVisionExampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniVisionExample.app/GiniVisionExample";
@@ -555,12 +569,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				INFOPLIST_FILE = GiniVisionExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Gini.GiniVisionExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiniVisionExampleTests/GiniVisionExampleTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniVisionExample.app/GiniVisionExample";
