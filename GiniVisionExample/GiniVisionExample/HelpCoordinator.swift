@@ -45,12 +45,12 @@ final class HelpCoordinator: Coordinator {
 // MARK: HelpViewControllerDelegate
 
 extension HelpCoordinator: HelpViewControllerDelegate {
-    func help(viewController: HelpViewController, didSelectURL: URL) {
-        
-    }
-    
     func help(viewController: HelpViewController, didTapClose: ()) {
         delegate?.help(coordinator: self, didFinish: ())
+    }
+    
+    func help(viewController: HelpViewController, didSelectItem item: HelpLink) {
+        print(item)
     }
     
 }

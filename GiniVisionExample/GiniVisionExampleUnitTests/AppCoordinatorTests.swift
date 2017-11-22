@@ -58,7 +58,7 @@ final class AppCoordinatorTests: XCTestCase {
         appCoordinator.start()
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
 
-        appCoordinator.help(coordinator: childCoordinator(ofType: HelpCoordinator.self)!, didTapClose: ())
+        appCoordinator.help(coordinator: childCoordinator(ofType: HelpCoordinator.self)!, didFinish: ())
         
         XCTAssertNil(childCoordinator(ofType: HelpCoordinator.self),
                      "help coordinator should not longer exist after dismiss help view controller")

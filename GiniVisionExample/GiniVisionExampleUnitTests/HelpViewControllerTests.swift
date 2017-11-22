@@ -27,7 +27,13 @@ class HelpViewControllerTests: XCTestCase {
     func testTableViewDatasource() {
         _ = helpViewController.view
         XCTAssertNotNil(helpViewController.tableView.dataSource as? HelpViewController,
-                        "table datasource delegate should be an instance of HelpViewController")
+                        "table datasource should be an instance of HelpViewController")
+    }
+    
+    func testTableViewDelegate() {
+        _ = helpViewController.view
+        XCTAssertNotNil(helpViewController.tableView.delegate as? HelpViewController,
+                        "table delegate should be an instance of HelpViewController")
     }
     
     func testTableViewSectionCount() {
@@ -62,8 +68,8 @@ class HelpViewControllerTests: XCTestCase {
         let cell = helpViewController.tableView(helpViewController.tableView,
                                                 cellForRowAt: indexPath)
         XCTAssertEqual(cell.textLabel?.text, "GVL Version", "cell text label is not first item in section 0 title")
-//        XCTAssertEqual(cell.detailTextLabel?.text, "3.2.1",
-//        "cell detailed text label is not first item in section 0 version")
+        XCTAssertEqual(cell.detailTextLabel?.text, "3.2.1",
+        "cell detailed text label is not first item in section 0 version")
         XCTAssertEqual(cell.accessoryType, .none, "a help version cell should not have an accessory type")
     }
     

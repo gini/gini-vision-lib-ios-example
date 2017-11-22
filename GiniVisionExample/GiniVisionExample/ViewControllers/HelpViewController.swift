@@ -12,7 +12,7 @@ typealias HelpLink = (title: String, url: URL?)
 typealias HelpVersion = (title: String, version: String)
 
 protocol HelpViewControllerDelegate: class {
-    func help(viewController: HelpViewController, didSelectURL: URL)
+    func help(viewController: HelpViewController, didSelectItem item: HelpLink)
     func help(viewController: HelpViewController, didTapClose: ())
 }
 
@@ -33,9 +33,8 @@ final class HelpViewController: UIViewController {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: linkCellReuseIdentifier)
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: versionCellReuseIdentifier)
             tableView.dataSource = self
+            tableView.delegate = self
             tableView.tableFooterView = UIView()
-            tableView.rowHeight = UITableViewAutomaticDimension
-            tableView.estimatedRowHeight = 140
         }
     }
     @IBAction func close(_ sender: Any) {
@@ -68,7 +67,7 @@ extension HelpViewController: UITableViewDataSource {
             cell?.textLabel?.text = links[indexPath.row].title
             cell?.accessoryType = .disclosureIndicator
         } else if let versions = items as? [HelpVersion] {
-            cell = tableView.dequeueReusableCell(withIdentifier: versionCellReuseIdentifier)
+            cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
             cell?.textLabel?.text = versions[indexPath.row].title
             cell?.detailTextLabel?.text = versions[indexPath.row].version
         }
@@ -77,5 +76,16 @@ extension HelpViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+}
+
+// MARK: UITableViewDelegate
+
+extension HelpViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let items = sections[indexPath.section].items
+        if let links = items as? [HelpLink] {
+            delegate?.help(viewController: self, didSelectItem: links[indexPath.row])
+        }
     }
 }
