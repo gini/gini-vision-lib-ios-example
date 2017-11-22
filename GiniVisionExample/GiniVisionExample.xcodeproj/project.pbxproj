@@ -13,15 +13,14 @@
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
 		1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D541FC4193A001C0DEF /* AppCoordinator.swift */; };
-		1F286D581FC419C1001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
 		1F286D641FC45C6A001C0DEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */; };
-		1F286D681FC46470001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
-		36765D94C817321AD844AF0D /* Pods_GiniVisionExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */; };
+		1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
+		1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F01FD421FC30D7100BAA47E /* PBXContainerItemProxy */ = {
+		1F286D9B1FC56F11001C0DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F01FD251FC30D7100BAA47E /* Project object */;
 			proxyType = 1;
@@ -37,8 +36,6 @@
 		1F01FD301FC30D7100BAA47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F01FD371FC30D7100BAA47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F01FD3C1FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F01FD411FC30D7100BAA47E /* GiniVisionExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F01FD471FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
@@ -47,6 +44,8 @@
 		1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
+		1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F286D9A1FC56F11001C0DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,11 +61,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F01FD3E1FC30D7100BAA47E /* Frameworks */ = {
+		1F286D931FC56F11001C0DEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36765D94C817321AD844AF0D /* Pods_GiniVisionExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +76,7 @@
 			children = (
 				1F01FD2F1FC30D7100BAA47E /* GiniVisionExample */,
 				1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */,
+				1F286D971FC56F11001C0DEF /* GiniVisionExampleUnitTests */,
 				1F01FD2E1FC30D7100BAA47E /* Products */,
 				384F1E919148AB1217972479 /* Pods */,
 				6AE4C4082242EA353AB59A5E /* Frameworks */,
@@ -88,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1F01FD2D1FC30D7100BAA47E /* GiniVisionExample.app */,
-				1F01FD411FC30D7100BAA47E /* GiniVisionExampleTests.xctest */,
+				1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,9 +109,6 @@
 		1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
-				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
-				1F286D691FC46B72001C0DEF /* Supporting files */,
 			);
 			path = GiniVisionExampleTests;
 			sourceTree = "<group>";
@@ -127,10 +123,20 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
-		1F286D691FC46B72001C0DEF /* Supporting files */ = {
+		1F286D971FC56F11001C0DEF /* GiniVisionExampleUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F01FD471FC30D7100BAA47E /* Info.plist */,
+				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
+				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
+				1F286DA31FC56F30001C0DEF /* Supporting files */,
+			);
+			path = GiniVisionExampleUnitTests;
+			sourceTree = "<group>";
+		};
+		1F286DA31FC56F30001C0DEF /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				1F286D9A1FC56F11001C0DEF /* Info.plist */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -179,25 +185,22 @@
 			productReference = 1F01FD2D1FC30D7100BAA47E /* GiniVisionExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1F01FD401FC30D7100BAA47E /* GiniVisionExampleTests */ = {
+		1F286D951FC56F11001C0DEF /* GiniVisionExampleUnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F01FD4D1FC30D7100BAA47E /* Build configuration list for PBXNativeTarget "GiniVisionExampleTests" */;
+			buildConfigurationList = 1F286D9D1FC56F11001C0DEF /* Build configuration list for PBXNativeTarget "GiniVisionExampleUnitTests" */;
 			buildPhases = (
-				805624F9CB88888A457E2107 /* [CP] Check Pods Manifest.lock */,
-				1F01FD3D1FC30D7100BAA47E /* Sources */,
-				1F01FD3E1FC30D7100BAA47E /* Frameworks */,
-				1F01FD3F1FC30D7100BAA47E /* Resources */,
-				F25DB61CB16F0998F2820DEA /* [CP] Embed Pods Frameworks */,
-				A827BCD781947A97085F7E55 /* [CP] Copy Pods Resources */,
+				1F286D921FC56F11001C0DEF /* Sources */,
+				1F286D931FC56F11001C0DEF /* Frameworks */,
+				1F286D941FC56F11001C0DEF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F01FD431FC30D7100BAA47E /* PBXTargetDependency */,
+				1F286D9C1FC56F11001C0DEF /* PBXTargetDependency */,
 			);
-			name = GiniVisionExampleTests;
-			productName = GiniVisionExampleTests;
-			productReference = 1F01FD411FC30D7100BAA47E /* GiniVisionExampleTests.xctest */;
+			name = GiniVisionExampleUnitTests;
+			productName = GiniVisionExampleUnitTests;
+			productReference = 1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -219,9 +222,8 @@
 							};
 						};
 					};
-					1F01FD401FC30D7100BAA47E = {
+					1F286D951FC56F11001C0DEF = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1F01FD2C1FC30D7100BAA47E;
 					};
@@ -241,7 +243,7 @@
 			projectRoot = "";
 			targets = (
 				1F01FD2C1FC30D7100BAA47E /* GiniVisionExample */,
-				1F01FD401FC30D7100BAA47E /* GiniVisionExampleTests */,
+				1F286D951FC56F11001C0DEF /* GiniVisionExampleUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -257,7 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F01FD3F1FC30D7100BAA47E /* Resources */ = {
+		1F286D941FC56F11001C0DEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,24 +281,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		805624F9CB88888A457E2107 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GiniVisionExampleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -320,21 +304,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A827BCD781947A97085F7E55 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CA1F97C4C83F3E6365BEC2C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,21 +320,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F25DB61CB16F0998F2820DEA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */ = {
@@ -397,22 +351,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F01FD3D1FC30D7100BAA47E /* Sources */ = {
+		1F286D921FC56F11001C0DEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F286D581FC419C1001C0DEF /* AppCoordinatorTests.swift in Sources */,
-				1F286D681FC46470001C0DEF /* MainViewControllerTests.swift in Sources */,
+				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
+				1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F01FD431FC30D7100BAA47E /* PBXTargetDependency */ = {
+		1F286D9C1FC56F11001C0DEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1F01FD2C1FC30D7100BAA47E /* GiniVisionExample */;
-			targetProxy = 1F01FD421FC30D7100BAA47E /* PBXContainerItemProxy */;
+			targetProxy = 1F286D9B1FC56F11001C0DEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -564,43 +518,32 @@
 			};
 			name = Release;
 		};
-		1F01FD4E1FC30D7100BAA47E /* Debug */ = {
+		1F286D9E1FC56F11001C0DEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
-				INFOPLIST_FILE = GiniVisionExampleTests/Info.plist;
+				INFOPLIST_FILE = GiniVisionExampleUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Gini.GiniVisionExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.GiniVisionExampleUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniVisionExample.app/GiniVisionExample";
 			};
 			name = Debug;
 		};
-		1F01FD4F1FC30D7100BAA47E /* Release */ = {
+		1F286D9F1FC56F11001C0DEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
-				INFOPLIST_FILE = GiniVisionExampleTests/Info.plist;
+				INFOPLIST_FILE = GiniVisionExampleUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Gini.GiniVisionExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.GiniVisionExampleUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniVisionExample.app/GiniVisionExample";
@@ -628,11 +571,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F01FD4D1FC30D7100BAA47E /* Build configuration list for PBXNativeTarget "GiniVisionExampleTests" */ = {
+		1F286D9D1FC56F11001C0DEF /* Build configuration list for PBXNativeTarget "GiniVisionExampleUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F01FD4E1FC30D7100BAA47E /* Debug */,
-				1F01FD4F1FC30D7100BAA47E /* Release */,
+				1F286D9E1FC56F11001C0DEF /* Debug */,
+				1F286D9F1FC56F11001C0DEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
