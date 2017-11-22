@@ -24,6 +24,7 @@
 		1F286DB11FC57ECA001C0DEF /* HelpCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */; };
 		1F286DB31FC591C9001C0DEF /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */; };
 		1F9D11961FC5926A00BCE7E9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */; };
+		1F9D119A1FC5BFD500BCE7E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F9D119C1FC5BFD500BCE7E9 /* Localizable.strings */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinatorTests.swift; sourceTree = "<group>"; };
 		1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ViewControllers/WebViewController.swift; sourceTree = "<group>"; };
+		1F9D119B1FC5BFD500BCE7E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,12 +118,12 @@
 				1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */,
 				1F286DA41FC57B8A001C0DEF /* HelpViewController.swift */,
 				1F286D4C1FC338EC001C0DEF /* MainViewController.swift */,
+				1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */,
 				1F286DA51FC57B8A001C0DEF /* HelpViewController.xib */,
 				1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */,
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 				1F286DAA1FC57BD6001C0DEF /* Extensions */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
-				1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -132,6 +134,7 @@
 				1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */,
 				1F01FD3C1FC30D7100BAA47E /* Info.plist */,
 				1F01FD371FC30D7100BAA47E /* Assets.xcassets */,
+				1F9D119C1FC5BFD500BCE7E9 /* Localizable.strings */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9D119A1FC5BFD500BCE7E9 /* Localizable.strings in Resources */,
 				1F286D641FC45C6A001C0DEF /* LaunchScreen.xib in Resources */,
 				1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
@@ -417,6 +421,18 @@
 			targetProxy = 1F286D9B1FC56F11001C0DEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F9D119C1FC5BFD500BCE7E9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F9D119B1FC5BFD500BCE7E9 /* en */,
+			);
+			name = Localizable.strings;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1F01FD481FC30D7100BAA47E /* Debug */ = {

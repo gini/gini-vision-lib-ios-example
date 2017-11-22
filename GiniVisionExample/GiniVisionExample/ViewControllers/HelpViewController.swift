@@ -44,9 +44,12 @@ final class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Help"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done,
-                                                            target: self, action: #selector(close(_:)))
+        title = NSLocalizedString("help.screen.title", comment: "help screen title for navigation bar")
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(title: NSLocalizedString("help.screen.close.button",
+                                                     comment: "help screen title for navigation bar"),
+                            style: .done,
+                            target: self, action: #selector(close(_:)))
     }
 
 }
