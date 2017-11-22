@@ -34,7 +34,8 @@ class WebViewControllerTests: XCTestCase {
     }
     
     func testWebViewNavigationDelegate() {
-        XCTAssertNotNil(webViewController.webView.navigationDelegate as? WebViewController)
+        XCTAssertNotNil(webViewController.webView.navigationDelegate as? WebViewController,
+                        "webView navigation delegate should be an instance of WebViewController")
     }
     
 }
