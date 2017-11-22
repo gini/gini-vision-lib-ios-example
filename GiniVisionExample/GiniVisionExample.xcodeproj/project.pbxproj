@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				1F01FD2F1FC30D7100BAA47E /* GiniVisionExample */,
-				1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */,
 				1F286D971FC56F11001C0DEF /* GiniVisionExampleUnitTests */,
 				1F01FD2E1FC30D7100BAA47E /* Products */,
 				384F1E919148AB1217972479 /* Pods */,
@@ -104,13 +103,6 @@
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 			);
 			path = GiniVisionExample;
-			sourceTree = "<group>";
-		};
-		1F01FD441FC30D7100BAA47E /* GiniVisionExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GiniVisionExampleTests;
 			sourceTree = "<group>";
 		};
 		1F286D661FC4644A001C0DEF /* Supporting files */ = {
