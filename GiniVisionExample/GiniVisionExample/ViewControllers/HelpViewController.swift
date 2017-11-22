@@ -11,8 +11,14 @@ import UIKit
 typealias HelpLink = (title: String, url: URL?)
 typealias HelpVersion = (title: String, version: String)
 
-class HelpViewController: UIViewController {
+protocol HelpViewControllerDelegate: class {
+    func help(viewController: HelpViewController, didSelectURL: URL)
+    func help(viewController: HelpViewController, didTapClose: ())
+}
 
+final class HelpViewController: UIViewController {
+
+    weak var delegate: HelpViewControllerDelegate?
     let linkCellReuseIdentifier = "linkCellReuseIdentifier"
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
 
@@ -33,7 +39,7 @@ class HelpViewController: UIViewController {
         }
     }
     @IBAction func close(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        delegate?.help(viewController: self, didTapClose: ())
     }
     
     override func viewDidLoad() {

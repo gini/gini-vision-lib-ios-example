@@ -16,6 +16,12 @@
 		1F286D641FC45C6A001C0DEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */; };
 		1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
 		1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
+		1F286DA61FC57B8A001C0DEF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DA41FC57B8A001C0DEF /* HelpViewController.swift */; };
+		1F286DA71FC57B8A001C0DEF /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286DA51FC57B8A001C0DEF /* HelpViewController.xib */; };
+		1F286DA91FC57BD1001C0DEF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DA81FC57BD1001C0DEF /* UIColor.swift */; };
+		1F286DAC1FC57C14001C0DEF /* HelpViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */; };
+		1F286DAF1FC57CEE001C0DEF /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */; };
+		1F286DB11FC57ECA001C0DEF /* HelpCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +52,12 @@
 		1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F286D9A1FC56F11001C0DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F286DA41FC57B8A001C0DEF /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = ViewControllers/HelpViewController.swift; sourceTree = "<group>"; };
+		1F286DA51FC57B8A001C0DEF /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpViewController.xib; path = ViewControllers/HelpViewController.xib; sourceTree = "<group>"; };
+		1F286DA81FC57BD1001C0DEF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewControllerTests.swift; sourceTree = "<group>"; };
+		1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
+		1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinatorTests.swift; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,13 +106,17 @@
 		1F01FD2F1FC30D7100BAA47E /* GiniVisionExample */ = {
 			isa = PBXGroup;
 			children = (
-				1F286D661FC4644A001C0DEF /* Supporting files */,
 				1F286D541FC4193A001C0DEF /* AppCoordinator.swift */,
 				1F01FD301FC30D7100BAA47E /* AppDelegate.swift */,
 				1F286D521FC418F6001C0DEF /* Coordinator.swift */,
+				1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */,
+				1F286DA41FC57B8A001C0DEF /* HelpViewController.swift */,
 				1F286D4C1FC338EC001C0DEF /* MainViewController.swift */,
+				1F286DA51FC57B8A001C0DEF /* HelpViewController.xib */,
 				1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */,
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
+				1F286DAA1FC57BD6001C0DEF /* Extensions */,
+				1F286D661FC4644A001C0DEF /* Supporting files */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -119,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
+				1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */,
+				1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */,
 				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
 				1F286DA31FC56F30001C0DEF /* Supporting files */,
 			);
@@ -131,6 +149,14 @@
 				1F286D9A1FC56F11001C0DEF /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1F286DAA1FC57BD6001C0DEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F286DA81FC57BD1001C0DEF /* UIColor.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		384F1E919148AB1217972479 /* Pods */ = {
@@ -166,7 +192,7 @@
 				1F01FD2B1FC30D7100BAA47E /* Resources */,
 				842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */,
 				F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */,
-				1F286D591FC42C5C001C0DEF /* ShellScript */,
+				1F286D591FC42C5C001C0DEF /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -184,6 +210,7 @@
 				1F286D921FC56F11001C0DEF /* Sources */,
 				1F286D931FC56F11001C0DEF /* Frameworks */,
 				1F286D941FC56F11001C0DEF /* Resources */,
+				1F286DAD1FC57C83001C0DEF /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -248,6 +275,7 @@
 				1F286D641FC45C6A001C0DEF /* LaunchScreen.xib in Resources */,
 				1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
+				1F286DA71FC57B8A001C0DEF /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,13 +289,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F286D591FC42C5C001C0DEF /* ShellScript */ = {
+		1F286D591FC42C5C001C0DEF /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		1F286DAD1FC57C83001C0DEF /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,9 +380,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */,
+				1F286DAF1FC57CEE001C0DEF /* HelpCoordinator.swift in Sources */,
+				1F286DA91FC57BD1001C0DEF /* UIColor.swift in Sources */,
 				1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */,
 				1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */,
 				1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */,
+				1F286DA61FC57B8A001C0DEF /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +393,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F286DAC1FC57C14001C0DEF /* HelpViewControllerTests.swift in Sources */,
+				1F286DB11FC57ECA001C0DEF /* HelpCoordinatorTests.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
 				1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */,
 			);
