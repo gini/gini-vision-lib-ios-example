@@ -40,6 +40,10 @@ final class HelpCoordinator: Coordinator {
         helpViewController.delegate = self
         return helpViewController
     }()
+    
+    var webViewController: WebViewController? {
+        return self.navigationController.viewControllers.flatMap { $0 as? WebViewController }.first
+    }
 }
 
 // MARK: HelpViewControllerDelegate
@@ -50,7 +54,9 @@ extension HelpCoordinator: HelpViewControllerDelegate {
     }
     
     func help(viewController: HelpViewController, didSelectItem item: HelpLink) {
-        print(item)
+        if let itemUrl = item.url {
+            navigationController.pushViewController(WebViewController(title: item.title, url: itemUrl), animated: true)
+        }
     }
     
 }

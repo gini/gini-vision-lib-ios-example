@@ -22,6 +22,8 @@
 		1F286DAC1FC57C14001C0DEF /* HelpViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */; };
 		1F286DAF1FC57CEE001C0DEF /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */; };
 		1F286DB11FC57ECA001C0DEF /* HelpCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */; };
+		1F286DB31FC591C9001C0DEF /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */; };
+		1F9D11961FC5926A00BCE7E9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewControllerTests.swift; sourceTree = "<group>"; };
 		1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
 		1F286DB01FC57ECA001C0DEF /* HelpCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinatorTests.swift; sourceTree = "<group>"; };
+		1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
+		1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ViewControllers/WebViewController.swift; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 				1F286DAA1FC57BD6001C0DEF /* Extensions */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
+				1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				1F286DAB1FC57C14001C0DEF /* HelpViewControllerTests.swift */,
 				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
 				1F286DA31FC56F30001C0DEF /* Supporting files */,
+				1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */,
 			);
 			path = GiniVisionExampleUnitTests;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */,
 				1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */,
 				1F286DA61FC57B8A001C0DEF /* HelpViewController.swift in Sources */,
+				1F9D11961FC5926A00BCE7E9 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +402,7 @@
 			files = (
 				1F286DAC1FC57C14001C0DEF /* HelpViewControllerTests.swift in Sources */,
 				1F286DB11FC57ECA001C0DEF /* HelpCoordinatorTests.swift in Sources */,
+				1F286DB31FC591C9001C0DEF /* WebViewControllerTests.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
 				1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */,
 			);

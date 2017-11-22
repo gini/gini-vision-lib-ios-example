@@ -37,13 +37,16 @@ final class HelpViewController: UIViewController {
             tableView.tableFooterView = UIView()
         }
     }
-    @IBAction func close(_ sender: Any) {
+    
+    func close(_ sender: Any) {
         delegate?.help(viewController: self, didTapClose: ())
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Help"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done,
+                                                            target: self, action: #selector(close(_:)))
     }
 
 }

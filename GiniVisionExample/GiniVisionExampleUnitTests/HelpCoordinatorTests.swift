@@ -28,4 +28,11 @@ final class HelpCoordinatorTests: XCTestCase {
                         "the root view controller should be a navigation controller")
     }
     
+    func testNavStackCountWhenSelectLoadURL() {
+        let helpLink = (title: "TestTitle",
+                        url: URL(string: "https://developer.gini.net/gini-vision-lib-ios/docs/changelog.html"))
+        helpCoordinator.help(viewController: helpCoordinator.helpViewController, didSelectItem: helpLink)
+        
+        XCTAssertNotNil(helpCoordinator.webViewController, "web view controller should not be nil after load it into navigation controller")
+    }
 }

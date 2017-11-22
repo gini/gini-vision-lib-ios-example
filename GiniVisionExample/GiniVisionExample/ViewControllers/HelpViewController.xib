@@ -21,27 +21,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UkW-ah-7Ya">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZa-Hb-3W9">
-                    <rect key="frame" x="166" y="617" width="42" height="30"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Close">
-                        <color key="titleColor" red="0.0" green="0.61960784313725492" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </state>
-                    <connections>
-                        <action selector="close:" destination="-1" eventType="touchUpInside" id="AKc-XS-Wzu"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="UkW-ah-7Ya" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0qg-Jn-WuT"/>
-                <constraint firstAttribute="bottom" secondItem="SZa-Hb-3W9" secondAttribute="bottom" constant="20" id="IRF-ha-vuH"/>
-                <constraint firstItem="SZa-Hb-3W9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O1j-qd-wIH"/>
+                <constraint firstAttribute="bottom" secondItem="UkW-ah-7Ya" secondAttribute="bottom" id="Iwo-3a-wbf"/>
                 <constraint firstAttribute="trailing" secondItem="UkW-ah-7Ya" secondAttribute="trailing" id="mZ1-dJ-y8M"/>
-                <constraint firstItem="SZa-Hb-3W9" firstAttribute="top" secondItem="UkW-ah-7Ya" secondAttribute="bottom" constant="20" id="rEb-pz-BZ1"/>
                 <constraint firstItem="UkW-ah-7Ya" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xTd-Wi-pDJ"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="52.5"/>
