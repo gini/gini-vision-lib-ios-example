@@ -92,6 +92,12 @@ extension HelpViewController: UITableViewDelegate {
         let items = sections[indexPath.section].items
         if let links = items as? [HelpLink] {
             delegate?.help(viewController: self, didSelectItem: links[indexPath.row])
+            tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        let items = sections[indexPath.section].items
+        return items is [HelpLink]
     }
 }
