@@ -10,13 +10,8 @@ import UIKit
 
 extension UIColor {
     
-    static var giniBlue: UIColor {
-        return UIColor(hex: 0x009EDC)
-    }
-    
-    static var giniGreen: UIColor {
-        return UIColor(hex: 0x1AE2AE)
-    }
+    static let giniBlue: UIColor = UIColor(hex: 0x009EDC)
+    static let giniGreen: UIColor = UIColor(hex: 0x1AE2AE)
     
     convenience init(hex: Int) {
         let components = (
