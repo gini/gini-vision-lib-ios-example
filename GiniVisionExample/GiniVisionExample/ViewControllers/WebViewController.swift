@@ -11,7 +11,7 @@ import WebKit
 
 final class WebViewController: UIViewController {
     
-    let url: URL
+    var url: URL
     lazy var webView: WKWebView = {
         let webView = WKWebView(frame: .zero)
         webView.navigationDelegate = self

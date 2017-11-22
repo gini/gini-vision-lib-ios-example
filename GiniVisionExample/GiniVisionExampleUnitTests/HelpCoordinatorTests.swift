@@ -30,9 +30,10 @@ final class HelpCoordinatorTests: XCTestCase {
     
     func testNavStackCountWhenSelectLoadURL() {
         let helpLink = (title: "TestTitle",
-                        url: URL(string: "https://developer.gini.net/gini-vision-lib-ios/docs/changelog.html"))
+                        url: URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html"))
         helpCoordinator.help(viewController: helpCoordinator.helpViewController, didSelectItem: helpLink)
         
-        XCTAssertNotNil(helpCoordinator.webViewController, "web view controller should not be nil after load it into navigation controller")
+        XCTAssertNotNil(helpCoordinator.webViewController,
+                        "web view controller should not be nil after load it into navigation controller")
     }
 }

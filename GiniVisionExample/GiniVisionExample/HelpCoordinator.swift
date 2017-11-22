@@ -12,7 +12,7 @@ protocol HelpCoordinatorDelegate: class {
     func help(coordinator: HelpCoordinator, didFinish: ())
 }
 
-final class HelpCoordinator: Coordinator {
+final class HelpCoordinator: NSObject, Coordinator {
     
     weak var delegate: HelpCoordinatorDelegate?
     var rootViewController: UIViewController {
@@ -41,8 +41,19 @@ final class HelpCoordinator: Coordinator {
         return helpViewController
     }()
     
-    var webViewController: WebViewController? {
-        return self.navigationController.viewControllers.flatMap { $0 as? WebViewController }.first
+    var webViewController: WebViewController?
+    
+    func loadWebView(withItem item: HelpLink) {
+        if let itemUrl = item.url {
+            if let webViewController = webViewController {
+                webViewController.title = item.title
+                webViewController.url = item.url!
+                webViewController.webView.load(URLRequest(url: item.url!))
+            } else {
+                webViewController = WebViewController(title: item.title, url: itemUrl)
+            }
+            navigationController.pushViewController(webViewController!, animated: true)
+        }
     }
 }
 
@@ -54,9 +65,7 @@ extension HelpCoordinator: HelpViewControllerDelegate {
     }
     
     func help(viewController: HelpViewController, didSelectItem item: HelpLink) {
-        if let itemUrl = item.url {
-            navigationController.pushViewController(WebViewController(title: item.title, url: itemUrl), animated: true)
-        }
+        loadWebView(withItem: item)
     }
     
 }
