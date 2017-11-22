@@ -23,7 +23,6 @@ final class WebViewController: UIViewController {
         self.url = url
         super.init(nibName: nil, bundle: nil)
         self.title = title
-
     }
     
     required init?(coder aDecoder: NSCoder) {

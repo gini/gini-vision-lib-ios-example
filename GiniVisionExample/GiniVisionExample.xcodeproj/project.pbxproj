@@ -25,6 +25,7 @@
 		1F286DB31FC591C9001C0DEF /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */; };
 		1F9D11961FC5926A00BCE7E9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */; };
 		1F9D119A1FC5BFD500BCE7E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F9D119C1FC5BFD500BCE7E9 /* Localizable.strings */; };
+		1F9D119E1FC5D26400BCE7E9 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,9 @@
 		1F286DB21FC591C9001C0DEF /* WebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ViewControllers/WebViewController.swift; sourceTree = "<group>"; };
 		1F9D119B1FC5BFD500BCE7E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		1F9D119F1FC5D3E200BCE7E9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F9D11A01FC5D44B00BCE7E9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,7 @@
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 				1F286DAA1FC57BD6001C0DEF /* Extensions */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
+				1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -264,6 +269,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
 			);
 			mainGroup = 1F01FD241FC30D7100BAA47E;
 			productRefGroup = 1F01FD2E1FC30D7100BAA47E /* Products */;
@@ -393,6 +400,7 @@
 				1F286DAF1FC57CEE001C0DEF /* HelpCoordinator.swift in Sources */,
 				1F286DA91FC57BD1001C0DEF /* UIColor.swift in Sources */,
 				1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */,
+				1F9D119E1FC5D26400BCE7E9 /* AppHelper.swift in Sources */,
 				1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */,
 				1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */,
 				1F286DA61FC57B8A001C0DEF /* HelpViewController.swift in Sources */,
@@ -427,6 +435,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F9D119B1FC5BFD500BCE7E9 /* en */,
+				1F9D119F1FC5D3E200BCE7E9 /* de */,
+				1F9D11A01FC5D44B00BCE7E9 /* es */,
 			);
 			name = Localizable.strings;
 			path = Extensions;
@@ -439,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -496,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

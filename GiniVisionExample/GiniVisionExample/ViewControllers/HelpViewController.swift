@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GiniVision
 
 typealias HelpLink = (title: String, url: URL?)
 typealias HelpVersion = (title: String, version: String)
@@ -17,12 +18,12 @@ protocol HelpViewControllerDelegate: class {
 }
 
 final class HelpViewController: UIViewController {
-
     weak var delegate: HelpViewControllerDelegate?
     let linkCellReuseIdentifier = "linkCellReuseIdentifier"
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
-
-    let versions: [HelpVersion] = [("GVL Version", "3.2.1"), ("App version", "0.0.1")]
+    
+    let versions: [HelpVersion] = [("GVL Version", AppHelper.gvlVersion ?? ""),
+                                   ("App Version", AppHelper.appVersion ?? "")]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
                              ("GVL Readme",
