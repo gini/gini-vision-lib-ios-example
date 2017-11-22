@@ -16,12 +16,12 @@ final class HelpCoordinator: Coordinator {
     
     weak var delegate: HelpCoordinatorDelegate?
     var rootViewController: UIViewController {
-        return HelpViewController()
+        return navigationController
     }
     var childCoordinators: [Coordinator] = []
     
-    lazy var helpViewController: UINavigationController = {
-        let nav = UINavigationController(rootViewController: HelpViewController(nibName: nil, bundle: nil))
+    lazy var navigationController: UINavigationController = {
+        let nav = UINavigationController(rootViewController: self.helpViewController)
         nav.navigationBar.barTintColor = .giniBlue
         nav.navigationBar.tintColor = .white
         var attributes = nav.navigationBar.titleTextAttributes ?? [String: AnyObject]()
@@ -34,5 +34,23 @@ final class HelpCoordinator: Coordinator {
         }
         return nav
     }()
+    
+    lazy var helpViewController: HelpViewController = {
+        var helpViewController = HelpViewController()
+        helpViewController.delegate = self
+        return helpViewController
+    }()
+}
+
+// MARK: HelpViewControllerDelegate
+
+extension HelpCoordinator: HelpViewControllerDelegate {
+    func help(viewController: HelpViewController, didSelectURL: URL) {
+        
+    }
+    
+    func help(viewController: HelpViewController, didTapClose: ()) {
+        
+    }
     
 }

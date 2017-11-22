@@ -22,8 +22,8 @@ final class HelpViewController: UIViewController {
     let linkCellReuseIdentifier = "linkCellReuseIdentifier"
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
 
-    let versions: [HelpVersion] = [("GVL Version ", "3.2.1"), ("App version", "0.0.1")]
-    let links: [HelpLink] = [("GVL Changelog ",
+    let versions: [HelpVersion] = [("GVL Version", "3.2.1"), ("App version", "0.0.1")]
+    let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html"))]
 
     lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions), ("Links", self.links)]

@@ -18,8 +18,9 @@ final class HelpCoordinatorTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    func testDelegateAfterInitialization() {
-        XCTAssertNotNil(helpCoordinator.delegate as? AppCoordinator, "")
+    func testHelpViewControllerDelegate() {
+        XCTAssertNotNil(helpCoordinator.helpViewController.delegate as? HelpCoordinator,
+                        "help view controller delegate should be an instance of HelpCoordinator")
     }
     
 }
