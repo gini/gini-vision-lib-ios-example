@@ -23,4 +23,9 @@ final class HelpCoordinatorTests: XCTestCase {
                         "help view controller delegate should be an instance of HelpCoordinator")
     }
     
+    func testRootViewControllerType() {
+        XCTAssertNotNil(helpCoordinator.rootViewController as? UINavigationController,
+                        "the root view controller should be a navigation controller")
+    }
+    
 }

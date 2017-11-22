@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HelpCoordinatorDelegate: class {
-    func help(coordinator: HelpCoordinator, didTapClose: ())
+    func help(coordinator: HelpCoordinator, didFinish: ())
 }
 
 final class HelpCoordinator: Coordinator {
@@ -50,7 +50,7 @@ extension HelpCoordinator: HelpViewControllerDelegate {
     }
     
     func help(viewController: HelpViewController, didTapClose: ()) {
-        
+        delegate?.help(coordinator: self, didFinish: ())
     }
     
 }
