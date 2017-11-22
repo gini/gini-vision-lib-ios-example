@@ -13,7 +13,7 @@ typealias HelpLink = (title: String, url: URL?)
 typealias HelpVersion = (title: String, version: String)
 
 protocol HelpViewControllerDelegate: class {
-    func help(viewController: HelpViewController, didSelectItem item: HelpLink)
+    func help(viewController: HelpViewController, didSelectLink link: HelpLink)
     func help(viewController: HelpViewController, didTapClose: ())
 }
 
@@ -94,7 +94,7 @@ extension HelpViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let items = sections[indexPath.section].items
         if let links = items as? [HelpLink] {
-            delegate?.help(viewController: self, didSelectItem: links[indexPath.row])
+            delegate?.help(viewController: self, didSelectLink: links[indexPath.row])
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }

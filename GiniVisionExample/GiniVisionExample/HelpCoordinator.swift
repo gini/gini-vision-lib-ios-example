@@ -43,14 +43,14 @@ final class HelpCoordinator: NSObject, Coordinator {
     
     var webViewController: WebViewController?
     
-    func loadWebView(withItem item: HelpLink) {
-        if let itemUrl = item.url {
+    func loadWebView(withLink link: HelpLink) {
+        if let itemUrl = link.url {
             if let webViewController = webViewController {
-                webViewController.title = item.title
-                webViewController.url = item.url!
-                webViewController.webView.load(URLRequest(url: item.url!))
+                webViewController.title = link.title
+                webViewController.url = link.url!
+                webViewController.webView.load(URLRequest(url: link.url!))
             } else {
-                webViewController = WebViewController(title: item.title, url: itemUrl)
+                webViewController = WebViewController(title: link.title, url: itemUrl)
             }
             navigationController.pushViewController(webViewController!, animated: true)
         }
@@ -64,8 +64,8 @@ extension HelpCoordinator: HelpViewControllerDelegate {
         delegate?.help(coordinator: self, didFinish: ())
     }
     
-    func help(viewController: HelpViewController, didSelectItem item: HelpLink) {
-        loadWebView(withItem: item)
+    func help(viewController: HelpViewController, didSelectLink link: HelpLink) {
+        loadWebView(withLink: link)
     }
     
 }

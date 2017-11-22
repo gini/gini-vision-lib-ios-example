@@ -118,6 +118,7 @@
 			children = (
 				1F286D541FC4193A001C0DEF /* AppCoordinator.swift */,
 				1F01FD301FC30D7100BAA47E /* AppDelegate.swift */,
+				1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */,
 				1F286D521FC418F6001C0DEF /* Coordinator.swift */,
 				1F286DAE1FC57CEE001C0DEF /* HelpCoordinator.swift */,
 				1F286DA41FC57B8A001C0DEF /* HelpViewController.swift */,
@@ -128,7 +129,6 @@
 				1F286D4D1FC338EC001C0DEF /* MainViewController.xib */,
 				1F286DAA1FC57BD6001C0DEF /* Extensions */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
-				1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
