@@ -33,6 +33,21 @@ final class AppCoordinator: Coordinator {
     fileprivate func showMainViewController() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let nav = UINavigationController(rootViewController: HelpViewController(nibName: nil, bundle: nil))
+            nav.navigationBar.barTintColor = .giniBlue
+            nav.navigationBar.tintColor = .white
+            var attributes = nav.navigationBar.titleTextAttributes ?? [String: AnyObject]()
+            attributes[NSForegroundColorAttributeName] = UIColor.white
+            nav.navigationBar.titleTextAttributes = attributes
+            
+            if #available(iOS 11.0, *) {
+                nav.navigationBar.largeTitleTextAttributes = attributes
+                nav.navigationBar.prefersLargeTitles = true
+            }
+            self.rootViewController.present(nav, animated: true, completion: nil)
+        }
     }
 }
 
