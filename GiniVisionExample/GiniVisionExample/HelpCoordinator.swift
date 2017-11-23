@@ -47,8 +47,8 @@ final class HelpCoordinator: NSObject, Coordinator {
         if let itemUrl = link.url {
             if let webViewController = webViewController {
                 webViewController.title = link.title
-                webViewController.url = link.url!
-                webViewController.webView.load(URLRequest(url: link.url!))
+                webViewController.url = itemUrl
+                webViewController.webView.load(URLRequest(url: itemUrl))
             } else {
                 webViewController = WebViewController(title: link.title, url: itemUrl)
             }
