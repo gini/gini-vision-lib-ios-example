@@ -26,6 +26,7 @@
 		1F9D11961FC5926A00BCE7E9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11941FC5926A00BCE7E9 /* WebViewController.swift */; };
 		1F9D119A1FC5BFD500BCE7E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F9D119C1FC5BFD500BCE7E9 /* Localizable.strings */; };
 		1F9D119E1FC5D26400BCE7E9 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */; };
+		CDEE5ECC0536A03D77A50D09 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D440507F4143D16F6958ED0 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +69,10 @@
 		1F9D119D1FC5D26400BCE7E9 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		1F9D119F1FC5D3E200BCE7E9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F9D11A01FC5D44B00BCE7E9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2EEF9D04AA97D7AEB997A5F3 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D440507F4143D16F6958ED0 /* Pods_GiniVisionExampleUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C7D9DC881DBDA636DD2B74 /* Pods-GiniVisionExampleUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEE5ECC0536A03D77A50D09 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +185,8 @@
 				90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */,
 				0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */,
 				377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */,
+				2EEF9D04AA97D7AEB997A5F3 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */,
+				84C7D9DC881DBDA636DD2B74 /* Pods-GiniVisionExampleUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			children = (
 				B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */,
 				095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */,
+				6D440507F4143D16F6958ED0 /* Pods_GiniVisionExampleUnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,10 +229,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F286D9D1FC56F11001C0DEF /* Build configuration list for PBXNativeTarget "GiniVisionExampleUnitTests" */;
 			buildPhases = (
+				0A502FC5619C580213A9AC3A /* [CP] Check Pods Manifest.lock */,
 				1F286D921FC56F11001C0DEF /* Sources */,
 				1F286D931FC56F11001C0DEF /* Frameworks */,
 				1F286D941FC56F11001C0DEF /* Resources */,
 				1F286DAD1FC57C83001C0DEF /* Swiftlint */,
+				B326698B8774D995B0D45755 /* [CP] Embed Pods Frameworks */,
+				FC501158AA8546EB18D7D9BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,6 +317,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A502FC5619C580213A9AC3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiniVisionExampleUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1F286D591FC42C5C001C0DEF /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +385,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B326698B8774D995B0D45755 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CA1F97C4C83F3E6365BEC2C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +431,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC501158AA8546EB18D7D9BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -596,6 +655,7 @@
 		};
 		1F286D9E1FC56F11001C0DEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EEF9D04AA97D7AEB997A5F3 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -612,6 +672,7 @@
 		};
 		1F286D9F1FC56F11001C0DEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C7D9DC881DBDA636DD2B74 /* Pods-GiniVisionExampleUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
