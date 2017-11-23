@@ -41,7 +41,8 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        
+        let resultsVC = ResultsViewController(nibName: nil, bundle: nil)
+        rootViewController.present(resultsVC, animated: true, completion: nil)
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {

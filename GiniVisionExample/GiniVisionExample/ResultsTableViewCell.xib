@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultsTableCellIdentifier" rowHeight="82" id="ALY-Ui-OaA" customClass="ResultsTableViewCell" customModule="GiniVisionExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ALY-Ui-OaA" id="ygT-iz-gzh">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="81.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-4k-9Gu">
+                        <rect key="frame" x="24" y="19" width="42" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDY-QE-bC9">
+                        <rect key="frame" x="74" y="19" width="277" height="44"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="RDY-QE-bC9" secondAttribute="trailing" constant="8" id="5Sm-6Y-Z6U"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BZp-4k-9Gu" secondAttribute="bottom" constant="8" id="J2M-Ni-O3n"/>
+                    <constraint firstItem="RDY-QE-bC9" firstAttribute="leading" secondItem="BZp-4k-9Gu" secondAttribute="trailing" constant="8" id="KNH-7F-1pk"/>
+                    <constraint firstItem="RDY-QE-bC9" firstAttribute="top" secondItem="ygT-iz-gzh" secondAttribute="topMargin" constant="8" id="Khq-RK-xha"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RDY-QE-bC9" secondAttribute="bottom" constant="8" id="LwW-YK-beP"/>
+                    <constraint firstItem="BZp-4k-9Gu" firstAttribute="top" secondItem="ygT-iz-gzh" secondAttribute="topMargin" constant="8" id="QD5-Lu-n6V"/>
+                    <constraint firstItem="BZp-4k-9Gu" firstAttribute="leading" secondItem="ygT-iz-gzh" secondAttribute="leadingMargin" constant="8" id="T4Z-Ir-1eL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fieldName" destination="BZp-4k-9Gu" id="O0l-SQ-Xjb"/>
+                <outlet property="fieldValue" destination="RDY-QE-bC9" id="g4F-Ss-MhF"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="-387"/>
+        </tableViewCell>
+    </objects>
+</document>
