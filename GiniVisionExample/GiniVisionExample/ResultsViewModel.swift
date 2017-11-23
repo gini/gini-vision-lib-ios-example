@@ -9,27 +9,50 @@
 import Foundation
 import Gini_iOS_SDK
 
-typealias Results = (title: String, items: [(name: String, value: String)])
+typealias Results = (title: String, items: [(name: String, value: String, id: String)])
 
 protocol ResultsViewModelProtocol: class {
     
     var sections: [Results] { get set }
     var documentService: DocumentServiceProtocol { get }
     
-    init(result: [String: GINIExtraction], documentService: DocumentServiceProtocol)
+    init(documentService: DocumentServiceProtocol)
     func sendFeedBack()
+    func parseSections(fromResults results: AnalysisResults)
+    func updateAnalysisResults() -> AnalysisResults
 }
 
 final class ResultsViewModel: ResultsViewModelProtocol {
 
-    var sections: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
+    var sections: [Results] = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
     
-    init(result: [String : GINIExtraction], documentService: DocumentServiceProtocol = DocumentService()) {
+    init(documentService: DocumentServiceProtocol = DocumentService()) {
         self.documentService = documentService
+        parseSections(fromResults: self.documentService.result)
     }
     
     func sendFeedBack() {
-        
+        documentService.sendFeedback(withUpdatedResults: updateAnalysisResults())
+    }
+    
+    func parseSections(fromResults results: AnalysisResults) {
+        results.keys.forEach { key in
+            if documentService.pay5Parameters.contains(key) {
+                if let result = results[key] {
+                    sections[0].items.append((result.name, result.value, key))
+                }
+            }
+        }
+    }
+    
+    func updateAnalysisResults() -> AnalysisResults {
+        var currentAnalysisResults = documentService.result
+        sections.forEach { section in
+            section.items.forEach { item in
+                currentAnalysisResults[item.id]?.value = item.value
+            }
+        }
+        return currentAnalysisResults
     }
 }

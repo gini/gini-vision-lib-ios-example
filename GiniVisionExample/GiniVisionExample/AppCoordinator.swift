@@ -16,6 +16,7 @@ final class AppCoordinator: Coordinator {
     }
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
+    lazy var documentService: DocumentService = DocumentService()
     
     lazy var mainViewController: MainViewController = {
         let mainViewController = MainViewController(nibName: nil, bundle: nil)
@@ -38,9 +39,9 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
-    @discardableResult func showResultsViewController(withResult result: [String: GINIExtraction])
+    @discardableResult func showResultsViewController()
         -> ResultsViewController {
-            resultViewController = ResultsViewController(model: ResultsViewModel(result: result))
+            resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService))
             resultViewController!.delegate = self
             rootViewController.present(resultViewController!, animated: true, completion: nil)
             return resultViewController!
@@ -59,8 +60,9 @@ extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
         let extraction = GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])
-        let result: [String: GINIExtraction] = ["first extraction": extraction!]
-        showResultsViewController(withResult: result)
+        let result: [String: GINIExtraction] = ["paymentReference": extraction!]
+        documentService.result = result
+        showResultsViewController()
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {

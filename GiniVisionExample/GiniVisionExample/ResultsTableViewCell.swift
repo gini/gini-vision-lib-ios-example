@@ -9,7 +9,9 @@
 import UIKit
 
 protocol ResultsTableViewCellDelegate: class {
-    func results(tableViewCell: ResultsTableViewCell, atIndexPath indexPath: IndexPath, didChangeFieldValue fieldValue: String?)
+    func results(tableViewCell: ResultsTableViewCell,
+                 atIndexPath indexPath: IndexPath,
+                 didChangeFieldValue fieldValue: String?)
 }
 
 final class ResultsTableViewCell: UITableViewCell {

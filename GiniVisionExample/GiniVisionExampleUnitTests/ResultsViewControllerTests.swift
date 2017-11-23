@@ -13,17 +13,17 @@ import Gini_iOS_SDK
 final class ResultsViewControllerTests: XCTestCase {
     
     var resultsViewController: ResultsViewController!
-    var resultsViewModel: ResultsViewModelProtocol!
-    var results: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
-    let analysisResult: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name",
-                                                                               value: "value",
-                                                                               entity: "entity",
-                                                                               box: [:])!]
+    var resultsViewModel: ResultsViewModelMock!
+    var results: [Results] = [("Section 0", [("item 1", "value 1", "id 1"), ("item 2", "value 2", "id 2")])]
     
     override func setUp() {
         super.setUp()
-        resultsViewModel = ResultsViewModelMock(result: analysisResult)
+        resultsViewModel = ResultsViewModelMock()
         resultsViewController = ResultsViewController(model: resultsViewModel)
+    }
+    
+    func testInitialization() {
+        XCTAssertNotNil(resultsViewController.model, "model should not be nil on initialization")
     }
     
     func testTableViewDatasource() {
@@ -94,6 +94,13 @@ final class ResultsViewControllerTests: XCTestCase {
         let itemModified = resultsViewController.model.sections[indexPath.section].items[indexPath.row]
         
         XCTAssertNotEqual(item.value, itemModified.value, "item value should have been changed after edit it")
+    }
+    
+    func testSendFeedBackOnDone() {
+        _ = resultsViewController.view
+        resultsViewController.done(())
+        
+        XCTAssertTrue(resultsViewModel.feedBackSent, "feedback should be sent when done button is triggered")
     }
     
 }
