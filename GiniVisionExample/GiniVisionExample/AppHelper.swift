@@ -10,6 +10,6 @@ import Foundation
 import GiniVision
 
 final class AppHelper {
-    static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-    static let gvlVersion = Bundle(for: GiniVision.self).infoDictionary?["CFBundleShortVersionString"] as? String
+    static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    static let gvlVersion = Bundle(for: GiniVision.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
 }
