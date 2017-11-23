@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import GiniVisionExample
+@testable import Gini_iOS_SDK
 
 final class AppCoordinatorTests: XCTestCase {
     
@@ -33,6 +34,14 @@ final class AppCoordinatorTests: XCTestCase {
     func testMainViewControllerDelegateAfterStart() {
         appCoordinator.start()
         XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator)
+    }
+    
+    func testResultsViewControllerDelegate() {
+        let extraction = GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])
+        let result: [String: GINIExtraction] = ["first extraction": extraction!]
+        let resultsViewController = appCoordinator.showResultsViewController(withResult: result)
+        XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
+                       "resultsViewController delegate should be an instance of AppCoordinator")
     }
     
 }
