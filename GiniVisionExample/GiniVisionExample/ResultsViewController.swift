@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Gini_iOS_SDK
-
-typealias Results = (title: String, items: [(name: String, value: String)])
 
 protocol ResultsViewControllerDelegate: class {
     func results(viewController: ResultsViewController, didTapDone: ())
@@ -18,7 +15,7 @@ protocol ResultsViewControllerDelegate: class {
 final class ResultsViewController: UIViewController {
     
     weak var delegate: ResultsViewControllerDelegate?
-    var sections: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
+    let model: ResultsViewModelProtocol
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     
     @IBOutlet weak var tableView: UITableView! {
@@ -34,7 +31,8 @@ final class ResultsViewController: UIViewController {
         delegate?.results(viewController: self, didTapDone: ())
     }
     
-    init(result: [String: GINIExtraction]) {
+    init(model: ResultsViewModelProtocol) {
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,18 +45,18 @@ final class ResultsViewController: UIViewController {
 
 extension ResultsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return model.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].items.count
+        return model.sections[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: resultsTableCellIdentifier,
                                                  for: indexPath) as? ResultsTableViewCell
-        cell?.fieldName.text = sections[indexPath.section].items[indexPath.row].name
-        cell?.fieldValue.text = sections[indexPath.section].items[indexPath.row].value
+        cell?.fieldName.text = model.sections[indexPath.section].items[indexPath.row].name
+        cell?.fieldValue.text = model.sections[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
 
@@ -72,6 +70,6 @@ extension ResultsViewController: ResultsTableViewCellDelegate {
     func results(tableViewCell: ResultsTableViewCell,
                  atIndexPath indexPath: IndexPath,
                  didChangeFieldValue fieldValue: String?) {
-        sections[indexPath.section].items[indexPath.row].value = fieldValue ?? ""
+        model.sections[indexPath.section].items[indexPath.row].value = fieldValue ?? ""
     }
 }

@@ -40,7 +40,7 @@ final class AppCoordinator: Coordinator {
     
     @discardableResult func showResultsViewController(withResult result: [String: GINIExtraction])
         -> ResultsViewController {
-            resultViewController = ResultsViewController(result: result)
+            resultViewController = ResultsViewController(model: ResultsViewModel(result: result))
             resultViewController!.delegate = self
             rootViewController.present(resultViewController!, animated: true, completion: nil)
             return resultViewController!

@@ -13,12 +13,17 @@ import Gini_iOS_SDK
 final class ResultsViewControllerTests: XCTestCase {
     
     var resultsViewController: ResultsViewController!
+    var resultsViewModel: ResultsViewModelProtocol!
     var results: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
-    let result: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])!]
+    let analysisResult: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name",
+                                                                               value: "value",
+                                                                               entity: "entity",
+                                                                               box: [:])!]
     
     override func setUp() {
         super.setUp()
-        resultsViewController = ResultsViewController(result: result)
+        resultsViewModel = ResultsViewModelMock(result: analysisResult)
+        resultsViewController = ResultsViewController(model: resultsViewModel)
     }
     
     func testTableViewDatasource() {
@@ -28,14 +33,14 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testNumberOfSections() {
-        resultsViewController.sections = results
+        resultsViewController.model.sections = results
         _ = resultsViewController.view
         XCTAssertEqual(results.count, resultsViewController.numberOfSections(in: resultsViewController.tableView),
                        "sections count should match to results array")
     }
     
     func testRowsInSection0() {
-        resultsViewController.sections = results
+        resultsViewController.model.sections = results
         _ = resultsViewController.view
         XCTAssertEqual(results[0].items.count,
                        resultsViewController.tableView(resultsViewController.tableView, numberOfRowsInSection: 0),
@@ -50,7 +55,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsTableCell() {
-        resultsViewController.sections = results
+        resultsViewController.model.sections = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
 
@@ -66,7 +71,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsTableCellTextFieldDelegate() {
-        resultsViewController.sections = results
+        resultsViewController.model.sections = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = resultsViewController.tableView(resultsViewController.tableView,
@@ -77,7 +82,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsValueChangeAfterEditIt() {
-        resultsViewController.sections = results
+        resultsViewController.model.sections = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
         let item = results[indexPath.section].items[indexPath.row]
@@ -86,7 +91,7 @@ final class ResultsViewControllerTests: XCTestCase {
         cell?.fieldValue.text = "New value"
         cell?.fieldValue.sendActions(for: .editingDidEnd)
         
-        let itemModified = resultsViewController.sections[indexPath.section].items[indexPath.row]
+        let itemModified = resultsViewController.model.sections[indexPath.section].items[indexPath.row]
         
         XCTAssertNotEqual(item.value, itemModified.value, "item value should have been changed after edit it")
     }
