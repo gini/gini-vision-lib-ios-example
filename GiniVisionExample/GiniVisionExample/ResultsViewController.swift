@@ -38,12 +38,6 @@ final class ResultsViewController: UIViewController {
         isEditModeEnabled = !isEditModeEnabled
         tableView.reloadData()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
 }
 
 // MARK: UITableViewDataSource
