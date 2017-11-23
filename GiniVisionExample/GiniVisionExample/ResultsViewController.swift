@@ -10,8 +10,13 @@ import UIKit
 
 typealias Results = (title: String, items: [(name: String, value: String)])
 
+protocol ResultsViewControllerDelegate: class {
+    func results(viewController: ResultsViewController, didTapClose: ())
+}
+
 final class ResultsViewController: UIViewController {
     
+    weak var delegate: ResultsViewControllerDelegate?
     var sections: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     var isEditModeEnabled = false
@@ -26,7 +31,7 @@ final class ResultsViewController: UIViewController {
     }
     
     @IBAction func close(_ sender: Any) {
-        
+        delegate?.results(viewController: self, didTapClose: ())
     }
     
     @IBAction func edit(_ sender: Any) {
@@ -40,6 +45,8 @@ final class ResultsViewController: UIViewController {
     }
 
 }
+
+// MARK: UITableViewDataSource
 
 extension ResultsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +63,19 @@ extension ResultsViewController: UITableViewDataSource {
         cell?.fieldName.text = sections[indexPath.section].items[indexPath.row].name
         cell?.fieldValue.text = sections[indexPath.section].items[indexPath.row].value
         cell?.fieldValue.isEnabled = isEditModeEnabled
+        cell?.delegate = self
+        cell?.indexPath = indexPath
 
         return cell!
+    }
+}
+
+// MARK: ResultsTableViewCellDelegate
+
+extension ResultsViewController: ResultsTableViewCellDelegate {
+    func results(tableViewCell: ResultsTableViewCell,
+                 atIndexPath indexPath: IndexPath,
+                 didChangeFieldValue fieldValue: String?) {
+        sections[indexPath.section].items[indexPath.row].value = fieldValue ?? ""
     }
 }

@@ -59,6 +59,7 @@ final class ResultsViewControllerTests: XCTestCase {
                        "field name should match")
         XCTAssertEqual(cell?.fieldValue.text, results[indexPath.section].items[indexPath.row].value,
                        "field value should match")
+        XCTAssertNotNil(cell?.indexPath, "indexPath reference should not be nil")
 
     }
     
@@ -68,14 +69,40 @@ final class ResultsViewControllerTests: XCTestCase {
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = resultsViewController.tableView(resultsViewController.tableView,
                                                    cellForRowAt: indexPath) as? ResultsTableViewCell
-        let firstCellTextEditState = cell?.fieldValue.isEnabled
+        let firstCellTextFieldState = cell?.fieldValue.isEnabled
         
         resultsViewController.edit(())
         let cellAfterEdit = resultsViewController.tableView(resultsViewController.tableView,
                                                    cellForRowAt: indexPath) as? ResultsTableViewCell
         
-        XCTAssertNotEqual(firstCellTextEditState, cellAfterEdit?.fieldValue.isEnabled,
+        XCTAssertNotEqual(firstCellTextFieldState, cellAfterEdit?.fieldValue.isEnabled,
                           "field value should have changed")
+    }
+    
+    func testResultsTableCellTextFieldDelegate() {
+        resultsViewController.sections = results
+        _ = resultsViewController.view
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = resultsViewController.tableView(resultsViewController.tableView,
+                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
+        
+        XCTAssertNotNil(cell?.delegate as? ResultsViewController,
+                        "cell delegate should be an instance of ResultsViewController")
+    }
+    
+    func testResultsValueChangeAfterEditIt() {
+        resultsViewController.sections = results
+        _ = resultsViewController.view
+        let indexPath = IndexPath(row: 0, section: 0)
+        let item = results[indexPath.section].items[indexPath.row]
+        let cell = resultsViewController.tableView(resultsViewController.tableView,
+                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
+        cell?.fieldValue.text = "New value"
+        cell?.fieldValue.sendActions(for: .editingDidEnd)
+        
+        let itemModified = resultsViewController.sections[indexPath.section].items[indexPath.row]
+        
+        XCTAssertNotEqual(item.value, itemModified.value, "item value should have been changed after edit it")
     }
     
 }

@@ -8,20 +8,19 @@
 
 import UIKit
 
+protocol ResultsTableViewCellDelegate: class {
+    func results(tableViewCell: ResultsTableViewCell, atIndexPath indexPath: IndexPath, didChangeFieldValue fieldValue: String?)
+}
+
 final class ResultsTableViewCell: UITableViewCell {
 
+    weak var delegate: ResultsTableViewCellDelegate?
     @IBOutlet weak var fieldName: UILabel!
     @IBOutlet weak var fieldValue: UITextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func changedValue(_ sender: UITextField) {
+        delegate?.results(tableViewCell: self, atIndexPath: indexPath, didChangeFieldValue: sender.text)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    var indexPath: IndexPath!
 }
