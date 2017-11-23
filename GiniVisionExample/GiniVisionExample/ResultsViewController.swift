@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Gini_iOS_SDK
 
 typealias Results = (title: String, items: [(name: String, value: String)])
 
 protocol ResultsViewControllerDelegate: class {
-    func results(viewController: ResultsViewController, didTapClose: ())
+    func results(viewController: ResultsViewController, didTapDone: ())
 }
 
 final class ResultsViewController: UIViewController {
@@ -19,18 +20,7 @@ final class ResultsViewController: UIViewController {
     weak var delegate: ResultsViewControllerDelegate?
     var sections: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
-    var isEditModeEnabled = false
-
-    @IBOutlet weak var closeButton: UIButton! {
-        didSet {
-            closeButton.setTitle(NSLocalizedString("close", comment: "close button title"), for: .normal)
-        }
-    }
-    @IBOutlet weak var editButton: UIButton! {
-        didSet {
-            editButton.setTitle(NSLocalizedString("edit", comment: "edit button title"), for: .normal)
-        }
-    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -40,15 +30,16 @@ final class ResultsViewController: UIViewController {
         }
     }
     
-    @IBAction func close(_ sender: Any) {
-        delegate?.results(viewController: self, didTapClose: ())
+    @IBAction func done(_ sender: Any) {
+        delegate?.results(viewController: self, didTapDone: ())
     }
     
-    @IBAction func edit(_ sender: Any) {
-        isEditModeEnabled = !isEditModeEnabled
-        let editButtonTitleKey = isEditModeEnabled ? "done" : "edit"
-        editButton.setTitle(NSLocalizedString(editButtonTitleKey, comment: "edit button title"), for: .normal)
-        tableView.reloadData()
+    init(result: [String: GINIExtraction]) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -68,7 +59,6 @@ extension ResultsViewController: UITableViewDataSource {
                                                  for: indexPath) as? ResultsTableViewCell
         cell?.fieldName.text = sections[indexPath.section].items[indexPath.row].name
         cell?.fieldValue.text = sections[indexPath.section].items[indexPath.row].value
-        cell?.fieldValue.isEnabled = isEditModeEnabled
         cell?.delegate = self
         cell?.indexPath = indexPath
 

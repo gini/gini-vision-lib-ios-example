@@ -7,16 +7,18 @@
 //
 
 import XCTest
+import Gini_iOS_SDK
 @testable import GiniVisionExample
 
 final class ResultsViewControllerTests: XCTestCase {
     
     var resultsViewController: ResultsViewController!
     var results: [Results] = [("Section 0", [("item 1", "value 1"), ("item 2", "value 1")])]
+    let result: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])!]
     
     override func setUp() {
         super.setUp()
-        resultsViewController = ResultsViewController(nibName: nil, bundle: nil)
+        resultsViewController = ResultsViewController(result: result)
     }
     
     func testTableViewDatasource() {
@@ -61,22 +63,6 @@ final class ResultsViewControllerTests: XCTestCase {
                        "field value should match")
         XCTAssertNotNil(cell?.indexPath, "indexPath reference should not be nil")
 
-    }
-    
-    func testCellInEditMode() {
-        resultsViewController.sections = results
-        _ = resultsViewController.view
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = resultsViewController.tableView(resultsViewController.tableView,
-                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
-        let firstCellTextFieldState = cell?.fieldValue.isEnabled
-        
-        resultsViewController.edit(())
-        let cellAfterEdit = resultsViewController.tableView(resultsViewController.tableView,
-                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
-        
-        XCTAssertNotEqual(firstCellTextFieldState, cellAfterEdit?.fieldValue.isEnabled,
-                          "field value should have changed")
     }
     
     func testResultsTableCellTextFieldDelegate() {

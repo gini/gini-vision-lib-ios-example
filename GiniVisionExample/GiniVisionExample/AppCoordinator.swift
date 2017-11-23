@@ -16,12 +16,14 @@ final class AppCoordinator: Coordinator {
     }
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
-
+    
     lazy var mainViewController: MainViewController = {
         let mainViewController = MainViewController(nibName: nil, bundle: nil)
         mainViewController.delegate = self
         return mainViewController
     }()
+    
+    var resultViewController: ResultsViewController?
     
     init(window: UIWindow) {
         self.window = window
@@ -36,9 +38,18 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
-    // TODO: Make it private when implementing screen api coordinator, moving this there
-    func showResultsViewController(withResult result: [String: GINIExtraction]) -> ResultsViewController {
-        return ResultsViewController(nibName: "", bundle: nil)
+    @discardableResult func showResultsViewController(withResult result: [String: GINIExtraction])
+        -> ResultsViewController {
+            resultViewController = ResultsViewController(result: result)
+            resultViewController!.delegate = self
+            rootViewController.present(resultViewController!, animated: true, completion: nil)
+            return resultViewController!
+    }
+}
+// TODO: Move to screen api coordinator when implemented
+extension AppCoordinator: ResultsViewControllerDelegate {
+    func results(viewController: ResultsViewController, didTapDone: ()) {
+        resultViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

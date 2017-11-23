@@ -36,9 +36,9 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator)
     }
     
+    // TODO: Move to screen api coordinator tests when implemented
     func testResultsViewControllerDelegate() {
-        let extraction = GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])
-        let result: [String: GINIExtraction] = ["first extraction": extraction!]
+        let result: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name", value: "value", entity: "entity", box: [:])!]
         let resultsViewController = appCoordinator.showResultsViewController(withResult: result)
         XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
                        "resultsViewController delegate should be an instance of AppCoordinator")
