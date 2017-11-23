@@ -15,6 +15,9 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
     var sections: [Results] = [("Section 0", [("item 1", "value 1", "id 1"), ("item 2", "value 2", "id 2")])]
     var documentService: DocumentServiceProtocol
     var feedBackSent: Bool = false
+    var updatedAnalysisResults: AnalysisResults {
+        return documentService.result
+    }
 
     init(documentService: DocumentServiceProtocol = DocumentServiceMock()) {
         self.documentService = documentService
@@ -26,10 +29,6 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
     
     func parseSections(fromResults results: AnalysisResults) {
         
-    }
-    
-    func updateAnalysisResults() -> AnalysisResults {
-        return documentService.result
     }
     
 }

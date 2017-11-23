@@ -15,17 +15,26 @@ protocol ResultsViewModelProtocol: class {
     
     var sections: [Results] { get set }
     var documentService: DocumentServiceProtocol { get }
+    var updatedAnalysisResults: AnalysisResults { get }
     
     init(documentService: DocumentServiceProtocol)
     func sendFeedBack()
     func parseSections(fromResults results: AnalysisResults)
-    func updateAnalysisResults() -> AnalysisResults
 }
 
 final class ResultsViewModel: ResultsViewModelProtocol {
 
     var sections: [Results] = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
+    var updatedAnalysisResults: AnalysisResults {
+        var currentAnalysisResults = documentService.result
+        sections.forEach { section in
+            section.items.forEach { item in
+                currentAnalysisResults[item.id]?.value = item.value
+            }
+        }
+        return currentAnalysisResults
+    }
     
     init(documentService: DocumentServiceProtocol = DocumentService()) {
         self.documentService = documentService
@@ -33,7 +42,7 @@ final class ResultsViewModel: ResultsViewModelProtocol {
     }
     
     func sendFeedBack() {
-        documentService.sendFeedback(withUpdatedResults: updateAnalysisResults())
+        documentService.sendFeedback(withUpdatedResults: updatedAnalysisResults)
     }
     
     func parseSections(fromResults results: AnalysisResults) {
@@ -44,15 +53,5 @@ final class ResultsViewModel: ResultsViewModelProtocol {
                 }
             }
         }
-    }
-    
-    func updateAnalysisResults() -> AnalysisResults {
-        var currentAnalysisResults = documentService.result
-        sections.forEach { section in
-            section.items.forEach { item in
-                currentAnalysisResults[item.id]?.value = item.value
-            }
-        }
-        return currentAnalysisResults
     }
 }

@@ -30,9 +30,9 @@ final class ResultsViewModelTests: XCTestCase {
                        "there should be 2 sections, since there are main and other parameters")
     }
     
-    func testAnalysisResultsUpdate() {
+    func testUpdatedAnalysisResults() {
         resultsViewModel.sections[0].items[0].value = "Modified value"
-        let modifiedAnalysisResults = resultsViewModel.updateAnalysisResults()
+        let modifiedAnalysisResults = resultsViewModel.updatedAnalysisResults
         
         XCTAssertEqual("Modified value", modifiedAnalysisResults["main parameter 1"]?.value,
                        "the first item in the main section should match the one declared in the document service mock")
