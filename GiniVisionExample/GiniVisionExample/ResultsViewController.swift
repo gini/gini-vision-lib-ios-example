@@ -21,6 +21,16 @@ final class ResultsViewController: UIViewController {
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     var isEditModeEnabled = false
 
+    @IBOutlet weak var closeButton: UIButton! {
+        didSet {
+            closeButton.setTitle(NSLocalizedString("close", comment: "close button title"), for: .normal)
+        }
+    }
+    @IBOutlet weak var editButton: UIButton! {
+        didSet {
+            editButton.setTitle(NSLocalizedString("edit", comment: "edit button title"), for: .normal)
+        }
+    }
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -36,6 +46,8 @@ final class ResultsViewController: UIViewController {
     
     @IBAction func edit(_ sender: Any) {
         isEditModeEnabled = !isEditModeEnabled
+        let editButtonTitleKey = isEditModeEnabled ? "done" : "edit"
+        editButton.setTitle(NSLocalizedString(editButtonTitleKey, comment: "edit button title"), for: .normal)
         tableView.reloadData()
     }
 }

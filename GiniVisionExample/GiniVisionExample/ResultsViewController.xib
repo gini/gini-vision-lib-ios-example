@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultsViewController" customModule="GiniVisionExample" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="AcM-ZA-ELb" id="2HK-8W-ocl"/>
+                <outlet property="editButton" destination="VYo-MI-cU5" id="LsN-Am-0MW"/>
                 <outlet property="tableView" destination="axU-f0-BVf" id="mgO-40-yXZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
