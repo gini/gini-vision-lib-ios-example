@@ -54,9 +54,28 @@ final class ResultsViewControllerTests: XCTestCase {
 
         let cell = resultsViewController.tableView(resultsViewController.tableView,
                                                    cellForRowAt: indexPath) as? ResultsTableViewCell
-        XCTAssertEqual(cell?.fieldName.text, results[indexPath.section].items[indexPath.row].name)
-        XCTAssertEqual(cell?.fieldValue.text, results[indexPath.section].items[indexPath.row].value)
+        
+        XCTAssertEqual(cell?.fieldName.text, results[indexPath.section].items[indexPath.row].name,
+                       "field name should match")
+        XCTAssertEqual(cell?.fieldValue.text, results[indexPath.section].items[indexPath.row].value,
+                       "field value should match")
 
+    }
+    
+    func testCellInEditMode() {
+        resultsViewController.sections = results
+        _ = resultsViewController.view
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = resultsViewController.tableView(resultsViewController.tableView,
+                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
+        let firstCellTextEditState = cell?.fieldValue.isEnabled
+        
+        resultsViewController.edit(())
+        let cellAfterEdit = resultsViewController.tableView(resultsViewController.tableView,
+                                                   cellForRowAt: indexPath) as? ResultsTableViewCell
+        
+        XCTAssertNotEqual(firstCellTextEditState, cellAfterEdit?.fieldValue.isEnabled,
+                          "field value should have changed")
     }
     
 }
