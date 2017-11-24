@@ -27,22 +27,26 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
                                          withConfiguration: self.visionConfiguration,
                                          importedDocument: self.visionDocument) as? UINavigationController
     }()
-    lazy var giniConfiguration = GiniConfiguration()
+    lazy var visionConfiguration: GiniConfiguration = {
+        let configuration = GiniConfiguration()
+        configuration.fileImportSupportedTypes = .pdf_and_images
+        configuration.navigationBarItemTintColor = .white
+        return configuration
+    }()
     
     weak var analysisDelegate: AnalysisDelegate?
     var visionDocument: GiniVisionDocument?
-    var visionConfiguration: GiniConfiguration = GiniConfiguration()
     
     init(importedDocument document: GiniVisionDocument?) {
         self.visionDocument = document
     }
     
     fileprivate func showResultsScreen() {
-
+        
     }
     
     fileprivate func showNoResultsScreen() {
-
+        
     }
     
 }
@@ -52,11 +56,11 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
 extension ScreenAPICoordinator: GiniVisionDelegate {
     
     func didCapture(document: GiniVisionDocument) {
-
+        
     }
     
     func didReview(document: GiniVisionDocument, withChanges changes: Bool) {
-
+        
     }
     
     func didCancelCapturing() {
@@ -65,7 +69,7 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     
     // Optional delegate methods
     func didCancelReview() {
-
+        
     }
     
     func didShowAnalysis(_ analysisDelegate: AnalysisDelegate) {
