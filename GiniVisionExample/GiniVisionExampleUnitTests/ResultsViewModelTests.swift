@@ -20,7 +20,7 @@ final class ResultsViewModelTests: XCTestCase {
         resultsViewModel = ResultsViewModel(documentService: documentService)
     }
     
-    func testInitialization() {
+    func testInitializationAndParsing() {
         XCTAssertNotNil(resultsViewModel.documentService, "document service should no tbe nil after initialization")
         XCTAssertEqual("test value", resultsViewModel.extractions[0].items[0].value,
                        "the first item in the main section should match the one declared in the document service mock")

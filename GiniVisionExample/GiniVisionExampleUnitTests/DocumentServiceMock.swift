@@ -12,19 +12,19 @@ import Foundation
 
 final class DocumentServiceMock: DocumentServiceProtocol {
     
-    var pay5Parameters: [String] = ["main parameter 1",
-                                    "main parameter 2",
-                                    "main parameter 3",
-                                    "main parameter 4",
-                                    "main parameter 5"]
-    var result: [String: GINIExtraction] = ["main parameter 1": GINIExtraction(name: "name",
-                                                                               value: "test value",
-                                                                               entity: "entity",
-                                                                               box: [:])!,
-                                            "other parameter 1": GINIExtraction(name: "other name",
-                                                                               value: "other test value",
-                                                                               entity: "other entity",
-                                                                               box: [:])!]
+    var pay5Parameters: [String] = ["main 1",
+                                    "main 2",
+                                    "main 3",
+                                    "main 4",
+                                    "main 5"]
+    var result: [String: GINIExtraction] = ["main 1": GINIExtraction(name: "main 1",
+                                                                     value: "test value",
+                                                                     entity: "entity",
+                                                                     box: [:])!,
+                                            "other 1": GINIExtraction(name: "other 1",
+                                                                      value: "other test value",
+                                                                      entity: "other entity",
+                                                                      box: [:])!]
     
     private(set) var feedBackSent: Bool = false
     
