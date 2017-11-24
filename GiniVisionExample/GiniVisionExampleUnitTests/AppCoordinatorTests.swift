@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AVFoundation
 @testable import GiniVisionExample
 @testable import Gini_iOS_SDK
 
@@ -16,7 +17,7 @@ final class AppCoordinatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds))
+        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds), application: UIApplication.shared)
     }
     
     func testInitialization() {

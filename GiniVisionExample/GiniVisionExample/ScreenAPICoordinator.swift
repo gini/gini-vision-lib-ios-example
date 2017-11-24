@@ -74,6 +74,5 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     func didCancelAnalysis() {
     }
     
-    
 }
 
