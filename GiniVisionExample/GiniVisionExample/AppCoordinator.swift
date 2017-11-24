@@ -82,7 +82,10 @@ extension AppCoordinator: ResultsViewControllerDelegate {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        
+        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: nil)
+        screenAPICoordinator.delegate = self
+        add(childCoordinator: screenAPICoordinator)
+        rootViewController.present(screenAPICoordinator.rootViewController, animated: true, completion: nil)
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {
@@ -100,10 +103,17 @@ extension AppCoordinator: HelpCoordinatorDelegate {
     }
 }
 
-        
+
 extension AppCoordinator: PDFNoResultsViewControllerDelegate {
     func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
-        
+    }
+}
+// MARK: ScreenAPICoordinatorDelegate
+
+extension AppCoordinator: ScreenAPICoordinatorDelegate {
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinish: ()) {
+        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+        remove(childCoordinator: coordinator)
     }
 }
 
