@@ -20,7 +20,7 @@ protocol DocumentServiceProtocol: class {
 }
 
 final class DocumentService: DocumentServiceProtocol {
-    var pay5Parameters: [String] = ["paymentReference", "iban", "bic", "paymentReference", "amountToPay"]
+    var pay5Parameters: [String] = ["paymentRecipient", "iban", "bic", "paymentReference", "amountToPay"]
     var result: [String: GINIExtraction] = [:]
     
     func sendFeedback(withUpdatedResults results: AnalysisResults) {

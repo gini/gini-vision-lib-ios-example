@@ -42,4 +42,14 @@ final class ResultsViewModelTests: XCTestCase {
         resultsViewModel.sendFeedBack()
         XCTAssertTrue(documentService.feedBackSent, "feedback should be sent when this method is called")
     }
+    
+    func testUpdatedValue() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let value = resultsViewModel.sections[indexPath.section].items[indexPath.row].value
+        
+        resultsViewModel.updateExtraction(at: indexPath, withValue: "new value")
+        let newValue = resultsViewModel.sections[indexPath.section].items[indexPath.row].value
+        XCTAssertNotEqual(value, newValue,
+                       "the section item should have been modified when it was updated from the view")
+    }
 }

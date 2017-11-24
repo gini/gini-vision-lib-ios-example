@@ -19,6 +19,7 @@ protocol ResultsViewModelProtocol: class {
     
     init(documentService: DocumentServiceProtocol)
     func sendFeedBack()
+    func updateExtraction(at indexPath: IndexPath, withValue value: String?)
     func parseSections(fromResults results: AnalysisResults)
 }
 
@@ -53,5 +54,9 @@ final class ResultsViewModel: ResultsViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func updateExtraction(at indexPath: IndexPath, withValue value: String?) {
+        sections[indexPath.section].items[indexPath.row].value = value ?? ""
     }
 }

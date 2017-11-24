@@ -31,4 +31,8 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
         
     }
     
+    func updateExtraction(at indexPath: IndexPath, withValue value: String?) {
+        
+    }
+    
 }

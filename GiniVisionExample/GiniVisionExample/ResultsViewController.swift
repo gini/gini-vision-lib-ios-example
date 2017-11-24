@@ -71,6 +71,6 @@ extension ResultsViewController: ResultsTableViewCellDelegate {
     func results(tableViewCell: ResultsTableViewCell,
                  atIndexPath indexPath: IndexPath,
                  didChangeFieldValue fieldValue: String?) {
-        model.sections[indexPath.section].items[indexPath.row].value = fieldValue ?? ""
+        model.updateExtraction(at: indexPath, withValue: fieldValue)
     }
 }
