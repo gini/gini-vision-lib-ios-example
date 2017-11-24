@@ -59,8 +59,12 @@ extension AppCoordinator: ResultsViewControllerDelegate {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        let extraction = GINIExtraction(name: "IBAN", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
-        let result: [String: GINIExtraction] = ["paymentReference": extraction!]
+        let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
+        let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
+                                                        value: "Rick Sanchez", entity: "entity", box: [:])
+
+        let result: [String: GINIExtraction] = ["iban": ibanExtraction!,
+                                                "paymentRecipient": paymentRecipientExtraction!]
         documentService.result = result
         showResultsViewController()
     }

@@ -12,7 +12,8 @@ import Foundation
 
 final class ResultsViewModelMock: ResultsViewModelProtocol {
     
-    var sections: [Results] = [("Section 0", [("item 1", "value 1", "id 1"), ("item 2", "value 2", "id 2")])]
+    var extractions: ExtractionCollection = [("Section 0", [Extraction(key: "item 1", name: "value 1", value: "id 1"),
+                                                        Extraction(key: "item 2", name: "value 2", value: "id 2")])]
     var documentService: DocumentServiceProtocol
     var feedBackSent: Bool = false
     var updatedAnalysisResults: AnalysisResults {
@@ -32,7 +33,7 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
     }
     
     func updateExtraction(at indexPath: IndexPath, withValue value: String?) {
-        
+        extractions[indexPath.section].items[indexPath.row].value = value ?? ""
     }
     
 }

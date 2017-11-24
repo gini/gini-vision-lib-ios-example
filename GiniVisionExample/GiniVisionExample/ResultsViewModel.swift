@@ -9,11 +9,11 @@
 import Foundation
 import Gini_iOS_SDK
 
-typealias Results = (title: String, items: [(name: String, value: String, id: String)])
+typealias ExtractionCollection = [(title: String, items: [Extraction])]
 
 protocol ResultsViewModelProtocol: class {
     
-    var sections: [Results] { get set }
+    var extractions: ExtractionCollection { get set }
     var documentService: DocumentServiceProtocol { get }
     var updatedAnalysisResults: AnalysisResults { get }
     
@@ -25,13 +25,13 @@ protocol ResultsViewModelProtocol: class {
 
 final class ResultsViewModel: ResultsViewModelProtocol {
 
-    var sections: [Results] = [("Main parameters", []), ("Rest", [])]
+    var extractions: ExtractionCollection = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
     var updatedAnalysisResults: AnalysisResults {
         var currentAnalysisResults = documentService.result
-        sections.forEach { section in
+        extractions.forEach { section in
             section.items.forEach { item in
-                currentAnalysisResults[item.id]?.value = item.value
+                currentAnalysisResults[item.key]?.value = item.value
             }
         }
         return currentAnalysisResults
@@ -48,15 +48,15 @@ final class ResultsViewModel: ResultsViewModelProtocol {
     
     func parseSections(fromResults results: AnalysisResults) {
         results.keys.forEach { key in
-            if documentService.pay5Parameters.contains(key) {
-                if let result = results[key] {
-                    sections[0].items.append((result.name, result.value, key))
-                }
+            if let result = results[key] {
+                let extraction = Extraction(giniExtraction: result)
+                let section = documentService.pay5Parameters.contains(extraction.key) ? 0 : 1
+                extractions[section].items.append(extraction)
             }
         }
     }
     
     func updateExtraction(at indexPath: IndexPath, withValue value: String?) {
-        sections[indexPath.section].items[indexPath.row].value = value ?? ""
+        extractions[indexPath.section].items[indexPath.row].value = value ?? ""
     }
 }

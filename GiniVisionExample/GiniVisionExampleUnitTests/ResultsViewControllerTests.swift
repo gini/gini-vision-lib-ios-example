@@ -14,7 +14,8 @@ final class ResultsViewControllerTests: XCTestCase {
     
     var resultsViewController: ResultsViewController!
     var resultsViewModel: ResultsViewModelMock!
-    var results: [Results] = [("Section 0", [("item 1", "value 1", "id 1"), ("item 2", "value 2", "id 2")])]
+    var results: ExtractionCollection = [("Section 0", [Extraction(key: "item 1", name: "value 1", value: "id 1"),
+                                                        Extraction(key: "item 2", name: "value 2", value: "id 2")])]
     
     override func setUp() {
         super.setUp()
@@ -33,14 +34,14 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testNumberOfSections() {
-        resultsViewController.model.sections = results
+        resultsViewController.model.extractions = results
         _ = resultsViewController.view
         XCTAssertEqual(results.count, resultsViewController.numberOfSections(in: resultsViewController.tableView),
                        "sections count should match to results array")
     }
     
     func testRowsInSection0() {
-        resultsViewController.model.sections = results
+        resultsViewController.model.extractions = results
         _ = resultsViewController.view
         XCTAssertEqual(results[0].items.count,
                        resultsViewController.tableView(resultsViewController.tableView, numberOfRowsInSection: 0),
@@ -55,7 +56,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsTableCell() {
-        resultsViewController.model.sections = results
+        resultsViewController.model.extractions = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
 
@@ -71,7 +72,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsTableCellTextFieldDelegate() {
-        resultsViewController.model.sections = results
+        resultsViewController.model.extractions = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = resultsViewController.tableView(resultsViewController.tableView,
@@ -82,7 +83,7 @@ final class ResultsViewControllerTests: XCTestCase {
     }
     
     func testResultsValueChangeAfterEditIt() {
-        resultsViewController.model.sections = results
+        resultsViewController.model.extractions = results
         _ = resultsViewController.view
         let indexPath = IndexPath(row: 0, section: 0)
         let item = results[indexPath.section].items[indexPath.row]
@@ -91,9 +92,9 @@ final class ResultsViewControllerTests: XCTestCase {
         cell?.fieldValue.text = "New value"
         cell?.fieldValue.sendActions(for: .editingDidEnd)
         
-        let itemModified = resultsViewController.model.sections[indexPath.section].items[indexPath.row]
+        let itemModified = resultsViewController.model.extractions[indexPath.section].items[indexPath.row]
         
-        XCTAssertNotEqual(item.value, itemModified.value, "item value should have been changed after edit it")
+        XCTAssertNotEqual(item.value, itemModified.value, "item value should have changed after edit it")
     }
     
     func testSendFeedBackOnDone() {

@@ -21,6 +21,8 @@
 		1F70B9721FC6F78A00930F35 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */; };
 		1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */; };
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
+		1F70B9781FC81E7200930F35 /* Extraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9771FC81E7200930F35 /* Extraction.swift */; };
+		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
 		1F9D11A31FC6B5E200BCE7E9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A11FC6B5E200BCE7E9 /* ResultsViewController.swift */; };
 		1F9D11A41FC6B5E200BCE7E9 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9D11A21FC6B5E200BCE7E9 /* ResultsViewController.xib */; };
 		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
@@ -63,6 +65,8 @@
 		1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
 		1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelMock.swift; sourceTree = "<group>"; };
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
+		1F70B9771FC81E7200930F35 /* Extraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extraction.swift; sourceTree = "<group>"; };
+		1F70B9791FC81EB500930F35 /* ExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
 		1F9D11A11FC6B5E200BCE7E9 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		1F9D11A21FC6B5E200BCE7E9 /* ResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				1F01FD301FC30D7100BAA47E /* AppDelegate.swift */,
 				1F286D521FC418F6001C0DEF /* Coordinator.swift */,
 				1F70B96F1FC6F59E00930F35 /* DocumentService.swift */,
+				1F70B9771FC81E7200930F35 /* Extraction.swift */,
 				1F286D4C1FC338EC001C0DEF /* MainViewController.swift */,
 				1F9D11A71FC6BC6400BCE7E9 /* ResultsTableViewCell.swift */,
 				1F9D11A11FC6B5E200BCE7E9 /* ResultsViewController.swift */,
@@ -151,6 +156,7 @@
 			children = (
 				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
 				1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */,
+				1F70B9791FC81EB500930F35 /* ExtractionTests.swift */,
 				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
 				1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */,
 				1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */,
@@ -435,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F70B9701FC6F59E00930F35 /* DocumentService.swift in Sources */,
+				1F70B9781FC81E7200930F35 /* Extraction.swift in Sources */,
 				1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */,
 				1F70B96E1FC6F56700930F35 /* ResultsViewModel.swift in Sources */,
 				1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */,
@@ -451,6 +458,7 @@
 			files = (
 				1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
+				1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */,
 				1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */,
 				1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */,
 				1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */,

@@ -46,18 +46,18 @@ final class ResultsViewController: UIViewController {
 
 extension ResultsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return model.sections.count
+        return model.extractions.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.sections[section].items.count
+        return model.extractions[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: resultsTableCellIdentifier,
                                                  for: indexPath) as? ResultsTableViewCell
-        cell?.fieldName.text = model.sections[indexPath.section].items[indexPath.row].name
-        cell?.fieldValue.text = model.sections[indexPath.section].items[indexPath.row].value
+        cell?.fieldName.text = model.extractions[indexPath.section].items[indexPath.row].name
+        cell?.fieldValue.text = model.extractions[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
 

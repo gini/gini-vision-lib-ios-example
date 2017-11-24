@@ -22,16 +22,16 @@ final class ResultsViewModelTests: XCTestCase {
     
     func testInitialization() {
         XCTAssertNotNil(resultsViewModel.documentService, "document service should no tbe nil after initialization")
-        XCTAssertEqual("test value", resultsViewModel.sections[0].items[0].value,
+        XCTAssertEqual("test value", resultsViewModel.extractions[0].items[0].value,
                        "the first item in the main section should match the one declared in the document service mock")
-        XCTAssertEqual(resultsViewModel.sections[0].items.count, 1,
+        XCTAssertEqual(resultsViewModel.extractions[0].items.count, 1,
                        "there should be only one item in the first section")
-        XCTAssertEqual(resultsViewModel.sections.count, 2,
+        XCTAssertEqual(resultsViewModel.extractions.count, 2,
                        "there should be 2 sections, since there are main and other parameters")
     }
     
     func testUpdatedAnalysisResults() {
-        resultsViewModel.sections[0].items[0].value = "Modified value"
+        resultsViewModel.extractions[0].items[0].value = "Modified value"
         let modifiedAnalysisResults = resultsViewModel.updatedAnalysisResults
         
         XCTAssertEqual("Modified value", modifiedAnalysisResults["main parameter 1"]?.value,
@@ -45,10 +45,10 @@ final class ResultsViewModelTests: XCTestCase {
     
     func testUpdatedValue() {
         let indexPath = IndexPath(row: 0, section: 0)
-        let value = resultsViewModel.sections[indexPath.section].items[indexPath.row].value
+        let value = resultsViewModel.extractions[indexPath.section].items[indexPath.row].value
         
         resultsViewModel.updateExtraction(at: indexPath, withValue: "new value")
-        let newValue = resultsViewModel.sections[indexPath.section].items[indexPath.row].value
+        let newValue = resultsViewModel.extractions[indexPath.section].items[indexPath.row].value
         XCTAssertNotEqual(value, newValue,
                        "the section item should have been modified when it was updated from the view")
     }
