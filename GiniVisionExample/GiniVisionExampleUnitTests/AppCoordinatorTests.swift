@@ -17,7 +17,8 @@ final class AppCoordinatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds), application: UIApplication.shared)
+        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds),
+                                        application: UIApplication.shared)
     }
     
     func testInitialization() {
@@ -94,6 +95,20 @@ final class AppCoordinatorTests: XCTestCase {
         let screenAPICoordinator = appCoordinator.childCoordinators.flatMap { $0 as? ScreenAPICoordinator }.first
         XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after start analysis")
         XCTAssertNotNil(screenAPICoordinator!.delegate as? AppCoordinator)
+    }
+    
+    func testOpenWithImport() {
+        let url = urlFromImage(named: "invoice", fileExtension: "jpg")!
+        appCoordinator.processExternalDocument(withUrl: url, sourceApplication: "testTarget")
+        
+        let screenAPICoordinator = appCoordinator.childCoordinators.flatMap { $0 as? ScreenAPICoordinator }.first
+        XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
+        
+    }
+    
+    fileprivate func urlFromImage(named: String, fileExtension: String) -> URL? {
+        let testBundle = Bundle(for: type(of: self))
+        return testBundle.url(forResource: named, withExtension: fileExtension)
     }
     
 }
