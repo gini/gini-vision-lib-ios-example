@@ -34,6 +34,13 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+    
+    fileprivate func showHelpViewController() {
+        let helpCoordinator = HelpCoordinator()
+        helpCoordinator.delegate = self
+        add(childCoordinator: helpCoordinator)
+        rootViewController.present(helpCoordinator.rootViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: MainViewControllerDelegate
@@ -45,7 +52,16 @@ extension AppCoordinator: MainViewControllerDelegate {
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {
-        
+        showHelpViewController()
     }
     
+}
+
+// MARK: HelpCoordinatorDelegate
+
+extension AppCoordinator: HelpCoordinatorDelegate {
+    func help(coordinator: HelpCoordinator, didFinish: ()) {
+        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+        remove(childCoordinator: coordinator)
+    }
 }

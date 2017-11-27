@@ -16,10 +16,6 @@ protocol MainViewControllerDelegate: class {
 final class MainViewController: UIViewController {
 
     weak var delegate: MainViewControllerDelegate?
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 
     @IBAction func startAnalysis(_ sender: Any) {
         delegate?.main(viewController: self, didTapStartAnalysis: ())

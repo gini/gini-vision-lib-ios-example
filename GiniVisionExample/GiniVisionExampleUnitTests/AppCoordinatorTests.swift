@@ -19,7 +19,7 @@ final class AppCoordinatorTests: XCTestCase {
     }
     
     func testInitialization() {
-        XCTAssertEqual(appCoordinator.childCoordinators.count, 0,
+        XCTAssertTrue(appCoordinator.childCoordinators.isEmpty,
                        "child coordinators array should be empty after initialization")
         XCTAssertNotNil(appCoordinator.window, "window should not be nil after after initialization")
     }
@@ -32,7 +32,40 @@ final class AppCoordinatorTests: XCTestCase {
     
     func testMainViewControllerDelegateAfterStart() {
         appCoordinator.start()
-        XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator)
+        XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator,
+                        "main view controller delegate should be an instance of AppCoordinator")
+    }
+    
+    func testChildCoordinatorCountWhenHelpShown() {
+        appCoordinator.start()
+        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
+        
+        XCTAssertFalse(appCoordinator.childCoordinators.isEmpty,
+                       "child coordinators count should not be 0 after showing help")
+    }
+    
+    func testHelpCoordinatorDelegateAfterShowHelp() {
+        appCoordinator.start()
+        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
+        
+        let helpCoordinator = appCoordinator.childCoordinators.flatMap {$0 as? HelpCoordinator}.first!
+        
+        XCTAssertNotNil(helpCoordinator.delegate as? AppCoordinator,
+                        "help view controller delegate should be an instance of AppCoordinator")
+    }
+    
+    func testChildCoordinatorCountAfterDismissHelp() {
+        appCoordinator.start()
+        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
+
+        appCoordinator.help(coordinator: childCoordinator(ofType: HelpCoordinator.self)!, didFinish: ())
+        
+        XCTAssertNil(childCoordinator(ofType: HelpCoordinator.self),
+                     "help coordinator should not longer exist after dismiss help view controller")
+    }
+    
+    fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
+        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
     }
     
 }

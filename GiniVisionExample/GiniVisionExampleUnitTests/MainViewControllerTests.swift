@@ -21,8 +21,4 @@ final class MainViewControllerTests: XCTestCase {
     func testInitialization() {
         XCTAssertNotNil(mainViewController.view, "view should not be nil")
     }
-    
-    func testStatusBarStyle() {
-        XCTAssertEqual(mainViewController.preferredStatusBarStyle, .lightContent, "status bar style should be light")
-    }
 }
