@@ -137,7 +137,6 @@ final class AppCoordinator: Coordinator {
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }
     
-
 }
 
 // MARK: MainViewControllerDelegate
