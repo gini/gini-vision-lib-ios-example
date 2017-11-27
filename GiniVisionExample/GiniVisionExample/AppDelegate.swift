@@ -19,6 +19,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator.start()
         return true
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        appCoordinator.processExternalDocument(withUrl: url, sourceApplication: sourceApplication)
+        return true
+    }
 
 }
 

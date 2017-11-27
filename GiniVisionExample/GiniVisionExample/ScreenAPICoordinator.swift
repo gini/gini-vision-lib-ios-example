@@ -30,6 +30,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     lazy var visionConfiguration: GiniConfiguration = {
         let configuration = GiniConfiguration()
         configuration.fileImportSupportedTypes = .pdf_and_images
+        configuration.openWithEnabled = true
         configuration.navigationBarItemTintColor = .white
         return configuration
     }()

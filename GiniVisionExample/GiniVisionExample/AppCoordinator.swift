@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Gini_iOS_SDK
 import AVFoundation
+import GiniVision
 
 final class AppCoordinator: Coordinator {
     var rootViewController: UIViewController {
@@ -54,6 +55,32 @@ final class AppCoordinator: Coordinator {
         showMainViewController()
     }
     
+    func processExternalDocument(withUrl url: URL, sourceApplication: String?) {
+        let data = try? Data(contentsOf: url)
+        
+        let documentBuilder = GiniVisionDocumentBuilder(data: data, documentSource: .appName(name: sourceApplication))
+        documentBuilder.importMethod = .openWith
+        let document = documentBuilder.build()
+        
+        // When a document is imported with "Open with", a dialog allowing to choose between both APIs
+        // is shown in the main screen. Therefore it needs to go to the main screen if it is not there yet.
+        popToRootViewControllerIfNeeded()
+        
+        do {
+            try document?.validate()
+            showScreenAPI(withImportedDocument: document)
+        } catch {
+            
+        }
+    }
+    
+    fileprivate func popToRootViewControllerIfNeeded() {
+        self.childCoordinators.forEach { coordinator in
+            coordinator.rootViewController.dismiss(animated: true, completion: nil)
+            self.remove(childCoordinator: coordinator)
+        }
+    }
+    
     fileprivate func showMainViewController() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
@@ -69,9 +96,10 @@ final class AppCoordinator: Coordinator {
         add(childCoordinator: helpCoordinator)
         rootViewController.present(helpCoordinator.rootViewController, animated: true, completion: nil)
     }
+    
+    fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
+        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument)
 
-    fileprivate func showScreenAPI() {
-        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: nil)
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
         rootViewController.present(screenAPICoordinator.rootViewController, animated: true, completion: nil)
@@ -120,7 +148,7 @@ extension AppCoordinator: MainViewControllerDelegate {
         checkCameraPermissions {[weak self] authorized in
             DispatchQueue.main.async {
                 if authorized {
-                    self?.showScreenAPI()
+                    self?.showScreenAPI(withImportedDocument: nil)
                 } else {
                     self?.showCameraPermissionDeniedError()
                 }
