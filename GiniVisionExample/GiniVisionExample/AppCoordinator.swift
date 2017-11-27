@@ -71,6 +71,8 @@ extension AppCoordinator: HelpCoordinatorDelegate {
     func help(coordinator: HelpCoordinator, didFinish: ()) {
         coordinator.rootViewController.dismiss(animated: true, completion: nil)
         remove(childCoordinator: coordinator)
+    }
+}
 
         
 extension AppCoordinator: PDFNoResultsViewControllerDelegate {
