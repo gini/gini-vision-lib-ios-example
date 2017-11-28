@@ -25,7 +25,8 @@ final class HelpTransitionAnimator: NSObject {
         animation.delegate = self
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        let timing = operation == .push ? kCAMediaTimingFunctionEaseIn : kCAMediaTimingFunctionEaseOut
+        animation.timingFunction = CAMediaTimingFunction(name: timing)
         return animation
     }
     

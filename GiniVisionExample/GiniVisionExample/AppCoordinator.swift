@@ -35,7 +35,7 @@ final class AppCoordinator: NSObject, Coordinator {
         return mainViewController
     }()
 
-    lazy var resultViewController: ResultsViewController? = {
+    lazy var resultViewController: ResultsViewController = {
         let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
         let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
                                                         value: "Rick Sanchez", entity: "entity", box: [:])
@@ -90,10 +90,6 @@ final class AppCoordinator: NSObject, Coordinator {
     fileprivate func showMainViewController() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
-    }
-    
-    func showResultsViewController() {
-        rootViewController.present(resultViewController!, animated: true, completion: nil)
     }
 
     fileprivate func showHelpViewController() {
@@ -197,7 +193,7 @@ extension AppCoordinator: HelpCoordinatorDelegate {
 
 extension AppCoordinator: PDFNoResultsViewControllerDelegate {
     func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
-        
+        appNavigationController.pushViewController(resultViewController, animated: true)
     }
 }
 
@@ -205,7 +201,7 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 
 extension AppCoordinator: ResultsViewControllerDelegate {
     func results(viewController: ResultsViewController, didTapDone: ()) {
-        
+        appNavigationController.popToRootViewController(animated: true)
     }
 }
 
@@ -219,8 +215,9 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
     }
     
     func screenAPI(coordinator: ScreenAPICoordinator, didFinish: ()) {
-        let help = HelpViewController(nibName: nil, bundle: nil)
-        appNavigationController.setViewControllers([help], animated: true)
+        var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
+        viewControllers.append(pdfNoResultsViewController)
+        appNavigationController.setViewControllers(viewControllers, animated: true)
         remove(childCoordinator: coordinator)
     }
 }
