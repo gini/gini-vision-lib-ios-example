@@ -22,6 +22,12 @@ final class AppCoordinator: Coordinator {
         return mainViewController
     }()
     
+    lazy var pdfNoResultsViewController: PDFNoResultsViewController = {
+        let noResults = PDFNoResultsViewController(nibName: nil, bundle: nil)
+        noResults.delegate = self
+        return noResults
+    }()
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -48,7 +54,9 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        
+        let navigationController = UINavigationController(rootViewController: pdfNoResultsViewController)
+        navigationController.navigationBar.barTintColor = .blue
+        rootViewController.present(navigationController, animated: true, completion: nil)
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {
@@ -63,5 +71,12 @@ extension AppCoordinator: HelpCoordinatorDelegate {
     func help(coordinator: HelpCoordinator, didFinish: ()) {
         coordinator.rootViewController.dismiss(animated: true, completion: nil)
         remove(childCoordinator: coordinator)
+    }
+}
+
+        
+extension AppCoordinator: PDFNoResultsViewControllerDelegate {
+    func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
+        
     }
 }

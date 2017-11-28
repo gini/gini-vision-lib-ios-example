@@ -68,4 +68,12 @@ final class AppCoordinatorTests: XCTestCase {
         return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
     }
     
+    // TODO: move to screen api coordinator
+    func testPDFNoResultsViewControllerDelegateAfterInitialization() {
+        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapStartAnalysis: ())
+        
+        XCTAssertNotNil(appCoordinator.pdfNoResultsViewController.delegate as? AppCoordinator,
+                        "pdf no results view controller should be an instance of AppCoordinator")
+    }
+    
 }
