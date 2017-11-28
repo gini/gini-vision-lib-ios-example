@@ -46,8 +46,9 @@ final class HelpCoordinator: NSObject, Coordinator {
     func loadWebView(withLink link: HelpLink) {
         if let itemUrl = link.url {
             guard let webViewController = webViewController else {
-                navigationController.pushViewController(WebViewController(title: link.title,
-                                                                          url: itemUrl), animated: true)
+                self.webViewController = WebViewController(title: link.title,
+                                                      url: itemUrl)
+                navigationController.pushViewController(self.webViewController!, animated: true)
                 return
             }
             webViewController.title = link.title
