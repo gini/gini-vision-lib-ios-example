@@ -1,0 +1,10 @@
+/* 
+  Localizations.strings
+  GiniVisionExample
+
+  Created by Enrique del Pozo Gómez on 11/22/17.
+  Copyright © 2017 Gini. All rights reserved.
+*/
+
+"help.screen.title" = "Ayuda";
+"help.screen.close.button" = "Cerrar";

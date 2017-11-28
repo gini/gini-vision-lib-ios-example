@@ -34,7 +34,7 @@ final class ResultsViewModelTests: XCTestCase {
         resultsViewModel.extractions[0].items[0].value = "Modified value"
         let modifiedAnalysisResults = resultsViewModel.updatedAnalysisResults
         
-        XCTAssertEqual("Modified value", modifiedAnalysisResults["main parameter 1"]?.value,
+        XCTAssertEqual("Modified value", modifiedAnalysisResults["main 1"]?.value,
                        "the first item in the main section should match the one declared in the document service mock")
     }
     

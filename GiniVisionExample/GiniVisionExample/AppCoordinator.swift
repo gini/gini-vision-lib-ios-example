@@ -23,9 +23,26 @@ final class AppCoordinator: Coordinator {
         mainViewController.delegate = self
         return mainViewController
     }()
-    
-    var resultViewController: ResultsViewController?
-    
+
+    lazy var resultViewController: ResultsViewController? = {
+        let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
+        let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
+                                                        value: "Rick Sanchez", entity: "entity", box: [:])
+        
+        let result: [String: GINIExtraction] = ["iban": ibanExtraction!,
+                                                "paymentRecipient": paymentRecipientExtraction!]
+        self.documentService.result = result
+        let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: self.documentService))
+        resultViewController.delegate = self
+        return resultViewController
+    }()
+
+    lazy var pdfNoResultsViewController: PDFNoResultsViewController = {
+        let noResults = PDFNoResultsViewController(nibName: nil, bundle: nil)
+        noResults.delegate = self
+        return noResults
+    }()
+
     init(window: UIWindow) {
         self.window = window
     }
@@ -39,18 +56,24 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
-    @discardableResult func showResultsViewController()
-        -> ResultsViewController {
-            resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService))
-            resultViewController!.delegate = self
-            rootViewController.present(resultViewController!, animated: true, completion: nil)
-            return resultViewController!
+    func showResultsViewController() {
+        rootViewController.present(resultViewController!, animated: true, completion: nil)
     }
 }
-// TODO: Move to screen api coordinator when implemented
+
+// MARK: ResultsViewControllerDelegate
+
 extension AppCoordinator: ResultsViewControllerDelegate {
+    
     func results(viewController: ResultsViewController, didTapDone: ()) {
         resultViewController?.dismiss(animated: true, completion: nil)
+    }
+
+    fileprivate func showHelpViewController() {
+        let helpCoordinator = HelpCoordinator()
+        helpCoordinator.delegate = self
+        add(childCoordinator: helpCoordinator)
+        rootViewController.present(helpCoordinator.rootViewController, animated: true, completion: nil)
     }
 }
 
@@ -59,18 +82,28 @@ extension AppCoordinator: ResultsViewControllerDelegate {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
-        let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
-                                                        value: "Rick Sanchez", entity: "entity", box: [:])
-
-        let result: [String: GINIExtraction] = ["iban": ibanExtraction!,
-                                                "paymentRecipient": paymentRecipientExtraction!]
-        documentService.result = result
-        showResultsViewController()
-    }
-    
-    func main(viewController: MainViewController, didTapShowHelp: ()) {
         
     }
     
+    func main(viewController: MainViewController, didTapShowHelp: ()) {
+        showHelpViewController()
+    }
+    
 }
+
+// MARK: HelpCoordinatorDelegate
+
+extension AppCoordinator: HelpCoordinatorDelegate {
+    func help(coordinator: HelpCoordinator, didFinish: ()) {
+        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+        remove(childCoordinator: coordinator)
+    }
+}
+
+        
+extension AppCoordinator: PDFNoResultsViewControllerDelegate {
+    func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
+        
+    }
+}
+

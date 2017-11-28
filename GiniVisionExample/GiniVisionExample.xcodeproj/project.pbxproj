@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01FD301FC30D7100BAA47E /* AppDelegate.swift */; };
 		1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01FD371FC30D7100BAA47E /* Assets.xcassets */; };
+		1F1C43EA1FCDACC50084B65E /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43E71FCDACC50084B65E /* AppVersion.swift */; };
+		1F1C43EB1FCDACC50084B65E /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43E81FCDACC50084B65E /* HelpCoordinator.swift */; };
+		1F1C43EC1FCDACC50084B65E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43E91FCDACC50084B65E /* UIColor.swift */; };
+		1F1C43F21FCDAD000084B65E /* PDFNoResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C43ED1FCDAD000084B65E /* PDFNoResultsViewController.xib */; };
+		1F1C43F31FCDAD000084B65E /* PDFNoResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43EE1FCDAD000084B65E /* PDFNoResultsViewController.swift */; };
+		1F1C43F41FCDAD000084B65E /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43EF1FCDAD000084B65E /* HelpViewController.swift */; };
+		1F1C43F51FCDAD000084B65E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C43F01FCDAD000084B65E /* WebViewController.swift */; };
+		1F1C43F61FCDAD000084B65E /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C43F11FCDAD000084B65E /* HelpViewController.xib */; };
 		1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D4C1FC338EC001C0DEF /* MainViewController.swift */; };
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
@@ -50,6 +58,14 @@
 		1F01FD301FC30D7100BAA47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F01FD371FC30D7100BAA47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F01FD3C1FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1C43E71FCDACC50084B65E /* AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		1F1C43E81FCDACC50084B65E /* HelpCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
+		1F1C43E91FCDACC50084B65E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1F1C43ED1FCDAD000084B65E /* PDFNoResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFNoResultsViewController.xib; path = ViewControllers/PDFNoResultsViewController.xib; sourceTree = "<group>"; };
+		1F1C43EE1FCDAD000084B65E /* PDFNoResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFNoResultsViewController.swift; path = ViewControllers/PDFNoResultsViewController.swift; sourceTree = "<group>"; };
+		1F1C43EF1FCDAD000084B65E /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = ViewControllers/HelpViewController.swift; sourceTree = "<group>"; };
+		1F1C43F01FCDAD000084B65E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ViewControllers/WebViewController.swift; sourceTree = "<group>"; };
+		1F1C43F11FCDAD000084B65E /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpViewController.xib; path = ViewControllers/HelpViewController.xib; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
@@ -125,7 +141,15 @@
 			children = (
 				1F286D541FC4193A001C0DEF /* AppCoordinator.swift */,
 				1F01FD301FC30D7100BAA47E /* AppDelegate.swift */,
+				1F1C43EF1FCDAD000084B65E /* HelpViewController.swift */,
+				1F1C43F11FCDAD000084B65E /* HelpViewController.xib */,
+				1F1C43EE1FCDAD000084B65E /* PDFNoResultsViewController.swift */,
+				1F1C43ED1FCDAD000084B65E /* PDFNoResultsViewController.xib */,
+				1F1C43F01FCDAD000084B65E /* WebViewController.swift */,
 				1F286D521FC418F6001C0DEF /* Coordinator.swift */,
+				1F1C43E71FCDACC50084B65E /* AppVersion.swift */,
+				1F1C43E81FCDACC50084B65E /* HelpCoordinator.swift */,
+				1F1C43E91FCDACC50084B65E /* UIColor.swift */,
 				1F70B96F1FC6F59E00930F35 /* DocumentService.swift */,
 				1F70B9771FC81E7200930F35 /* Extraction.swift */,
 				1F286D4C1FC338EC001C0DEF /* MainViewController.swift */,
@@ -295,7 +319,9 @@
 				1F286D641FC45C6A001C0DEF /* LaunchScreen.xib in Resources */,
 				1F9D11AC1FC6CF8D00BCE7E9 /* ResultsTableViewCell.xib in Resources */,
 				1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */,
+				1F1C43F21FCDAD000084B65E /* PDFNoResultsViewController.xib in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
+				1F1C43F61FCDAD000084B65E /* HelpViewController.xib in Resources */,
 				1F9D11A41FC6B5E200BCE7E9 /* ResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,13 +467,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F70B9701FC6F59E00930F35 /* DocumentService.swift in Sources */,
+				1F1C43EC1FCDACC50084B65E /* UIColor.swift in Sources */,
+				1F1C43F31FCDAD000084B65E /* PDFNoResultsViewController.swift in Sources */,
+				1F1C43EB1FCDACC50084B65E /* HelpCoordinator.swift in Sources */,
 				1F70B9781FC81E7200930F35 /* Extraction.swift in Sources */,
+				1F1C43EA1FCDACC50084B65E /* AppVersion.swift in Sources */,
 				1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */,
+				1F1C43F41FCDAD000084B65E /* HelpViewController.swift in Sources */,
 				1F70B96E1FC6F56700930F35 /* ResultsViewModel.swift in Sources */,
 				1F01FD311FC30D7100BAA47E /* AppDelegate.swift in Sources */,
 				1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */,
 				1F9D11A31FC6B5E200BCE7E9 /* ResultsViewController.swift in Sources */,
 				1F9D11A81FC6BC6400BCE7E9 /* ResultsTableViewCell.swift in Sources */,
+				1F1C43F51FCDAD000084B65E /* WebViewController.swift in Sources */,
 				1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFNoResultsViewController" customModule="GiniVisionExample" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqC-gf-1o1">
+                    <rect key="frame" x="0.0" y="20" width="375" height="101"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gop-u2-5uN">
+                            <rect key="frame" x="20" y="30.5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="JU0-MH-ava"/>
+                                <constraint firstAttribute="width" secondItem="Gop-u2-5uN" secondAttribute="height" id="Wjk-Ya-VRk"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdr-8N-RBq">
+                            <rect key="frame" x="70" y="20" width="285" height="61"/>
+                            <string key="text">Hodor hodor - hodor - hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor. Hodor hodor; hodor hodor, hodor, hodor hodor. Hodor! </string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaA-8h-dt2">
+                            <rect key="frame" x="0.0" y="100" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="HWz-np-zKg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QaA-8h-dt2" secondAttribute="bottom" id="6n4-U4-sOh"/>
+                        <constraint firstItem="Fdr-8N-RBq" firstAttribute="leading" secondItem="Gop-u2-5uN" secondAttribute="trailing" constant="10" id="77l-Mr-fwa"/>
+                        <constraint firstAttribute="bottom" secondItem="Fdr-8N-RBq" secondAttribute="bottom" constant="20" id="JcD-Nd-jWf"/>
+                        <constraint firstItem="Gop-u2-5uN" firstAttribute="centerY" secondItem="Fdr-8N-RBq" secondAttribute="centerY" id="Les-Pv-VZi"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gop-u2-5uN" secondAttribute="bottom" constant="8" id="OSH-WY-gDl"/>
+                        <constraint firstItem="Gop-u2-5uN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gqC-gf-1o1" secondAttribute="top" constant="8" id="Oyk-SJ-1zr"/>
+                        <constraint firstItem="QaA-8h-dt2" firstAttribute="leading" secondItem="gqC-gf-1o1" secondAttribute="leading" id="Rkb-5K-BgT"/>
+                        <constraint firstAttribute="trailing" secondItem="Fdr-8N-RBq" secondAttribute="trailing" constant="20" id="TfL-6Y-yco"/>
+                        <constraint firstAttribute="trailing" secondItem="QaA-8h-dt2" secondAttribute="trailing" id="Ubf-Bf-VbS"/>
+                        <constraint firstItem="Fdr-8N-RBq" firstAttribute="top" secondItem="gqC-gf-1o1" secondAttribute="top" constant="20" id="jeg-Yh-CyJ"/>
+                        <constraint firstItem="Gop-u2-5uN" firstAttribute="leading" secondItem="gqC-gf-1o1" secondAttribute="leading" constant="20" id="sy3-Fh-6np"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obm-TL-2px">
+                    <rect key="frame" x="130.5" y="609" width="113" height="38"/>
+                    <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                    <state key="normal" title="Start over">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="startOver:" destination="-1" eventType="touchUpInside" id="2sC-eu-hA6"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-rT-5AR">
+                    <rect key="frame" x="20" y="323" width="335" height="21"/>
+                    <string key="text">Hodor hodor - hodor - hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor. Hodor hodor; hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor; hodor hodor; hodor hodor, hodor, hodor hodor. Hodor, hodor... Hodor hodor hodor hodor hodor hodor! Hodor! Hodor hodor, hodor, hodor. Hodor hodor; hodor hodor. Hodor. Hodor hodor - hodor... Hodor hodor hodor. Hodor.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gqC-gf-1o1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="HQt-M4-j8I"/>
+                <constraint firstItem="gqC-gf-1o1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OAC-h4-bfX"/>
+                <constraint firstAttribute="trailing" secondItem="gqC-gf-1o1" secondAttribute="trailing" id="Ple-xV-ctB"/>
+                <constraint firstItem="pBj-rT-5AR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="SA1-1i-2Be"/>
+                <constraint firstAttribute="bottom" secondItem="obm-TL-2px" secondAttribute="bottom" constant="20" id="SrN-gb-SB2"/>
+                <constraint firstItem="pBj-rT-5AR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T1V-cc-77O"/>
+                <constraint firstItem="pBj-rT-5AR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="grd-Wb-4OQ"/>
+                <constraint firstAttribute="trailing" secondItem="pBj-rT-5AR" secondAttribute="trailing" constant="20" id="mtq-XW-mXh"/>
+                <constraint firstItem="obm-TL-2px" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wwJ-fI-mSj"/>
+            </constraints>
+            <point key="canvasLocation" x="73.5" y="59.5"/>
+        </view>
+    </objects>
+</document>
