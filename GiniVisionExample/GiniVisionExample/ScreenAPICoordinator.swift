@@ -33,6 +33,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
         configuration.navigationBarItemTintColor = .white
+        configuration.navigationBarTintColor = .giniBlue
         return configuration
     }()
     
