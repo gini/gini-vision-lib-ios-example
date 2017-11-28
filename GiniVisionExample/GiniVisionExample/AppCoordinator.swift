@@ -20,7 +20,7 @@ final class AppCoordinator: NSObject, Coordinator {
     let window: UIWindow
     lazy var documentService: DocumentService = DocumentService()
     let application: UIApplication
-    let transition = HelpAnimator()
+    let transition = HelpTransitionAnimator()
     
     lazy var appNavigationController: UINavigationController = {
         let navController = UINavigationController(rootViewController: self.mainViewController)
@@ -152,9 +152,13 @@ extension AppCoordinator: UINavigationControllerDelegate {
                               animationControllerFor operation: UINavigationControllerOperation,
                               from fromVC: UIViewController,
                               to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.operation = operation
-        transition.originPoint = mainViewController.helpButton.center
-        return transition
+        if childCoordinators.last is HelpCoordinator {
+            transition.operation = operation
+            transition.originPoint = mainViewController.helpButton.center
+            return transition
+        }
+        
+        return nil
     }
 }
 

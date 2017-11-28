@@ -1,5 +1,5 @@
 //
-//  HelpAnimator.swift
+//  HelpTransitionAnimator.swift
 //  GiniVisionExample
 //
 //  Created by Enrique del Pozo Gómez on 11/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HelpAnimator: NSObject {
+final class HelpTransitionAnimator: NSObject {
     
     let animationDuration = 0.65
     var maxRadius: CGFloat = 0.0
@@ -65,7 +65,7 @@ final class HelpAnimator: NSObject {
 
 // MARK: UIViewControllerAnimatedTransitioning
 
-extension HelpAnimator: UIViewControllerAnimatedTransitioning {
+extension HelpTransitionAnimator: UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
@@ -93,7 +93,7 @@ extension HelpAnimator: UIViewControllerAnimatedTransitioning {
 
 // MARK: CAAnimationDelegate
 
-extension HelpAnimator: CAAnimationDelegate {
+extension HelpTransitionAnimator: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if let context = storedContext {
             context.completeTransition(!context.transitionWasCancelled)
