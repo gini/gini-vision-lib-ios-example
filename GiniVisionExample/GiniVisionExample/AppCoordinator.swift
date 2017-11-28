@@ -193,11 +193,22 @@ extension AppCoordinator: HelpCoordinatorDelegate {
     }
 }
 
+// MARK: PDFNoResultsViewControllerDelegate
 
 extension AppCoordinator: PDFNoResultsViewControllerDelegate {
     func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
+        
     }
 }
+
+// MARK: ResultsViewControllerDelegate
+
+extension AppCoordinator: ResultsViewControllerDelegate {
+    func results(viewController: ResultsViewController, didTapDone: ()) {
+        
+    }
+}
+
 // MARK: ScreenAPICoordinatorDelegate
 
 extension AppCoordinator: ScreenAPICoordinatorDelegate {

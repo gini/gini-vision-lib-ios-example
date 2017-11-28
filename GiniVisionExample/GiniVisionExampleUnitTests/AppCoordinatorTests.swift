@@ -73,10 +73,6 @@ final class AppCoordinatorTests: XCTestCase {
                      "help coordinator should not longer exist after dismiss help view controller")
     }
     
-    fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
-        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
-    }
-    
     func testPDFNoResultsViewControllerDelegateAfterInitialization() {
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapStartAnalysis: ())
         
@@ -93,14 +89,6 @@ final class AppCoordinatorTests: XCTestCase {
         let resultsViewController = appCoordinator.resultViewController!
         XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
                        "resultsViewController delegate should be an instance of AppCoordinator")
-    }
-    
-    func testScreenAPICoordinatorDelegateAfterStartAnalysis() {
-        appCoordinator.start()
-        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapStartAnalysis: ())
-        let screenAPICoordinator = appCoordinator.childCoordinators.flatMap { $0 as? ScreenAPICoordinator }.first
-        XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after start analysis")
-        XCTAssertNotNil(screenAPICoordinator!.delegate as? AppCoordinator)
     }
     
     func testOpenWithImport() {
