@@ -55,45 +55,43 @@ final class HelpAnimator: NSObject {
         }
     }
     
-    var shapeLayer: CAShapeLayer {
+    func shapeLayer(forPath path: CGPath, at position: CGPoint) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath
-        shapeLayer.fillColor = UIColor.green.cgColor
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = 3.0
-        shapeLayer.position = originPoint
+        shapeLayer.path = path
+        shapeLayer.position = position
         return shapeLayer
     }
 }
 
+// MARK: UIViewControllerAnimatedTransitioning
+
 extension HelpAnimator: UIViewControllerAnimatedTransitioning {
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        storedContext = transitionContext
         let fromVC = transitionContext.viewController(forKey: .from)!
         let toVC = transitionContext.viewController(forKey: .to)!
-        maxRadius = max(fromVC.view.frame.height, fromVC.view.frame.width)
+        self.storedContext = transitionContext
+        self.maxRadius = max(fromVC.view.frame.height, fromVC.view.frame.width)
+        let circleMask = shapeLayer(forPath: circlePath, at: originPoint)
+
         if operation == .push {
             transitionContext.containerView.addSubview(toVC.view)
+            toVC.view.layer.mask = circleMask
         } else {
             transitionContext.containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
+            fromVC.view.layer.mask = circleMask
         }
         
         toVC.view.frame = transitionContext.finalFrame(for: toVC)
-        
-        let shapeLayer = self.shapeLayer
-        if operation == .push {
-            toVC.view.layer.mask = shapeLayer
-        } else {
-            fromVC.view.layer.mask = shapeLayer
-        }
-        
-        shapeLayer.add(animation, forKey: nil)
+        circleMask.add(animation, forKey: nil)
     }
 }
+
+// MARK: CAAnimationDelegate
 
 extension HelpAnimator: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
