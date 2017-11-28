@@ -12,6 +12,7 @@ import GiniVision
 import Gini_iOS_SDK
 
 protocol ScreenAPICoordinatorDelegate: class {
+    func screenAPI(coordinator: ScreenAPICoordinator, didCancel:())
     func screenAPI(coordinator: ScreenAPICoordinator, didFinish:())
 }
 
@@ -65,7 +66,7 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     }
     
     func didCancelCapturing() {
-        delegate?.screenAPI(coordinator: self, didFinish: ())
+        delegate?.screenAPI(coordinator: self, didCancel: ())
     }
     
     // Optional delegate methods
@@ -74,6 +75,7 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     }
     
     func didShowAnalysis(_ analysisDelegate: AnalysisDelegate) {
+        delegate?.screenAPI(coordinator: self, didFinish: ())
     }
     
     func didCancelAnalysis() {

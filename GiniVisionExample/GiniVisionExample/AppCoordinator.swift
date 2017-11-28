@@ -81,10 +81,8 @@ final class AppCoordinator: Coordinator {
     }
     
     fileprivate func popToRootViewControllerIfNeeded() {
-        self.childCoordinators.forEach { coordinator in
-            coordinator.rootViewController.dismiss(animated: true, completion: nil)
-            self.remove(childCoordinator: coordinator)
-        }
+        self.appNavigationController.popToRootViewController(animated: true)
+        self.childCoordinators.forEach(remove)
     }
     
     fileprivate func showMainViewController() {
@@ -184,8 +182,13 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 // MARK: ScreenAPICoordinatorDelegate
 
 extension AppCoordinator: ScreenAPICoordinatorDelegate {
+    
+    func screenAPI(coordinator: ScreenAPICoordinator, didCancel: ()) {
+        appNavigationController.popToRootViewController(animated: true)
+        remove(childCoordinator: coordinator)
+    }
+    
     func screenAPI(coordinator: ScreenAPICoordinator, didFinish: ()) {
-//        coordinator.rootViewController.dismiss(animated: true, completion: nil)
         let help = HelpViewController(nibName: nil, bundle: nil)
         appNavigationController.setViewControllers([help], animated: true)
         remove(childCoordinator: coordinator)
