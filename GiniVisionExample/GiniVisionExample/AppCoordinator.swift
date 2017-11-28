@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Gini_iOS_SDK
 
 final class AppCoordinator: Coordinator {
     var rootViewController: UIViewController {
@@ -15,19 +16,33 @@ final class AppCoordinator: Coordinator {
     }
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
-
+    lazy var documentService: DocumentService = DocumentService()
+    
     lazy var mainViewController: MainViewController = {
         let mainViewController = MainViewController(nibName: nil, bundle: nil)
         mainViewController.delegate = self
         return mainViewController
     }()
-    
+
+    lazy var resultViewController: ResultsViewController? = {
+        let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
+        let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
+                                                        value: "Rick Sanchez", entity: "entity", box: [:])
+        
+        let result: [String: GINIExtraction] = ["iban": ibanExtraction!,
+                                                "paymentRecipient": paymentRecipientExtraction!]
+        self.documentService.result = result
+        let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: self.documentService))
+        resultViewController.delegate = self
+        return resultViewController
+    }()
+
     lazy var pdfNoResultsViewController: PDFNoResultsViewController = {
         let noResults = PDFNoResultsViewController(nibName: nil, bundle: nil)
         noResults.delegate = self
         return noResults
     }()
-    
+
     init(window: UIWindow) {
         self.window = window
     }
@@ -41,6 +56,19 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
+    func showResultsViewController() {
+        rootViewController.present(resultViewController!, animated: true, completion: nil)
+    }
+}
+
+// MARK: ResultsViewControllerDelegate
+
+extension AppCoordinator: ResultsViewControllerDelegate {
+    
+    func results(viewController: ResultsViewController, didTapDone: ()) {
+        resultViewController?.dismiss(animated: true, completion: nil)
+    }
+
     fileprivate func showHelpViewController() {
         let helpCoordinator = HelpCoordinator()
         helpCoordinator.delegate = self
@@ -54,9 +82,7 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator: MainViewControllerDelegate {
     
     func main(viewController: MainViewController, didTapStartAnalysis: ()) {
-        let navigationController = UINavigationController(rootViewController: pdfNoResultsViewController)
-        navigationController.navigationBar.barTintColor = .blue
-        rootViewController.present(navigationController, animated: true, completion: nil)
+        
     }
     
     func main(viewController: MainViewController, didTapShowHelp: ()) {
@@ -80,3 +106,4 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
         
     }
 }
+

@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import GiniVisionExample
+@testable import Gini_iOS_SDK
 
 final class AppCoordinatorTests: XCTestCase {
     
@@ -68,12 +69,22 @@ final class AppCoordinatorTests: XCTestCase {
         return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
     }
     
-    // TODO: move to screen api coordinator
     func testPDFNoResultsViewControllerDelegateAfterInitialization() {
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapStartAnalysis: ())
         
         XCTAssertNotNil(appCoordinator.pdfNoResultsViewController.delegate as? AppCoordinator,
                         "pdf no results view controller should be an instance of AppCoordinator")
+    }
+    
+    func testResultsViewControllerDelegate() {
+        let result: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name",
+                                                                                   value: "value",
+                                                                                   entity: "entity",
+                                                                                   box: [:])!]
+        appCoordinator.documentService.result = result
+        let resultsViewController = appCoordinator.resultViewController!
+        XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
+                       "resultsViewController delegate should be an instance of AppCoordinator")
     }
     
 }
