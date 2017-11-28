@@ -39,6 +39,12 @@ final class AppCoordinatorTests: XCTestCase {
                         "main view controller delegate should be an instance of AppCoordinator")
     }
     
+    func testNavigationControllerDelegate() {
+        appCoordinator.start()
+        XCTAssertNotNil(appCoordinator.appNavigationController.delegate as? AppCoordinator,
+                        "app navigation view controller delegate should be an instance of AppCoordinator")
+    }
+    
     func testChildCoordinatorCountWhenHelpShown() {
         appCoordinator.start()
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
@@ -111,4 +117,7 @@ final class AppCoordinatorTests: XCTestCase {
         return testBundle.url(forResource: named, withExtension: fileExtension)
     }
     
+    fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
+        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
+    }
 }

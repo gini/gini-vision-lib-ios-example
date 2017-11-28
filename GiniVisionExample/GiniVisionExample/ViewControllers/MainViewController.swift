@@ -15,6 +15,8 @@ protocol MainViewControllerDelegate: class {
 
 final class MainViewController: UIViewController {
 
+    @IBOutlet weak var helpButton: UIButton!
+    
     weak var delegate: MainViewControllerDelegate?
 
     @IBAction func startAnalysis(_ sender: Any) {

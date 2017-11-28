@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="GiniVisionExample" customModuleProvider="target">
             <connections>
+                <outlet property="helpButton" destination="8kF-JV-0KZ" id="Vif-Pw-Vwf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

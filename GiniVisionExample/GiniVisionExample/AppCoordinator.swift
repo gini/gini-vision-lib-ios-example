@@ -12,7 +12,7 @@ import Gini_iOS_SDK
 import AVFoundation
 import GiniVision
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: NSObject, Coordinator {
     var rootViewController: UIViewController {
         return appNavigationController
     }
@@ -20,10 +20,12 @@ final class AppCoordinator: Coordinator {
     let window: UIWindow
     lazy var documentService: DocumentService = DocumentService()
     let application: UIApplication
+    let transition = HelpAnimator()
     
     lazy var appNavigationController: UINavigationController = {
         let navController = UINavigationController(rootViewController: self.mainViewController)
         navController.isNavigationBarHidden = true
+        navController.delegate = self
         return navController
     }()
     
@@ -141,6 +143,19 @@ final class AppCoordinator: Coordinator {
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }
     
+}
+
+// MARK: UINavigationControllerDelegate
+
+extension AppCoordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationControllerOperation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.operation = operation
+        transition.originPoint = mainViewController.helpButton.center
+        return transition
+    }
 }
 
 // MARK: MainViewControllerDelegate
