@@ -16,7 +16,7 @@ final class HelpCoordinator: NSObject, Coordinator {
     
     weak var delegate: HelpCoordinatorDelegate?
     var rootViewController: UIViewController {
-        return navigationController
+        return ContainerNavigationController(rootViewController: navigationController)
     }
     var childCoordinators: [Coordinator] = []
     

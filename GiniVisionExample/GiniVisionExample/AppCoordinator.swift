@@ -14,12 +14,18 @@ import GiniVision
 
 final class AppCoordinator: Coordinator {
     var rootViewController: UIViewController {
-        return mainViewController
+        return appNavigationController
     }
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
     lazy var documentService: DocumentService = DocumentService()
     let application: UIApplication
+    
+    lazy var appNavigationController: UINavigationController = {
+        let navController = UINavigationController(rootViewController: self.mainViewController)
+        navController.isNavigationBarHidden = true
+        return navController
+    }()
     
     lazy var mainViewController: MainViewController = {
         let mainViewController = MainViewController(nibName: nil, bundle: nil)
@@ -94,7 +100,7 @@ final class AppCoordinator: Coordinator {
         let helpCoordinator = HelpCoordinator()
         helpCoordinator.delegate = self
         add(childCoordinator: helpCoordinator)
-        rootViewController.present(helpCoordinator.rootViewController, animated: true, completion: nil)
+        appNavigationController.pushViewController(helpCoordinator.rootViewController, animated: true)
     }
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
@@ -102,7 +108,7 @@ final class AppCoordinator: Coordinator {
 
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
-        rootViewController.present(screenAPICoordinator.rootViewController, animated: true, completion: nil)
+        appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
     }
     
     fileprivate func checkCameraPermissions(completion: @escaping (Bool) -> Void) {
@@ -165,7 +171,7 @@ extension AppCoordinator: MainViewControllerDelegate {
 
 extension AppCoordinator: HelpCoordinatorDelegate {
     func help(coordinator: HelpCoordinator, didFinish: ()) {
-        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+        appNavigationController.popViewController(animated: true)
         remove(childCoordinator: coordinator)
     }
 }
@@ -179,7 +185,9 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 
 extension AppCoordinator: ScreenAPICoordinatorDelegate {
     func screenAPI(coordinator: ScreenAPICoordinator, didFinish: ()) {
-        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+//        coordinator.rootViewController.dismiss(animated: true, completion: nil)
+        let help = HelpViewController(nibName: nil, bundle: nil)
+        appNavigationController.setViewControllers([help], animated: true)
         remove(childCoordinator: coordinator)
     }
 }

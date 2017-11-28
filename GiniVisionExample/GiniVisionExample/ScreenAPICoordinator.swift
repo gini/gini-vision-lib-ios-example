@@ -20,7 +20,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     weak var delegate: ScreenAPICoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
     var rootViewController: UIViewController {
-        return screenAPIViewController!
+        return ContainerNavigationController(rootViewController: screenAPIViewController!)
     }
     lazy var screenAPIViewController: UINavigationController? = {
         return GiniVision.viewController(withDelegate: self,
