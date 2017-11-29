@@ -10,7 +10,7 @@ import UIKit
 
 final class HelpTransitionAnimator: NSObject {
     
-    let animationDuration = 0.65
+    let animationDuration = 0.5
     var maxRadius: CGFloat = 0.0
     var circleScale: CGFloat = 100.0
     var operation: UINavigationControllerOperation = .push

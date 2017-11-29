@@ -24,7 +24,7 @@ protocol ResultsViewModelProtocol: class {
 }
 
 final class ResultsViewModel: ResultsViewModelProtocol {
-
+    
     var extractions: ExtractionCollection = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
     var updatedAnalysisResults: AnalysisResults {
@@ -39,7 +39,7 @@ final class ResultsViewModel: ResultsViewModelProtocol {
     
     init(documentService: DocumentServiceProtocol = DocumentService()) {
         self.documentService = documentService
-        parseSections(fromResults: self.documentService.result)
+        self.parseSections(fromResults: documentService.result)
     }
     
     func sendFeedBack() {
@@ -47,6 +47,7 @@ final class ResultsViewModel: ResultsViewModelProtocol {
     }
     
     func parseSections(fromResults results: AnalysisResults) {
+        print(results)
         results.keys.forEach { key in
             if let result = results[key] {
                 let extraction = Extraction(giniExtraction: result)

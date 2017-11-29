@@ -27,7 +27,7 @@ final class ResultsViewController: UIViewController {
         }
     }
     
-    @IBAction func done(_ sender: Any) {
+    func done(_ sender: Any) {
         model.sendFeedBack()
         delegate?.results(viewController: self, didTapDone: ())
     }
@@ -35,6 +35,14 @@ final class ResultsViewController: UIViewController {
     init(model: ResultsViewModelProtocol) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewDidLoad() {
+        navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(done(_:)))
     }
     
     required init?(coder aDecoder: NSCoder) {

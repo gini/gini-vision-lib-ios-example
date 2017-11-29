@@ -28,6 +28,8 @@
 		1F1C44081FCDB09B0084B65E /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */; };
 		1F1C440A1FCDB0AB0084B65E /* invoice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C44091FCDB0AA0084B65E /* invoice.jpg */; };
 		1F1C44131FCDB1A40084B65E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C44111FCDB1A40084B65E /* Localizable.strings */; };
+		1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4111FCEB84B00A67265 /* TestUtils.swift */; };
+		1F21C4141FCEF4FC00A67265 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */; };
 		1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D4C1FC338EC001C0DEF /* MainViewController.swift */; };
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
@@ -86,10 +88,12 @@
 		1F1C44011FCDB09A0084B65E /* HelpCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCoordinatorTests.swift; sourceTree = "<group>"; };
 		1F1C44021FCDB09B0084B65E /* HelpViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewControllerTests.swift; sourceTree = "<group>"; };
 		1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
-		1F1C44091FCDB0AA0084B65E /* invoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = invoice.jpg; path = GiniVisionExample/invoice.jpg; sourceTree = SOURCE_ROOT; };
+		1F1C44091FCDB0AA0084B65E /* invoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = invoice.jpg; path = GiniVisionExampleUnitTests/invoice.jpg; sourceTree = SOURCE_ROOT; };
 		1F1C44121FCDB1A40084B65E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Extensions/de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F1C44141FCDB1AB0084B65E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Extensions/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F1C44151FCDB1B10084B65E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Extensions/es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1F21C4111FCEB84B00A67265 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				1F9D11AB1FC6CF8D00BCE7E9 /* ResultsTableViewCell.xib */,
 				1F9D11A21FC6B5E200BCE7E9 /* ResultsViewController.xib */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
+				1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -207,19 +212,19 @@
 		1F286D971FC56F11001C0DEF /* GiniVisionExampleUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F1C44091FCDB0AA0084B65E /* invoice.jpg */,
 				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
 				1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */,
 				1F70B9791FC81EB500930F35 /* ExtractionTests.swift */,
 				1F1C44011FCDB09A0084B65E /* HelpCoordinatorTests.swift */,
 				1F1C44021FCDB09B0084B65E /* HelpViewControllerTests.swift */,
-				1F1C43FF1FCDB09A0084B65E /* PDFNoResultsViewControllerTests.swift */,
-				1F1C44001FCDB09A0084B65E /* ScreenAPICoordinatorTests.swift */,
-				1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */,
 				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
+				1F1C43FF1FCDB09A0084B65E /* PDFNoResultsViewControllerTests.swift */,
 				1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */,
 				1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */,
 				1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */,
+				1F1C44001FCDB09A0084B65E /* ScreenAPICoordinatorTests.swift */,
+				1F21C4111FCEB84B00A67265 /* TestUtils.swift */,
+				1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */,
 				1F286DA31FC56F30001C0DEF /* Supporting files */,
 			);
 			path = GiniVisionExampleUnitTests;
@@ -228,6 +233,7 @@
 		1F286DA31FC56F30001C0DEF /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				1F1C44091FCDB0AA0084B65E /* invoice.jpg */,
 				1F286D9A1FC56F11001C0DEF /* Info.plist */,
 			);
 			name = "Supporting files";
@@ -506,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F70B9701FC6F59E00930F35 /* DocumentService.swift in Sources */,
+				1F21C4141FCEF4FC00A67265 /* UINavigationController.swift in Sources */,
 				1F1C43EC1FCDACC50084B65E /* UIColor.swift in Sources */,
 				1F1C43F31FCDAD000084B65E /* PDFNoResultsViewController.swift in Sources */,
 				1F1C43EB1FCDACC50084B65E /* HelpCoordinator.swift in Sources */,
@@ -533,6 +540,7 @@
 			files = (
 				1F1C44071FCDB09B0084B65E /* HelpViewControllerTests.swift in Sources */,
 				1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */,
+				1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
 				1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */,
 				1F1C44061FCDB09B0084B65E /* HelpCoordinatorTests.swift in Sources */,

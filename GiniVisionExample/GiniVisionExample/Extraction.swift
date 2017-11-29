@@ -15,7 +15,20 @@ struct Extraction {
     let name: String
     var value: String
     
-    static let realNames: [String: String] = ["paymentRecipient": "Payment Recipient"]
+    static let realNames: [String: String] = [
+        "amountToPay": "Amount",
+        "paymentRecipient": "Payment Recipient",
+        "paymentReference": "Payment Reference",
+        "senderName": "Sender name",
+        "senderCity": "Sender city",
+        "senderStreet": "Sender street",
+        "senderPostalCode": "Sender postal code",
+        "invoiceId": "Invoice ID",
+        "docType": "Document type",
+        "paymentState": "Payment state",
+        "documentDate": "Document date",
+        "documentDomain": "Document domain"
+    ]
     
     init(key: String, name: String, value: String) {
         self.key = key

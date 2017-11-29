@@ -120,11 +120,6 @@ final class AppCoordinatorTests: XCTestCase {
                         "the animator should be an instance of HelpTransitionAnimator when poping")
     }
     
-    fileprivate func urlFromImage(named: String, fileExtension: String) -> URL? {
-        let testBundle = Bundle(for: type(of: self))
-        return testBundle.url(forResource: named, withExtension: fileExtension)
-    }
-    
     fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
         return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
     }

@@ -27,6 +27,7 @@ final class AppCoordinator: NSObject, Coordinator {
     lazy var appNavigationController: UINavigationController = {
         let navController = UINavigationController(rootViewController: self.mainViewController)
         navController.isNavigationBarHidden = true
+        navController.applyGiniStyle()
         navController.delegate = self
         return navController
     }()
@@ -37,24 +38,17 @@ final class AppCoordinator: NSObject, Coordinator {
         return mainViewController
     }()
 
-    lazy var resultViewController: ResultsViewController = {
-        let ibanExtraction = GINIExtraction(name: "iban", value: "DE 1234 5678 9123 4567", entity: "entity", box: [:])
-        let paymentRecipientExtraction = GINIExtraction(name: "paymentRecipient",
-                                                        value: "Rick Sanchez", entity: "entity", box: [:])
-        
-        let result: [String: GINIExtraction] = ["iban": ibanExtraction!,
-                                                "paymentRecipient": paymentRecipientExtraction!]
-        self.documentService.result = result
+    var resultViewController: ResultsViewController {
         let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: self.documentService))
         resultViewController.delegate = self
         return resultViewController
-    }()
-
-    lazy var pdfNoResultsViewController: PDFNoResultsViewController = {
+    }
+    
+    var pdfNoResultsViewController: PDFNoResultsViewController {
         let noResults = PDFNoResultsViewController(nibName: nil, bundle: nil)
         noResults.delegate = self
         return noResults
-    }()
+    }
     
     init(window: UIWindow, application: UIApplication) {
         self.window = window
@@ -102,7 +96,8 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
-        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument)
+        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
+                                                        documentService: documentService)
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
         appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
@@ -158,6 +153,10 @@ extension AppCoordinator: UINavigationControllerDelegate {
             transition.operation = operation
             transition.originPoint = mainViewController.helpButton.center
             return transition
+        }
+        
+        if toVC is MainViewController {
+            appNavigationController.isNavigationBarHidden = true
         }
         
         return nil
@@ -220,10 +219,12 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
         remove(childCoordinator: coordinator)
     }
     
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinish: ()) {
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: AnalysisResults) {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
-        viewControllers.append(pdfNoResultsViewController)
+        let viewController = documentService.hasExtractions ? resultViewController : pdfNoResultsViewController
+        viewControllers.append(viewController)
         appNavigationController.setViewControllers(viewControllers, animated: true)
+        appNavigationController.isNavigationBarHidden = false
         remove(childCoordinator: coordinator)
     }
 }
