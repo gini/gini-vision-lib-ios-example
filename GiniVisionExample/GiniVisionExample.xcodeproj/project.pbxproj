@@ -30,6 +30,7 @@
 		1F1C44131FCDB1A40084B65E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C44111FCDB1A40084B65E /* Localizable.strings */; };
 		1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4111FCEB84B00A67265 /* TestUtils.swift */; };
 		1F21C4141FCEF4FC00A67265 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */; };
+		1F21C4161FCF111700A67265 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C4151FCF111700A67265 /* Keys.plist */; };
 		1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D4C1FC338EC001C0DEF /* MainViewController.swift */; };
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
@@ -94,6 +95,7 @@
 		1F1C44151FCDB1B10084B65E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Extensions/es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F21C4111FCEB84B00A67265 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		1F21C4151FCF111700A67265 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */,
 				1F01FD3C1FC30D7100BAA47E /* Info.plist */,
 				1F01FD371FC30D7100BAA47E /* Assets.xcassets */,
+				1F21C4151FCF111700A67265 /* Keys.plist */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				1F1C43F21FCDAD000084B65E /* PDFNoResultsViewController.xib in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
 				1F1C44131FCDB1A40084B65E /* Localizable.strings in Resources */,
+				1F21C4161FCF111700A67265 /* Keys.plist in Resources */,
 				1F1C43F61FCDAD000084B65E /* HelpViewController.xib in Resources */,
 				1F9D11A41FC6B5E200BCE7E9 /* ResultsViewController.xib in Resources */,
 			);

@@ -37,9 +37,18 @@ final class DocumentService: DocumentServiceProtocol {
     var result: AnalysisResults = [:]
     var giniSDK: GiniSDK?
     
+    private lazy var credentials: (id: String?, password: String?) = {
+        var keys: NSDictionary?
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        return (keys?["client_id"] as? String, keys?["client_password"] as? String)
+    }()
+    
     init() {
-        let clientId = ProcessInfo.processInfo.environment["client_id"] ?? ""
-        let clientSecret = ProcessInfo.processInfo.environment["client_password"] ?? ""
+        let clientId = credentials.id
+        let clientSecret = credentials.password
+
         let domain = "giniexample.com"
         
         self.giniSDK = GINISDKBuilder.anonymousUser(withClientID: clientId,
