@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="GiniVisionExample" customModuleProvider="target">
             <connections>
+                <outlet property="appVersion" destination="mwm-qL-Wvw" id="yuQ-iu-Zhy"/>
                 <outlet property="helpButton" destination="8kF-JV-0KZ" id="Vif-Pw-Vwf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,6 +51,12 @@
                         <action selector="showHelp:" destination="-1" eventType="touchUpInside" id="MBU-3s-HQB"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-qL-Wvw">
+                    <rect key="frame" x="20" y="635" width="26.5" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.61960784313725492" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -58,6 +65,8 @@
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RQX-9F-CdU"/>
                 <constraint firstAttribute="bottom" secondItem="8kF-JV-0KZ" secondAttribute="bottom" constant="20" id="Thb-Ac-GYw"/>
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VyM-8q-U4b"/>
+                <constraint firstAttribute="bottom" secondItem="mwm-qL-Wvw" secondAttribute="bottom" constant="20" id="YgW-YG-cow"/>
+                <constraint firstItem="mwm-qL-Wvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aEZ-M9-8yk"/>
                 <constraint firstItem="BUL-Ou-pg5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hzp-fB-cHk"/>
             </constraints>
         </view>

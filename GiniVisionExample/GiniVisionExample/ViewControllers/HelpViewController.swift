@@ -23,7 +23,7 @@ final class HelpViewController: UIViewController {
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
     
     let versions: [HelpVersion] = [("GVL Version", AppVersion.gvlVersion),
-                                   ("App Version", AppVersion.appVersion)]
+                                   ("API SDK Version", AppVersion.apisdkVersion)]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
                              ("GVL Readme",

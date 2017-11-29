@@ -16,6 +16,11 @@ protocol MainViewControllerDelegate: class {
 final class MainViewController: UIViewController {
 
     @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var appVersion: UILabel! {
+        didSet {
+            appVersion.text = AppVersion.appVersion
+        }
+    }
     
     weak var delegate: MainViewControllerDelegate?
 
