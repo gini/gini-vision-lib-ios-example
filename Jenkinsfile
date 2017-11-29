@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Unit tests') {
       steps {
-        sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -destination \'platform=iOS Simulator,name=iPhone 6\' | /usr/local/bin/xcpretty -c'
+        sh 'xcodebuild test -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExampleUnitTests" -destination \'platform=iOS Simulator,name=iPhone 6\' | /usr/local/bin/xcpretty -c'
       }
     }
     stage('HockeyApp upload') {
