@@ -713,6 +713,7 @@
 				CODE_SIGN_ENTITLEMENTS = GiniVisionExample/GiniVisionExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
