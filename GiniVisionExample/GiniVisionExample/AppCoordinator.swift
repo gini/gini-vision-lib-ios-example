@@ -13,14 +13,16 @@ import AVFoundation
 import GiniVision
 
 final class AppCoordinator: NSObject, Coordinator {
-    var rootViewController: UIViewController {
-        return appNavigationController
-    }
+
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
     lazy var documentService: DocumentService = DocumentService()
     let application: UIApplication
     let transition = HelpTransitionAnimator()
+    
+    var rootViewController: UIViewController {
+        return appNavigationController
+    }
     
     lazy var appNavigationController: UINavigationController = {
         let navController = UINavigationController(rootViewController: self.mainViewController)
@@ -101,7 +103,6 @@ final class AppCoordinator: NSObject, Coordinator {
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument)
-
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
         appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
@@ -148,7 +149,12 @@ extension AppCoordinator: UINavigationControllerDelegate {
                               animationControllerFor operation: UINavigationControllerOperation,
                               from fromVC: UIViewController,
                               to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if childCoordinators.last is HelpCoordinator {
+        let helpFromVC = (fromVC as? ContainerNavigationController)?
+            .rootViewController.viewControllers.first as? HelpViewController
+        let helpToVC = (toVC as? ContainerNavigationController)?
+            .rootViewController.viewControllers.first as? HelpViewController
+        
+        if helpFromVC != nil || helpToVC != nil {
             transition.operation = operation
             transition.originPoint = mainViewController.helpButton.center
             return transition
