@@ -36,6 +36,7 @@ final class DocumentService: DocumentServiceProtocol {
     var pay5Parameters: [String] = ["paymentRecipient", "iban", "bic", "paymentReference", "amountToPay"]
     var result: AnalysisResults = [:]
     var giniSDK: GiniSDK?
+    var giniDocument: GINIDocument?
     let clientID = "client_id"
     let clientPassword = "client_password"
     
@@ -69,11 +70,8 @@ final class DocumentService: DocumentServiceProtocol {
         
         print("🔎 Started document analysis with size \(Double(visionDocument.data.count) / 1024.0)")
         
-        // Get current Gini SDK instance to upload image and process exctraction.
-        let sdk = giniSDK
-        
         // Create a document task manager to handle document tasks on the Gini API.
-        let manager = sdk?.documentTaskManager
+        let manager = self.giniSDK?.documentTaskManager
         
         // Create a file name for the document.
         let fileName = "exampleDocument"
@@ -82,9 +80,9 @@ final class DocumentService: DocumentServiceProtocol {
         var document: GINIDocument?
         
         // 1. Get session
-        _ = sdk?.sessionManager.getSession().continue({ (task: BFTask?) -> Any! in
+        _ = giniSDK?.sessionManager.getSession().continue({ (task: BFTask?) -> Any! in
             if task?.error != nil {
-                return sdk?.sessionManager.logIn()
+                return self.giniSDK?.sessionManager.logIn()
             }
             return task?.result
             
@@ -124,6 +122,7 @@ final class DocumentService: DocumentServiceProtocol {
             
             print("✅ Finished analysis process")
             self.result = (task?.result as? AnalysisResults) ?? [:]
+            self.giniDocument = document
             completion(self.result, document, task?.error)
             
             return nil
@@ -140,9 +139,48 @@ final class DocumentService: DocumentServiceProtocol {
         isAnalyzing = false
         isCancelled = true
         result = [:]
+        giniDocument = nil
     }
     
     func sendFeedback(withUpdatedResults results: AnalysisResults) {
         
+        _ = giniSDK?.sessionManager.getSession().continue({ (task: BFTask?) -> Any? in
+            if task?.error != nil {
+                return self.giniSDK?.sessionManager.logIn()
+            }
+            return task?.result
+            
+        }).continue(successBlock: { (_: BFTask?) -> AnyObject! in
+            
+            return self.giniDocument?.extractions
+            
+        }).continue(successBlock: { (task: BFTask?) -> AnyObject! in
+            
+            if let extractions = task?.result as? NSMutableDictionary {
+                results.forEach { result in
+                    extractions[result.key] = result.value
+                }
+                
+                let documentTaskManager = self.giniSDK?.documentTaskManager
+                
+                return documentTaskManager?.update(self.giniDocument)
+            }
+            
+            return nil
+
+        }).continue(successBlock: { (_: BFTask?) -> AnyObject! in
+            return self.giniDocument?.extractions
+            
+            // 5. Handle results
+        }).continue({ (task: BFTask?) -> AnyObject! in
+            if task?.error != nil {
+                print("Error sending feedback for document with id: ",
+                      String(describing: self.giniDocument?.documentId))
+                return nil
+            }
+            
+            print("🚀 Feedback sent")
+            return nil
+        })
     }
 }

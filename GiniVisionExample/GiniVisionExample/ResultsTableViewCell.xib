@@ -31,7 +31,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <action selector="changedValue:" destination="ALY-Ui-OaA" eventType="editingDidEnd" id="Nu3-hZ-Vvj"/>
+                            <action selector="changedValue:" destination="ALY-Ui-OaA" eventType="editingChanged" id="bmg-as-eIt"/>
                         </connections>
                     </textField>
                 </subviews>

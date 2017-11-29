@@ -47,7 +47,6 @@ final class ResultsViewModel: ResultsViewModelProtocol {
     }
     
     func parseSections(fromResults results: AnalysisResults) {
-        print(results)
         results.keys.forEach { key in
             if let result = results[key] {
                 let extraction = Extraction(giniExtraction: result)
