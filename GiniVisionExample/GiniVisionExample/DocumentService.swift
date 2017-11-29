@@ -32,23 +32,30 @@ final class DocumentService: DocumentServiceProtocol {
     var hasExtractions: Bool {
         return result.filter { pay5Parameters.contains($0.0) }.count > 0
     }
-
+    
     var pay5Parameters: [String] = ["paymentRecipient", "iban", "bic", "paymentReference", "amountToPay"]
     var result: AnalysisResults = [:]
     var giniSDK: GiniSDK?
+    let clientID = "client_id"
+    let clientPassword = "client_password"
     
     private lazy var credentials: (id: String?, password: String?) = {
         var keys: NSDictionary?
-        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
-            keys = NSDictionary(contentsOfFile: path)
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist"),
+            let keys = NSDictionary(contentsOfFile: path),
+            let client_id = keys[self.clientID] as? String,
+            let client_password = keys[self.clientPassword] as? String,
+            !client_id.isEmpty, !client_password.isEmpty {
+            
+            return (client_id, client_password)
         }
-        return (keys?["client_id"] as? String, keys?["client_password"] as? String)
+        return (ProcessInfo.processInfo.environment[self.clientID],
+                ProcessInfo.processInfo.environment[self.clientPassword])
     }()
     
     init() {
-        let clientId = credentials.id
-        let clientSecret = credentials.password
-
+        let clientId = credentials.id ?? ""
+        let clientSecret = credentials.password ?? ""
         let domain = "giniexample.com"
         
         self.giniSDK = GINISDKBuilder.anonymousUser(withClientID: clientId,
@@ -88,7 +95,7 @@ final class DocumentService: DocumentServiceProtocol {
                 print("❌ Canceled analysis process")
                 BFTask.cancelled()
             }
-
+            
             return manager?.createDocument(withFilename: fileName, from: visionDocument.data, docType: "")
             
             // 3. Get extractions from the document
@@ -126,7 +133,7 @@ final class DocumentService: DocumentServiceProtocol {
             self.isAnalyzing = false
             return nil
         })
-
+        
     }
     
     func cancelAnalysis() {
