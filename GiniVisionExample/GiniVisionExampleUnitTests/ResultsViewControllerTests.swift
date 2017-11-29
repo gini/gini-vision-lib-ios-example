@@ -90,7 +90,7 @@ final class ResultsViewControllerTests: XCTestCase {
         let cell = resultsViewController.tableView(resultsViewController.tableView,
                                                    cellForRowAt: indexPath) as? ResultsTableViewCell
         cell?.fieldValue.text = "New value"
-        cell?.fieldValue.sendActions(for: .editingDidEnd)
+        cell?.fieldValue.sendActions(for: .editingChanged)
         
         let itemModified = resultsViewController.model.extractions[indexPath.section].items[indexPath.row]
         

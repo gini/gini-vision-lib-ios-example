@@ -17,7 +17,7 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
     var documentService: DocumentServiceProtocol
     var feedBackSent: Bool = false
     var updatedAnalysisResults: AnalysisResults {
-        return documentService.result ?? [:]
+        return documentService.result
     }
 
     init(documentService: DocumentServiceProtocol = DocumentServiceMock()) {

@@ -68,6 +68,10 @@ extension ResultsViewController: UITableViewDataSource {
         cell?.fieldValue.text = model.extractions[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
+        
+        if indexPath.section == 0 {
+            cell?.fieldName.font = cell?.fieldName.font.withSize(20)
+        }
 
         return cell!
     }
