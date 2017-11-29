@@ -38,19 +38,13 @@ final class DocumentService: DocumentServiceProtocol {
     var giniSDK: GiniSDK?
     
     init() {
-        
-        // Prefer client credentials from settings before config file
-        let clientId = ""
-        let clientSecret = ""
+        let clientId = ProcessInfo.processInfo.environment["client_id"] ?? ""
+        let clientSecret = ProcessInfo.processInfo.environment["client_password"] ?? ""
         let domain = "giniexample.com"
         
-        // Set up GiniSDK with your credentials.
-        let builder = GINISDKBuilder.anonymousUser(withClientID: clientId,
-                                                   clientSecret: clientSecret,
-                                                   userEmailDomain: domain)
-        self.giniSDK = builder?.build()
-        
-        print("Gini Vision Library for iOS (\(GiniVision.versionString)) / Client id: \(clientId)")
+        self.giniSDK = GINISDKBuilder.anonymousUser(withClientID: clientId,
+                                                    clientSecret: clientSecret,
+                                                    userEmailDomain: domain).build()
     }
     
     func analyze(visionDocument: GiniVisionDocument, completion: @escaping  DocumentAnalysisCompletion) {
