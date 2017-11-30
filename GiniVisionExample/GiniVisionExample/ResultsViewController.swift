@@ -69,9 +69,8 @@ extension ResultsViewController: UITableViewDataSource {
         cell?.delegate = self
         cell?.indexPath = indexPath
         
-        if indexPath.section == 0 {
-            cell?.fieldName.font = cell?.fieldName.font.withSize(20)
-        }
+        let fontSize: CGFloat = indexPath.section == 0 ? 20.0 : 16.0
+        cell?.fieldName.font = cell?.fieldName.font.withSize(fontSize)
 
         return cell!
     }

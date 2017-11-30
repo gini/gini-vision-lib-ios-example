@@ -66,11 +66,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obm-TL-2px">
-                    <rect key="frame" x="16" y="587" width="343" height="60"/>
+                    <rect key="frame" x="17.5" y="587" width="340" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="pV0-1c-TKa"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="340" id="v04-4g-3Qu"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="340" id="v04-4g-3Qu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
@@ -195,13 +195,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="obm-TL-2px" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="66H-n5-zUB"/>
+                <constraint firstItem="obm-TL-2px" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" priority="999" constant="16" id="66H-n5-zUB"/>
                 <constraint firstItem="gqC-gf-1o1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="HQt-M4-j8I"/>
                 <constraint firstItem="gqC-gf-1o1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OAC-h4-bfX"/>
                 <constraint firstAttribute="trailing" secondItem="gqC-gf-1o1" secondAttribute="trailing" id="Ple-xV-ctB"/>
                 <constraint firstItem="faN-SI-X25" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="X8F-4d-2Hd"/>
                 <constraint firstAttribute="trailing" secondItem="faN-SI-X25" secondAttribute="trailing" constant="16" id="aT6-2T-lSy"/>
-                <constraint firstAttribute="trailing" secondItem="obm-TL-2px" secondAttribute="trailing" constant="16" id="aVA-Od-F4U"/>
+                <constraint firstAttribute="trailing" secondItem="obm-TL-2px" secondAttribute="trailing" priority="999" constant="16" id="aVA-Od-F4U"/>
                 <constraint firstAttribute="bottomMargin" secondItem="obm-TL-2px" secondAttribute="bottom" constant="20" id="haw-Hg-nP2"/>
                 <constraint firstItem="faN-SI-X25" firstAttribute="top" secondItem="gqC-gf-1o1" secondAttribute="bottom" constant="16" id="oMz-Sk-ABa"/>
                 <constraint firstItem="obm-TL-2px" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wwJ-fI-mSj"/>
