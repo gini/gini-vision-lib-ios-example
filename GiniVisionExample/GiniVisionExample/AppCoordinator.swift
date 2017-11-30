@@ -198,7 +198,7 @@ extension AppCoordinator: HelpCoordinatorDelegate {
 
 extension AppCoordinator: PDFNoResultsViewControllerDelegate {
     func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ()) {
-        appNavigationController.pushViewController(resultViewController, animated: true)
+        appNavigationController.popToRootViewController(animated: true)
     }
 }
 

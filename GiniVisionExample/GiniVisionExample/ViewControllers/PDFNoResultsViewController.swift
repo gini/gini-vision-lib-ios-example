@@ -13,7 +13,23 @@ protocol PDFNoResultsViewControllerDelegate: class {
 }
 
 final class PDFNoResultsViewController: UIViewController {
-
+    
+    @IBOutlet weak var firstTipImage: UIButton! {
+        didSet {
+            firstTipImage.layer.cornerRadius = firstTipImage.frame.width / 2
+        }
+    }
+    @IBOutlet weak var secondTipImage: UIButton! {
+        didSet {
+            secondTipImage.layer.cornerRadius = secondTipImage.frame.width / 2
+        }
+    }
+    @IBOutlet weak var thirdTipImage: UIButton! {
+        didSet {
+            thirdTipImage.layer.cornerRadius = thirdTipImage.frame.width / 2
+        }
+    }
+    
     weak var delegate: PDFNoResultsViewControllerDelegate?
     
     @IBAction func startOver(_ sender: Any) {
