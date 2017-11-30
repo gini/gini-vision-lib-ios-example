@@ -7,8 +7,8 @@
 //
 
 import Foundation
-@testable import Gini_iOS_SDK
-@testable import GiniVision
+import Gini_iOS_SDK
+import GiniVision
 
 typealias AnalysisResults = [String: GINIExtraction]
 typealias DocumentAnalysisCompletion = ((AnalysisResults?, GINIDocument?, Error?) -> Void)

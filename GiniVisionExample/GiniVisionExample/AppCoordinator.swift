@@ -120,17 +120,16 @@ final class AppCoordinator: NSObject, Coordinator {
     fileprivate func showCameraPermissionDeniedError() {
         let alertMessage = NSLocalizedString("camera.permissions.denied.title",
                                              comment: "camera permissions denied message title")
-        
-        let alertViewController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
-        
         let cancelTitle = NSLocalizedString("abbrechen",
                                             comment: "camera permissions cancel option title")
+        let grantAccessTitle = NSLocalizedString("camera.permissions.denied.granpermissions.button",
+                                                 comment: "camera permissions gran access option title")
+        let alertViewController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+
         alertViewController.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: { _ in
             alertViewController.dismiss(animated: true, completion: nil)
         }))
-        
-        let grantAccessTitle = NSLocalizedString("camera.permissions.denied.granpermissions.button",
-                                            comment: "camera permissions gran access option title")
+
         alertViewController.addAction(UIAlertAction(title: grantAccessTitle,
                                                     style: .default, handler: { [weak self] _ in
             alertViewController.dismiss(animated: true, completion: nil)
@@ -143,6 +142,7 @@ final class AppCoordinator: NSObject, Coordinator {
     fileprivate func showExternalDocumentNotValidDialog() {
         let title = NSLocalizedString("notvalid.document.title", comment: "alert title when document invalid")
         let message = NSLocalizedString("notvalid.document.message", comment: "alert message when document invalid")
+        
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
             alertViewController.dismiss(animated: true, completion: nil)
