@@ -74,7 +74,7 @@ final class AppCoordinator: NSObject, Coordinator {
             try document?.validate()
             showScreenAPI(withImportedDocument: document)
         } catch {
-            
+            showExternalDocumentNotValidDialog()
         }
     }
     
@@ -136,6 +136,17 @@ final class AppCoordinator: NSObject, Coordinator {
             alertViewController.dismiss(animated: true, completion: nil)
             self?.application.openAppSettings()
         }))
+        
+        rootViewController.present(alertViewController, animated: true, completion: nil)
+    }
+    
+    fileprivate func showExternalDocumentNotValidDialog() {
+        let title = NSLocalizedString("notvalid.document.title", comment: "alert title when document invalid")
+        let message = NSLocalizedString("notvalid.document.message", comment: "alert message when document invalid")
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            alertViewController.dismiss(animated: true, completion: nil)
+        })
         
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }

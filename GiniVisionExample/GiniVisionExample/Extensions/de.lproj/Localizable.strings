@@ -14,3 +14,5 @@
 "camera.permissions.denied.granpermissions.button" = "Zugriff erteilen";
 "noresults.pdf.screen.title" = "Keine PDF Ergebnisse";
 "results.screen.title" = "Ergebnisse";
+"notvalid.document.title" = "Ungültiges Dokument";
+"notvalid.document.message" = "Dies ist kein gültiges Dokument";
