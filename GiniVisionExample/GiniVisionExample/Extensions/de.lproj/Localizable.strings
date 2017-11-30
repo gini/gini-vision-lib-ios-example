@@ -12,3 +12,4 @@
 "help.screen.close.button" = "Schließen";
 "camera.permissions.denied.title" = "Um gespeicherte Bilder zu analysieren, wird Zugriff auf Ihre Camera.";
 "camera.permissions.denied.granpermissions.button" = "Zugriff erteilen";
+"noresults.pdf.screen.title" = "Keine PDF Ergebnisse";

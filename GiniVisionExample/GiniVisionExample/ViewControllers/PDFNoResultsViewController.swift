@@ -35,4 +35,9 @@ final class PDFNoResultsViewController: UIViewController {
     @IBAction func startOver(_ sender: Any) {
         delegate?.pdfNoResults(viewController: self, didTapStartOver: ())
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = NSLocalizedString("noresults.pdf.screen.title", comment: "title for pdf no results screen")
+    }
 }
