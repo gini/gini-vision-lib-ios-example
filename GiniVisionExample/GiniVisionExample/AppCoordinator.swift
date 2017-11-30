@@ -118,15 +118,20 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     fileprivate func showCameraPermissionDeniedError() {
-        let alertMessage = "Um gespeicherte Bilder zu analysieren, wird Zugriff auf Ihre Camera."
+        let alertMessage = NSLocalizedString("camera.permissions.denied.title",
+                                             comment: "camera permissions denied message title")
         
         let alertViewController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
         
-        alertViewController.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: { _ in
+        let cancelTitle = NSLocalizedString("abbrechen",
+                                            comment: "camera permissions cancel option title")
+        alertViewController.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: { _ in
             alertViewController.dismiss(animated: true, completion: nil)
         }))
         
-        alertViewController.addAction(UIAlertAction(title: "Zugriff erteilen",
+        let grantAccessTitle = NSLocalizedString("camera.permissions.denied.granpermissions.button",
+                                            comment: "camera permissions gran access option title")
+        alertViewController.addAction(UIAlertAction(title: grantAccessTitle,
                                                     style: .default, handler: { [weak self] _ in
             alertViewController.dismiss(animated: true, completion: nil)
             self?.application.openAppSettings()

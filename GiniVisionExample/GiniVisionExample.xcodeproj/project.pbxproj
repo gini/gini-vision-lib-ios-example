@@ -92,8 +92,6 @@
 		1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1F1C44091FCDB0AA0084B65E /* invoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = invoice.jpg; path = GiniVisionExampleUnitTests/invoice.jpg; sourceTree = SOURCE_ROOT; };
 		1F1C44121FCDB1A40084B65E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Extensions/de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1F1C44141FCDB1AB0084B65E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Extensions/en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1F1C44151FCDB1B10084B65E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Extensions/es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F21C4111FCEB84B00A67265 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		1F21C4151FCF111700A67265 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -577,8 +575,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F1C44121FCDB1A40084B65E /* de */,
-				1F1C44141FCDB1AB0084B65E /* en */,
-				1F1C44151FCDB1B10084B65E /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
