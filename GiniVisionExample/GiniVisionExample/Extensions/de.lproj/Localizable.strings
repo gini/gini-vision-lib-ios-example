@@ -8,6 +8,8 @@
 
 
 "abbrechen" = "Abbrechen";
+"fertig" = "Fertig";
+
 "help.screen.title" = "Hilfe";
 "help.screen.close.button" = "Schließen";
 "camera.permissions.denied.title" = "Um gespeicherte Bilder zu analysieren, wird Zugriff auf Ihre Camera.";

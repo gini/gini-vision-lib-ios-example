@@ -15,7 +15,7 @@ struct Extraction {
     let name: String
     var value: String
     
-    static let realNames: [String: String] = [
+    static let extractionDisplayNames: [String: String] = [
         "amountToPay": "Amount",
         "paymentRecipient": "Payment Recipient",
         "paymentReference": "Payment Reference",
@@ -50,7 +50,7 @@ struct Extraction {
     }
     
     init(giniExtraction: GINIExtraction) {
-        let name = Extraction.realNames[giniExtraction.name] ?? giniExtraction.name.uppercased()
+        let name = Extraction.extractionDisplayNames[giniExtraction.name] ?? giniExtraction.name.uppercased()
         self.init(key: giniExtraction.name, name: name, value: giniExtraction.value)
     }
 

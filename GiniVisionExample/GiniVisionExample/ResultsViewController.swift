@@ -40,7 +40,7 @@ final class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         title = NSLocalizedString("results.screen.title", comment: "results screens title")
         navigationItem.setHidesBackButton(true, animated: false)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("fertig", comment: "fertig"),
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(done(_:)))
