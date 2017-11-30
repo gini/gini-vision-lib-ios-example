@@ -39,7 +39,7 @@ final class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         navigationItem.setHidesBackButton(true, animated: false)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig",
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(done(_:)))

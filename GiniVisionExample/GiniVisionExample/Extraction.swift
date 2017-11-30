@@ -23,11 +23,24 @@ struct Extraction {
         "senderCity": "Sender city",
         "senderStreet": "Sender street",
         "senderPostalCode": "Sender postal code",
+        "senderNameAddition": "Sender name addition",
+        "senderPoBox": "Sender po box",
         "invoiceId": "Invoice ID",
         "docType": "Document type",
         "paymentState": "Payment state",
         "documentDate": "Document date",
-        "documentDomain": "Document domain"
+        "documentDomain": "Document domain",
+        "companyRegisterId": "Company register ID",
+        "bankAccountNumber": "Bank account number",
+        "bankNumber": "Bank number",
+        "customerId": "Customer ID",
+        "email": "Email",
+        "paymentDueDate": "Payment due date",
+        "paymentPurpose": "Payment purpose",
+        "phoneNumber": "Phone number",
+        "taxNumber": "Tax number",
+        "vatRegNumber": "VAT Reg Number",
+        "website": "Website"
     ]
     
     init(key: String, name: String, value: String) {
