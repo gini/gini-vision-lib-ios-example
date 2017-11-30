@@ -16,20 +16,15 @@ final class HelpCoordinator: NSObject, Coordinator {
     
     weak var delegate: HelpCoordinatorDelegate?
     var rootViewController: UIViewController {
-        return navigationController
+        return ContainerNavigationController(rootViewController: navigationController)
     }
     var childCoordinators: [Coordinator] = []
     
     lazy var navigationController: UINavigationController = {
         let nav = UINavigationController(rootViewController: self.helpViewController)
-        nav.navigationBar.barTintColor = .giniBlue
-        nav.navigationBar.tintColor = .white
-        var attributes = nav.navigationBar.titleTextAttributes ?? [String: AnyObject]()
-        attributes[NSForegroundColorAttributeName] = UIColor.white
-        nav.navigationBar.titleTextAttributes = attributes
-        
+        nav.applyGiniStyle()
         if #available(iOS 11.0, *) {
-            nav.navigationBar.largeTitleTextAttributes = attributes
+            nav.navigationBar.largeTitleTextAttributes = nav.navigationBar.titleTextAttributes
             nav.navigationBar.prefersLargeTitles = true
         }
         return nav
@@ -46,8 +41,9 @@ final class HelpCoordinator: NSObject, Coordinator {
     func loadWebView(withLink link: HelpLink) {
         if let itemUrl = link.url {
             guard let webViewController = webViewController else {
-                navigationController.pushViewController(WebViewController(title: link.title,
-                                                                          url: itemUrl), animated: true)
+                self.webViewController = WebViewController(title: link.title,
+                                                      url: itemUrl)
+                navigationController.pushViewController(self.webViewController!, animated: true)
                 return
             }
             webViewController.title = link.title

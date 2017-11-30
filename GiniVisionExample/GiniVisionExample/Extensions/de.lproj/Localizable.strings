@@ -6,5 +6,15 @@
   Copyright © 2017 Gini. All rights reserved.
 */
 
+
+"abbrechen" = "Abbrechen";
+"fertig" = "Fertig";
+
 "help.screen.title" = "Hilfe";
 "help.screen.close.button" = "Schließen";
+"camera.permissions.denied.title" = "Um gespeicherte Bilder zu analysieren, wird Zugriff auf Ihre Camera.";
+"camera.permissions.denied.granpermissions.button" = "Zugriff erteilen";
+"noresults.pdf.screen.title" = "Keine PDF Ergebnisse";
+"results.screen.title" = "Ergebnisse";
+"notvalid.document.title" = "Ungültiges Dokument";
+"notvalid.document.message" = "Dies ist kein gültiges Dokument";

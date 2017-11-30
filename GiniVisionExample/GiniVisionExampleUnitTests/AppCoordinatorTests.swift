@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AVFoundation
 @testable import GiniVisionExample
 @testable import Gini_iOS_SDK
 
@@ -16,7 +17,8 @@ final class AppCoordinatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds))
+        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds),
+                                        application: UIApplication.shared)
     }
     
     func testInitialization() {
@@ -35,6 +37,12 @@ final class AppCoordinatorTests: XCTestCase {
         appCoordinator.start()
         XCTAssertNotNil(appCoordinator.mainViewController.delegate as? AppCoordinator,
                         "main view controller delegate should be an instance of AppCoordinator")
+    }
+    
+    func testNavigationControllerDelegate() {
+        appCoordinator.start()
+        XCTAssertNotNil(appCoordinator.appNavigationController.delegate as? AppCoordinator,
+                        "app navigation view controller delegate should be an instance of AppCoordinator")
     }
     
     func testChildCoordinatorCountWhenHelpShown() {
@@ -65,10 +73,6 @@ final class AppCoordinatorTests: XCTestCase {
                      "help coordinator should not longer exist after dismiss help view controller")
     }
     
-    fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
-        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
-    }
-    
     func testPDFNoResultsViewControllerDelegateAfterInitialization() {
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapStartAnalysis: ())
         
@@ -82,9 +86,41 @@ final class AppCoordinatorTests: XCTestCase {
                                                                                    entity: "entity",
                                                                                    box: [:])!]
         appCoordinator.documentService.result = result
-        let resultsViewController = appCoordinator.resultViewController!
+        let resultsViewController = appCoordinator.resultViewController
         XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
                        "resultsViewController delegate should be an instance of AppCoordinator")
     }
     
+    func testOpenWithImport() {
+        let url = urlFromImage(named: "invoice", fileExtension: "jpg")!
+        appCoordinator.processExternalDocument(withUrl: url, sourceApplication: "testTarget")
+        
+        let screenAPICoordinator = appCoordinator.childCoordinators.flatMap { $0 as? ScreenAPICoordinator }.first
+        XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
+        
+    }
+    
+    func testHelpAnimationWhenShowHelp() {
+        appCoordinator.start()
+        _ = appCoordinator.mainViewController.view
+        appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
+        let helpViewController = childCoordinator(ofType: HelpCoordinator.self)!.rootViewController
+        let animatorPush = appCoordinator.navigationController(appCoordinator.appNavigationController,
+                                                               animationControllerFor: .push,
+                                                               from: appCoordinator.mainViewController,
+                                                               to: helpViewController)
+        let animatorPop = appCoordinator.navigationController(appCoordinator.appNavigationController,
+                                                              animationControllerFor: .pop,
+                                                              from: helpViewController,
+                                                              to: appCoordinator.mainViewController)
+        
+        XCTAssertNotNil(animatorPush as? HelpTransitionAnimator,
+                        "the animator should be an instance of HelpTransitionAnimator when pushing")
+        XCTAssertNotNil(animatorPop as? HelpTransitionAnimator,
+                        "the animator should be an instance of HelpTransitionAnimator when poping")
+    }
+    
+    fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
+        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
+    }
 }

@@ -24,7 +24,7 @@ final class HelpCoordinatorTests: XCTestCase {
     }
     
     func testRootViewControllerType() {
-        XCTAssertNotNil(helpCoordinator.rootViewController as? UINavigationController,
+        XCTAssertNotNil(helpCoordinator.rootViewController as? ContainerNavigationController,
                         "the root view controller should be a navigation controller")
     }
     

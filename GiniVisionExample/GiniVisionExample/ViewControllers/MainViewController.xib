@@ -6,23 +6,32 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="GiniVisionExample" customModuleProvider="target">
             <connections>
+                <outlet property="analyzeButton" destination="vqR-eF-Krh" id="MKe-x0-dpv"/>
+                <outlet property="appVersion" destination="mwm-qL-Wvw" id="yuQ-iu-Zhy"/>
+                <outlet property="helpButton" destination="8kF-JV-0KZ" id="Vif-Pw-Vwf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqR-eF-Krh">
-                    <rect key="frame" x="116.5" y="313.5" width="141" height="39"/>
+                    <rect key="frame" x="86" y="309.5" width="202" height="47"/>
+                    <color key="backgroundColor" red="0.1019607843" green="0.8862745098" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="ZAC-K9-D54"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                    <state key="normal" title="Start analysis">
+                    <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                    <state key="normal" title="Analyse starten">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -30,30 +39,40 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Ou-pg5">
-                    <rect key="frame" x="67" y="60" width="240" height="128"/>
+                    <rect key="frame" x="67" y="80" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="MxP-pq-Maz"/>
                         <constraint firstAttribute="width" constant="240" id="na7-kF-89c"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kF-JV-0KZ">
-                    <rect key="frame" x="323" y="617" width="32" height="30"/>
-                    <state key="normal" title="Help">
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kF-JV-0KZ">
+                    <rect key="frame" x="333" y="625" width="22" height="22"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="showHelp:" destination="-1" eventType="touchUpInside" id="MBU-3s-HQB"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-qL-Wvw">
+                    <rect key="frame" x="20" y="635" width="26.5" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.61960784313725492" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.61960784313725492" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8kF-JV-0KZ" secondAttribute="trailing" constant="20" id="01o-lR-DZC"/>
-                <constraint firstItem="vqR-eF-Krh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RQX-9F-CdU"/>
+                <constraint firstItem="BUL-Ou-pg5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="60" id="7Ms-ZT-ANG"/>
+                <constraint firstItem="vqR-eF-Krh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" priority="999" id="RQX-9F-CdU"/>
+                <constraint firstItem="vqR-eF-Krh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BUL-Ou-pg5" secondAttribute="bottom" constant="60" id="SvN-eT-57A"/>
                 <constraint firstAttribute="bottom" secondItem="8kF-JV-0KZ" secondAttribute="bottom" constant="20" id="Thb-Ac-GYw"/>
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VyM-8q-U4b"/>
+                <constraint firstAttribute="bottom" secondItem="mwm-qL-Wvw" secondAttribute="bottom" constant="20" id="YgW-YG-cow"/>
+                <constraint firstItem="mwm-qL-Wvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aEZ-M9-8yk"/>
                 <constraint firstItem="BUL-Ou-pg5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hzp-fB-cHk"/>
-                <constraint firstItem="BUL-Ou-pg5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="tf4-6q-khx"/>
             </constraints>
         </view>
     </objects>

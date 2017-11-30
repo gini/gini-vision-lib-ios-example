@@ -27,7 +27,7 @@ final class ResultsViewController: UIViewController {
         }
     }
     
-    @IBAction func done(_ sender: Any) {
+    func done(_ sender: Any) {
         model.sendFeedBack()
         delegate?.results(viewController: self, didTapDone: ())
     }
@@ -35,6 +35,15 @@ final class ResultsViewController: UIViewController {
     init(model: ResultsViewModelProtocol) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewDidLoad() {
+        title = NSLocalizedString("results.screen.title", comment: "results screens title")
+        navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("fertig", comment: "fertig"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(done(_:)))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,6 +69,9 @@ extension ResultsViewController: UITableViewDataSource {
         cell?.fieldValue.text = model.extractions[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
+        
+        let fontSize: CGFloat = indexPath.section == 0 ? 20.0 : 16.0
+        cell?.fieldName.font = cell?.fieldName.font.withSize(fontSize)
 
         return cell!
     }

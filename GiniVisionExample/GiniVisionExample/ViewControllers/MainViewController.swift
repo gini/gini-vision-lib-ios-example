@@ -15,6 +15,22 @@ protocol MainViewControllerDelegate: class {
 
 final class MainViewController: UIViewController {
 
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var analyzeButton: UIButton! {
+        didSet {
+            analyzeButton.layer.shadowColor = UIColor.black.cgColor
+            analyzeButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+            analyzeButton.layer.shadowRadius = 2
+            analyzeButton.layer.shadowOpacity = 0.2
+            analyzeButton.layer.masksToBounds = false
+        }
+    }
+    @IBOutlet weak var appVersion: UILabel! {
+        didSet {
+            appVersion.text = AppVersion.appVersion
+        }
+    }
+    
     weak var delegate: MainViewControllerDelegate?
 
     @IBAction func startAnalysis(_ sender: Any) {

@@ -22,71 +22,45 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="axU-f0-BVf">
-                    <rect key="frame" x="0.0" y="102" width="375" height="565"/>
+                    <rect key="frame" x="0.0" y="71.5" width="375" height="595.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nou-8a-j5B">
-                    <rect key="frame" x="0.0" y="20" width="375" height="82"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="51.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYo-MI-cU5" userLabel="Done">
-                            <rect key="frame" x="323" y="8" width="36" height="29"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                            <state key="normal" title="Done">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="done:" destination="-1" eventType="touchUpInside" id="9DP-tT-b8J"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-hb-jWp">
-                            <rect key="frame" x="16" y="45" width="343" height="21"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-QI-itr">
-                                    <rect key="frame" x="0.0" y="-4.5" width="30" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="fVC-Es-ZhR"/>
-                                        <constraint firstAttribute="height" constant="30" id="zQV-p0-OLx"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6A-kf-wmn">
-                                    <rect key="frame" x="38" y="0.0" width="305" height="21"/>
-                                    <string key="text">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ergebnisse die für Zahlungsüberweisungen wichtig sind befinden sich am Anfang der Liste. Bitte überprüfen Sie die Ergebnisse." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6A-kf-wmn">
+                            <rect key="frame" x="24" y="16" width="327" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTH-Xx-Y5r">
+                            <rect key="frame" x="0.0" y="51" width="375" height="0.5"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="ygg-QI-itr" firstAttribute="leading" secondItem="WPL-hb-jWp" secondAttribute="leading" id="Dim-b2-ZlK"/>
-                                <constraint firstItem="U6A-kf-wmn" firstAttribute="leading" secondItem="ygg-QI-itr" secondAttribute="trailing" constant="8" id="NqP-e9-b6U"/>
-                                <constraint firstItem="U6A-kf-wmn" firstAttribute="top" secondItem="WPL-hb-jWp" secondAttribute="top" id="Yel-4b-aeQ"/>
-                                <constraint firstAttribute="trailing" secondItem="U6A-kf-wmn" secondAttribute="trailing" id="eA2-xs-7e9"/>
-                                <constraint firstAttribute="bottom" secondItem="U6A-kf-wmn" secondAttribute="bottom" id="uaG-zV-nWp"/>
-                                <constraint firstItem="ygg-QI-itr" firstAttribute="centerY" secondItem="WPL-hb-jWp" secondAttribute="centerY" id="ul6-fR-9Zx"/>
+                                <constraint firstAttribute="height" constant="0.5" id="jAn-IL-fzf"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="WPL-hb-jWp" firstAttribute="top" secondItem="VYo-MI-cU5" secondAttribute="bottom" constant="8" id="JiD-RE-Mj8"/>
-                        <constraint firstAttribute="bottom" secondItem="WPL-hb-jWp" secondAttribute="bottom" constant="16" id="RbD-NQ-8ps"/>
-                        <constraint firstItem="VYo-MI-cU5" firstAttribute="top" secondItem="nou-8a-j5B" secondAttribute="top" constant="8" id="XuC-zP-8J9"/>
-                        <constraint firstItem="WPL-hb-jWp" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leading" constant="16" id="cm9-tr-Gtz"/>
-                        <constraint firstAttribute="trailing" secondItem="WPL-hb-jWp" secondAttribute="trailing" constant="16" id="e8o-n8-pnZ"/>
-                        <constraint firstAttribute="trailing" secondItem="VYo-MI-cU5" secondAttribute="trailing" constant="16" id="yFs-v8-3qi"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="U6A-kf-wmn" secondAttribute="trailing" constant="16" id="2po-yV-d31"/>
+                        <constraint firstItem="U6A-kf-wmn" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leadingMargin" constant="16" id="Ccl-s5-q30"/>
+                        <constraint firstAttribute="bottom" secondItem="U6A-kf-wmn" secondAttribute="bottom" constant="16" id="ePK-Il-5lY"/>
+                        <constraint firstItem="VTH-Xx-Y5r" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leading" id="h7W-fb-yml"/>
+                        <constraint firstItem="U6A-kf-wmn" firstAttribute="top" secondItem="nou-8a-j5B" secondAttribute="top" constant="16" id="rcn-AC-Mon"/>
+                        <constraint firstAttribute="bottom" secondItem="VTH-Xx-Y5r" secondAttribute="bottom" id="slW-MC-8je"/>
+                        <constraint firstAttribute="trailing" secondItem="VTH-Xx-Y5r" secondAttribute="trailing" id="xxG-of-szT"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.61960784313725492" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="axU-f0-BVf" secondAttribute="trailing" id="1nb-hF-v1R"/>
                 <constraint firstItem="axU-f0-BVf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gyv-8Z-1QC"/>
                 <constraint firstAttribute="bottom" secondItem="axU-f0-BVf" secondAttribute="bottom" id="Y5K-GH-Z1f"/>
-                <constraint firstItem="nou-8a-j5B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="Zjb-AA-bcc"/>
                 <constraint firstItem="nou-8a-j5B" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="aUF-kO-Txj"/>
                 <constraint firstItem="nou-8a-j5B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cgs-9M-1Sl"/>
                 <constraint firstItem="axU-f0-BVf" firstAttribute="top" secondItem="nou-8a-j5B" secondAttribute="bottom" id="mLL-j0-iaW"/>
+                <constraint firstItem="nou-8a-j5B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="pb4-Hd-Vsz"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>

@@ -15,8 +15,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds))
+        appCoordinator = AppCoordinator(window: UIWindow(frame: UIScreen.main.bounds), application: application)
         appCoordinator.start()
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        appCoordinator.processExternalDocument(withUrl: url, sourceApplication: sourceApplication)
         return true
     }
 
