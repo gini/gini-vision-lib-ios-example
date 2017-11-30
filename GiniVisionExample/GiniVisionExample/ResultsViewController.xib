@@ -22,19 +22,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="axU-f0-BVf">
-                    <rect key="frame" x="0.0" y="109.5" width="375" height="557.5"/>
+                    <rect key="frame" x="0.0" y="71.5" width="375" height="595.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nou-8a-j5B">
-                    <rect key="frame" x="0.0" y="20" width="375" height="89.5"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="51.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ergebnisse die für Zahlungsüberweisungen wichtig sind befinden sich am Anfang der Liste. Bitte überprüfen Sie die Ergebnisse." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6A-kf-wmn">
-                            <rect key="frame" x="16" y="16" width="343" height="57.5"/>
+                            <rect key="frame" x="24" y="16" width="327" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTH-Xx-Y5r">
-                            <rect key="frame" x="0.0" y="89" width="375" height="0.5"/>
+                            <rect key="frame" x="0.0" y="51" width="375" height="0.5"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="jAn-IL-fzf"/>
@@ -43,8 +43,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="U6A-kf-wmn" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leading" constant="16" id="JnV-LQ-45h"/>
-                        <constraint firstAttribute="trailing" secondItem="U6A-kf-wmn" secondAttribute="trailing" constant="16" id="Sxv-9e-yCc"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="U6A-kf-wmn" secondAttribute="trailing" constant="16" id="2po-yV-d31"/>
+                        <constraint firstItem="U6A-kf-wmn" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leadingMargin" constant="16" id="Ccl-s5-q30"/>
                         <constraint firstAttribute="bottom" secondItem="U6A-kf-wmn" secondAttribute="bottom" constant="16" id="ePK-Il-5lY"/>
                         <constraint firstItem="VTH-Xx-Y5r" firstAttribute="leading" secondItem="nou-8a-j5B" secondAttribute="leading" id="h7W-fb-yml"/>
                         <constraint firstItem="U6A-kf-wmn" firstAttribute="top" secondItem="nou-8a-j5B" secondAttribute="top" constant="16" id="rcn-AC-Mon"/>
