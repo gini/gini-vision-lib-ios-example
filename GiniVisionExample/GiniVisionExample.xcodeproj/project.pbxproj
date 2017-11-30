@@ -31,6 +31,7 @@
 		1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4111FCEB84B00A67265 /* TestUtils.swift */; };
 		1F21C4141FCEF4FC00A67265 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */; };
 		1F21C4161FCF111700A67265 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C4151FCF111700A67265 /* Keys.plist */; };
+		1F21C4181FCFEE0400A67265 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4171FCFEE0300A67265 /* RootNavigationController.swift */; };
 		1F286D4E1FC338EC001C0DEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D4C1FC338EC001C0DEF /* MainViewController.swift */; };
 		1F286D4F1FC338EC001C0DEF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F286D4D1FC338EC001C0DEF /* MainViewController.xib */; };
 		1F286D531FC418F6001C0DEF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D521FC418F6001C0DEF /* Coordinator.swift */; };
@@ -96,6 +97,7 @@
 		1F21C4111FCEB84B00A67265 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		1F21C4151FCF111700A67265 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		1F21C4171FCFEE0300A67265 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GiniVisionExample.entitlements; sourceTree = "<group>"; };
 		1F286D4C1FC338EC001C0DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		1F286D4D1FC338EC001C0DEF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
@@ -184,9 +186,11 @@
 				1F9D11A71FC6BC6400BCE7E9 /* ResultsTableViewCell.swift */,
 				1F9D11A11FC6B5E200BCE7E9 /* ResultsViewController.swift */,
 				1F70B96D1FC6F56700930F35 /* ResultsViewModel.swift */,
+				1F21C4171FCFEE0300A67265 /* RootNavigationController.swift */,
 				1F1C43F91FCDB0050084B65E /* ScreenAPICoordinator.swift */,
 				1F1C43FA1FCDB0050084B65E /* UIApplication.swift */,
 				1F1C43E91FCDACC50084B65E /* UIColor.swift */,
+				1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */,
 				1F1C43F01FCDAD000084B65E /* WebViewController.swift */,
 				1F1C43F11FCDAD000084B65E /* HelpViewController.xib */,
 				1F286D631FC45C6A001C0DEF /* LaunchScreen.xib */,
@@ -195,7 +199,6 @@
 				1F9D11AB1FC6CF8D00BCE7E9 /* ResultsTableViewCell.xib */,
 				1F9D11A21FC6B5E200BCE7E9 /* ResultsViewController.xib */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
-				1F21C4131FCEF4FC00A67265 /* UINavigationController.swift */,
 			);
 			path = GiniVisionExample;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				1F1C43EC1FCDACC50084B65E /* UIColor.swift in Sources */,
 				1F1C43F31FCDAD000084B65E /* PDFNoResultsViewController.swift in Sources */,
 				1F1C43EB1FCDACC50084B65E /* HelpCoordinator.swift in Sources */,
+				1F21C4181FCFEE0400A67265 /* RootNavigationController.swift in Sources */,
 				1F70B9781FC81E7200930F35 /* Extraction.swift in Sources */,
 				1F1C43EA1FCDACC50084B65E /* AppVersion.swift in Sources */,
 				1F286D551FC4193A001C0DEF /* AppCoordinator.swift in Sources */,

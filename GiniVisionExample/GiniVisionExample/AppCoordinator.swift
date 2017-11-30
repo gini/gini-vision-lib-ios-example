@@ -25,7 +25,7 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     lazy var appNavigationController: UINavigationController = {
-        let navController = UINavigationController(rootViewController: self.mainViewController)
+        let navController = RootNavigationController(rootViewController: self.mainViewController)
         navController.isNavigationBarHidden = true
         navController.applyGiniStyle()
         navController.delegate = self

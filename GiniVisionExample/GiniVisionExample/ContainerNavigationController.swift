@@ -12,6 +12,14 @@ final class ContainerNavigationController: UIViewController {
     
     var rootViewController: UINavigationController
     
+    override var shouldAutorotate: Bool {
+        return rootViewController.shouldAutorotate
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return rootViewController.supportedInterfaceOrientations
+    }
+    
     init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
         super.init(nibName: nil, bundle: nil)
