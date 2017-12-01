@@ -195,24 +195,24 @@
 		1F21C41B1FD039C200A67265 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1F21C41C1FD03A8700A67265 /* ContainerNavigationController.swift */,
+				1F21C4221FD03A8F00A67265 /* HelpCoordinator.swift */,
+				1F21C4261FD03A8F00A67265 /* HelpTransitionAnimator.swift */,
+				1F21C4251FD03A8F00A67265 /* HelpViewController.swift */,
+				1F21C4241FD03A8F00A67265 /* HelpViewController.xib */,
 				1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */,
+				1F21C42C1FD03A9900A67265 /* MainViewController.swift */,
+				1F21C42D1FD03A9900A67265 /* MainViewController.xib */,
+				1F21C4311FD03AA200A67265 /* PDFNoResultsViewController.swift */,
+				1F21C4301FD03AA200A67265 /* PDFNoResultsViewController.xib */,
 				1F21C4371FD03AAB00A67265 /* ResultsTableViewCell.swift */,
 				1F21C4381FD03AAB00A67265 /* ResultsTableViewCell.xib */,
 				1F21C4341FD03AAB00A67265 /* ResultsViewController.swift */,
 				1F21C4351FD03AAB00A67265 /* ResultsViewController.xib */,
 				1F21C4361FD03AAB00A67265 /* ResultsViewModel.swift */,
-				1F21C4311FD03AA200A67265 /* PDFNoResultsViewController.swift */,
-				1F21C4301FD03AA200A67265 /* PDFNoResultsViewController.xib */,
-				1F21C42C1FD03A9900A67265 /* MainViewController.swift */,
-				1F21C42D1FD03A9900A67265 /* MainViewController.xib */,
-				1F21C4221FD03A8F00A67265 /* HelpCoordinator.swift */,
-				1F21C4261FD03A8F00A67265 /* HelpTransitionAnimator.swift */,
-				1F21C4251FD03A8F00A67265 /* HelpViewController.swift */,
-				1F21C4241FD03A8F00A67265 /* HelpViewController.xib */,
-				1F21C4231FD03A8F00A67265 /* WebViewController.swift */,
-				1F21C41C1FD03A8700A67265 /* ContainerNavigationController.swift */,
 				1F21C41D1FD03A8700A67265 /* RootNavigationController.swift */,
 				1F21C41E1FD03A8700A67265 /* ScreenAPICoordinator.swift */,
+				1F21C4231FD03A8F00A67265 /* WebViewController.swift */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
