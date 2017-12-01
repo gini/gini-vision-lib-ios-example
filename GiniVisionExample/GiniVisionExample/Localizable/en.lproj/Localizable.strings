@@ -18,7 +18,6 @@
 "results.screen.title" = "Ergebnisse";
 
 "notvalid.document.title" = "Ungültiges Dokument";
-
 "notvalid.document.generic" = "Leider kann diese Datei nicht bearbeitet werden";
 "notvalid.document.typenotsupported" = "Nur Dateien vom Format jpg, png, gif oder pdf können analysiert werden";
 "notvalid.document.toolarge" = "Diese Datei ist leider zu groß";
