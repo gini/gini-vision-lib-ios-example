@@ -40,4 +40,12 @@ final class MainViewController: UIViewController {
     @IBAction func showHelp(_ sender: Any) {
         delegate?.main(viewController: self, didTapShowHelp: ())
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }
