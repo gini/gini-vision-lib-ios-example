@@ -367,10 +367,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 				de,
-				es,
 			);
 			mainGroup = 1F01FD241FC30D7100BAA47E;
 			productRefGroup = 1F01FD2E1FC30D7100BAA47E /* Products */;

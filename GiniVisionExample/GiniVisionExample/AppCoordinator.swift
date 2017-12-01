@@ -13,7 +13,7 @@ import AVFoundation
 import GiniVision
 
 final class AppCoordinator: NSObject, Coordinator {
-
+    
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
     lazy var documentService: DocumentService = DocumentService()
@@ -37,7 +37,7 @@ final class AppCoordinator: NSObject, Coordinator {
         mainViewController.delegate = self
         return mainViewController
     }()
-
+    
     var resultViewController: ResultsViewController {
         let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: self.documentService))
         resultViewController.delegate = self
@@ -73,8 +73,8 @@ final class AppCoordinator: NSObject, Coordinator {
         do {
             try document?.validate()
             showScreenAPI(withImportedDocument: document)
-        } catch {
-            showExternalDocumentNotValidDialog()
+        } catch let error {
+            showExternalDocumentNotValidDialog(forError: error)
         }
     }
     
@@ -87,7 +87,7 @@ final class AppCoordinator: NSObject, Coordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
-
+    
     fileprivate func showHelpViewController() {
         let helpCoordinator = HelpCoordinator()
         helpCoordinator.delegate = self
@@ -120,28 +120,51 @@ final class AppCoordinator: NSObject, Coordinator {
     fileprivate func showCameraPermissionDeniedError() {
         let alertMessage = NSLocalizedString("camera.permissions.denied.title",
                                              comment: "camera permissions denied message title")
-        let cancelTitle = NSLocalizedString("abbrechen",
+        let cancelTitle = NSLocalizedString("cancel",
                                             comment: "camera permissions cancel option title")
         let grantAccessTitle = NSLocalizedString("camera.permissions.denied.granpermissions.button",
                                                  comment: "camera permissions gran access option title")
         let alertViewController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
-
+        
         alertViewController.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: { _ in
             alertViewController.dismiss(animated: true, completion: nil)
         }))
-
+        
         alertViewController.addAction(UIAlertAction(title: grantAccessTitle,
                                                     style: .default, handler: { [weak self] _ in
-            alertViewController.dismiss(animated: true, completion: nil)
-            self?.application.openAppSettings()
+                                                        alertViewController.dismiss(animated: true, completion: nil)
+                                                        self?.application.openAppSettings()
         }))
         
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }
     
-    fileprivate func showExternalDocumentNotValidDialog() {
+    fileprivate func showExternalDocumentNotValidDialog(forError error: Error) {
         let title = NSLocalizedString("notvalid.document.title", comment: "alert title when document invalid")
-        let message = NSLocalizedString("notvalid.document.message", comment: "alert message when document invalid")
+        let message: String = {
+            if let documentError = error as? DocumentValidationError {
+                switch documentError {
+                case .exceededMaxFileSize:
+                    return NSLocalizedString("notvalid.document.toolarge",
+                                             comment: "alert message when document size is too large")
+                case .fileFormatNotValid:
+                    return NSLocalizedString("notvalid.document.typenotsupported",
+                                             comment: "alert message when document type invalid")
+                case .imageFormatNotValid:
+                    return NSLocalizedString("notvalid.document.typenotsupported",
+                                             comment: "alert message when image document type invalid")
+                case .pdfPageLengthExceeded:
+                    return NSLocalizedString("notvalid.document.toomanypages",
+                                             comment: "alert message when PDF document excedeeds 10 pages")
+                default:
+                    return NSLocalizedString("notvalid.document.generic",
+                                             comment: "alert message when document invalid")
+                }
+            } else {
+                return NSLocalizedString("notvalid.document.generic",
+                                         comment: "alert message when document invalid")
+            }
+        }()
         
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
