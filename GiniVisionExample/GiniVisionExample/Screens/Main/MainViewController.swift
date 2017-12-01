@@ -46,6 +46,6 @@ final class MainViewController: UIViewController {
     }
     
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
 }
