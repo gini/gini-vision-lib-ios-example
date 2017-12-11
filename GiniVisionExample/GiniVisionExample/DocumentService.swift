@@ -19,7 +19,7 @@ protocol DocumentServiceProtocol: class {
     var isCancelled: Bool { get }
     var hasExtractions: Bool { get }
     var pay5Parameters: [String] { get }
-    var result: AnalysisResults { get }
+    var result: AnalysisResults { get set }
     
     func analyze(visionDocument: GiniVisionDocument, completion: @escaping  DocumentAnalysisCompletion)
     func cancelAnalysis()
