@@ -2,7 +2,7 @@
 platform :ios, '8.0'
 
 def project_pods
-  pod ‘GiniVision’, '~> 3.3.0-beta'
+  pod ‘GiniVision’
   pod 'Gini-iOS-SDK'
 end
 
