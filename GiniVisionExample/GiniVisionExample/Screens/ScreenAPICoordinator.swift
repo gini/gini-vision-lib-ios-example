@@ -37,7 +37,6 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
         let configuration = GiniConfiguration()
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
-        configuration.qrCodeScanningEnabled = true
         configuration.navigationBarItemTintColor = .white
         configuration.navigationBarTintColor = .giniBlue
         return configuration
@@ -74,17 +73,6 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
 // MARK: GiniVisionDelegate
 
 extension ScreenAPICoordinator: GiniVisionDelegate {
-    
-    func didDetect(qrDocument: GiniQRCodeDocument) {
-        let results = qrDocument.extractedParameters.reduce(into: AnalysisResults()) { (result, parameter) in
-            result[parameter.key] = GINIExtraction(name: parameter.key,
-                                                   value: parameter.value,
-                                                   entity: parameter.value,
-                                                   box: [:])
-        }
-        documentService.result = results
-        delegate?.screenAPI(coordinator: self, didFinishWithResults: documentService.result)
-    }
     
     func didCapture(document: GiniVisionDocument) {
         visionDocument = document
