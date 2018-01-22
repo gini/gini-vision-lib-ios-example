@@ -24,13 +24,13 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     var documentService: DocumentServiceProtocol
     var childCoordinators: [Coordinator] = []
     var rootViewController: UIViewController {
-        return ContainerNavigationController(rootViewController: screenAPIViewController!)
+        return screenAPIViewController!
     }
     
-    lazy var screenAPIViewController: UINavigationController? = {
+    lazy var screenAPIViewController: UIViewController? = {
         return GiniVision.viewController(withDelegate: self,
                                          withConfiguration: self.visionConfiguration,
-                                         importedDocument: self.visionDocument) as? UINavigationController
+                                         importedDocument: self.visionDocument)
     }()
     
     lazy var visionConfiguration: GiniConfiguration = {
@@ -39,6 +39,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
         configuration.openWithEnabled = true
         configuration.navigationBarItemTintColor = .white
         configuration.navigationBarTintColor = .giniBlue
+        configuration.qrCodeScanningEnabled = true
         return configuration
     }()
     
