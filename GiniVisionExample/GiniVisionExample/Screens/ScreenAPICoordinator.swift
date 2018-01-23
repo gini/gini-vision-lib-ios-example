@@ -24,22 +24,22 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     var documentService: DocumentServiceProtocol
     var childCoordinators: [Coordinator] = []
     var rootViewController: UIViewController {
-        return ContainerNavigationController(rootViewController: screenAPIViewController!)
+        return screenAPIViewController!
     }
     
-    lazy var screenAPIViewController: UINavigationController? = {
+    lazy var screenAPIViewController: UIViewController? = {
         return GiniVision.viewController(withDelegate: self,
                                          withConfiguration: self.visionConfiguration,
-                                         importedDocument: self.visionDocument) as? UINavigationController
+                                         importedDocument: self.visionDocument)
     }()
     
     lazy var visionConfiguration: GiniConfiguration = {
         let configuration = GiniConfiguration()
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
-        configuration.qrCodeScanningEnabled = true
         configuration.navigationBarItemTintColor = .white
         configuration.navigationBarTintColor = .giniBlue
+        configuration.qrCodeScanningEnabled = true
         return configuration
     }()
     
@@ -74,17 +74,6 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
 // MARK: GiniVisionDelegate
 
 extension ScreenAPICoordinator: GiniVisionDelegate {
-    
-    func didDetect(qrDocument: GiniQRCodeDocument) {
-        let results = qrDocument.extractedParameters.reduce(into: AnalysisResults()) { (result, parameter) in
-            result[parameter.key] = GINIExtraction(name: parameter.key,
-                                                   value: parameter.value,
-                                                   entity: parameter.value,
-                                                   box: [:])
-        }
-        documentService.result = results
-        delegate?.screenAPI(coordinator: self, didFinishWithResults: documentService.result)
-    }
     
     func didCapture(document: GiniVisionDocument) {
         visionDocument = document
