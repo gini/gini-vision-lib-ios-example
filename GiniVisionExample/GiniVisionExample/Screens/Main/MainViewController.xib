@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,8 +55,12 @@
                         <action selector="showHelp:" destination="-1" eventType="touchUpInside" id="MBU-3s-HQB"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-qL-Wvw">
-                    <rect key="frame" x="20" y="635" width="26.5" height="12"/>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-qL-Wvw">
+                    <rect key="frame" x="0.0" y="617" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="78a-Xo-iKB"/>
+                        <constraint firstAttribute="height" constant="50" id="itc-dI-PCW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -70,8 +74,8 @@
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BUL-Ou-pg5" secondAttribute="bottom" constant="60" id="SvN-eT-57A"/>
                 <constraint firstAttribute="bottom" secondItem="8kF-JV-0KZ" secondAttribute="bottom" constant="20" id="Thb-Ac-GYw"/>
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VyM-8q-U4b"/>
-                <constraint firstAttribute="bottom" secondItem="mwm-qL-Wvw" secondAttribute="bottom" constant="20" id="YgW-YG-cow"/>
-                <constraint firstItem="mwm-qL-Wvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aEZ-M9-8yk"/>
+                <constraint firstAttribute="bottom" secondItem="mwm-qL-Wvw" secondAttribute="bottom" id="YgW-YG-cow"/>
+                <constraint firstItem="mwm-qL-Wvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aEZ-M9-8yk"/>
                 <constraint firstItem="BUL-Ou-pg5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hzp-fB-cHk"/>
             </constraints>
         </view>

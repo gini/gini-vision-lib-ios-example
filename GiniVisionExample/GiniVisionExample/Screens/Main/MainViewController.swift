@@ -41,7 +41,18 @@ final class MainViewController: UIViewController {
         delegate?.main(viewController: self, didTapShowHelp: ())
     }
     
+    @objc func resetUserDefaults() {
+        UserDefaults().removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resetUserDefaults))
+        tapGesture.numberOfTapsRequired = 3
+        appVersion.addGestureRecognizer(tapGesture)
     }
 }

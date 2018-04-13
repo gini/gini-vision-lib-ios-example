@@ -40,6 +40,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
         configuration.navigationBarItemTintColor = .white
         configuration.navigationBarTintColor = .giniBlue
         configuration.qrCodeScanningEnabled = true
+        configuration.multipageEnabled = true
         return configuration
     }()
     
@@ -57,8 +58,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
                     })
                 return
             }
-            if self.documentService.hasExtractions ||
-                !(self.screenAPIAnalysisScreenDelegate?.tryDisplayNoResultsScreen() ?? false) {
+            if self.screenAPIAnalysisScreenDelegate != nil && self.isAnalysisCompleted {
                 self.delegate?.screenAPI(coordinator: self, didFinishWithResults: self.documentService.result)
             }
         }
@@ -69,19 +69,33 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
         self.documentService = documentService
     }
     
+    fileprivate var isAnalysisCompleted: Bool {
+        return (self.documentService.hasExtractions ||
+            !(self.screenAPIAnalysisScreenDelegate?.tryDisplayNoResultsScreen() ?? false))
+    }
+    
 }
 
 // MARK: GiniVisionDelegate
 
 extension ScreenAPICoordinator: GiniVisionDelegate {
     
-    func didCapture(document: GiniVisionDocument) {
-        visionDocument = document
-        documentService.analyze(visionDocument: document, completion: documentAnalysisHandler)
+    func didCapture(document: GiniVisionDocument, uploadDelegate: UploadDelegate) {
+        if !documentService.isAnalyzing {
+            visionDocument = document
+            documentService.analyze(visionDocument: document, completion: documentAnalysisHandler)
+        }
+        
+        screenAPIAnalysisScreenDelegate = nil
+        let delay: Double = Double(arc4random_uniform(6) + 3)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+            uploadDelegate.uploadDidComplete(for: document)
+        })
     }
     
     func didReview(document: GiniVisionDocument, withChanges changes: Bool) {
         visionDocument = document
+        screenAPIAnalysisScreenDelegate = nil
         
         if changes || (!documentService.isAnalyzing && documentService.result.isEmpty) {
             documentService.analyze(visionDocument: document, completion: documentAnalysisHandler)
@@ -98,6 +112,10 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     
     func didShowAnalysis(_ analysisDelegate: AnalysisDelegate) {
         screenAPIAnalysisScreenDelegate = analysisDelegate
+        if isAnalysisCompleted {
+            self.delegate?.screenAPI(coordinator: self,
+                                     didFinishWithResults: self.documentService.result)
+        }
     }
     
     func didCancelAnalysis() {

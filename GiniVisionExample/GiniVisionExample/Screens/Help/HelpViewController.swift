@@ -54,6 +54,7 @@ final class HelpViewController: UIViewController {
                             style: .done,
                             target: self, action: #selector(close(_:)))
     }
+    
 
 }
 
