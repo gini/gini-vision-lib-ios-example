@@ -104,14 +104,14 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     fileprivate func checkCameraPermissions(completion: @escaping (Bool) -> Void) {
-        let authorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authorizationStatus {
         case .authorized:
             completion(true)
         case .denied, .restricted:
             completion(false)
         case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo) { authorized in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video) { authorized in
                 completion(authorized)
             }
         }

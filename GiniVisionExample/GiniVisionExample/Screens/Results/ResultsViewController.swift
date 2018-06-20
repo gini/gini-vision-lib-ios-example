@@ -27,7 +27,7 @@ final class ResultsViewController: UIViewController {
         }
     }
     
-    func done(_ sender: Any) {
+    @objc func done(_ sender: Any) {
         model.sendFeedBack()
         delegate?.results(viewController: self, didTapDone: ())
     }

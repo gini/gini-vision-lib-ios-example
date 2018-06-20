@@ -12,8 +12,8 @@ extension UINavigationController {
     func applyGiniStyle() {
         self.navigationBar.barTintColor = .giniBlue
         self.navigationBar.tintColor = .white
-        var attributes = self.navigationBar.titleTextAttributes ?? [String: AnyObject]()
-        attributes[NSForegroundColorAttributeName] = UIColor.white
+        var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedStringKey: Anyç]()
+        attributes[NSAttributedStringKey.foregroundColor] = UIColor.white
         self.navigationBar.titleTextAttributes = attributes
     }
 }

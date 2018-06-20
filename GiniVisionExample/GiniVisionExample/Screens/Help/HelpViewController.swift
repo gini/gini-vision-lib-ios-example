@@ -41,7 +41,7 @@ final class HelpViewController: UIViewController {
         }
     }
     
-    func close(_ sender: Any) {
+    @objc func close(_ sender: Any) {
         delegate?.help(viewController: self, didTapClose: ())
     }
     
