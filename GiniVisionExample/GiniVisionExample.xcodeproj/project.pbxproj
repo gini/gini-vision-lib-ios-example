@@ -302,7 +302,6 @@
 				1F01FD2A1FC30D7100BAA47E /* Frameworks */,
 				1F01FD2B1FC30D7100BAA47E /* Resources */,
 				842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */,
-				F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */,
 				1F286D591FC42C5C001C0DEF /* ShellScript */,
 			);
 			buildRules = (
@@ -323,7 +322,6 @@
 				1F286D931FC56F11001C0DEF /* Frameworks */,
 				1F286D941FC56F11001C0DEF /* Resources */,
 				39376F6D7CEA83BB4B4B84D9 /* [CP] Embed Pods Frameworks */,
-				4C2F978FC05522CE801CEAC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,21 +442,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C2F978FC05522CE801CEAC1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,21 +480,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F926DB149D3A8135C609985B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F93AC3B6268A163BC45F9DAE /* [CP] Check Pods Manifest.lock */ = {
@@ -724,7 +692,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -747,7 +715,7 @@
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";

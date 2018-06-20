@@ -9,17 +9,26 @@ PODS:
     - Gini-iOS-SDK/Core (= 0.6.0)
   - Gini-iOS-SDK/Core (0.6.0):
     - Bolts (~> 1.1.5)
-  - GiniVision (3.3.2)
+  - GiniVision (4.0.0-beta.2):
+    - GiniVision/Core (= 4.0.0-beta.2)
+  - GiniVision/Core (4.0.0-beta.2)
 
 DEPENDENCIES:
   - Gini-iOS-SDK
-  - GiniVision
+  - GiniVision (~> 4.0.0-beta.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bolts
+  https://github.com/gini/gini-podspecs.git:
+    - Gini-iOS-SDK
+    - GiniVision
 
 SPEC CHECKSUMS:
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Gini-iOS-SDK: 75c35076dbbdeff5b7ac8c90b8cbd63274dbc209
-  GiniVision: 26987ec36786b1d817eff51994a788199ee7f303
+  GiniVision: c9a9761be8ce632e5b5639fe39507516a105af6c
 
-PODFILE CHECKSUM: 0ab272e4b2f197cc35acac24636ba0e571cd5825
+PODFILE CHECKSUM: d97145c6079f9a6cc0e193ab8c2f6b61d7b14bb6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2
