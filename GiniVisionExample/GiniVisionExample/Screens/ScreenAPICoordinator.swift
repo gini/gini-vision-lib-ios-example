@@ -75,15 +75,17 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
 
 extension ScreenAPICoordinator: GiniVisionDelegate {
     
-    func didCapture(document: GiniVisionDocument) {
+    
+    func didCapture(document: GiniVisionDocument, networkDelegate: GiniVisionNetworkDelegate) {
         visionDocument = document
         documentService.analyze(visionDocument: document, completion: documentAnalysisHandler)
     }
     
-    func didReview(document: GiniVisionDocument, withChanges changes: Bool) {
+    func didReview(documents: [GiniVisionDocument], networkDelegate: GiniVisionNetworkDelegate) {
+        let document = documents[0]
         visionDocument = document
         
-        if changes || (!documentService.isAnalyzing && documentService.result.isEmpty) {
+        if (!documentService.isAnalyzing && documentService.result.isEmpty) {
             documentService.analyze(visionDocument: document, completion: documentAnalysisHandler)
         }
     }
@@ -92,12 +94,8 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
         delegate?.screenAPI(coordinator: self, didCancel: ())
     }
     
-    func didCancelReview() {
+    func didCancelReview(for document: GiniVisionDocument) {
         documentService.cancelAnalysis()
-    }
-    
-    func didShowAnalysis(_ analysisDelegate: AnalysisDelegate) {
-        screenAPIAnalysisScreenDelegate = analysisDelegate
     }
     
     func didCancelAnalysis() {
