@@ -21,7 +21,6 @@ typealias AnalysisCompletion = (Result<AnalysisResults>) -> Void
 
 protocol DocumentServiceProtocol: class {
     
-    var giniSDK: GiniSDK { get }
     var compositeDocument: GINIDocument? { get set }
     var analysisCancellationToken: BFCancellationTokenSource? { get set }
     var pay5Parameters: [String] { get }

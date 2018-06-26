@@ -13,8 +13,10 @@ import Foundation
 
 final class DocumentServiceMock: DocumentServiceProtocol {
     
+    var compositeDocument: GINIDocument?
+    var analysisCancellationToken: BFCancellationTokenSource?
+    
     var isAnalyzing: Bool = false
-    var isCancelled: Bool = false
     var hasExtractions: Bool {
         return result.filter { pay5Parameters.contains($0.0) }.count > 0
     }
@@ -34,7 +36,7 @@ final class DocumentServiceMock: DocumentServiceProtocol {
     
     private(set) var feedBackSent: Bool = false
     
-    func analyze(visionDocument document: GiniVisionDocument, completion: @escaping DocumentAnalysisCompletion) {
+    func startAnalysis(completion: @escaping AnalysisCompletion) {
         isAnalyzing = true
     }
     
@@ -43,7 +45,27 @@ final class DocumentServiceMock: DocumentServiceProtocol {
         result = [:]
     }
     
-    func sendFeedback(withUpdatedResults results: AnalysisResults) {
+    func sendFeedback(with: AnalysisResults) {
         feedBackSent = true
+    }
+    
+    func remove(document: GiniVisionDocument) {
+        
+    }
+    
+    func resetToInitialState() {
+        
+    }
+    
+    func sortDocuments(withSameOrderAs documents: [GiniVisionDocument]) {
+        
+    }
+    
+    func upload(document: GiniVisionDocument, completion: UploadDocumentCompletion?) {
+        
+    }
+    
+    func update(imageDocument: GiniImageDocument) {
+        
     }
 }

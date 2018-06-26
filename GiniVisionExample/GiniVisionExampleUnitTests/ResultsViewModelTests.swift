@@ -17,7 +17,7 @@ final class ResultsViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        resultsViewModel = ResultsViewModel(documentService: documentService)
+        resultsViewModel = ResultsViewModel(documentService: documentService, results: documentService.result)
     }
     
     func testInitializationAndParsing() {

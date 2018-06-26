@@ -17,18 +17,20 @@ final class ResultsViewModelMock: ResultsViewModelProtocol {
     var documentService: DocumentServiceProtocol
     var feedBackSent: Bool = false
     var updatedAnalysisResults: AnalysisResults {
-        return documentService.result
+        return analysisResults
     }
+    var analysisResults: AnalysisResults
 
-    init(documentService: DocumentServiceProtocol = DocumentServiceMock()) {
+    init(documentService: DocumentServiceProtocol, results: AnalysisResults) {
         self.documentService = documentService
+        self.analysisResults = results
     }
     
     func sendFeedBack() {
         feedBackSent = true
     }
     
-    func parseSections(fromResults results: AnalysisResults) {
+    func parseSections(from results: AnalysisResults) {
         
     }
     

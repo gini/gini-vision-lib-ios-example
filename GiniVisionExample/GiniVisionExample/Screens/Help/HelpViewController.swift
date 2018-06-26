@@ -12,6 +12,16 @@ import GiniVision
 typealias HelpLink = (title: String, url: URL?)
 typealias HelpVersion = (title: String, version: String)
 
+enum HelpAction {
+    case resetToDefaults
+    
+    var title: String {
+        switch self {
+        case .resetToDefaults: return "Reset to default settings"
+        }
+    }
+}
+
 protocol HelpViewControllerDelegate: class {
     func help(viewController: HelpViewController, didSelectLink link: HelpLink)
     func help(viewController: HelpViewController, didTapClose: ())
@@ -21,20 +31,27 @@ final class HelpViewController: UIViewController {
     weak var delegate: HelpViewControllerDelegate?
     let linkCellReuseIdentifier = "linkCellReuseIdentifier"
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
+    let othersCellReuseIdentifier = "othersCellReuseIdentifier"
+
     
     let versions: [HelpVersion] = [("GVL Version", AppVersion.gvlVersion),
                                    ("API SDK Version", AppVersion.apisdkVersion)]
+    let others: [HelpAction] = [.resetToDefaults]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
                              ("GVL Readme",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/index.html"))]
+    
 
-    lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions), ("Links", self.links)]
+    lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions),
+                                                          ("Links", self.links),
+                                                          ("Others", self.others)]
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: linkCellReuseIdentifier)
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: versionCellReuseIdentifier)
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: othersCellReuseIdentifier)
             tableView.dataSource = self
             tableView.delegate = self
             tableView.tableFooterView = UIView()
@@ -79,6 +96,15 @@ extension HelpViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
             cell?.textLabel?.text = versions[indexPath.row].title
             cell?.detailTextLabel?.text = versions[indexPath.row].version
+        } else if let others = items as? [HelpAction] {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
+
+            let item = others[indexPath.row]
+            switch item {
+            case .resetToDefaults:
+                cell?.textLabel?.textColor = .red
+            }
+            cell?.textLabel?.text = item.title
         }
         return cell!
     }
@@ -95,12 +121,17 @@ extension HelpViewController: UITableViewDelegate {
         let items = sections[indexPath.section].items
         if let links = items as? [HelpLink] {
             delegate?.help(viewController: self, didSelectLink: links[indexPath.row])
-            tableView.deselectRow(at: indexPath, animated: true)
+        } else if let others = items as? [HelpAction] {
+            switch others[indexPath.row] {
+            case .resetToDefaults:
+                UserDefaults().removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         let items = sections[indexPath.section].items
-        return items is [HelpLink]
+        return items is [HelpLink] || items is [HelpAction]
     }
 }

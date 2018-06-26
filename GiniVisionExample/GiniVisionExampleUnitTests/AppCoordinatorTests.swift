@@ -85,8 +85,7 @@ final class AppCoordinatorTests: XCTestCase {
                                                                                    value: "value",
                                                                                    entity: "entity",
                                                                                    box: [:])!]
-        appCoordinator.documentService.result = result
-        let resultsViewController = appCoordinator.resultViewController
+        let resultsViewController = appCoordinator.resultViewController(with: result)
         XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
                        "resultsViewController delegate should be an instance of AppCoordinator")
     }
@@ -95,7 +94,7 @@ final class AppCoordinatorTests: XCTestCase {
         let url = urlFromImage(named: "invoice", fileExtension: "jpg")!
         appCoordinator.processExternalDocument(withUrl: url, sourceApplication: "testTarget")
         
-        let screenAPICoordinator = appCoordinator.childCoordinators.flatMap { $0 as? ScreenAPICoordinator }.first
+        let screenAPICoordinator = appCoordinator.childCoordinators.compactMap { $0 as? ScreenAPICoordinator }.first
         XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
         
     }
@@ -121,6 +120,6 @@ final class AppCoordinatorTests: XCTestCase {
     }
     
     fileprivate func childCoordinator<T>(ofType: T.Type) -> T? {
-        return appCoordinator.childCoordinators.flatMap {$0 as? T}.first
+        return appCoordinator.childCoordinators.compactMap {$0 as? T}.first
     }
 }
