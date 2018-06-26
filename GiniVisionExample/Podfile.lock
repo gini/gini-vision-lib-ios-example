@@ -1,20 +1,20 @@
 PODS:
-  - Bolts (1.1.5):
-    - Bolts/AppLinks (= 1.1.5)
-    - Bolts/Tasks (= 1.1.5)
-  - Bolts/AppLinks (1.1.5):
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.1.5)
-  - Gini-iOS-SDK (0.6.0):
-    - Gini-iOS-SDK/Core (= 0.6.0)
-  - Gini-iOS-SDK/Core (0.6.0):
-    - Bolts (~> 1.1.5)
+  - Bolts/Tasks (1.9.0)
+  - Gini-iOS-SDK (1.0.0-beta.1):
+    - Gini-iOS-SDK/Core (= 1.0.0-beta.1)
+  - Gini-iOS-SDK/Core (1.0.0-beta.1):
+    - Bolts (~> 1.9)
   - GiniVision (4.0.0-beta.2):
     - GiniVision/Core (= 4.0.0-beta.2)
   - GiniVision/Core (4.0.0-beta.2)
 
 DEPENDENCIES:
-  - Gini-iOS-SDK
+  - Gini-iOS-SDK (~> 1.0.0-beta.1)
   - GiniVision (~> 4.0.0-beta.2)
 
 SPEC REPOS:
@@ -25,10 +25,10 @@ SPEC REPOS:
     - GiniVision
 
 SPEC CHECKSUMS:
-  Bolts: aac24961496d504aa56fc267cde95162a71bac39
-  Gini-iOS-SDK: 75c35076dbbdeff5b7ac8c90b8cbd63274dbc209
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Gini-iOS-SDK: de6c95a2876989b307324f657611cc1e49bf1043
   GiniVision: c9a9761be8ce632e5b5639fe39507516a105af6c
 
-PODFILE CHECKSUM: d97145c6079f9a6cc0e193ab8c2f6b61d7b14bb6
+PODFILE CHECKSUM: 83397b46756aa43f1c81e2f4fb4a46674e702622
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

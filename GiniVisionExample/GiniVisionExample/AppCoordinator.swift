@@ -16,7 +16,7 @@ final class AppCoordinator: NSObject, Coordinator {
     
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
-    lazy var documentService: DocumentService = DocumentService()
+    lazy var documentService: DocumentServiceProtocol = DocumentService()
     let application: UIApplication
     let transition = HelpTransitionAnimator()
     
@@ -38,12 +38,18 @@ final class AppCoordinator: NSObject, Coordinator {
         return mainViewController
     }()
     
-    var resultViewController: ResultsViewController {
-        let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: self.documentService))
-        resultViewController.delegate = self
-        return resultViewController
-    }
+    lazy var giniConfiguration: GiniConfiguration = {
+        let configuration = GiniConfiguration()
+        configuration.fileImportSupportedTypes = .pdf_and_images
+        configuration.openWithEnabled = true
+        configuration.multipageEnabled = true
+        configuration.navigationBarItemTintColor = .white
+        configuration.navigationBarTintColor = .giniBlue
+        configuration.qrCodeScanningEnabled = true
+        return configuration
+    }()
     
+    var resultViewController: ResultsViewController?
     var pdfNoResultsViewController: PDFNoResultsViewController {
         let noResults = PDFNoResultsViewController(nibName: nil, bundle: nil)
         noResults.delegate = self
@@ -64,14 +70,15 @@ final class AppCoordinator: NSObject, Coordinator {
         
         let documentBuilder = GiniVisionDocumentBuilder(data: data, documentSource: .appName(name: sourceApplication))
         documentBuilder.importMethod = .openWith
-        let document = documentBuilder.build()
+        guard let document = documentBuilder.build() else { return }
+        
         
         // When a document is imported with "Open with", a dialog allowing to choose between both APIs
         // is shown in the main screen. Therefore it needs to go to the main screen if it is not there yet.
         popToRootViewControllerIfNeeded()
         
         do {
-            try document?.validate()
+            try GiniVisionDocumentValidator.validate(document, withConfig: giniConfiguration)
             showScreenAPI(withImportedDocument: document)
         } catch let error {
             showExternalDocumentNotValidDialog(forError: error)
@@ -97,7 +104,8 @@ final class AppCoordinator: NSObject, Coordinator {
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
-                                                        documentService: documentService)
+                                                        documentService: documentService,
+                                                        giniConfiguration: giniConfiguration)
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
         appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
@@ -244,6 +252,14 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 // MARK: ResultsViewControllerDelegate
 
 extension AppCoordinator: ResultsViewControllerDelegate {
+    
+    func resultViewController(with results: AnalysisResults) -> ResultsViewController {
+        let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService,
+                                                                                 results: results))
+        resultViewController.delegate = self
+        return resultViewController
+    }
+    
     func results(viewController: ResultsViewController, didTapDone: ()) {
         appNavigationController.popToRootViewController(animated: true)
     }
@@ -260,7 +276,12 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
     
     func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: AnalysisResults) {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
-        let viewController = documentService.hasExtractions ? resultViewController : pdfNoResultsViewController
+        
+        let hasExtractions = {
+            return results.filter { documentService.pay5Parameters.contains($0.0) }.count > 0
+        }()
+        
+        let viewController = hasExtractions ? resultViewController(with: results) : pdfNoResultsViewController
         viewControllers.append(viewController)
         appNavigationController.setViewControllers(viewControllers, animated: true)
         appNavigationController.isNavigationBarHidden = false

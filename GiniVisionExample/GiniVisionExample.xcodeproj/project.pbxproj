@@ -51,6 +51,7 @@
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
 		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
 		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
+		1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
 		1F70B9791FC81EB500930F35 /* ExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
 		1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
+		1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDocumentInfo.swift; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				1F21C44D1FD03AE800A67265 /* Extraction.swift */,
+				1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				1F21C4201FD03A8700A67265 /* RootNavigationController.swift in Sources */,
 				1F21C43B1FD03AAB00A67265 /* ResultsViewModel.swift in Sources */,
 				1F21C44A1FD03ACD00A67265 /* AppDelegate.swift in Sources */,
+				1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */,
 				1F21C42E1FD03A9900A67265 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

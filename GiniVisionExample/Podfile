@@ -3,7 +3,7 @@ platform :ios, '9.0'
 
 def project_pods
   pod ‘GiniVision’, '~> 4.0.0-beta.2'
-  pod 'Gini-iOS-SDK'
+  pod 'Gini-iOS-SDK', '~> 1.0.0-beta.1'
 end
 
 target 'GiniVisionExample' do

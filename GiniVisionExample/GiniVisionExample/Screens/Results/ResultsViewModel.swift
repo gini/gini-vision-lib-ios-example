@@ -16,19 +16,21 @@ protocol ResultsViewModelProtocol: class {
     var extractions: ExtractionCollection { get set }
     var documentService: DocumentServiceProtocol { get }
     var updatedAnalysisResults: AnalysisResults { get }
+    var analysisResults: AnalysisResults { get }
     
-    init(documentService: DocumentServiceProtocol)
+    init(documentService: DocumentServiceProtocol, results: AnalysisResults)
     func sendFeedBack()
     func updateExtraction(at indexPath: IndexPath, withValue value: String?)
-    func parseSections(fromResults results: AnalysisResults)
+    func parseSections(from results: AnalysisResults)
 }
 
 final class ResultsViewModel: ResultsViewModelProtocol {
     
     var extractions: ExtractionCollection = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
+    var analysisResults: AnalysisResults
     var updatedAnalysisResults: AnalysisResults {
-        var currentAnalysisResults = documentService.result
+        var currentAnalysisResults = analysisResults
         extractions.forEach { section in
             section.items.forEach { item in
                 currentAnalysisResults[item.key]?.value = item.value
@@ -37,16 +39,17 @@ final class ResultsViewModel: ResultsViewModelProtocol {
         return currentAnalysisResults
     }
     
-    init(documentService: DocumentServiceProtocol = DocumentService()) {
+    init(documentService: DocumentServiceProtocol = DocumentService(), results: AnalysisResults) {
         self.documentService = documentService
-        self.parseSections(fromResults: documentService.result)
+        self.analysisResults = results
+        self.parseSections(from: results)
     }
     
     func sendFeedBack() {
-        documentService.sendFeedback(withUpdatedResults: updatedAnalysisResults)
+        documentService.sendFeedback(with: updatedAnalysisResults)
     }
     
-    func parseSections(fromResults results: AnalysisResults) {
+    func parseSections(from results: AnalysisResults) {
         results.keys.forEach { key in
             if let result = results[key] {
                 let extraction = Extraction(giniExtraction: result)
