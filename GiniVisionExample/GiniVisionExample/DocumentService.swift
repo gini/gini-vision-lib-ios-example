@@ -159,7 +159,7 @@ final class DocumentService: DocumentServiceProtocol {
             
             return (client_id, client_password)
         }
-        return ("", "")
+        return (ProcessInfo.processInfo.environment["client_id"], ProcessInfo.processInfo.environment["client_password"])
     }
 }
 
@@ -240,7 +240,7 @@ extension DocumentService {
     
     fileprivate func fetchExtractions(for documents: [GINIPartialDocumentInfo],
                                       completion: @escaping AnalysisCompletion) {
-        print(" 📑 Creating composite document...")
+        print("📑 Creating composite document...")
         
         analysisCancellationToken = BFCancellationTokenSource()
         let fileName = "Composite-\(NSDate().timeIntervalSince1970)"
