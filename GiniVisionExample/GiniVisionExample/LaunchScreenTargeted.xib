@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3a-7i-ZNJ">
+                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_targeted" translatesAutoresizingMaskIntoConstraints="NO" id="u3a-7i-ZNJ">
                     <rect key="frame" x="67" y="80" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="TAl-eh-iYN"/>
@@ -33,4 +33,7 @@
             <viewLayoutGuide key="safeArea" id="eNV-vE-wyf"/>
         </view>
     </objects>
+    <resources>
+        <image name="logo_targeted" width="16" height="16"/>
+    </resources>
 </document>

@@ -51,5 +51,9 @@ final class MainViewController: UIViewController {
         if let logoName = Bundle.main.infoDictionary?["Logo name"] as? String {
             logoImage.image = UIImage(named: logoName)
         }
+        
+        if let primaryColorHex = Bundle.main.infoDictionary?["Primary color"] as? String {
+            view.backgroundColor = UIColor(hex: Int(primaryColorHex) ?? 0xFFFFFF)
+        }
     }
 }
