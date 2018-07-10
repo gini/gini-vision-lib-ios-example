@@ -77,6 +77,8 @@
 	<string>Um Dokumente auf deinem Gerät zu scannen, erlaube den Zugriff auf deine Fotos  🏞 -&gt; 📄 -&gt; 🎉</string>
 	<key>Primary color</key>
 	<string>$(GSE_PRIMARY_COLOR)</string>
+	<key>Secondary color</key>
+	<string>$(GSE_SECONDARY_COLOR)</string>
 	<key>UILaunchStoryboardName</key>
 	<string>$(GSE_LAUNCH_SCREEN)</string>
 	<key>UIRequiredDeviceCapabilities</key>
