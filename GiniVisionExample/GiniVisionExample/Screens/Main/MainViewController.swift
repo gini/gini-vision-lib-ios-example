@@ -61,5 +61,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = theme.primaryColor
         logoImage.image = theme.logo
         helpButton.tintColor = theme.secondaryColor
+        analyzeButton.tintColor = theme.secondaryColor
+        appVersion.textColor = theme.secondaryColor
     }
 }
