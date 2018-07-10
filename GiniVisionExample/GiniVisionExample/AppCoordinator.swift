@@ -261,6 +261,7 @@ extension AppCoordinator: ResultsViewControllerDelegate {
     }
     
     func results(viewController: ResultsViewController, didTapDone: ()) {
+        documentService.resetToInitialState()
         appNavigationController.popToRootViewController(animated: true)
     }
 }
