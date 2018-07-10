@@ -79,6 +79,8 @@
 	<string>$(GSE_PRIMARY_COLOR)</string>
 	<key>Secondary color</key>
 	<string>$(GSE_SECONDARY_COLOR)</string>
+	<key>Show photo payment label</key>
+	<string>$(GSE_SHOW_PHOTO_PAYMENT_LABEL)</string>
 	<key>UILaunchStoryboardName</key>
 	<string>$(GSE_LAUNCH_SCREEN)</string>
 	<key>UIRequiredDeviceCapabilities</key>

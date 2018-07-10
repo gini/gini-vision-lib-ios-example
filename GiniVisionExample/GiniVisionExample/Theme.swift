@@ -12,6 +12,7 @@ struct Theme {
     var primaryColor: UIColor = .white
     var secondaryColor: UIColor = .black
     var logo: UIImage?
+    var showPhotoPaymentLabel: Bool = false
     
     init(infoDictionary: [String: Any]) {
         if let primaryColorHex = infoDictionary["Primary color"] as? String,
@@ -24,8 +25,12 @@ struct Theme {
             secondaryColor = UIColor(hex: secondaryColorValue)
         }
         
-        if let logoName = Bundle.main.infoDictionary?["Logo name"] as? String {
+        if let logoName = infoDictionary["Logo name"] as? String {
             logo = UIImage(named: logoName)
+        }
+        
+        if let photoPaymentLabel = infoDictionary["Show photo payment label"] as? String {
+            showPhotoPaymentLabel = photoPaymentLabel == "YES"
         }
     }
 }

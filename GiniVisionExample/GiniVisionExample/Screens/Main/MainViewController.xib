@@ -16,6 +16,7 @@
                 <outlet property="appVersion" destination="mwm-qL-Wvw" id="yuQ-iu-Zhy"/>
                 <outlet property="helpButton" destination="8kF-JV-0KZ" id="Vif-Pw-Vwf"/>
                 <outlet property="logoImage" destination="BUL-Ou-pg5" id="YZ8-A0-csF"/>
+                <outlet property="photoPaymentLabel" destination="r5D-0b-fRK" id="gep-7l-MM1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,11 +63,18 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotoüberweisung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5D-0b-fRK">
+                    <rect key="frame" x="121.5" y="224" width="132.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8kF-JV-0KZ" secondAttribute="trailing" constant="20" id="01o-lR-DZC"/>
                 <constraint firstItem="BUL-Ou-pg5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="60" id="7Ms-ZT-ANG"/>
+                <constraint firstItem="r5D-0b-fRK" firstAttribute="top" secondItem="BUL-Ou-pg5" secondAttribute="bottom" constant="16" id="Qkh-p9-Vp6"/>
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" priority="999" id="RQX-9F-CdU"/>
                 <constraint firstItem="vqR-eF-Krh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BUL-Ou-pg5" secondAttribute="bottom" constant="60" id="SvN-eT-57A"/>
                 <constraint firstAttribute="bottom" secondItem="8kF-JV-0KZ" secondAttribute="bottom" constant="20" id="Thb-Ac-GYw"/>
@@ -74,6 +82,7 @@
                 <constraint firstAttribute="bottom" secondItem="mwm-qL-Wvw" secondAttribute="bottom" constant="20" id="YgW-YG-cow"/>
                 <constraint firstItem="mwm-qL-Wvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aEZ-M9-8yk"/>
                 <constraint firstItem="BUL-Ou-pg5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hzp-fB-cHk"/>
+                <constraint firstItem="r5D-0b-fRK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="r7q-rh-nLs"/>
             </constraints>
         </view>
     </objects>
