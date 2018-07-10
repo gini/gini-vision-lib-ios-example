@@ -46,6 +46,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.multipageEnabled = true
         configuration.navigationBarItemTintColor = theme.secondaryColor
         configuration.navigationBarTintColor = theme.primaryColor
+        configuration.navigationBarTitleColor = theme.secondaryColor
         configuration.qrCodeScanningEnabled = true
         return configuration
     }()
