@@ -15,6 +15,7 @@ protocol MainViewControllerDelegate: class {
 
 final class MainViewController: UIViewController {
 
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var analyzeButton: UIButton! {
         didSet {
@@ -43,5 +44,12 @@ final class MainViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let logoName = Bundle.main.infoDictionary?["Logo name"] as? String {
+            logoImage.image = UIImage(named: logoName)
+        }
     }
 }

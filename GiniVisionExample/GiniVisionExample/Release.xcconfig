@@ -9,5 +9,9 @@
 GSE_APP_NAME = GiniVision
 GSE_APP_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.release
 GSE_LAUNCH_SCREEN = LaunchScreen.xib
+GSE_PRIMARY_COLOR = 0x009EDC
+GSE_SECONDARY_COLOR = 0XFFFFFF
+GSE_APP_ICON_NAME = AppIcon
+GSE_LOGO_NAME = logo_white
 
 #include "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"

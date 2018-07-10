@@ -206,13 +206,12 @@
 		1F21C41B1FD039C200A67265 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1F482B4220F4EA6B00EED5AE /* Launch screens */,
 				1F21C41C1FD03A8700A67265 /* ContainerNavigationController.swift */,
 				1F21C4221FD03A8F00A67265 /* HelpCoordinator.swift */,
 				1F21C4261FD03A8F00A67265 /* HelpTransitionAnimator.swift */,
 				1F21C4251FD03A8F00A67265 /* HelpViewController.swift */,
 				1F21C4241FD03A8F00A67265 /* HelpViewController.xib */,
-				1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */,
-				1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */,
 				1F21C42C1FD03A9900A67265 /* MainViewController.swift */,
 				1F21C42D1FD03A9900A67265 /* MainViewController.xib */,
 				1F21C4311FD03AA200A67265 /* PDFNoResultsViewController.swift */,
@@ -277,6 +276,15 @@
 				1F286D9A1FC56F11001C0DEF /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1F482B4220F4EA6B00EED5AE /* Launch screens */ = {
+			isa = PBXGroup;
+			children = (
+				1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */,
+				1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */,
+			);
+			name = "Launch screens";
 			sourceTree = "<group>";
 		};
 		1FC4F4C720F4961400E48B13 /* Config */ = {
@@ -705,7 +713,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FC4F4C820F4963600E48B13 /* Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(GSE_APP_ICON_NAME)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GiniVisionExample/GiniVisionExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -728,7 +736,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(GSE_APP_ICON_NAME)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GiniVisionExample/GiniVisionExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -849,7 +857,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(GSE_APP_ICON_NAME)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GiniVisionExample/GiniVisionExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
