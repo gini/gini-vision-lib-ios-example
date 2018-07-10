@@ -9,8 +9,8 @@
 GSE_APP_NAME = GiniVision Targeted
 GSE_APP_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.targeted
 GSE_LAUNCH_SCREEN = LaunchScreenTargeted.xib
-GSE_PRIMARY_COLOR = 0xFFFFFF
-GSE_SECONDARY_COLOR = 0X000000
+GSE_PRIMARY_COLOR = FFFFFF
+GSE_SECONDARY_COLOR = 000000
 GSE_APP_ICON_NAME = AppIconTargeted
 GSE_LOGO_NAME = logo_targeted
 
