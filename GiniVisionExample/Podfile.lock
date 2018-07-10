@@ -5,16 +5,16 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Gini-iOS-SDK (1.0.0-beta.1):
-    - Gini-iOS-SDK/Core (= 1.0.0-beta.1)
-  - Gini-iOS-SDK/Core (1.0.0-beta.1):
+  - Gini-iOS-SDK (1.0.0):
+    - Gini-iOS-SDK/Core (= 1.0.0)
+  - Gini-iOS-SDK/Core (1.0.0):
     - Bolts (~> 1.9)
   - GiniVision (4.0.0-beta.2):
     - GiniVision/Core (= 4.0.0-beta.2)
   - GiniVision/Core (4.0.0-beta.2)
 
 DEPENDENCIES:
-  - Gini-iOS-SDK (~> 1.0.0-beta.1)
+  - Gini-iOS-SDK (~> 1.0)
   - GiniVision (~> 4.0.0-beta.2)
 
 SPEC REPOS:
@@ -26,9 +26,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Gini-iOS-SDK: de6c95a2876989b307324f657611cc1e49bf1043
+  Gini-iOS-SDK: 50ea7250382ec595f44f043816e98f7e78ba0545
   GiniVision: c9a9761be8ce632e5b5639fe39507516a105af6c
 
-PODFILE CHECKSUM: 83397b46756aa43f1c81e2f4fb4a46674e702622
+PODFILE CHECKSUM: e6ea3fecbd7f98066e5c0cd7cde6cd4a64bfb8b2
 
 COCOAPODS: 1.5.3
