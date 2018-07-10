@@ -19,9 +19,9 @@ struct Theme {
             primaryColor = UIColor(hex: primaryColorValue)
         }
         
-        if let primaryColorHex = infoDictionary["Secondary color"] as? String,
-            let primaryColorValue = Int(primaryColorHex, radix: 16) {
-            primaryColor = UIColor(hex: primaryColorValue)
+        if let secondaryColorHex = infoDictionary["Secondary color"] as? String,
+            let secondaryColorValue = Int(secondaryColorHex, radix: 16) {
+            secondaryColor = UIColor(hex: secondaryColorValue)
         }
         
         if let logoName = Bundle.main.infoDictionary?["Logo name"] as? String {
