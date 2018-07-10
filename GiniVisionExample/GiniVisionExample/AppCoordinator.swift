@@ -44,8 +44,8 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
         configuration.multipageEnabled = true
-        configuration.navigationBarItemTintColor = .white
-        configuration.navigationBarTintColor = .giniBlue
+        configuration.navigationBarItemTintColor = theme.secondaryColor
+        configuration.navigationBarTintColor = theme.primaryColor
         configuration.qrCodeScanningEnabled = true
         return configuration
     }()

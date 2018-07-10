@@ -40,10 +40,10 @@
                         <action selector="startAnalysis:" destination="-1" eventType="touchUpInside" id="5zY-A3-r91"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Ou-pg5">
-                    <rect key="frame" x="67" y="80" width="240" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Ou-pg5">
+                    <rect key="frame" x="67" y="80" width="240" height="140"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="MxP-pq-Maz"/>
+                        <constraint firstAttribute="height" constant="140" id="MxP-pq-Maz"/>
                         <constraint firstAttribute="width" constant="240" id="na7-kF-89c"/>
                     </constraints>
                 </imageView>
@@ -64,7 +64,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotoüberweisung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5D-0b-fRK">
-                    <rect key="frame" x="121.5" y="224" width="132.5" height="20.5"/>
+                    <rect key="frame" x="121.5" y="236" width="132.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
