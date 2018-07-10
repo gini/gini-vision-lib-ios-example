@@ -45,12 +45,16 @@
 		1F21C4571FD03B0F00A67265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C4551FD03B0F00A67265 /* Localizable.strings */; };
 		1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
 		1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
+		1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */; };
 		1F70B9721FC6F78A00930F35 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */; };
 		1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */; };
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
 		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
 		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
 		1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */; };
+		1FC4F4C920F4963600E48B13 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4C820F4963600E48B13 /* Debug.xcconfig */; };
+		1FC4F4CE20F4979D00E48B13 /* Targeted.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */; };
+		1FC4F4D020F4984C00E48B13 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -112,14 +116,20 @@
 		1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F286D9A1FC56F11001C0DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenTargeted.xib; sourceTree = "<group>"; };
 		1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
 		1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelMock.swift; sourceTree = "<group>"; };
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
 		1F70B9791FC81EB500930F35 /* ExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
 		1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
 		1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDocumentInfo.swift; sourceTree = "<group>"; };
+		1FC4F4C820F4963600E48B13 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Targeted.xcconfig; sourceTree = "<group>"; };
+		1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		3E868F2C55E96544B8689DB6 /* Pods-GiniVisionExample.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.postbank.xcconfig"; sourceTree = "<group>"; };
 		452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8266D84939D5516C220E2BAE /* Pods-GiniVisionExampleUnitTests.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,9 +184,10 @@
 				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
 				1F21C4421FD03ACD00A67265 /* DocumentService.swift */,
+				1FC4F4C720F4961400E48B13 /* Config */,
+				1F21C41A1FD039BB00A67265 /* Extensions */,
 				1F21C43E1FD03AAE00A67265 /* Models */,
 				1F21C41B1FD039C200A67265 /* Screens */,
-				1F21C41A1FD039BB00A67265 /* Extensions */,
 				1F286D661FC4644A001C0DEF /* Supporting files */,
 			);
 			path = GiniVisionExample;
@@ -200,6 +211,7 @@
 				1F21C4261FD03A8F00A67265 /* HelpTransitionAnimator.swift */,
 				1F21C4251FD03A8F00A67265 /* HelpViewController.swift */,
 				1F21C4241FD03A8F00A67265 /* HelpViewController.xib */,
+				1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */,
 				1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */,
 				1F21C42C1FD03A9900A67265 /* MainViewController.swift */,
 				1F21C42D1FD03A9900A67265 /* MainViewController.xib */,
@@ -267,6 +279,16 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
+		1FC4F4C720F4961400E48B13 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1FC4F4C820F4963600E48B13 /* Debug.xcconfig */,
+				1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */,
+				1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		384F1E919148AB1217972479 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +298,8 @@
 				377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */,
 				E590AC288005124C1F903100 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */,
 				1640047E56F7420DB48CE9AC /* Pods-GiniVisionExampleUnitTests.release.xcconfig */,
+				3E868F2C55E96544B8689DB6 /* Pods-GiniVisionExample.postbank.xcconfig */,
+				8266D84939D5516C220E2BAE /* Pods-GiniVisionExampleUnitTests.postbank.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -391,7 +415,11 @@
 				1F21C4571FD03B0F00A67265 /* Localizable.strings in Resources */,
 				1F21C44C1FD03AE100A67265 /* LaunchScreen.xib in Resources */,
 				1F21C4321FD03AA200A67265 /* PDFNoResultsViewController.xib in Resources */,
+				1FC4F4CE20F4979D00E48B13 /* Targeted.xcconfig in Resources */,
+				1FC4F4D020F4984C00E48B13 /* Release.xcconfig in Resources */,
+				1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */,
 				1F21C42F1FD03A9900A67265 /* MainViewController.xib in Resources */,
+				1FC4F4C920F4963600E48B13 /* Debug.xcconfig in Resources */,
 				1F21C43D1FD03AAB00A67265 /* ResultsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,7 +703,7 @@
 		};
 		1F01FD4B1FC30D7100BAA47E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */;
+			baseConfigurationReference = 1FC4F4C820F4963600E48B13 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -685,7 +713,7 @@
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -698,7 +726,7 @@
 		};
 		1F01FD4C1FC30D7100BAA47E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */;
+			baseConfigurationReference = 1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -709,7 +737,7 @@
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -721,7 +749,7 @@
 		};
 		1F286D9E1FC56F11001C0DEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E590AC288005124C1F903100 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */;
+			baseConfigurationReference = 1FC4F4C820F4963600E48B13 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -740,7 +768,7 @@
 		};
 		1F286D9F1FC56F11001C0DEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1640047E56F7420DB48CE9AC /* Pods-GiniVisionExampleUnitTests.release.xcconfig */;
+			baseConfigurationReference = 1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -757,6 +785,108 @@
 			};
 			name = Release;
 		};
+		1FC4F4CA20F4974F00E48B13 /* Targeted */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Targeted;
+		};
+		1FC4F4CB20F4974F00E48B13 /* Targeted */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GiniVisionExample/GiniVisionExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BQY9KX4V88;
+				INFOPLIST_FILE = GiniVisionExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Targeted;
+		};
+		1FC4F4CC20F4974F00E48B13 /* Targeted */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BQY9KX4V88;
+				INFOPLIST_FILE = GiniVisionExampleUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.GiniVisionExampleUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniVisionExample.app/GiniVisionExample";
+			};
+			name = Targeted;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -764,6 +894,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F01FD481FC30D7100BAA47E /* Debug */,
+				1FC4F4CA20F4974F00E48B13 /* Targeted */,
 				1F01FD491FC30D7100BAA47E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -773,6 +904,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F01FD4B1FC30D7100BAA47E /* Debug */,
+				1FC4F4CB20F4974F00E48B13 /* Targeted */,
 				1F01FD4C1FC30D7100BAA47E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -782,6 +914,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F286D9E1FC56F11001C0DEF /* Debug */,
+				1FC4F4CC20F4974F00E48B13 /* Targeted */,
 				1F286D9F1FC56F11001C0DEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
