@@ -15,6 +15,7 @@ protocol MainViewControllerDelegate: class {
 
 final class MainViewController: UIViewController {
 
+    let theme: Theme
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var analyzeButton: UIButton! {
@@ -46,16 +47,19 @@ final class MainViewController: UIViewController {
         return .portrait
     }
     
+    init(theme: Theme) {
+        self.theme = theme
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let logoName = Bundle.main.infoDictionary?["Logo name"] as? String {
-            logoImage.image = UIImage(named: logoName)
-        }
-        
-        if let primaryColorHex = Bundle.main.infoDictionary?["Primary color"] as? String,
-            let primaryColorValue = Int(primaryColorHex, radix: 16) {
-            let primaryColor = UIColor(hex: primaryColorValue)
-            view.backgroundColor = primaryColor
-        }
+        view.backgroundColor = theme.primaryColor
+        logoImage.image = theme.logo
+        helpButton.tintColor = theme.secondaryColor
     }
 }

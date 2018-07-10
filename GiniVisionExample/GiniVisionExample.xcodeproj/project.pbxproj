@@ -46,6 +46,7 @@
 		1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */; };
 		1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
 		1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */; };
+		1F482B4420F50CFA00EED5AE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F482B4320F50CFA00EED5AE /* Theme.swift */; };
 		1F70B9721FC6F78A00930F35 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */; };
 		1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */; };
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
@@ -117,6 +118,7 @@
 		1F286D961FC56F11001C0DEF /* GiniVisionExampleUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniVisionExampleUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F286D9A1FC56F11001C0DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenTargeted.xib; sourceTree = "<group>"; };
+		1F482B4320F50CFA00EED5AE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
 		1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelMock.swift; sourceTree = "<group>"; };
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				1F21C4441FD03ACD00A67265 /* AppDelegate.swift */,
 				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
+				1F482B4320F50CFA00EED5AE /* Theme.swift */,
 				1F21C4421FD03ACD00A67265 /* DocumentService.swift */,
 				1FC4F4C720F4961400E48B13 /* Config */,
 				1F21C41A1FD039BB00A67265 /* Extensions */,
@@ -533,6 +536,7 @@
 				1F21C4211FD03A8700A67265 /* ScreenAPICoordinator.swift in Sources */,
 				1F21C4531FD03AF400A67265 /* UINavigationController.swift in Sources */,
 				1F21C4331FD03AA200A67265 /* PDFNoResultsViewController.swift in Sources */,
+				1F482B4420F50CFA00EED5AE /* Theme.swift in Sources */,
 				1F21C43C1FD03AAB00A67265 /* ResultsTableViewCell.swift in Sources */,
 				1F21C42A1FD03A8F00A67265 /* HelpViewController.swift in Sources */,
 				1F21C4491FD03ACD00A67265 /* AppCoordinator.swift in Sources */,

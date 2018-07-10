@@ -18,6 +18,7 @@ final class AppCoordinator: NSObject, Coordinator {
     let window: UIWindow
     lazy var documentService: DocumentServiceProtocol = DocumentService()
     let application: UIApplication
+    let theme: Theme
     let transition = HelpTransitionAnimator()
     
     var rootViewController: UIViewController {
@@ -33,7 +34,7 @@ final class AppCoordinator: NSObject, Coordinator {
     }()
     
     lazy var mainViewController: MainViewController = {
-        let mainViewController = MainViewController(nibName: nil, bundle: nil)
+        let mainViewController = MainViewController(theme: theme)
         mainViewController.delegate = self
         return mainViewController
     }()
@@ -59,6 +60,7 @@ final class AppCoordinator: NSObject, Coordinator {
     init(window: UIWindow, application: UIApplication) {
         self.window = window
         self.application = application
+        self.theme = Theme(infoDictionary: Bundle.main.infoDictionary ?? [:])
     }
     
     func start() {
