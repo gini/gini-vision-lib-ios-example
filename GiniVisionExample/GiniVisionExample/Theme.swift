@@ -34,7 +34,7 @@ struct Theme {
             showPhotoPaymentLabel = photoPaymentLabel == "YES"
         }
         
-        if let style = infoDictionary["Status bar style"] as? String {
+        if let style = infoDictionary["UIStatusBarStyle"] as? String {
             statusBarStyle = style == "UIStatusBarStyleDefault" ? .default : .lightContent
         }
     }
