@@ -28,7 +28,7 @@ final class AppCoordinator: NSObject, Coordinator {
     lazy var appNavigationController: UINavigationController = {
         let navController = RootNavigationController(rootViewController: self.mainViewController)
         navController.isNavigationBarHidden = true
-        navController.applyGiniStyle()
+        navController.apply(theme)
         navController.delegate = self
         return navController
     }()
@@ -48,6 +48,9 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.navigationBarTintColor = theme.primaryColor
         configuration.navigationBarTitleColor = theme.secondaryColor
         configuration.qrCodeScanningEnabled = true
+        configuration.galleryPickerItemSelectedBackgroundCheckColor = theme.primaryColor
+        configuration.multipagePageIndicatorColor = theme.secondaryColor
+        configuration.multipageToolbarItemsColor = theme.secondaryColor
         return configuration
     }()
     
@@ -99,7 +102,7 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     fileprivate func showHelpViewController() {
-        let helpCoordinator = HelpCoordinator()
+        let helpCoordinator = HelpCoordinator(theme: theme)
         helpCoordinator.delegate = self
         add(childCoordinator: helpCoordinator)
         appNavigationController.pushViewController(helpCoordinator.rootViewController, animated: true)

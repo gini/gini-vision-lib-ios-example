@@ -19,10 +19,11 @@ final class HelpCoordinator: NSObject, Coordinator {
         return ContainerNavigationController(rootViewController: navigationController)
     }
     var childCoordinators: [Coordinator] = []
+    let theme: Theme
     
     lazy var navigationController: UINavigationController = {
         let nav = UINavigationController(rootViewController: self.helpViewController)
-        nav.applyGiniStyle()
+        nav.apply(theme)
         if #available(iOS 11.0, *) {
             nav.navigationBar.largeTitleTextAttributes = nav.navigationBar.titleTextAttributes
             nav.navigationBar.prefersLargeTitles = true
@@ -37,6 +38,10 @@ final class HelpCoordinator: NSObject, Coordinator {
     }()
     
     var webViewController: WebViewController?
+    
+    init(theme: Theme) {
+        self.theme = theme
+    }
     
     func loadWebView(withLink link: HelpLink) {
         if let itemUrl = link.url {

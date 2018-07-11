@@ -9,11 +9,11 @@
 import UIKit
 
 extension UINavigationController {
-    func applyGiniStyle() {
-        self.navigationBar.barTintColor = .giniBlue
-        self.navigationBar.tintColor = .white
+    func apply(_ theme: Theme) {
+        self.navigationBar.barTintColor = theme.primaryColor
+        self.navigationBar.tintColor = theme.secondaryColor
         var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedStringKey: Any]()
-        attributes[NSAttributedStringKey.foregroundColor] = UIColor.white
+        attributes[NSAttributedStringKey.foregroundColor] = theme.secondaryColor
         self.navigationBar.titleTextAttributes = attributes
     }
 }
