@@ -51,7 +51,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.galleryPickerItemSelectedBackgroundCheckColor = theme.primaryColor
         configuration.multipagePageIndicatorColor = theme.secondaryColor
         configuration.multipageToolbarItemsColor = theme.secondaryColor
-        configuration.noResultsBottomButtonColor = theme.secondaryColor
+        configuration.noResultsBottomButtonColor = theme.buttonsColor
         configuration.stepIndicatorColor = theme.secondaryColor
         configuration.imagesStackIndicatorLabelTextcolor = theme.secondaryColor
         configuration.statusBarStyle = theme.statusBarStyle

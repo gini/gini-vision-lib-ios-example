@@ -11,6 +11,7 @@ import UIKit
 struct Theme {
     var primaryColor: UIColor = .white
     var secondaryColor: UIColor = .black
+    var buttonsColor: UIColor = .green
     var logo: UIImage?
     var showPhotoPaymentLabel: Bool = false
     var statusBarStyle: UIStatusBarStyle = .lightContent
@@ -36,6 +37,11 @@ struct Theme {
         
         if let style = infoDictionary["UIStatusBarStyle"] as? String {
             statusBarStyle = style == "UIStatusBarStyleDefault" ? .default : .lightContent
+        }
+        
+        if let buttonsColorHex = infoDictionary["Buttons color"] as? String,
+            let buttonsColorValue = Int(buttonsColorHex, radix: 16) {
+            buttonsColor = UIColor(hex: buttonsColorValue)
         }
     }
 }
