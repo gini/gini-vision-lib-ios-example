@@ -54,6 +54,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.noResultsBottomButtonColor = theme.secondaryColor
         configuration.stepIndicatorColor = theme.secondaryColor
         configuration.imagesStackIndicatorLabelTextcolor = theme.secondaryColor
+        configuration.statusBarStyle = theme.statusBarStyle
         
         return configuration
     }()

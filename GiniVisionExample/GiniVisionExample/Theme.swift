@@ -13,6 +13,7 @@ struct Theme {
     var secondaryColor: UIColor = .black
     var logo: UIImage?
     var showPhotoPaymentLabel: Bool = false
+    var statusBarStyle: UIStatusBarStyle = .lightContent
     
     init(infoDictionary: [String: Any]) {
         if let primaryColorHex = infoDictionary["Primary color"] as? String,
@@ -31,6 +32,10 @@ struct Theme {
         
         if let photoPaymentLabel = infoDictionary["Show photo payment label"] as? String {
             showPhotoPaymentLabel = photoPaymentLabel == "YES"
+        }
+        
+        if let style = infoDictionary["Status bar style"] as? String {
+            statusBarStyle = style == "UIStatusBarStyleDefault" ? .default : .lightContent
         }
     }
 }
