@@ -261,7 +261,8 @@ extension AppCoordinator: ResultsViewControllerDelegate {
     
     func resultViewController(with results: AnalysisResults) -> ResultsViewController {
         let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService,
-                                                                                 results: results))
+                                                                                 results: results),
+                                                         theme: theme)
         resultViewController.delegate = self
         return resultViewController
     }

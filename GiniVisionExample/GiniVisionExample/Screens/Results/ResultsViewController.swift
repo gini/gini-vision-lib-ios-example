@@ -16,6 +16,7 @@ final class ResultsViewController: UIViewController {
     
     weak var delegate: ResultsViewControllerDelegate?
     let model: ResultsViewModelProtocol
+    let theme: Theme
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     
     @IBOutlet weak var tableView: UITableView! {
@@ -32,8 +33,9 @@ final class ResultsViewController: UIViewController {
         delegate?.results(viewController: self, didTapDone: ())
     }
     
-    init(model: ResultsViewModelProtocol) {
+    init(model: ResultsViewModelProtocol, theme: Theme) {
         self.model = model
+        self.theme = theme
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,6 +68,7 @@ extension ResultsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: resultsTableCellIdentifier,
                                                  for: indexPath) as? ResultsTableViewCell
         cell?.fieldName.text = model.extractions[indexPath.section].items[indexPath.row].name
+        cell?.fieldName.textColor = theme.secondaryColor
         cell?.fieldValue.text = model.extractions[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
