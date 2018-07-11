@@ -14,5 +14,6 @@ GSE_SECONDARY_COLOR = 000000
 GSE_APP_ICON_NAME = AppIconTargeted
 GSE_LOGO_NAME = logo_targeted
 GSE_SHOW_PHOTO_PAYMENT_LABEL = YES
+GSE_STATUS_BAR_STYLE = UIStatusBarStyleDefault
 
 #include "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.targeted.xcconfig"

@@ -53,6 +53,8 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.multipageToolbarItemsColor = theme.secondaryColor
         configuration.noResultsBottomButtonColor = theme.secondaryColor
         configuration.stepIndicatorColor = theme.secondaryColor
+        configuration.imagesStackIndicatorLabelTextcolor = theme.secondaryColor
+        
         return configuration
     }()
     

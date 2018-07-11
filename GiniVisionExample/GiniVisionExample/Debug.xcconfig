@@ -14,5 +14,6 @@ GSE_SECONDARY_COLOR = FFFFFF
 GSE_APP_ICON_NAME = AppIcon
 GSE_LOGO_NAME = logo_white
 GSE_SHOW_PHOTO_PAYMENT_LABEL = NO
+GSE_STATUS_BAR_STYLE = UIStatusBarStyleLightContent
 
 #include "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"
