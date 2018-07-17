@@ -15,7 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Gini-iOS-SDK (~> 1.0)
-  - GiniVision (~> 4.0.0-beta.2)
+  - GiniVision (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -29,6 +29,6 @@ SPEC CHECKSUMS:
   Gini-iOS-SDK: 50ea7250382ec595f44f043816e98f7e78ba0545
   GiniVision: 91a25c7e1ff1375c80dbb14dbacad44929d3c7a7
 
-PODFILE CHECKSUM: e6ea3fecbd7f98066e5c0cd7cde6cd4a64bfb8b2
+PODFILE CHECKSUM: 4dab4cf9cbb2c1a0a66778ac58d090885d8b6ac9
 
 COCOAPODS: 1.5.3
