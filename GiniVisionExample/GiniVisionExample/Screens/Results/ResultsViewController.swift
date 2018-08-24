@@ -68,7 +68,7 @@ extension ResultsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: resultsTableCellIdentifier,
                                                  for: indexPath) as? ResultsTableViewCell
         cell?.fieldName.text = model.extractions[indexPath.section].items[indexPath.row].name
-        cell?.fieldName.textColor = theme.secondaryColor
+        cell?.fieldName.textColor = theme.primaryColor
         cell?.fieldValue.text = model.extractions[indexPath.section].items[indexPath.row].value
         cell?.delegate = self
         cell?.indexPath = indexPath
