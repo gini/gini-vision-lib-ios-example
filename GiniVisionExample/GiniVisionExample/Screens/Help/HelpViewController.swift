@@ -10,7 +10,7 @@ import UIKit
 import GiniVision
 
 typealias HelpLink = (title: String, url: URL?)
-typealias HelpVersion = (title: String, version: String)
+typealias HelpKeyValueItem = (title: String, version: String)
 
 enum HelpAction {
     case resetToDefaults
@@ -34,8 +34,14 @@ final class HelpViewController: UIViewController {
     let othersCellReuseIdentifier = "othersCellReuseIdentifier"
 
     
-    let versions: [HelpVersion] = [("GVL Version", AppVersion.gvlVersion),
+    let versions: [HelpKeyValueItem] = [("GVL Version", AppVersion.gvlVersion),
                                    ("API SDK Version", AppVersion.apisdkVersion)]
+    let credentials: [HelpKeyValueItem] = {
+       let credentials = DocumentService.fetchCredentials()
+        let password = credentials.password == nil ? "" : "******"
+        
+        return [("Id", credentials.id ?? ""), ("Password", password)]
+    }()
     let others: [HelpAction] = [.resetToDefaults]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
@@ -44,6 +50,7 @@ final class HelpViewController: UIViewController {
     
 
     lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions),
+                                                          ("Gini client", self.credentials),
                                                           ("Links", self.links),
                                                           ("Others", self.others)]
     
@@ -92,7 +99,7 @@ extension HelpViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: linkCellReuseIdentifier)
             cell?.textLabel?.text = links[indexPath.row].title
             cell?.accessoryType = .disclosureIndicator
-        } else if let versions = items as? [HelpVersion] {
+        } else if let versions = items as? [HelpKeyValueItem] {
             cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
             cell?.textLabel?.text = versions[indexPath.row].title
             cell?.detailTextLabel?.text = versions[indexPath.row].version
