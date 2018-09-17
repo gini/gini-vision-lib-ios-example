@@ -11,7 +11,7 @@ import XCTest
 
 final class HelpCoordinatorTests: XCTestCase {
     
-    var helpCoordinator: HelpCoordinator = HelpCoordinator()
+    var helpCoordinator: HelpCoordinator = HelpCoordinator(theme: Theme(infoDictionary: [:]))
     
     override func setUp() {
         super.setUp()

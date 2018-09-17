@@ -20,7 +20,7 @@ final class ResultsViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         resultsViewModel = ResultsViewModelMock(documentService: DocumentServiceMock(), results: [:])
-        resultsViewController = ResultsViewController(model: resultsViewModel)
+        resultsViewController = ResultsViewController(model: resultsViewModel, theme: Theme(infoDictionary: [:]))
     }
     
     func testInitialization() {

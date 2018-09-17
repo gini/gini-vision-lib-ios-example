@@ -12,7 +12,7 @@ import XCTest
 class HelpViewControllerTests: XCTestCase {
     
     let helpViewController = HelpViewController()
-    let versions: [HelpVersion] = [("GVL Version", "3.2.1"), ("App version", "0.0.1"), ("Test version", "1.0.1")]
+    let versions: [HelpKeyValueItem] = [("GVL Version", "3.2.1"), ("App version", "0.0.1"), ("Test version", "1.0.1")]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html"))]
     

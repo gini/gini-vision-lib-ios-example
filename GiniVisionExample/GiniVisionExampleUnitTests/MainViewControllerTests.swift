@@ -15,7 +15,7 @@ final class MainViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mainViewController = MainViewController()
+        mainViewController = MainViewController(theme: Theme(infoDictionary: [:]))
     }
     
     func testInitialization() {
