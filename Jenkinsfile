@@ -10,8 +10,10 @@ pipeline {
       }
       steps {
         sh 'security unlock-keychain -p ${GEONOSIS_USER_PASSWORD} login.keychain'
-       	lock('refs/remotes/origin/master') {
-          sh '/usr/local/bin/pod install --repo-update --project-directory=GiniVisionExample/'
+        withEnv(["PATH+=/usr/local/bin", "LANG=en_US.UTF-8"]) {
+           	lock('refs/remotes/origin/master') {
+              sh 'pod install --repo-update --project-directory=GiniVisionExample/'
+            }
         }
       }
     }
