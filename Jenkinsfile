@@ -27,7 +27,7 @@ pipeline {
     stage('Unit tests') {
       steps {
         withEnv(["PATH+=/usr/local/bin", "LANG=en_US.UTF-8"]) {
-          sh 'xcodebuild test -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExampleUnitTests" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone 6s,OS=9.3\' -destination \'platform=iOS Simulator,name=iPhone 7,OS=10.3.1\' -destination \'platform=iOS Simulator,name=iPhone X,OS=11.4\' -destination \'platform=iOS Simulator,name=iPhone XS Max,OS=12.0\' | xcpretty -c'
+          sh 'xcodebuild test -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone 6s,OS=9.3\' -destination \'platform=iOS Simulator,name=iPhone 7,OS=10.3.1\' -destination \'platform=iOS Simulator,name=iPhone X,OS=11.4\' -destination \'platform=iOS Simulator,name=iPhone XS Max,OS=12.0\' | xcpretty -c'
         }
       }
     }
