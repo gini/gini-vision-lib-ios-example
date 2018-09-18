@@ -25,9 +25,7 @@ pipeline {
     stage('Unit tests') {
       steps {
         sh 'xcodebuild build-for-testing -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" generic/platform=iOS'
-        sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone 6s,OS=9.3\''
-        sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone 7,OS=10.3.1\''
-        sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone X,OS=11.4\''
+        sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone 7,OS=11.4\''
         sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -parallel-testing-enabled YES -destination \'platform=iOS Simulator,name=iPhone XS Max,OS=12.0\''
       }
     }
