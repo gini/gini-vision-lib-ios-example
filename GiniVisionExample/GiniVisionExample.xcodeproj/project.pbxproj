@@ -725,7 +725,7 @@
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -749,7 +749,7 @@
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -869,7 +869,7 @@
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
