@@ -53,9 +53,6 @@
 		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
 		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
 		1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */; };
-		1FC4F4C920F4963600E48B13 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4C820F4963600E48B13 /* Debug.xcconfig */; };
-		1FC4F4CE20F4979D00E48B13 /* Targeted.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */; };
-		1FC4F4D020F4984C00E48B13 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +71,7 @@
 		095C88E7E49ACB978E51DA3A /* Pods_GiniVisionExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFF35B0BC5D4D3D427DDD4C /* Pods-GiniVisionExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1640047E56F7420DB48CE9AC /* Pods-GiniVisionExampleUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		1D19B454AA99BE9EA268C879 /* Pods-GiniVisionExample.targeted.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.targeted.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.targeted.xcconfig"; sourceTree = "<group>"; };
 		1F01FD2D1FC30D7100BAA47E /* GiniVisionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiniVisionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F01FD371FC30D7100BAA47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F01FD3C1FC30D7100BAA47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +129,7 @@
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E868F2C55E96544B8689DB6 /* Pods-GiniVisionExample.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.postbank.xcconfig"; sourceTree = "<group>"; };
 		452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		801D6225A2C015FA5F4E720D /* Pods-GiniVisionExampleUnitTests.targeted.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.targeted.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.targeted.xcconfig"; sourceTree = "<group>"; };
 		8266D84939D5516C220E2BAE /* Pods-GiniVisionExampleUnitTests.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +310,8 @@
 				1640047E56F7420DB48CE9AC /* Pods-GiniVisionExampleUnitTests.release.xcconfig */,
 				3E868F2C55E96544B8689DB6 /* Pods-GiniVisionExample.postbank.xcconfig */,
 				8266D84939D5516C220E2BAE /* Pods-GiniVisionExampleUnitTests.postbank.xcconfig */,
+				1D19B454AA99BE9EA268C879 /* Pods-GiniVisionExample.targeted.xcconfig */,
+				801D6225A2C015FA5F4E720D /* Pods-GiniVisionExampleUnitTests.targeted.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -374,7 +375,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Gini;
 				TargetAttributes = {
 					1F01FD2C1FC30D7100BAA47E = {
@@ -426,11 +427,8 @@
 				1F21C4571FD03B0F00A67265 /* Localizable.strings in Resources */,
 				1F21C44C1FD03AE100A67265 /* LaunchScreen.xib in Resources */,
 				1F21C4321FD03AA200A67265 /* PDFNoResultsViewController.xib in Resources */,
-				1FC4F4CE20F4979D00E48B13 /* Targeted.xcconfig in Resources */,
-				1FC4F4D020F4984C00E48B13 /* Release.xcconfig in Resources */,
 				1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */,
 				1F21C42F1FD03A9900A67265 /* MainViewController.xib in Resources */,
-				1FC4F4C920F4963600E48B13 /* Debug.xcconfig in Resources */,
 				1F21C43D1FD03AAB00A67265 /* ResultsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +450,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Gini-iOS-SDK/Gini_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/GiniVision/GiniVision.framework",
@@ -465,7 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		842A79022D81D6FEC44465A1 /* [CP] Embed Pods Frameworks */ = {
@@ -474,7 +472,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Gini-iOS-SDK/Gini_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/GiniVision/GiniVision.framework",
@@ -487,7 +485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA1F97C4C83F3E6365BEC2C8 /* [CP] Check Pods Manifest.lock */ = {
