@@ -55,6 +55,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.stepIndicatorColor = theme.primaryColor
         configuration.imagesStackIndicatorLabelTextcolor = theme.primaryColor
         configuration.statusBarStyle = theme.statusBarStyle
+        configuration.flashToggleEnabled = true
         
         return configuration
     }()
