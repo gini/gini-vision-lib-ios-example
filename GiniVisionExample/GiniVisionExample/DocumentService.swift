@@ -128,7 +128,8 @@ final class DocumentService: DocumentServiceProtocol {
             switch result {
             case .success(let createdDocument):
                 self.partialDocuments[document.id]?.info.document = createdDocument.links.document
-                
+                self.partialDocuments[document.id]?.document = createdDocument
+
                 completion?(.success(createdDocument))
             case .failure(let error):
                 completion?(.failure(error))
