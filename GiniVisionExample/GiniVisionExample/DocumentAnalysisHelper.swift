@@ -13,34 +13,18 @@ import Gini
 typealias UploadDocumentCompletion = (Result<Document, GiniError>) -> Void
 typealias AnalysisCompletion = (Result<[Extraction], GiniError>) -> Void
 
-protocol DocumentServiceProtocol: class {
-    
-    var compositeDocument: Document? { get set }
-    var analysisCancellationToken: CancellationToken? { get set }
-    var pay5Parameters: [String] { get }
-    
-    func cancelAnalysis()
-    func remove(document: GiniVisionDocument)
-    func resetToInitialState()
-    func sendFeedback(with: [Extraction])
-    func startAnalysis(completion: @escaping AnalysisCompletion)
-    func sortDocuments(withSameOrderAs documents: [GiniVisionDocument])
-    func upload(document: GiniVisionDocument,
-                completion: UploadDocumentCompletion?)
-    func update(imageDocument: GiniImageDocument)
-}
-
-final class DocumentService: DocumentServiceProtocol {
+final class DocumentAnalysisHelper<T: Gini.DocumentService> {
     
     let pay5Parameters: [String] = ["paymentRecipient", "iban", "bic", "paymentReference", "amountToPay"]
     var giniSDK: GiniSDK
-    var documentService: DefaultDocumentService
+    var documentService: T
     var partialDocuments: [String: PartialDocumentInfo] = [:]
     var compositeDocument: Document?
     var analysisCancellationToken: CancellationToken?
+    var accountingDocument: Document?
     
     init() {
-        let credentials = DocumentService.fetchCredentials()
+        let credentials = DocumentAnalysisHelper.fetchCredentials()
         let clientId = credentials.id ?? ""
         let clientSecret = credentials.password ?? ""
         let domain = "giniexample.com"
@@ -51,36 +35,6 @@ final class DocumentService: DocumentServiceProtocol {
                                     domain: domain))
             .build()
         self.documentService = giniSDK.documentService()
-    }
-    
-    func startAnalysis(completion: @escaping AnalysisCompletion) {
-        let partialDocumentsInfoSorted = partialDocuments
-            .lazy
-            .map { $0.value }
-            .sorted()
-            .map { $0.info }
-        
-        self.fetchExtractions(for: partialDocumentsInfoSorted, completion: completion)
-    }
-    
-    func cancelAnalysis() {
-        if let compositeDocument = compositeDocument {
-            delete(composite: compositeDocument)
-        }
-        
-        analysisCancellationToken?.cancel()
-        analysisCancellationToken = nil
-        compositeDocument = nil
-    }
-    
-    func remove(document: GiniVisionDocument) {
-        if let index = partialDocuments.index(forKey: document.id) {
-            if let partial = partialDocuments[document.id]?
-                .document {
-                delete(partial: partial)
-            }
-            partialDocuments.remove(at: index)
-        }
     }
     
     func resetToInitialState() {
@@ -116,28 +70,25 @@ final class DocumentService: DocumentServiceProtocol {
         }
     }
     
-    func upload(document: GiniVisionDocument,
-                completion: UploadDocumentCompletion?) {
-        self.partialDocuments[document.id] =
-            PartialDocumentInfo(info: (Gini.PartialDocumentInfo(document: nil, rotationDelta: 0)),
-                                document: nil,
-                                order: self.partialDocuments.count)
-        let fileName = "Partial-\(NSDate().timeIntervalSince1970)"
-        
-        createDocument(from: document, fileName: fileName) { result in
+    fileprivate func handleResults(completion: @escaping AnalysisCompletion) -> (CompletionResult<[Extraction]>){
+        return { result in
             switch result {
-            case .success(let createdDocument):
-                self.partialDocuments[document.id]?.info.document = createdDocument.links.document
-                self.partialDocuments[document.id]?.document = createdDocument
-
-                completion?(.success(createdDocument))
+            case .success(let extractions):
+                print("✅ Finished analysis process with no errors")
+                completion(.success(extractions))
             case .failure(let error):
-                completion?(.failure(error))
+                switch error {
+                case .requestCancelled:
+                    print("❌ Cancelled analysis process")
+                default:
+                    print("❌ Finished analysis process with error: \(error)")
+                }
             }
         }
+        
     }
     
-    class func fetchCredentials() -> (id: String?, password: String?) {
+    static func fetchCredentials() -> (id: String?, password: String?) {
         let clientID = "client_id"
         let clientPassword = "client_password"
         
@@ -153,9 +104,65 @@ final class DocumentService: DocumentServiceProtocol {
     }
 }
 
-// MARK: - File private methods
+// MARK: - Public methods for DefaultDocumentService
 
-fileprivate extension DocumentService {
+extension DocumentAnalysisHelper where T == Gini.DefaultDocumentService {
+    
+    func startAnalysis(completion: @escaping AnalysisCompletion) {
+        let partialDocumentsInfoSorted = partialDocuments
+            .lazy
+            .map { $0.value }
+            .sorted()
+            .map { $0.info }
+        
+        self.fetchExtractions(for: partialDocumentsInfoSorted, completion: completion)
+    }
+    
+    func cancelAnalysis() {
+        if let compositeDocument = compositeDocument {
+            delete(composite: compositeDocument)
+        }
+        
+        analysisCancellationToken?.cancel()
+        analysisCancellationToken = nil
+        compositeDocument = nil
+    }
+    
+    func remove(document: GiniVisionDocument) {
+        if let index = partialDocuments.index(forKey: document.id) {
+            if let partial = partialDocuments[document.id]?
+                .document {
+                delete(partial: partial)
+            }
+            partialDocuments.remove(at: index)
+        }
+    }
+    
+    func upload(document: GiniVisionDocument,
+                completion: UploadDocumentCompletion?) {
+        self.partialDocuments[document.id] =
+            PartialDocumentInfo(info: (Gini.PartialDocumentInfo(document: nil, rotationDelta: 0)),
+                                document: nil,
+                                order: self.partialDocuments.count)
+        let fileName = "Partial-\(NSDate().timeIntervalSince1970)"
+        
+        createDocument(from: document, fileName: fileName) { result in
+            switch result {
+            case .success(let createdDocument):
+                self.partialDocuments[document.id]?.info.document = createdDocument.links.document
+                self.partialDocuments[document.id]?.document = createdDocument
+                
+                completion?(.success(createdDocument))
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
+}
+
+// MARK: - File private methods for DefaultDocumentService
+
+fileprivate extension DocumentAnalysisHelper where T == Gini.DefaultDocumentService {
     func createDocument(from document: GiniVisionDocument,
                         fileName: String,
                         docType: String = "",
@@ -226,22 +233,86 @@ fileprivate extension DocumentService {
         }
         
     }
+}
+
+// MARK: - Public methods for AccountingDocumentService
+
+extension DocumentAnalysisHelper where T == Gini.AccountingDocumentService {
+    func startAnalysis(completion: @escaping AnalysisCompletion) {
+        guard let document = accountingDocument else { return }
+        
+        self.fetchExtractions(for: document, completion: completion)
+    }
     
-    func handleResults(completion: @escaping AnalysisCompletion) -> (CompletionResult<[Extraction]>){
-        return { result in
+    func cancelAnalysis() {
+        analysisCancellationToken?.cancel()
+        analysisCancellationToken = nil
+        compositeDocument = nil
+    }
+    
+    func remove(document: GiniVisionDocument) {
+        if let document = accountingDocument {
+            delete(document)
+            accountingDocument = nil
+        }
+    }
+    
+    func upload(document: GiniVisionDocument,
+                completion: UploadDocumentCompletion?) {
+        let fileName = "Accounting-\(NSDate().timeIntervalSince1970)"
+        
+        createDocument(from: document, fileName: fileName) { result in
             switch result {
-            case .success(let extractions):
-                print("✅ Finished analysis process with no errors")
-                completion(.success(extractions))
+            case .success(let createdDocument):
+                self.accountingDocument = createdDocument
+                
+                completion?(.success(createdDocument))
             case .failure(let error):
-                switch error {
-                case .requestCancelled:
-                    print("❌ Cancelled analysis process")
-                default:
-                    print("❌ Finished analysis process with error: \(error)")
-                }
+                completion?(.failure(error))
             }
         }
+    }
+}
+
+// MARK: - File private methods for AccountingDocumentService
+
+fileprivate extension DocumentAnalysisHelper where T == Gini.AccountingDocumentService {
+    func createDocument(from document: GiniVisionDocument,
+                        fileName: String,
+                        docType: String = "",
+                        completion: @escaping UploadDocumentCompletion) {
+        print("📝 Creating document...")
+        documentService.createDocument(with: document.data, fileName: fileName, docType: nil, metadata: nil) { result in
+            switch result {
+            case .success(let createdDocument):
+                print("📄 Created document with id: \(createdDocument.id) for vision document \(document.id)")
+                completion(.success(createdDocument))
+            case .failure(let error):
+                print("❌ Document creation failed \(error)")
+            }
+            
+        }
+    }
+    
+    func delete(_ document: Document) {
+        documentService.delete(document) { result in
+            switch result {
+            case .success:
+                print("🗑 Deleted document with id: \(document.id)")
+            case .failure:
+                print("❌ Error deleting composite document with id: \(document.id)")
+            }
+        }
+    }
+    
+    func fetchExtractions(for document: Document,
+                          completion: @escaping (Result<[Extraction], GiniError>) -> Void) {
+        print("🔎 Starting analysis...")
+        self.analysisCancellationToken = CancellationToken()
+        self.documentService
+            .extractions(for: document,
+                         cancellationToken: self.analysisCancellationToken!,
+                         completion: self.handleResults(completion: completion))
         
     }
 }

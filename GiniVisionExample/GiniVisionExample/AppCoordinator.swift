@@ -16,7 +16,7 @@ final class AppCoordinator: NSObject, Coordinator {
     
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
-    lazy var documentService: DocumentServiceProtocol = DocumentService()
+    lazy var documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService> = .init()
     let application: UIApplication
     let theme: Theme
     let transition = HelpTransitionAnimator()
@@ -116,7 +116,7 @@ final class AppCoordinator: NSObject, Coordinator {
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
-                                                        documentService: documentService,
+                                                        documentAnalysisHelper: documentAnalysisHelper,
                                                         giniConfiguration: giniConfiguration)
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
@@ -266,15 +266,15 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 extension AppCoordinator: ResultsViewControllerDelegate {
     
     func resultViewController(with results: [Extraction]) -> ResultsViewController {
-        let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService,
-                                                                                 results: results),
-                                                         theme: theme)
+        let resultViewController = ResultsViewController(model:
+            ResultsViewModel(documentAnalysisHelper: documentAnalysisHelper,
+                             results: results), theme: theme)
         resultViewController.delegate = self
         return resultViewController
     }
     
     func results(viewController: ResultsViewController, didTapDone: ()) {
-        documentService.resetToInitialState()
+        documentAnalysisHelper.resetToInitialState()
         appNavigationController.popToRootViewController(animated: true)
     }
 }
@@ -292,7 +292,7 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
         
         let hasExtractions = {
-            return results.filter { documentService.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
+            return results.filter { documentAnalysisHelper.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
         }()
         
         let viewController = hasExtractions ? resultViewController(with: results) : pdfNoResultsViewController

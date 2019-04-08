@@ -8,6 +8,7 @@
 
 import UIKit
 import GiniVision
+import Gini
 
 typealias HelpLink = (title: String, url: URL?)
 typealias HelpKeyValueItem = (title: String, version: String)
@@ -37,7 +38,7 @@ final class HelpViewController: UIViewController {
     let versions: [HelpKeyValueItem] = [("GVL Version", AppVersion.gvlVersion),
                                    ("API SDK Version", AppVersion.apisdkVersion)]
     let credentials: [HelpKeyValueItem] = {
-       let credentials = DocumentService.fetchCredentials()
+       let credentials = DocumentAnalysisHelper<Gini.DefaultDocumentService>.fetchCredentials()
         let password = credentials.password == nil ? "" : "******"
         
         return [("Id", credentials.id ?? ""), ("Password", password)]

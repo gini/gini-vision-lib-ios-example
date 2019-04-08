@@ -20,38 +20,17 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     
     weak var delegate: ScreenAPICoordinatorDelegate?
     var giniConfiguration: GiniConfiguration
-    var documentService: DocumentServiceProtocol
+    var documentService: DocumentAnalysisHelper<DefaultDocumentService>
     var childCoordinators: [Coordinator] = []
     var screenAPIViewController: UIViewController!
     var rootViewController: UIViewController {
         return screenAPIViewController
     }
     
-//    lazy var documentAnalysisHandler: DocumentAnalysisCompletion = {[weak self] results, document, error in
-//        guard let `self` = self else { return }
-//        DispatchQueue.main.async {
-//            if error != nil {
-//                self.screenAPIAnalysisScreenDelegate?
-//                    .displayError(withMessage: "Es ist ein Fehler aufgetreten. Wiederholen",
-//                                  andAction: {
-//                                    if let visionDocument = self.visionDocument {
-//                                        self.documentService.analyze(visionDocument: visionDocument,
-//                                                                     completion: self.documentAnalysisHandler)
-//                                    }
-//                    })
-//                return
-//            }
-//            if self.documentService.hasExtractions ||
-//                !(self.screenAPIAnalysisScreenDelegate?.tryDisplayNoResultsScreen() ?? false) {
-//                self.delegate?.screenAPI(coordinator: self, didFinishWithResults: self.documentService.result)
-//            }
-//        }
-//    }
-    
     init(importedDocument document: GiniVisionDocument?,
-         documentService: DocumentServiceProtocol,
+         documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService>,
          giniConfiguration: GiniConfiguration) {
-        self.documentService = documentService
+        self.documentService = documentAnalysisHelper
         self.giniConfiguration = giniConfiguration
         super.init()
         self.screenAPIViewController = GiniVision.viewController(withDelegate: self,
@@ -133,10 +112,9 @@ extension ScreenAPICoordinator {
                     self.delegate?.screenAPI(coordinator: self, didFinishWithResults: extractions)
                 }
             case .failure(let error):
-                let error = error as? AnalysisError ?? AnalysisError.unknown
-                guard error != .cancelled else { return }
+                guard error != .requestCancelled else { return }
                 
-                networkDelegate.displayError(withMessage: error.message, andAction: {
+                networkDelegate.displayError(withMessage: error.localizedDescription, andAction: {
                     self.startAnalysis(networkDelegate: networkDelegate)
                 })
             }

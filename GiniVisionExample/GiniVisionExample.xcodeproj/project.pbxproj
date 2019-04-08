@@ -34,7 +34,7 @@
 		1F21C43D1FD03AAB00A67265 /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C4381FD03AAB00A67265 /* ResultsTableViewCell.xib */; };
 		1F21C4451FD03ACD00A67265 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C43F1FD03ACD00A67265 /* AppVersion.swift */; };
 		1F21C4461FD03ACD00A67265 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4401FD03ACD00A67265 /* Coordinator.swift */; };
-		1F21C4481FD03ACD00A67265 /* DocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4421FD03ACD00A67265 /* DocumentService.swift */; };
+		1F21C4481FD03ACD00A67265 /* DocumentAnalysisHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */; };
 		1F21C4491FD03ACD00A67265 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4431FD03ACD00A67265 /* AppCoordinator.swift */; };
 		1F21C44A1FD03ACD00A67265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4441FD03ACD00A67265 /* AppDelegate.swift */; };
 		1F21C44C1FD03AE100A67265 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */; };
@@ -101,7 +101,7 @@
 		1F21C4381FD03AAB00A67265 /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultsTableViewCell.xib; path = Screens/Results/ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		1F21C43F1FD03ACD00A67265 /* AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		1F21C4401FD03ACD00A67265 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		1F21C4421FD03ACD00A67265 /* DocumentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentService.swift; sourceTree = "<group>"; };
+		1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentAnalysisHelper.swift; sourceTree = "<group>"; };
 		1F21C4431FD03ACD00A67265 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		1F21C4441FD03ACD00A67265 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F21C44B1FD03AE100A67265 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Screens/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
 				1F482B4320F50CFA00EED5AE /* Theme.swift */,
-				1F21C4421FD03ACD00A67265 /* DocumentService.swift */,
+				1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */,
 				1FC4F4C720F4961400E48B13 /* Config */,
 				1F21C41A1FD039BB00A67265 /* Extensions */,
 				1F21C43E1FD03AAE00A67265 /* Models */,
@@ -540,7 +540,7 @@
 				1F21C4461FD03ACD00A67265 /* Coordinator.swift in Sources */,
 				1F21C4521FD03AF400A67265 /* UIColor.swift in Sources */,
 				1F21C4271FD03A8F00A67265 /* HelpCoordinator.swift in Sources */,
-				1F21C4481FD03ACD00A67265 /* DocumentService.swift in Sources */,
+				1F21C4481FD03ACD00A67265 /* DocumentAnalysisHelper.swift in Sources */,
 				1F21C44E1FD03AE800A67265 /* Extraction.swift in Sources */,
 				1F21C42B1FD03A8F00A67265 /* HelpTransitionAnimator.swift in Sources */,
 				1F21C41F1FD03A8700A67265 /* ContainerNavigationController.swift in Sources */,
