@@ -8,7 +8,7 @@
 
 import Foundation
 import GiniVision
-import Gini_iOS_SDK
+import Gini
 
 final class AppVersion {
     static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""

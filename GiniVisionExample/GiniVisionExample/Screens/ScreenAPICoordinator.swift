@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 import GiniVision
-import Gini_iOS_SDK
+import Gini
 
 protocol ScreenAPICoordinatorDelegate: class {
     func screenAPI(coordinator: ScreenAPICoordinator, didCancel:())
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: AnalysisResults)
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: [Extraction])
 }
 
 final class ScreenAPICoordinator: NSObject, Coordinator {

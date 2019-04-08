@@ -198,6 +198,7 @@
 		1F21C41A1FD039BB00A67265 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F21C44D1FD03AE800A67265 /* Extraction.swift */,
 				1F21C4511FD03AF400A67265 /* UIApplication.swift */,
 				1F21C44F1FD03AF300A67265 /* UIColor.swift */,
 				1F21C4501FD03AF400A67265 /* UINavigationController.swift */,
@@ -233,7 +234,6 @@
 		1F21C43E1FD03AAE00A67265 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1F21C44D1FD03AE800A67265 /* Extraction.swift */,
 				1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */,
 			);
 			name = Models;
@@ -452,14 +452,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Gini-iOS-SDK/Gini_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Gini/Gini.framework",
 				"${BUILT_PRODUCTS_DIR}/GiniVision/GiniVision.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gini_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gini.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GiniVision.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,14 +472,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Gini-iOS-SDK/Gini_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Gini/Gini.framework",
 				"${BUILT_PRODUCTS_DIR}/GiniVision/GiniVision.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gini_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gini.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GiniVision.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,7 +718,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -746,7 +742,7 @@
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -866,7 +862,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQY9KX4V88;
 				INFOPLIST_FILE = GiniVisionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(GSE_APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

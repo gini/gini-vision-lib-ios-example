@@ -1,34 +1,27 @@
 PODS:
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
-  - Gini-iOS-SDK (1.3.0):
-    - Gini-iOS-SDK/Core (= 1.3.0)
-  - Gini-iOS-SDK/Core (1.3.0):
-    - Bolts (~> 1.9)
+  - Gini/Core (0.0.1)
+  - Gini/Documents (0.0.1):
+    - Gini/Core
   - GiniVision (4.8.0):
     - GiniVision/Core (= 4.8.0)
   - GiniVision/Core (4.8.0)
 
 DEPENDENCIES:
-  - Gini-iOS-SDK
+  - Gini/Documents (from `../../gini-ios/`)
   - GiniVision
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Bolts
   https://github.com/gini/gini-podspecs.git:
-    - Gini-iOS-SDK
     - GiniVision
 
+EXTERNAL SOURCES:
+  Gini:
+    :path: "../../gini-ios/"
+
 SPEC CHECKSUMS:
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Gini-iOS-SDK: b3da30a0893efb297d37cf5b837e80e49455d281
+  Gini: 3be12fdba1163a1390c6f25a5a6fc4d3229acf9e
   GiniVision: ded3376935ee65bbd298a405cd5cfa87c319d410
 
-PODFILE CHECKSUM: 24fd6e05137ede417b4a3e0081f543f73a770886
+PODFILE CHECKSUM: 8c3e2c32e9710b45bee72bb65090f457e27afc0b
 
 COCOAPODS: 1.6.1

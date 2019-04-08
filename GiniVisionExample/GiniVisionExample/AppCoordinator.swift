@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-import Gini_iOS_SDK
 import AVFoundation
 import GiniVision
+import Gini
 
 final class AppCoordinator: NSObject, Coordinator {
     
@@ -265,7 +265,7 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 
 extension AppCoordinator: ResultsViewControllerDelegate {
     
-    func resultViewController(with results: AnalysisResults) -> ResultsViewController {
+    func resultViewController(with results: [Extraction]) -> ResultsViewController {
         let resultViewController = ResultsViewController(model: ResultsViewModel(documentService: documentService,
                                                                                  results: results),
                                                          theme: theme)
@@ -288,11 +288,11 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
         remove(childCoordinator: coordinator)
     }
     
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: AnalysisResults) {
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: [Extraction]) {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
         
         let hasExtractions = {
-            return results.filter { documentService.pay5Parameters.contains($0.0) }.count > 0
+            return results.filter { documentService.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
         }()
         
         let viewController = hasExtractions ? resultViewController(with: results) : pdfNoResultsViewController

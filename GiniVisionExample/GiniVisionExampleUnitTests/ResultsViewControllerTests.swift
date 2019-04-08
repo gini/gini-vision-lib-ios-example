@@ -14,7 +14,7 @@ final class ResultsViewControllerTests: XCTestCase {
     
     var resultsViewController: ResultsViewController!
     var resultsViewModel: ResultsViewModelMock!
-    var results: ExtractionCollection = [("Section 0", [Extraction(key: "item 1", name: "value 1", value: "id 1"),
+    var results: ExtractionSections = [("Section 0", [Extraction(key: "item 1", name: "value 1", value: "id 1"),
                                                         Extraction(key: "item 2", name: "value 2", value: "id 2")])]
     
     override func setUp() {

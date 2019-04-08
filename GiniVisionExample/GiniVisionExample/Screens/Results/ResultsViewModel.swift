@@ -7,39 +7,41 @@
 //
 
 import Foundation
-import Gini_iOS_SDK
+import Gini
 
-typealias ExtractionCollection = [(title: String, items: [Extraction])]
+typealias ExtractionSections = [(title: String, items: [Extraction])]
 
 protocol ResultsViewModelProtocol: class {
     
-    var extractions: ExtractionCollection { get set }
+    var sections: ExtractionSections { get set }
     var documentService: DocumentServiceProtocol { get }
-    var updatedAnalysisResults: AnalysisResults { get }
-    var analysisResults: AnalysisResults { get }
+    var updatedAnalysisResults: [Extraction] { get }
+    var analysisResults: [Extraction] { get }
     
-    init(documentService: DocumentServiceProtocol, results: AnalysisResults)
+    init(documentService: DocumentServiceProtocol, results: [Extraction])
     func sendFeedBack()
     func updateExtraction(at indexPath: IndexPath, withValue value: String?)
-    func parseSections(from results: AnalysisResults)
+    func parseSections(from results: [Extraction])
 }
 
 final class ResultsViewModel: ResultsViewModelProtocol {
     
-    var extractions: ExtractionCollection = [("Main parameters", []), ("Rest", [])]
+    var sections: ExtractionSections = [("Main parameters", []), ("Rest", [])]
     var documentService: DocumentServiceProtocol
-    var analysisResults: AnalysisResults
-    var updatedAnalysisResults: AnalysisResults {
+    var analysisResults: [Extraction]
+    var updatedAnalysisResults: [Extraction] {
         var currentAnalysisResults = analysisResults
-        extractions.forEach { section in
+        sections.forEach { section in
             section.items.forEach { item in
-                currentAnalysisResults[item.key]?.value = item.value
+                if let index = currentAnalysisResults.firstIndex(where: { $0.name == item.name }) {
+                    currentAnalysisResults[index] = item
+                }
             }
         }
         return currentAnalysisResults
     }
     
-    init(documentService: DocumentServiceProtocol = DocumentService(), results: AnalysisResults) {
+    init(documentService: DocumentServiceProtocol = DocumentService(), results: [Extraction]) {
         self.documentService = documentService
         self.analysisResults = results
         self.parseSections(from: results)
@@ -49,17 +51,20 @@ final class ResultsViewModel: ResultsViewModelProtocol {
         documentService.sendFeedback(with: updatedAnalysisResults)
     }
     
-    func parseSections(from results: AnalysisResults) {
-        results.keys.forEach { key in
-            if let result = results[key] {
-                let extraction = Extraction(giniExtraction: result)
-                let section = documentService.pay5Parameters.contains(extraction.key) ? 0 : 1
-                extractions[section].items.append(extraction)
-            }
+    func parseSections(from results: [Extraction]) {
+        results.forEach { extraction in
+            let section = documentService.pay5Parameters.contains(extraction.name ?? "") ? 0 : 1
+            sections[section].items.append(extraction)
         }
     }
     
     func updateExtraction(at indexPath: IndexPath, withValue value: String?) {
-        extractions[indexPath.section].items[indexPath.row].value = value ?? ""
+        guard let value = value else { return }
+        let modifiedExtraction = sections[indexPath.section].items[indexPath.row]
+        sections[indexPath.section].items[indexPath.row] = Extraction(box: modifiedExtraction.box,
+                                                                      candidates: modifiedExtraction.candidates,
+                                                                      entity: modifiedExtraction.entity,
+                                                                      value: value,
+                                                                      name: modifiedExtraction.name)
     }
 }
