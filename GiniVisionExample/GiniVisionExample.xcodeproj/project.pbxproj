@@ -13,6 +13,9 @@
 		1F1C44071FCDB09B0084B65E /* HelpViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C44021FCDB09B0084B65E /* HelpViewControllerTests.swift */; };
 		1F1C44081FCDB09B0084B65E /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */; };
 		1F1C440A1FCDB0AB0084B65E /* invoice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F1C44091FCDB0AA0084B65E /* invoice.jpg */; };
+		1F1EBD5D225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1EBD5C225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift */; };
+		1F1EBD5F225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1EBD5E225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift */; };
+		1F1EBD61225BA05B00C3B6EC /* CredentialsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1EBD60225BA05B00C3B6EC /* CredentialsHelper.swift */; };
 		1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C4111FCEB84B00A67265 /* TestUtils.swift */; };
 		1F21C4161FCF111700A67265 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F21C4151FCF111700A67265 /* Keys.plist */; };
 		1F21C41F1FD03A8700A67265 /* ContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F21C41C1FD03A8700A67265 /* ContainerNavigationController.swift */; };
@@ -80,6 +83,9 @@
 		1F1C44021FCDB09B0084B65E /* HelpViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewControllerTests.swift; sourceTree = "<group>"; };
 		1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
 		1F1C44091FCDB0AA0084B65E /* invoice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = invoice.jpg; path = GiniVisionExampleUnitTests/invoice.jpg; sourceTree = SOURCE_ROOT; };
+		1F1EBD5C225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDocumentAnalysisHelper.swift; sourceTree = "<group>"; };
+		1F1EBD5E225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountingDocumentAnalysisHelper.swift; sourceTree = "<group>"; };
+		1F1EBD60225BA05B00C3B6EC /* CredentialsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsHelper.swift; sourceTree = "<group>"; };
 		1F21C4111FCEB84B00A67265 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		1F21C4151FCF111700A67265 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		1F21C41C1FD03A8700A67265 /* ContainerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerNavigationController.swift; path = Screens/ContainerNavigationController.swift; sourceTree = "<group>"; };
@@ -185,7 +191,7 @@
 				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
 				1F482B4320F50CFA00EED5AE /* Theme.swift */,
-				1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */,
+				1F1EBD5B225BA02400C3B6EC /* Analysis */,
 				1FC4F4C720F4961400E48B13 /* Config */,
 				1F21C41A1FD039BB00A67265 /* Extensions */,
 				1F21C43E1FD03AAE00A67265 /* Models */,
@@ -193,6 +199,17 @@
 				1F286D661FC4644A001C0DEF /* Supporting files */,
 			);
 			path = GiniVisionExample;
+			sourceTree = "<group>";
+		};
+		1F1EBD5B225BA02400C3B6EC /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */,
+				1F1EBD60225BA05B00C3B6EC /* CredentialsHelper.swift */,
+				1F1EBD5E225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift */,
+				1F1EBD5C225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift */,
+			);
+			name = Analysis;
 			sourceTree = "<group>";
 		};
 		1F21C41A1FD039BB00A67265 /* Extensions */ = {
@@ -530,6 +547,7 @@
 			files = (
 				1F21C4211FD03A8700A67265 /* ScreenAPICoordinator.swift in Sources */,
 				1F21C4531FD03AF400A67265 /* UINavigationController.swift in Sources */,
+				1F1EBD61225BA05B00C3B6EC /* CredentialsHelper.swift in Sources */,
 				1F21C4331FD03AA200A67265 /* PDFNoResultsViewController.swift in Sources */,
 				1F482B4420F50CFA00EED5AE /* Theme.swift in Sources */,
 				1F21C43C1FD03AAB00A67265 /* ResultsTableViewCell.swift in Sources */,
@@ -538,10 +556,12 @@
 				1F21C4391FD03AAB00A67265 /* ResultsViewController.swift in Sources */,
 				1F21C4451FD03ACD00A67265 /* AppVersion.swift in Sources */,
 				1F21C4461FD03ACD00A67265 /* Coordinator.swift in Sources */,
+				1F1EBD5F225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift in Sources */,
 				1F21C4521FD03AF400A67265 /* UIColor.swift in Sources */,
 				1F21C4271FD03A8F00A67265 /* HelpCoordinator.swift in Sources */,
 				1F21C4481FD03ACD00A67265 /* DocumentAnalysisHelper.swift in Sources */,
 				1F21C44E1FD03AE800A67265 /* Extraction.swift in Sources */,
+				1F1EBD5D225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift in Sources */,
 				1F21C42B1FD03A8F00A67265 /* HelpTransitionAnimator.swift in Sources */,
 				1F21C41F1FD03A8700A67265 /* ContainerNavigationController.swift in Sources */,
 				1F21C4541FD03AF400A67265 /* UIApplication.swift in Sources */,

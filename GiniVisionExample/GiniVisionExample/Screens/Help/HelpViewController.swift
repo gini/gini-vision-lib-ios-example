@@ -14,11 +14,12 @@ typealias HelpLink = (title: String, url: URL?)
 typealias HelpKeyValueItem = (title: String, version: String)
 
 enum HelpAction {
-    case resetToDefaults
+    case resetToDefaults, apiSelection
     
     var title: String {
         switch self {
         case .resetToDefaults: return "Reset to default settings"
+        case .apiSelection: return ""
         }
     }
 }
@@ -33,17 +34,16 @@ final class HelpViewController: UIViewController {
     let linkCellReuseIdentifier = "linkCellReuseIdentifier"
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
     let othersCellReuseIdentifier = "othersCellReuseIdentifier"
-
+    var selectedAPIDomain: APIDomain
     
     let versions: [HelpKeyValueItem] = [("GVL Version", AppVersion.gvlVersion),
                                    ("API SDK Version", AppVersion.apisdkVersion)]
     let credentials: [HelpKeyValueItem] = {
-       let credentials = DocumentAnalysisHelper<Gini.DefaultDocumentService>.fetchCredentials()
+       let credentials = CredentialsHelper.fetchCredentials()
         let password = credentials.password == nil ? "" : "******"
         
         return [("Id", credentials.id ?? ""), ("Password", password)]
     }()
-    let others: [HelpAction] = [.resetToDefaults]
     let links: [HelpLink] = [("GVL Changelog",
                               URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
                              ("GVL Readme",
@@ -53,17 +53,29 @@ final class HelpViewController: UIViewController {
     lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions),
                                                           ("Gini client", self.credentials),
                                                           ("Links", self.links),
-                                                          ("Others", self.others)]
+                                                          ("API", [HelpAction.apiSelection]),
+                                                          ("Others", [HelpAction.resetToDefaults])]
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: linkCellReuseIdentifier)
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: versionCellReuseIdentifier)
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: othersCellReuseIdentifier)
+            tableView.register(APISelectionTableViewCell.self,
+                               forCellReuseIdentifier: APISelectionTableViewCell.identifier)
             tableView.dataSource = self
             tableView.delegate = self
             tableView.tableFooterView = UIView()
         }
+    }
+
+    init(selectedAPIDomain: APIDomain) {
+        self.selectedAPIDomain = selectedAPIDomain
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func close(_ sender: Any) {
@@ -105,20 +117,29 @@ extension HelpViewController: UITableViewDataSource {
             cell?.textLabel?.text = versions[indexPath.row].title
             cell?.detailTextLabel?.text = versions[indexPath.row].version
         } else if let others = items as? [HelpAction] {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
-
             let item = others[indexPath.row]
             switch item {
             case .resetToDefaults:
+                cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
+                cell?.textLabel?.text = item.title
                 cell?.textLabel?.textColor = .red
+            case .apiSelection:
+                let cell = tableView.dequeueReusableCell(withIdentifier: APISelectionTableViewCell.identifier,
+                                                         for: indexPath) as? APISelectionTableViewCell
+                cell?.control.selectedSegmentIndex = selectedAPIDomain == .default ? 0 : 1
+                cell?.control.addTarget(self, action: #selector(apiSelectionDidChange), for: .valueChanged)
+                return cell!
             }
-            cell?.textLabel?.text = item.title
         }
         return cell!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+    
+    @objc func apiSelectionDidChange(_ sender: UISegmentedControl) {
+        selectedAPIDomain = sender.selectedSegmentIndex == 0 ? .default : .accounting
     }
 }
 
@@ -133,13 +154,47 @@ extension HelpViewController: UITableViewDelegate {
             switch others[indexPath.row] {
             case .resetToDefaults:
                 UserDefaults().removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            default: break
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        let items = sections[indexPath.section].items
-        return items is [HelpLink] || items is [HelpAction]
+        let item = sections[indexPath.section].items[indexPath.row]
+        if case HelpAction.resetToDefaults = item {
+            return true
+        }
+        
+        return item is HelpLink
+    }
+}
+
+final class APISelectionTableViewCell: UITableViewCell {
+    static let identifier = "APISelectionTableViewCell"
+    
+    lazy var control: UISegmentedControl = {
+        let control = UISegmentedControl(frame: .zero)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.insertSegment(withTitle: "Default", at: 0, animated: false)
+        control.insertSegment(withTitle: "Accounting", at: 1, animated: false)
+        control.selectedSegmentIndex = 0
+        control.tintColor = .giniBlue
+        
+        return control
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(control)
+        
+        control.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        control.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        control.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        control.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -14,7 +14,7 @@ typealias ExtractionSections = [(title: String, items: [Extraction])]
 protocol ResultsViewModelProtocol: class {
     
     var sections: ExtractionSections { get set }
-    var documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService> { get }
+    var documentAnalysisHelper: DocumentAnalysisHelper { get }
     var updatedAnalysisResults: [Extraction] { get }
     var analysisResults: [Extraction] { get }
     
@@ -26,7 +26,7 @@ protocol ResultsViewModelProtocol: class {
 final class ResultsViewModel: ResultsViewModelProtocol {
     
     var sections: ExtractionSections = [("Main parameters", []), ("Rest", [])]
-    var documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService>
+    var documentAnalysisHelper: DocumentAnalysisHelper
     var analysisResults: [Extraction]
     var updatedAnalysisResults: [Extraction] {
         var currentAnalysisResults = analysisResults
@@ -40,7 +40,7 @@ final class ResultsViewModel: ResultsViewModelProtocol {
         return currentAnalysisResults
     }
     
-    init(documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService> = .init(), results: [Extraction]) {
+    init(documentAnalysisHelper: DocumentAnalysisHelper, results: [Extraction]) {
         self.documentAnalysisHelper = documentAnalysisHelper
         self.analysisResults = results
         self.parseSections(from: results)

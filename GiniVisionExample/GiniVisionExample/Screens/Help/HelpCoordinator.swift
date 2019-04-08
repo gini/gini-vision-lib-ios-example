@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Gini
 
 protocol HelpCoordinatorDelegate: class {
-    func help(coordinator: HelpCoordinator, didFinish: ())
+    func help(coordinator: HelpCoordinator, didFinish apiDomain: APIDomain)
 }
 
 final class HelpCoordinator: NSObject, Coordinator {
@@ -19,6 +20,7 @@ final class HelpCoordinator: NSObject, Coordinator {
         return ContainerNavigationController(rootViewController: navigationController)
     }
     var childCoordinators: [Coordinator] = []
+    var selectedAPIDomain: APIDomain
     let theme: Theme
     
     lazy var navigationController: UINavigationController = {
@@ -32,15 +34,16 @@ final class HelpCoordinator: NSObject, Coordinator {
     }()
     
     lazy var helpViewController: HelpViewController = {
-        var helpViewController = HelpViewController()
+        var helpViewController = HelpViewController(selectedAPIDomain: selectedAPIDomain)
         helpViewController.delegate = self
         return helpViewController
     }()
     
     var webViewController: WebViewController?
     
-    init(theme: Theme) {
+    init(theme: Theme, selectedAPIDomain: APIDomain) {
         self.theme = theme
+        self.selectedAPIDomain = selectedAPIDomain
     }
     
     func loadWebView(withLink link: HelpLink) {
@@ -64,7 +67,7 @@ final class HelpCoordinator: NSObject, Coordinator {
 
 extension HelpCoordinator: HelpViewControllerDelegate {
     func help(viewController: HelpViewController, didTapClose: ()) {
-        delegate?.help(coordinator: self, didFinish: ())
+        delegate?.help(coordinator: self, didFinish: viewController.selectedAPIDomain)
     }
     
     func help(viewController: HelpViewController, didSelectLink link: HelpLink) {

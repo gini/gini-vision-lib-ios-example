@@ -20,7 +20,7 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     
     weak var delegate: ScreenAPICoordinatorDelegate?
     var giniConfiguration: GiniConfiguration
-    var documentService: DocumentAnalysisHelper<DefaultDocumentService>
+    var documentAnalysisHelper: DocumentAnalysisHelper
     var childCoordinators: [Coordinator] = []
     var screenAPIViewController: UIViewController!
     var rootViewController: UIViewController {
@@ -28,9 +28,9 @@ final class ScreenAPICoordinator: NSObject, Coordinator {
     }
     
     init(importedDocument document: GiniVisionDocument?,
-         documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService>,
+         documentAnalysisHelper: DocumentAnalysisHelper,
          giniConfiguration: GiniConfiguration) {
-        self.documentService = documentAnalysisHelper
+        self.documentAnalysisHelper = documentAnalysisHelper
         self.giniConfiguration = giniConfiguration
         super.init()
         self.screenAPIViewController = GiniVision.viewController(withDelegate: self,
@@ -69,12 +69,12 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
         // It is necessary to check the order when using multipage before
         // creating the composite document
         if giniConfiguration.multipageEnabled {
-            documentService.sortDocuments(withSameOrderAs: documents)
+            documentAnalysisHelper.sortDocuments(withSameOrderAs: documents)
         }
         
         // And review the changes for each document recursively.
         for document in (documents.compactMap { $0 as? GiniImageDocument }) {
-            documentService.update(imageDocument: document)
+            documentAnalysisHelper.update(imageDocument: document)
         }
         
         // In multipage mode the analysis can be triggered once the documents have been uploaded.
@@ -90,12 +90,12 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
     }
     
     func didCancelReview(for document: GiniVisionDocument) {
-        documentService.remove(document: document)
+        documentAnalysisHelper.remove(document: document)
     }
     
     func didCancelAnalysis() {
         // Cancel analysis process to avoid unnecessary network calls.
-        documentService.cancelAnalysis()
+        documentAnalysisHelper.cancelAnalysis()
     }
     
 }
@@ -104,7 +104,7 @@ extension ScreenAPICoordinator: GiniVisionDelegate {
 
 extension ScreenAPICoordinator {
     fileprivate func startAnalysis(networkDelegate: GiniVisionNetworkDelegate) {
-        self.documentService.startAnalysis { result in
+        documentAnalysisHelper.startAnalysis { result in
             switch result {
             case .success(let extractions):
                 DispatchQueue.main.async { [weak self] in
@@ -124,7 +124,7 @@ extension ScreenAPICoordinator {
     fileprivate func upload(document: GiniVisionDocument,
                             didComplete: @escaping (GiniVisionDocument) -> Void,
                             didFail: @escaping (GiniVisionDocument, Error) -> Void) {
-        documentService.upload(document: document) { result in
+        documentAnalysisHelper.upload(document: document) { result in
             switch result {
             case .success:
                 didComplete(document)

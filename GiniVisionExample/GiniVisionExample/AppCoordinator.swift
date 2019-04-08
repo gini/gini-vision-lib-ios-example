@@ -16,10 +16,22 @@ final class AppCoordinator: NSObject, Coordinator {
     
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
-    lazy var documentAnalysisHelper: DocumentAnalysisHelper<DefaultDocumentService> = .init()
     let application: UIApplication
     let theme: Theme
     let transition = HelpTransitionAnimator()
+    var documentAnalysisHelper: DocumentAnalysisHelper?
+    var selectedAPIDomain: APIDomain = .default
+
+    var client: Client {
+        let credentials = CredentialsHelper.fetchCredentials()
+        let clientId = credentials.id ?? ""
+        let clientSecret = credentials.password ?? ""
+        let domain = "giniexample.com"
+        
+        return Client(id: clientId,
+                      secret: clientSecret,
+                      domain: domain)
+    }
     
     var rootViewController: UIViewController {
         return appNavigationController
@@ -43,7 +55,6 @@ final class AppCoordinator: NSObject, Coordinator {
         let configuration = GiniConfiguration()
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
-        configuration.multipageEnabled = true
         configuration.navigationBarItemTintColor = theme.secondaryColor
         configuration.navigationBarTintColor = theme.primaryColor
         configuration.navigationBarTitleColor = theme.secondaryColor
@@ -108,15 +119,20 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     fileprivate func showHelpViewController() {
-        let helpCoordinator = HelpCoordinator(theme: theme)
+        let helpCoordinator = HelpCoordinator(theme: theme, selectedAPIDomain: selectedAPIDomain)
         helpCoordinator.delegate = self
         add(childCoordinator: helpCoordinator)
         appNavigationController.pushViewController(helpCoordinator.rootViewController, animated: true)
     }
     
     fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
+        self.documentAnalysisHelper = selectedAPIDomain == .default ?
+            DefaultDocumenAnalysisHelper(client: client) :
+            AccountingDocumentAnalysisHelper(client: client)
+        giniConfiguration.multipageEnabled = selectedAPIDomain == .default
+
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
-                                                        documentAnalysisHelper: documentAnalysisHelper,
+                                                        documentAnalysisHelper: documentAnalysisHelper!,
                                                         giniConfiguration: giniConfiguration)
         screenAPICoordinator.delegate = self
         add(childCoordinator: screenAPICoordinator)
@@ -247,7 +263,8 @@ extension AppCoordinator: MainViewControllerDelegate {
 // MARK: HelpCoordinatorDelegate
 
 extension AppCoordinator: HelpCoordinatorDelegate {
-    func help(coordinator: HelpCoordinator, didFinish: ()) {
+    func help(coordinator: HelpCoordinator, didFinish apiDomain: APIDomain) {
+        selectedAPIDomain = apiDomain
         appNavigationController.popViewController(animated: true)
         remove(childCoordinator: coordinator)
     }
@@ -267,14 +284,14 @@ extension AppCoordinator: ResultsViewControllerDelegate {
     
     func resultViewController(with results: [Extraction]) -> ResultsViewController {
         let resultViewController = ResultsViewController(model:
-            ResultsViewModel(documentAnalysisHelper: documentAnalysisHelper,
+            ResultsViewModel(documentAnalysisHelper: documentAnalysisHelper!,
                              results: results), theme: theme)
         resultViewController.delegate = self
         return resultViewController
     }
     
     func results(viewController: ResultsViewController, didTapDone: ()) {
-        documentAnalysisHelper.resetToInitialState()
+        documentAnalysisHelper?.resetToInitialState()
         appNavigationController.popToRootViewController(animated: true)
     }
 }
@@ -292,7 +309,7 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
         
         let hasExtractions = {
-            return results.filter { documentAnalysisHelper.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
+            return results.filter { documentAnalysisHelper!.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
         }()
         
         let viewController = hasExtractions ? resultViewController(with: results) : pdfNoResultsViewController
