@@ -55,7 +55,7 @@
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
 		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
 		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
-		1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */; };
+		1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocument.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -128,7 +128,7 @@
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
 		1F70B9791FC81EB500930F35 /* ExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
 		1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
-		1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDocumentInfo.swift; sourceTree = "<group>"; };
+		1FB4003720E22EBD00DEB81D /* PartialDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDocument.swift; sourceTree = "<group>"; };
 		1FC4F4C820F4963600E48B13 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Targeted.xcconfig; sourceTree = "<group>"; };
 		1FC4F4CF20F4984C00E48B13 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -188,10 +188,9 @@
 			children = (
 				1F21C4431FD03ACD00A67265 /* AppCoordinator.swift */,
 				1F21C4441FD03ACD00A67265 /* AppDelegate.swift */,
-				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
 				1F482B4320F50CFA00EED5AE /* Theme.swift */,
-				1F1EBD5B225BA02400C3B6EC /* Analysis */,
+				1F1EBD5B225BA02400C3B6EC /* Helpers */,
 				1FC4F4C720F4961400E48B13 /* Config */,
 				1F21C41A1FD039BB00A67265 /* Extensions */,
 				1F21C43E1FD03AAE00A67265 /* Models */,
@@ -201,15 +200,16 @@
 			path = GiniVisionExample;
 			sourceTree = "<group>";
 		};
-		1F1EBD5B225BA02400C3B6EC /* Analysis */ = {
+		1F1EBD5B225BA02400C3B6EC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1F21C43F1FD03ACD00A67265 /* AppVersion.swift */,
 				1F21C4421FD03ACD00A67265 /* DocumentAnalysisHelper.swift */,
 				1F1EBD60225BA05B00C3B6EC /* CredentialsHelper.swift */,
 				1F1EBD5E225BA04700C3B6EC /* AccountingDocumentAnalysisHelper.swift */,
 				1F1EBD5C225BA03A00C3B6EC /* DefaultDocumentAnalysisHelper.swift */,
 			);
-			name = Analysis;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		1F21C41A1FD039BB00A67265 /* Extensions */ = {
@@ -251,7 +251,7 @@
 		1F21C43E1FD03AAE00A67265 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1FB4003720E22EBD00DEB81D /* PartialDocumentInfo.swift */,
+				1FB4003720E22EBD00DEB81D /* PartialDocument.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -569,7 +569,7 @@
 				1F21C4201FD03A8700A67265 /* RootNavigationController.swift in Sources */,
 				1F21C43B1FD03AAB00A67265 /* ResultsViewModel.swift in Sources */,
 				1F21C44A1FD03ACD00A67265 /* AppDelegate.swift in Sources */,
-				1FB4003820E22EBD00DEB81D /* PartialDocumentInfo.swift in Sources */,
+				1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */,
 				1F21C42E1FD03A9900A67265 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

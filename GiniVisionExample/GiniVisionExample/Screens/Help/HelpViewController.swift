@@ -35,26 +35,12 @@ final class HelpViewController: UIViewController {
     let versionCellReuseIdentifier = "versionCellReuseIdentifier"
     let othersCellReuseIdentifier = "othersCellReuseIdentifier"
     var selectedAPIDomain: APIDomain
-    
-    let versions: [HelpKeyValueItem] = [("GVL Version", AppVersion.gvlVersion),
-                                   ("API SDK Version", AppVersion.apisdkVersion)]
     let credentials: [HelpKeyValueItem] = {
-       let credentials = CredentialsHelper.fetchCredentials()
+        let credentials = CredentialsHelper.fetchCredentials()
         let password = credentials.password == nil ? "" : "******"
         
         return [("Id", credentials.id ?? ""), ("Password", password)]
     }()
-    let links: [HelpLink] = [("GVL Changelog",
-                              URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
-                             ("GVL Readme",
-                              URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/index.html"))]
-    
-
-    lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions),
-                                                          ("Gini client", self.credentials),
-                                                          ("Links", self.links),
-                                                          ("API", [HelpAction.apiSelection]),
-                                                          ("Others", [HelpAction.resetToDefaults])]
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -68,6 +54,24 @@ final class HelpViewController: UIViewController {
             tableView.tableFooterView = UIView()
         }
     }
+    
+    // Data source
+    let versions: [HelpKeyValueItem] = [("GVL Version", AppVersion.gvlVersion),
+                                   ("API SDK Version", AppVersion.apisdkVersion)]
+
+    let links: [HelpLink] = [("GVL Changelog",
+                              URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/changelog.html")),
+                             ("GVL Readme",
+                              URL(string: "http://developer.gini.net/gini-vision-lib-ios/docs/index.html"))]
+    
+
+    lazy var sections: [(title: String, items: [Any])] = [("Version", self.versions),
+                                                          ("Gini client", self.credentials),
+                                                          ("Links", self.links),
+                                                          ("API", [HelpAction.apiSelection]),
+                                                          ("Others", [HelpAction.resetToDefaults])]
+    
+
 
     init(selectedAPIDomain: APIDomain) {
         self.selectedAPIDomain = selectedAPIDomain
@@ -94,7 +98,7 @@ final class HelpViewController: UIViewController {
 
 }
 
-// MARK: UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension HelpViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -143,7 +147,7 @@ extension HelpViewController: UITableViewDataSource {
     }
 }
 
-// MARK: UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension HelpViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -169,6 +173,8 @@ extension HelpViewController: UITableViewDelegate {
         return item is HelpLink
     }
 }
+
+// MARK: - APISelectionTableViewCell
 
 final class APISelectionTableViewCell: UITableViewCell {
     static let identifier = "APISelectionTableViewCell"

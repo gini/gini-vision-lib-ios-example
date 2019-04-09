@@ -15,14 +15,13 @@ final class DefaultDocumenAnalysisHelper: DocumentAnalysisHelper {
     let pay5Parameters: [String] = ["paymentRecipient", "iban", "bic", "paymentReference", "amountToPay"]
     var giniSDK: GiniSDK
     var documentService: DefaultDocumentService
-    var partialDocuments: [String: PartialDocumentInfo] = [:]
+    var partialDocuments: [String: PartialDocument] = [:]
     var compositeDocument: Document?
     var analysisCancellationToken: CancellationToken?
     
     init(client: Client) {        
         self.giniSDK = GiniSDK
-            .Builder(client: client,
-                     isLoggingEnabled: true)
+            .Builder(client: client)
             .build()
         self.documentService = giniSDK.documentService()
     }
@@ -93,7 +92,7 @@ final class DefaultDocumenAnalysisHelper: DocumentAnalysisHelper {
     func upload(document: GiniVisionDocument,
                 completion: UploadDocumentCompletion?) {
         self.partialDocuments[document.id] =
-            PartialDocumentInfo(info: (Gini.PartialDocumentInfo(document: nil, rotationDelta: 0)),
+            PartialDocument(info: (Gini.PartialDocumentInfo(document: nil, rotationDelta: 0)),
                                 document: nil,
                                 order: self.partialDocuments.count)
         let fileName = "Partial-\(NSDate().timeIntervalSince1970)"
