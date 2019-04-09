@@ -108,29 +108,34 @@ final class AppCoordinator: NSObject, Coordinator {
         }
     }
     
-    fileprivate func popToRootViewControllerIfNeeded() {
+}
+
+// MARK: - Fileprivate
+
+fileprivate extension AppCoordinator {
+    func popToRootViewControllerIfNeeded() {
         self.appNavigationController.popToRootViewController(animated: true)
         self.childCoordinators.forEach(remove)
     }
     
-    fileprivate func showMainViewController() {
+    func showMainViewController() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
     
-    fileprivate func showHelpViewController() {
+    func showHelpViewController() {
         let helpCoordinator = HelpCoordinator(theme: theme, selectedAPIDomain: selectedAPIDomain)
         helpCoordinator.delegate = self
         add(childCoordinator: helpCoordinator)
         appNavigationController.pushViewController(helpCoordinator.rootViewController, animated: true)
     }
     
-    fileprivate func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
+    func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
         self.documentAnalysisHelper = selectedAPIDomain == .default ?
             DefaultDocumenAnalysisHelper(client: client) :
             AccountingDocumentAnalysisHelper(client: client)
         giniConfiguration.multipageEnabled = selectedAPIDomain == .default
-
+        
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
                                                         documentAnalysisHelper: documentAnalysisHelper!,
                                                         giniConfiguration: giniConfiguration)
@@ -139,7 +144,7 @@ final class AppCoordinator: NSObject, Coordinator {
         appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
     }
     
-    fileprivate func checkCameraPermissions(completion: @escaping (Bool) -> Void) {
+    func checkCameraPermissions(completion: @escaping (Bool) -> Void) {
         let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authorizationStatus {
         case .authorized:
@@ -153,7 +158,7 @@ final class AppCoordinator: NSObject, Coordinator {
         }
     }
     
-    fileprivate func showCameraPermissionDeniedError() {
+    func showCameraPermissionDeniedError() {
         let alertMessage = NSLocalizedString("camera.permissions.denied.title",
                                              comment: "camera permissions denied message title")
         let cancelTitle = NSLocalizedString("cancel",
@@ -175,7 +180,7 @@ final class AppCoordinator: NSObject, Coordinator {
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }
     
-    fileprivate func showExternalDocumentNotValidDialog(forError error: Error) {
+    func showExternalDocumentNotValidDialog(forError error: Error) {
         let title = NSLocalizedString("notvalid.document.title", comment: "alert title when document invalid")
         let message: String = {
             if let documentError = error as? DocumentValidationError {
@@ -209,7 +214,6 @@ final class AppCoordinator: NSObject, Coordinator {
         
         rootViewController.present(alertViewController, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: UINavigationControllerDelegate

@@ -185,22 +185,4 @@ fileprivate extension DefaultDocumenAnalysisHelper {
         }
         
     }
-    
-    func handleResults(completion: @escaping AnalysisCompletion) -> (CompletionResult<[Extraction]>){
-        return { result in
-            switch result {
-            case .success(let extractions):
-                print("✅ Finished analysis process with no errors")
-                completion(.success(extractions))
-            case .failure(let error):
-                switch error {
-                case .requestCancelled:
-                    print("❌ Cancelled analysis process")
-                default:
-                    print("❌ Finished analysis process with error: \(error)")
-                }
-            }
-        }
-        
-    }
 }

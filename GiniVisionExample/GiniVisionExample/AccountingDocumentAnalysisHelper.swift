@@ -21,8 +21,7 @@ final class AccountingDocumentAnalysisHelper: DocumentAnalysisHelper {
     init(client: Client) {
         self.giniSDK = GiniSDK
             .Builder(client: client,
-                     api: .accounting,
-                     isLoggingEnabled: true)
+                     api: .accounting)
             .build()
         self.documentService = giniSDK.documentService()
     }
