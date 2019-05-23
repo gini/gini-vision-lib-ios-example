@@ -50,11 +50,7 @@
 		1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */; };
 		1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */; };
 		1F482B4420F50CFA00EED5AE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F482B4320F50CFA00EED5AE /* Theme.swift */; };
-		1F70B9721FC6F78A00930F35 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */; };
-		1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */; };
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
-		1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9791FC81EB500930F35 /* ExtractionTests.swift */; };
-		1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */; };
 		1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocument.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
@@ -123,11 +119,7 @@
 		1F286D9A1FC56F11001C0DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F482B4020F4A3FF00EED5AE /* LaunchScreenTargeted.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenTargeted.xib; sourceTree = "<group>"; };
 		1F482B4320F50CFA00EED5AE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
-		1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelMock.swift; sourceTree = "<group>"; };
 		1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceMock.swift; sourceTree = "<group>"; };
-		1F70B9791FC81EB500930F35 /* ExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
-		1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewControllerTests.swift; sourceTree = "<group>"; };
 		1FB4003720E22EBD00DEB81D /* PartialDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDocument.swift; sourceTree = "<group>"; };
 		1FC4F4C820F4963600E48B13 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		1FC4F4CD20F4979D00E48B13 /* Targeted.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Targeted.xcconfig; sourceTree = "<group>"; };
@@ -273,14 +265,10 @@
 			children = (
 				1F286D571FC419C1001C0DEF /* AppCoordinatorTests.swift */,
 				1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */,
-				1F70B9791FC81EB500930F35 /* ExtractionTests.swift */,
 				1F1C44011FCDB09A0084B65E /* HelpCoordinatorTests.swift */,
 				1F1C44021FCDB09B0084B65E /* HelpViewControllerTests.swift */,
 				1F286D671FC46470001C0DEF /* MainViewControllerTests.swift */,
 				1F1C43FF1FCDB09A0084B65E /* PDFNoResultsViewControllerTests.swift */,
-				1F9D11A51FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift */,
-				1F70B9731FC6F95500930F35 /* ResultsViewModelMock.swift */,
-				1F70B9711FC6F78A00930F35 /* ResultsViewModelTests.swift */,
 				1F21C4111FCEB84B00A67265 /* TestUtils.swift */,
 				1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */,
 				1F286DA31FC56F30001C0DEF /* Supporting files */,
@@ -579,17 +567,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F1C44071FCDB09B0084B65E /* HelpViewControllerTests.swift in Sources */,
-				1F70B9741FC6F95500930F35 /* ResultsViewModelMock.swift in Sources */,
 				1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
-				1F70B97A1FC81EB500930F35 /* ExtractionTests.swift in Sources */,
 				1F1C44061FCDB09B0084B65E /* HelpCoordinatorTests.swift in Sources */,
 				1F1C44041FCDB09B0084B65E /* PDFNoResultsViewControllerTests.swift in Sources */,
 				1F286DA11FC56F17001C0DEF /* MainViewControllerTests.swift in Sources */,
 				1F1C44081FCDB09B0084B65E /* WebViewControllerTests.swift in Sources */,
-				1F9D11A61FC6B7BD00BCE7E9 /* ResultsViewControllerTests.swift in Sources */,
 				1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */,
-				1F70B9721FC6F78A00930F35 /* ResultsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

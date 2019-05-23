@@ -9,63 +9,81 @@
 import Foundation
 @testable import GiniVisionExample
 @testable import GiniVision
-@testable import Gini_iOS_SDK
+@testable import Gini
 
-final class DocumentServiceMock: DocumentServiceProtocol {
+final class DocumentServiceMock: DefaultDocumentServiceProtocol {
     
-    var compositeDocument: GINIDocument?
-    var analysisCancellationToken: BFCancellationTokenSource?
+    var apiDomain: APIDomain = .default
+    
+    var compositeDocument: Document?
+    var analysisCancellationToken: CancellationToken?
     
     var isAnalyzing: Bool = false
     var hasExtractions: Bool {
-        return result.filter { pay5Parameters.contains($0.0) }.count > 0
+        return result.filter { pay5Parameters.contains($0.name!) }.count > 0
     }
     var pay5Parameters: [String] = ["main 1",
                                     "main 2",
                                     "main 3",
                                     "main 4",
                                     "main 5"]
-    var result: AnalysisResults = ["main 1": GINIExtraction(name: "main 1",
-                                                                     value: "test value",
-                                                                     entity: "entity",
-                                                                     box: [:])!,
-                                            "other 1": GINIExtraction(name: "other 1",
-                                                                      value: "other test value",
-                                                                      entity: "other entity",
-                                                                      box: [:])!]
+    var result: [Extraction] = [Extraction(box: nil,
+                                           candidates: nil,
+                                           entity: "entity",
+                                           value: "test value",
+                                           name: "main 1"),
+                                Extraction(box: nil,
+                                           candidates: nil,
+                                           entity: "entity",
+                                           value: "other test value",
+                                           name: "other 1")]
     
     private(set) var feedBackSent: Bool = false
     
-    func startAnalysis(completion: @escaping AnalysisCompletion) {
-        isAnalyzing = true
-    }
-    
-    func cancelAnalysis() {
-        isAnalyzing = false
-        result = [:]
-    }
-    
-    func sendFeedback(with: AnalysisResults) {
-        feedBackSent = true
-    }
-    
-    func remove(document: GiniVisionDocument) {
+    func submitFeedback(for document: Document,
+                        with extractions: [Extraction],
+                        completion: @escaping CompletionResult<Void>) {
         
     }
     
-    func resetToInitialState() {
+    func pagePreview(for document: Document,
+                     pageNumber: Int,
+                     size: Document.Page.Size,
+                     completion: @escaping CompletionResult<Data>) {
         
     }
     
-    func sortDocuments(withSameOrderAs documents: [GiniVisionDocument]) {
+    func pages(in document: Document, completion: @escaping CompletionResult<[Document.Page]>) {
         
     }
     
-    func upload(document: GiniVisionDocument, completion: UploadDocumentCompletion?) {
+    func layout(for document: Document, completion: @escaping CompletionResult<Document.Layout>) {
         
     }
     
-    func update(imageDocument: GiniImageDocument) {
+    func fetchDocument(with id: String, completion: @escaping CompletionResult<Document>) {
+        
+    }
+    
+    func extractions(for document: Document,
+                     cancellationToken: CancellationToken,
+                     completion: @escaping CompletionResult<[Extraction]>) {
+        
+    }
+    
+    func documents(limit: Int?, offset: Int?, completion: @escaping CompletionResult<[Document]>) {
+        
+    }
+    
+    func delete(_ document: Document, completion: @escaping CompletionResult<String>) {
+        
+    }
+    
+    func createDocument(fileName: String?,
+                        docType: Document.DocType?,
+                        type: Document.TypeV2,
+                        metadata: Document.Metadata?,
+                        completion: @escaping CompletionResult<Document>) {
         
     }
 }

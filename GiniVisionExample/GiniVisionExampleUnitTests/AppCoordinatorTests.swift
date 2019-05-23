@@ -9,7 +9,7 @@
 import XCTest
 import AVFoundation
 @testable import GiniVisionExample
-@testable import Gini_iOS_SDK
+@testable import Gini
 
 final class AppCoordinatorTests: XCTestCase {
     
@@ -23,7 +23,7 @@ final class AppCoordinatorTests: XCTestCase {
     
     func testInitialization() {
         XCTAssertTrue(appCoordinator.childCoordinators.isEmpty,
-                       "child coordinators array should be empty after initialization")
+                      "child coordinators array should be empty after initialization")
         XCTAssertNotNil(appCoordinator.window, "window should not be nil after after initialization")
     }
     
@@ -57,7 +57,7 @@ final class AppCoordinatorTests: XCTestCase {
         appCoordinator.start()
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
         
-        let helpCoordinator = appCoordinator.childCoordinators.flatMap {$0 as? HelpCoordinator}.first!
+        let helpCoordinator = appCoordinator.childCoordinators.compactMap {$0 as? HelpCoordinator}.first!
         
         XCTAssertNotNil(helpCoordinator.delegate as? AppCoordinator,
                         "help view controller delegate should be an instance of AppCoordinator")
@@ -66,8 +66,8 @@ final class AppCoordinatorTests: XCTestCase {
     func testChildCoordinatorCountAfterDismissHelp() {
         appCoordinator.start()
         appCoordinator.main(viewController: appCoordinator.mainViewController, didTapShowHelp: ())
-
-        appCoordinator.help(coordinator: childCoordinator(ofType: HelpCoordinator.self)!, didFinish: ())
+        
+        appCoordinator.help(coordinator: childCoordinator(ofType: HelpCoordinator.self)!, didFinish: .default)
         
         XCTAssertNil(childCoordinator(ofType: HelpCoordinator.self),
                      "help coordinator should not longer exist after dismiss help view controller")
@@ -78,16 +78,6 @@ final class AppCoordinatorTests: XCTestCase {
         
         XCTAssertNotNil(appCoordinator.pdfNoResultsViewController.delegate as? AppCoordinator,
                         "pdf no results view controller should be an instance of AppCoordinator")
-    }
-    
-    func testResultsViewControllerDelegate() {
-        let result: [String: GINIExtraction] = ["first extraction": GINIExtraction(name: "name",
-                                                                                   value: "value",
-                                                                                   entity: "entity",
-                                                                                   box: [:])!]
-        let resultsViewController = appCoordinator.resultViewController(with: result)
-        XCTAssertNotNil(resultsViewController.delegate as? AppCoordinator,
-                       "resultsViewController delegate should be an instance of AppCoordinator")
     }
     
     func testOpenWithImport() {

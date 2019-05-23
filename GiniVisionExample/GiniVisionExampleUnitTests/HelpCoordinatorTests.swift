@@ -11,7 +11,8 @@ import XCTest
 
 final class HelpCoordinatorTests: XCTestCase {
     
-    var helpCoordinator: HelpCoordinator = HelpCoordinator(theme: Theme(infoDictionary: [:]))
+    var helpCoordinator: HelpCoordinator = HelpCoordinator(theme: Theme(infoDictionary: [:]),
+                                                           selectedAPIDomain: .default)
     
     override func setUp() {
         super.setUp()
