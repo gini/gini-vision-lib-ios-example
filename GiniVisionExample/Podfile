@@ -2,7 +2,7 @@
 platform :ios, '10.0'
 
 def project_pods
-   pod 'Gini/Documents', :path => '../../gini-ios/'
+   pod 'Gini/DocumentsAPI'
    pod 'GiniVision'
 end
 
