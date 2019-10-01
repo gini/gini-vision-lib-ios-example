@@ -1,5 +1,5 @@
 PODS:
-  - Gini/DocumentsAPI (0.1.0)
+  - Gini/DocumentsAPI (0.1.2)
   - GiniVision (5.0.0):
     - GiniVision/Core (= 5.0.0)
   - GiniVision/Core (5.0.0)
@@ -9,14 +9,15 @@ DEPENDENCIES:
   - GiniVision
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Gini
+  https://github.com/gini/gini-podspecs.git:
     - GiniVision
 
 SPEC CHECKSUMS:
-  Gini: ea262f767ad748106ea26fe69d57d7446f5d5a0a
-  GiniVision: a7e7c39dac8bc46d5231c9cdddd4fc1df6621ac0
+  Gini: 54b9730a43cdeaf1dccc1e017bec7c6a0307e204
+  GiniVision: 07f8bf129d4f3b0a21ca54d4d763ea0742771b14
 
 PODFILE CHECKSUM: 4a593323db9c702ceec3fa65d862adabac4d7165
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.0

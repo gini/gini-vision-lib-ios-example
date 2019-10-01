@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/xcode,swift,cocoapods
 
+# OS X
+.DS_Store
+
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
 

@@ -12,8 +12,8 @@ extension UINavigationController {
     func apply(_ theme: Theme) {
         self.navigationBar.barTintColor = theme.primaryColor
         self.navigationBar.tintColor = theme.secondaryColor
-        var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedStringKey: Any]()
-        attributes[NSAttributedStringKey.foregroundColor] = theme.secondaryColor
+        var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.foregroundColor] = theme.secondaryColor
         self.navigationBar.titleTextAttributes = attributes
     }
 }
