@@ -13,7 +13,7 @@ final class HelpTransitionAnimator: NSObject {
     let animationDuration = 0.5
     var maxRadius: CGFloat = 0.0
     var circleScale: CGFloat = 100.0
-    var operation: UINavigationControllerOperation = .push
+    var operation: UINavigationController.Operation = .push
     var originPoint: CGPoint = .zero
     weak var storedContext: UIViewControllerContextTransitioning?
     
@@ -23,10 +23,10 @@ final class HelpTransitionAnimator: NSObject {
         animation.toValue = animateToValue
         animation.duration = animationDuration
         animation.delegate = self
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
-        let timing = operation == .push ? kCAMediaTimingFunctionEaseIn : kCAMediaTimingFunctionEaseOut
-        animation.timingFunction = CAMediaTimingFunction(name: timing)
+        let timing = operation == .push ? convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn) : convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut)
+        animation.timingFunction = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(timing))
         return animation
     }
     
@@ -103,4 +103,14 @@ extension HelpTransitionAnimator: CAAnimationDelegate {
         }
         storedContext = nil
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCAMediaTimingFunctionName(_ input: CAMediaTimingFunctionName) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
+	return CAMediaTimingFunctionName(rawValue: input)
 }
