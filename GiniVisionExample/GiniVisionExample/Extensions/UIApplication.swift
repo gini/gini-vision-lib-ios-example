@@ -10,9 +10,14 @@ import UIKit
 
 extension UIApplication {
     func openAppSettings() {
-        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         if self.canOpenURL(settingsUrl) {
-            self.open(settingsUrl, options: [:], completionHandler: nil)
+            self.open(settingsUrl, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
