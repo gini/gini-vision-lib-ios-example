@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         sh 'security unlock-keychain -p ${GEONOSIS_USER_PASSWORD} login.keychain'
-        sh '/usr/local/bin/pod install --project-directory=Example/'
+        sh '/usr/local/bin/pod install --project-directory=GiniVisionExample/'
       }
       post {
         failure {
