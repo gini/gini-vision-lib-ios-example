@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F286D951FC56F11001C0DEF"
+               BuildableName = "GiniVisionExampleUnitTests.xctest"
+               BlueprintName = "GiniVisionExampleUnitTests"
+               ReferencedContainer = "container:GiniVisionExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
