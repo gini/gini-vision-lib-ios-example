@@ -18,12 +18,22 @@ pipeline {
       }
     }
     stage('Build') {
+      environment {
+        CLIENT_ID = credentials('VisionShowcaseClientID')
+        CLIENT_PASSWORD = credentials('VisionShowcaseClientPassword')
+      }
       steps {
+        sh 'scripts/create_keys_file.sh ${CLIENT_ID} ${CLIENT_PASSWORD}'
         sh 'xcodebuild -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -destination \'platform=iOS Simulator,name=iPhone 11\''
       }
     }
     stage('Unit tests') {
+      environment {
+        CLIENT_ID = credentials('VisionShowcaseClientID')
+        CLIENT_PASSWORD = credentials('VisionShowcaseClientPassword')
+      }
       steps {
+        sh 'scripts/create_keys_file.sh ${CLIENT_ID} ${CLIENT_PASSWORD}'
         sh 'xcodebuild build-for-testing -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -destination \'platform=iOS Simulator,name=iPhone 11\''
         sh 'xcodebuild test-without-building -workspace GiniVisionExample/GiniVisionExample.xcworkspace -scheme "GiniVisionExample" -destination \'platform=iOS Simulator,name=iPhone 11\''
       }
