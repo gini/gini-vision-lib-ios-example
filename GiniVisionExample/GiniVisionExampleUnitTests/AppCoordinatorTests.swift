@@ -80,17 +80,6 @@ final class AppCoordinatorTests: XCTestCase {
                         "pdf no results view controller should be an instance of AppCoordinator")
     }
     
-    func testOpenWithImport() {
-        let url = urlFromImage(named: "invoice", fileExtension: "jpg")!
-        appCoordinator.processExternalDocument(withUrl: url, sourceApplication: "testTarget")
-        
-        wait(interval: 2) {
-            
-            let screenAPICoordinator = self.appCoordinator.childCoordinators.compactMap { $0 as? ScreenAPICoordinator }.first
-            XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
-        }
-    }
-    
     func testHelpAnimationWhenShowHelp() {
         appCoordinator.start()
         _ = appCoordinator.mainViewController.view
