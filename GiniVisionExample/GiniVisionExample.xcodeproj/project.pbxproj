@@ -52,6 +52,7 @@
 		1F482B4420F50CFA00EED5AE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F482B4320F50CFA00EED5AE /* Theme.swift */; };
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
 		1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocument.swift */; };
+		5205CE9D2423879300708635 /* XCTest+wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205CE9C2423879300708635 /* XCTest+wait.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,7 @@
 		377A7A32ED4EB373A3DF1B66 /* Pods-GiniVisionExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleTests/Pods-GiniVisionExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E868F2C55E96544B8689DB6 /* Pods-GiniVisionExample.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.postbank.xcconfig"; sourceTree = "<group>"; };
 		452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExampleUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5205CE9C2423879300708635 /* XCTest+wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+wait.swift"; sourceTree = "<group>"; };
 		801D6225A2C015FA5F4E720D /* Pods-GiniVisionExampleUnitTests.targeted.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.targeted.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.targeted.xcconfig"; sourceTree = "<group>"; };
 		8266D84939D5516C220E2BAE /* Pods-GiniVisionExampleUnitTests.postbank.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.postbank.xcconfig"; sourceTree = "<group>"; };
 		90E4468C55A9686DC3CE9043 /* Pods-GiniVisionExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				1F21C4111FCEB84B00A67265 /* TestUtils.swift */,
 				1F1C44031FCDB09B0084B65E /* WebViewControllerTests.swift */,
 				1F286DA31FC56F30001C0DEF /* Supporting files */,
+				5205CE9C2423879300708635 /* XCTest+wait.swift */,
 			);
 			path = GiniVisionExampleUnitTests;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 			files = (
 				1F1C44071FCDB09B0084B65E /* HelpViewControllerTests.swift in Sources */,
 				1F21C4121FCEB84B00A67265 /* TestUtils.swift in Sources */,
+				5205CE9D2423879300708635 /* XCTest+wait.swift in Sources */,
 				1F286DA01FC56F17001C0DEF /* AppCoordinatorTests.swift in Sources */,
 				1F1C44061FCDB09B0084B65E /* HelpCoordinatorTests.swift in Sources */,
 				1F1C44041FCDB09B0084B65E /* PDFNoResultsViewControllerTests.swift in Sources */,

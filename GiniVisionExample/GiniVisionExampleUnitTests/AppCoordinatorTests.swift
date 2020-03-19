@@ -84,9 +84,11 @@ final class AppCoordinatorTests: XCTestCase {
         let url = urlFromImage(named: "invoice", fileExtension: "jpg")!
         appCoordinator.processExternalDocument(withUrl: url, sourceApplication: "testTarget")
         
-        let screenAPICoordinator = appCoordinator.childCoordinators.compactMap { $0 as? ScreenAPICoordinator }.first
-        XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
-        
+        wait(interval: 0.5) {
+            
+            let screenAPICoordinator = self.appCoordinator.childCoordinators.compactMap { $0 as? ScreenAPICoordinator }.first
+            XCTAssertNotNil(screenAPICoordinator, "screenAPICoordinator should not be nil after import file")
+        }
     }
     
     func testHelpAnimationWhenShowHelp() {
