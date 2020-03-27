@@ -301,7 +301,7 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 
 extension AppCoordinator: ResultsViewControllerDelegate {
     
-    func resultViewController(with results: [Extraction]) -> ResultsViewController {
+    func resultViewController(with results: ExtractionResult) -> ResultsViewController {
         let resultViewController = ResultsViewController(model:
             ResultsViewModel(documentAnalysisHelper: documentAnalysisHelper!,
                              results: results), theme: theme)
@@ -324,14 +324,14 @@ extension AppCoordinator: ScreenAPICoordinatorDelegate {
         remove(childCoordinator: coordinator)
     }
     
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: [Extraction]) {
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults result: ExtractionResult) {
         var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
         
         let hasExtractions = {
-            return results.filter { documentAnalysisHelper!.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
+            return result.extractions.filter { documentAnalysisHelper!.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
         }()
         
-        let viewController = hasExtractions ? resultViewController(with: results) : pdfNoResultsViewController
+        let viewController = hasExtractions ? resultViewController(with: result) : pdfNoResultsViewController
         viewControllers.append(viewController)
         appNavigationController.setViewControllers(viewControllers, animated: true)
         appNavigationController.isNavigationBarHidden = false

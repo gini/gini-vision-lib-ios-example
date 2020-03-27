@@ -13,7 +13,7 @@ import Gini
 
 protocol ScreenAPICoordinatorDelegate: class {
     func screenAPI(coordinator: ScreenAPICoordinator, didCancel:())
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: [Extraction])
+    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults results: ExtractionResult)
 }
 
 final class ScreenAPICoordinator: NSObject, Coordinator {
@@ -108,7 +108,7 @@ extension ScreenAPICoordinator {
             switch result {
             case .success(let extractions):
                 DispatchQueue.main.async { [weak self] in
-                    guard let `self` = self else { return }
+                    guard let self = self else { return }
                     self.delegate?.screenAPI(coordinator: self, didFinishWithResults: extractions)
                 }
             case .failure(let error):

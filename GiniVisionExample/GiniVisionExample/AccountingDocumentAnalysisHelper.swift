@@ -128,7 +128,7 @@ fileprivate extension AccountingDocumentAnalysisHelper {
     }
     
     func fetchExtractions(for document: Document,
-                          completion: @escaping (Result<[Extraction], GiniError>) -> Void) {
+                          completion: @escaping AnalysisCompletion) {
         print("🔎 Starting analysis...")
 
         self.analysisCancellationToken = CancellationToken()
