@@ -89,25 +89,28 @@ final class AppCoordinator: NSObject, Coordinator {
     }
     
     func processExternalDocument(withUrl url: URL, sourceApplication: String?) {
-        let data = try? Data(contentsOf: url)
         
-        let documentBuilder = GiniVisionDocumentBuilder(data: data, documentSource: .appName(name: sourceApplication))
+        let documentBuilder = GiniVisionDocumentBuilder(documentSource: .appName(name: sourceApplication))
         documentBuilder.importMethod = .openWith
-        guard let document = documentBuilder.build() else { return }
-        
         
         // When a document is imported with "Open with", a dialog allowing to choose between both APIs
         // is shown in the main screen. Therefore it needs to go to the main screen if it is not there yet.
         popToRootViewControllerIfNeeded()
         
-        do {
-            try GiniVisionDocumentValidator.validate(document, withConfig: giniConfiguration)
-            showScreenAPI(withImportedDocument: document)
-        } catch let error {
-            showExternalDocumentNotValidDialog(forError: error)
+        documentBuilder.build(with: url) { [weak self] (document) in
+            
+            guard let self = self else { return }
+            
+            if let document = document {
+                do {
+                    try GiniVision.validate(document, withConfig: self.giniConfiguration)
+                    self.showScreenAPI(withImportedDocument: document)
+                } catch {
+                    self.showExternalDocumentNotValidDialog(forError: error)
+                }
+            }
         }
     }
-    
 }
 
 // MARK: - Fileprivate
@@ -131,10 +134,20 @@ fileprivate extension AppCoordinator {
     }
     
     func showScreenAPI(withImportedDocument importedDocument: GiniVisionDocument?) {
-        self.documentAnalysisHelper = selectedAPIDomain == .default ?
+        
+        let isDefaultAPI: Bool
+        
+        switch selectedAPIDomain {
+        case .default:
+            isDefaultAPI = true
+        default:
+            isDefaultAPI = false
+        }
+        
+        self.documentAnalysisHelper = isDefaultAPI ?
             DefaultDocumenAnalysisHelper(client: client) :
             AccountingDocumentAnalysisHelper(client: client)
-        giniConfiguration.multipageEnabled = selectedAPIDomain == .default
+        giniConfiguration.multipageEnabled = isDefaultAPI
         
         let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
                                                         documentAnalysisHelper: documentAnalysisHelper!,
@@ -155,6 +168,8 @@ fileprivate extension AppCoordinator {
             AVCaptureDevice.requestAccess(for: AVMediaType.video) { authorized in
                 completion(authorized)
             }
+        @unknown default:
+            fatalError()
         }
     }
     

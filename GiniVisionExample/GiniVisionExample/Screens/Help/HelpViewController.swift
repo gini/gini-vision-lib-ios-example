@@ -130,7 +130,17 @@ extension HelpViewController: UITableViewDataSource {
             case .apiSelection:
                 let cell = tableView.dequeueReusableCell(withIdentifier: APISelectionTableViewCell.identifier,
                                                          for: indexPath) as? APISelectionTableViewCell
-                cell?.control.selectedSegmentIndex = selectedAPIDomain == .default ? 0 : 1
+                
+                let isDefaultAPI: Bool
+                
+                switch selectedAPIDomain {
+                case .default:
+                    isDefaultAPI = true
+                default:
+                    isDefaultAPI = false
+                }
+                
+                cell?.control.selectedSegmentIndex = isDefaultAPI ? 0 : 1
                 cell?.control.addTarget(self, action: #selector(apiSelectionDidChange), for: .valueChanged)
                 return cell!
             }
