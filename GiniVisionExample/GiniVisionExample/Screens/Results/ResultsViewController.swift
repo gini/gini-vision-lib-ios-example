@@ -15,7 +15,7 @@ protocol ResultsViewControllerDelegate: class {
 final class ResultsViewController: UIViewController {
     
     weak var delegate: ResultsViewControllerDelegate?
-    let model: ResultsViewModelProtocol
+    let model: ResultsViewModel
     let theme: Theme
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     
@@ -33,7 +33,7 @@ final class ResultsViewController: UIViewController {
         delegate?.results(viewController: self, didTapDone: ())
     }
     
-    init(model: ResultsViewModelProtocol, theme: Theme) {
+    init(model: ResultsViewModel, theme: Theme) {
         self.model = model
         self.theme = theme
         super.init(nibName: nil, bundle: nil)

@@ -158,7 +158,7 @@ fileprivate extension DefaultDocumenAnalysisHelper {
     }
     
     func fetchExtractions(for documents: [Gini.PartialDocumentInfo],
-                          completion: @escaping (Result<[Extraction], GiniError>) -> Void) {
+                          completion: @escaping AnalysisCompletion) {
         print("📑 Creating composite document...")
         
         let fileName = "Composite-\(NSDate().timeIntervalSince1970)"
