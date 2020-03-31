@@ -21,6 +21,8 @@ final class AppCoordinator: NSObject, Coordinator {
     let transition = HelpTransitionAnimator()
     var documentAnalysisHelper: DocumentAnalysisHelper?
     var selectedAPIDomain: APIDomain = .default
+    
+    var screenAPIViewController: UINavigationController!
 
     var client: Client {
         let credentials = CredentialsHelper.fetchCredentials()
@@ -60,6 +62,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.navigationBarTitleColor = theme.secondaryColor
         configuration.qrCodeScanningEnabled = true
         configuration.galleryPickerItemSelectedBackgroundCheckColor = theme.primaryColor
+        configuration.returnAssistantEnabled = true
         configuration.multipagePageIndicatorColor = theme.primaryColor
         configuration.multipageToolbarItemsColor = theme.primaryColor
         configuration.noResultsBottomButtonColor = theme.buttonsColor
@@ -149,12 +152,27 @@ fileprivate extension AppCoordinator {
             AccountingDocumentAnalysisHelper(client: client)
         giniConfiguration.multipageEnabled = isDefaultAPI
         
-        let screenAPICoordinator = ScreenAPICoordinator(importedDocument: importedDocument,
-                                                        documentAnalysisHelper: documentAnalysisHelper!,
-                                                        giniConfiguration: giniConfiguration)
-        screenAPICoordinator.delegate = self
-        add(childCoordinator: screenAPICoordinator)
-        appNavigationController.pushViewController(screenAPICoordinator.rootViewController, animated: true)
+        let importedDocuments: [GiniVisionDocument]?
+        
+        if let importedDocument = importedDocument {
+            importedDocuments = [importedDocument]
+        } else {
+            importedDocuments = nil
+        }
+        
+        let viewController = GiniVision.viewController(withClient: client,
+                                                       importedDocuments: importedDocuments,
+                                                       configuration: giniConfiguration,
+                                                       resultsDelegate: self,
+                                                       documentMetadata: nil)
+        screenAPIViewController = RootNavigationController(rootViewController: viewController)
+        screenAPIViewController.navigationBar.barTintColor = giniConfiguration.navigationBarTintColor
+        screenAPIViewController.navigationBar.tintColor = giniConfiguration.navigationBarTitleColor
+        screenAPIViewController.setNavigationBarHidden(true, animated: false)
+        screenAPIViewController.delegate = self
+        screenAPIViewController.interactivePopGestureRecognizer?.delegate = nil
+        
+        appNavigationController.present(screenAPIViewController, animated: true, completion: nil)        
     }
     
     func checkCameraPermissions(completion: @escaping (Bool) -> Void) {
@@ -257,6 +275,48 @@ extension AppCoordinator: UINavigationControllerDelegate {
     }
 }
 
+extension AppCoordinator: GiniVisionResultsDelegate {
+    
+    func giniVisionAnalysisDidFinishWith(result: AnalysisResult,
+                                         sendFeedbackBlock: @escaping ([String: Extraction]) -> Void) {
+        
+        var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
+        
+        let hasExtractions = {
+            return result.extractions.filter { documentAnalysisHelper!.pay5Parameters.contains($0.value.name ?? "no-name") }.count > 0
+        }()
+
+        let viewController = hasExtractions ? resultViewController(with: result) : pdfNoResultsViewController
+        
+        screenAPIViewController.dismiss(animated: true) {
+            
+            viewControllers.append(viewController)
+                    
+            self.appNavigationController.isNavigationBarHidden = false
+            self.appNavigationController.setViewControllers(viewControllers, animated: true)
+        }
+    }
+    
+    func giniVisionDidCancelAnalysis() {
+        
+        appNavigationController.popToRootViewController(animated: true)
+    }
+    
+    func giniVisionAnalysisDidFinishWithoutResults(_ showingNoResultsScreen: Bool) {
+        
+        var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
+        
+        let viewController = pdfNoResultsViewController
+        
+        screenAPIViewController.dismiss(animated: true) {
+            
+            viewControllers.append(viewController)
+            self.appNavigationController.setViewControllers(viewControllers, animated: true)
+            self.appNavigationController.isNavigationBarHidden = false
+        }
+    }
+}
+
 // MARK: MainViewControllerDelegate
 
 extension AppCoordinator: MainViewControllerDelegate {
@@ -301,7 +361,7 @@ extension AppCoordinator: PDFNoResultsViewControllerDelegate {
 
 extension AppCoordinator: ResultsViewControllerDelegate {
     
-    func resultViewController(with results: ExtractionResult) -> ResultsViewController {
+    func resultViewController(with results: AnalysisResult) -> ResultsViewController {
         let resultViewController = ResultsViewController(model:
             ResultsViewModel(documentAnalysisHelper: documentAnalysisHelper!,
                              results: results), theme: theme)
@@ -314,28 +374,3 @@ extension AppCoordinator: ResultsViewControllerDelegate {
         appNavigationController.popToRootViewController(animated: true)
     }
 }
-
-// MARK: ScreenAPICoordinatorDelegate
-
-extension AppCoordinator: ScreenAPICoordinatorDelegate {
-    
-    func screenAPI(coordinator: ScreenAPICoordinator, didCancel: ()) {
-        appNavigationController.popToRootViewController(animated: true)
-        remove(childCoordinator: coordinator)
-    }
-    
-    func screenAPI(coordinator: ScreenAPICoordinator, didFinishWithResults result: ExtractionResult) {
-        var viewControllers = appNavigationController.viewControllers.filter { $0 is MainViewController}
-        
-        let hasExtractions = {
-            return result.extractions.filter { documentAnalysisHelper!.pay5Parameters.contains($0.name ?? "no-name") }.count > 0
-        }()
-        
-        let viewController = hasExtractions ? resultViewController(with: result) : pdfNoResultsViewController
-        viewControllers.append(viewController)
-        appNavigationController.setViewControllers(viewControllers, animated: true)
-        appNavigationController.isNavigationBarHidden = false
-        remove(childCoordinator: coordinator)
-    }
-}
-

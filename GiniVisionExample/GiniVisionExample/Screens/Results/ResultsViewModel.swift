@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GiniVision
 import Gini
 
 typealias ExtractionSections = [(title: String, items: [Extraction])]
@@ -15,9 +16,9 @@ final class ResultsViewModel {
     
     var sections: ExtractionSections = [("Main parameters", []), ("Rest", [])]
     var documentAnalysisHelper: DocumentAnalysisHelper
-    var analysisResults: ExtractionResult
+    var analysisResults: AnalysisResult
     var updatedExtractions: [Extraction] {
-        var extractions = analysisResults.extractions
+        var extractions = analysisResults.extractions.map { $0.value }
         sections.forEach { section in
             section.items.forEach { item in
                 if let index = extractions.firstIndex(where: { $0.name == item.name }) {
@@ -28,7 +29,7 @@ final class ResultsViewModel {
         return extractions
     }
     
-    init(documentAnalysisHelper: DocumentAnalysisHelper, results: ExtractionResult) {
+    init(documentAnalysisHelper: DocumentAnalysisHelper, results: AnalysisResult) {
         self.documentAnalysisHelper = documentAnalysisHelper
         self.analysisResults = results
         self.parseSections(from: results)
@@ -38,8 +39,11 @@ final class ResultsViewModel {
         documentAnalysisHelper.sendFeedback(with: updatedExtractions)
     }
     
-    func parseSections(from results: ExtractionResult) {
-        results.extractions.forEach { extraction in
+    func parseSections(from results: AnalysisResult) {
+        
+        let extractions = results.extractions.map { $0.value }
+        
+        extractions.forEach { extraction in
             let section = documentAnalysisHelper.pay5Parameters.contains(extraction.name ?? "") ? 0 : 1
             sections[section].items.append(extraction)
         }
