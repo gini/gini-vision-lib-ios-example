@@ -34,7 +34,7 @@ CHECKOUT OPTIONS:
     :commit: 81a9ce639f70f278cc351b7458e2223b8e202a5f
     :git: https://github.com/gini/gini-ios.git
   GiniVision:
-    :commit: 717f323d1ec2b20adecbef5dda0d30368f7bf009
+    :commit: 44cb22031d803ef553ae69f7eaa75d4c25559223
     :git: https://github.com/gini/gini-vision-lib-ios.git
 
 SPEC CHECKSUMS:
