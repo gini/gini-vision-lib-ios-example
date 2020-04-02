@@ -12,6 +12,7 @@ import Gini
 
 final class AppVersion {
     static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    static let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
     static let gvlVersion = GiniVision.versionString
     static let apisdkVersion = Bundle(for: GiniSDK.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
 

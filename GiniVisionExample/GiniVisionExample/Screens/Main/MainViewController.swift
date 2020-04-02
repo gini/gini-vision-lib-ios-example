@@ -30,7 +30,7 @@ final class MainViewController: UIViewController {
     }
     @IBOutlet weak var appVersion: UILabel! {
         didSet {
-            appVersion.text = AppVersion.appVersion
+            appVersion.text = "\(AppVersion.appVersion) (\(AppVersion.buildNumber))"
         }
     }
     
