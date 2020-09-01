@@ -2,7 +2,7 @@
 platform :ios, '10.0'
 
 def project_pods
-   pod 'Gini/DocumentsAPI', :git => 'https://github.com/gini/gini-ios.git', :branch => 'PIA-491'
+   pod 'Gini/DocumentsAPI', :git => 'https://github.com/gini/gini-ios.git', :branch => 'develop'
    pod 'GiniVision', :git => 'https://github.com/gini/gini-vision-lib-ios.git', :branch => 'return-assistant'
    pod 'GiniVision/Networking', :git => 'https://github.com/gini/gini-vision-lib-ios.git', :branch => 'return-assistant'
 end
