@@ -299,7 +299,7 @@ extension AppCoordinator: GiniVisionResultsDelegate {
     
     func giniVisionDidCancelAnalysis() {
         
-        appNavigationController.popToRootViewController(animated: true)
+        screenAPIViewController.dismiss(animated: true, completion: nil)
     }
     
     func giniVisionAnalysisDidFinishWithoutResults(_ showingNoResultsScreen: Bool) {
