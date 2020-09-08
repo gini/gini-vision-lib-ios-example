@@ -15,5 +15,20 @@ extension UINavigationController {
         var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedString.Key: Any]()
         attributes[NSAttributedString.Key.foregroundColor] = theme.secondaryColor
         self.navigationBar.titleTextAttributes = attributes
+        if #available(iOS 11.0, *) {
+            self.navigationBar.largeTitleTextAttributes = attributes
+        }
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = theme.primaryColor
+            var attributes = self.navigationBar.titleTextAttributes ?? [NSAttributedString.Key: Any]()
+            attributes[NSAttributedString.Key.foregroundColor] = theme.secondaryColor
+            appearance.titleTextAttributes = attributes
+            appearance.largeTitleTextAttributes = attributes
+                   
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }

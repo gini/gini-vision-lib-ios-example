@@ -27,7 +27,6 @@ final class HelpCoordinator: NSObject, Coordinator {
         let nav = UINavigationController(rootViewController: self.helpViewController)
         nav.apply(theme)
         if #available(iOS 11.0, *) {
-            nav.navigationBar.largeTitleTextAttributes = nav.navigationBar.titleTextAttributes
             nav.navigationBar.prefersLargeTitles = true
         }
         return nav
