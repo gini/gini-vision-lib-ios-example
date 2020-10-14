@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm GiniVisionExample/GiniVisionExample/Keys.plist
+rm -f GiniVisionExample/GiniVisionExample/Keys.plist
 
 client_id=$1
 client_password=$2

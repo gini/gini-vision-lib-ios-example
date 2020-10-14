@@ -131,6 +131,7 @@
 		B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniVisionExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"; sourceTree = "<group>"; };
 		E590AC288005124C1F903100 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F418019B2536FE0C000AB71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +593,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F21C4561FD03B0F00A67265 /* de */,
+				F418019B2536FE0C000AB71B /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

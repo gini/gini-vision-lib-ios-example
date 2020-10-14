@@ -26,6 +26,8 @@ final class MainViewController: UIViewController {
             analyzeButton.layer.shadowRadius = 2
             analyzeButton.layer.shadowOpacity = 0.2
             analyzeButton.layer.masksToBounds = false
+            analyzeButton.setTitle(NSLocalizedString("start.analysis.button",
+                                                     comment: "start anysis button on main screen"), for: .normal)
         }
     }
     @IBOutlet weak var appVersion: UILabel! {

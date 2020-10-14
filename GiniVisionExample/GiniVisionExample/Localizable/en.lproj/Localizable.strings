@@ -7,18 +7,17 @@
 */
 
 
-"cancel" = "Abbrechen";
-"done" = "Fertig";
-
-"help.screen.title" = "Hilfe";
-"help.screen.close.button" = "Schließen";
-"camera.permissions.denied.title" = "Nur mit Kamera-Zugriff können Sie die Gini Vision Library verwenden";
-"camera.permissions.denied.granpermissions.button" = "Zugriff erteilen";
-"noresults.pdf.screen.title" = "Keine PDF-Ergebnisse";
-"results.screen.title" = "Ergebnisse";
-
-"notvalid.document.title" = "Ungültiges Dokument";
-"notvalid.document.generic" = "Leider kann diese Datei nicht bearbeitet werden";
-"notvalid.document.typenotsupported" = "Nur Dateien vom Format jpg, png, gif oder pdf können analysiert werden";
-"notvalid.document.toolarge" = "Diese Datei ist leider zu groß";
-"notvalid.document.toomanypages" = "Das Dokument darf nicht mehr als 10 Seiten haben";
+"cancel" = "Cancel";
+"done" = "Done";
+"start.analysis.button" = "Start analysis";
+"help.screen.title" = "Help";
+"help.screen.close.button" = "Close";
+"camera.permissions.denied.title" = "You need camera access to use the Gini Vision Library";
+"camera.permissions.denied.granpermissions.button" = "Grant access";
+"noresults.pdf.screen.title" = "No PDF results";
+"results.screen.title" = "Results";
+"notvalid.document.title" = "Invalid document";
+"notvalid.document.generic" = "Unfortunately this file cannot be used";
+"notvalid.document.typenotsupported" = "The following file formats can be analysed: JPEG, PNG, GIF and PDF";
+"notvalid.document.toolarge" = "This file is too large";
+"notvalid.document.toomanypages" = "The document cannot have more than 10 pages";
