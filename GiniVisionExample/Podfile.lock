@@ -1,25 +1,16 @@
 PODS:
   - Gini/DocumentsAPI (1.0.0)
-  - Gini/Pinning (1.0.0):
-    - Gini/DocumentsAPI
-    - TrustKit (~> 1.6)
-  - GiniVision (5.3.4):
-    - GiniVision/Core (= 5.3.4)
-  - GiniVision/Core (5.3.4)
-  - GiniVision/Networking (5.3.4):
+  - GiniVision (5.6.2):
+    - GiniVision/Core (= 5.6.2)
+  - GiniVision/Core (5.6.2)
+  - GiniVision/Networking (5.6.2):
     - Gini/DocumentsAPI (~> 1.0)
-    - Gini/Pinning (~> 1.0)
     - GiniVision/Core
-  - TrustKit (1.6.5)
 
 DEPENDENCIES:
   - Gini/DocumentsAPI (from `https://github.com/gini/gini-ios.git`, branch `develop`)
   - GiniVision (from `https://github.com/gini/gini-vision-lib-ios.git`, branch `return-assistant`)
   - GiniVision/Networking (from `https://github.com/gini/gini-vision-lib-ios.git`, branch `return-assistant`)
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - TrustKit
 
 EXTERNAL SOURCES:
   Gini:
@@ -31,16 +22,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Gini:
-    :commit: bbffcadee176f98098fb0539572628333e349407
+    :commit: e4d56ad6a3d7ef9de411c50c12394451c0906674
     :git: https://github.com/gini/gini-ios.git
   GiniVision:
-    :commit: 84aba3d0d1dc4d760cfebd64d2963994b0f4543d
+    :commit: 5ca4e72e178e3933d84b5cfe6c0f62bf0780223c
     :git: https://github.com/gini/gini-vision-lib-ios.git
 
 SPEC CHECKSUMS:
-  Gini: e38dff85495849f325560b674f2a39498d4f9843
-  GiniVision: 9bb25b769489412aa0b06ad2c49dff3fec791b6e
-  TrustKit: 073855e3adecd317417bda4ac9e9ac54a2e3b9f2
+  Gini: cce9deb1247ceb1877e63c8f7d66b41cec4e8056
+  GiniVision: 82504cd3ca414d99efed8ae052d8e73bcc5707bf
 
 PODFILE CHECKSUM: 2ab8e6a283350005a4d0b7ef77b30cec9b0c8cd5
 
