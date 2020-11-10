@@ -26,8 +26,8 @@ pipeline {
     }
     stage('Build') {
       environment {
-        CLIENT_ID = credentials('VisionShowcaseClientID')
-        CLIENT_PASSWORD = credentials('VisionShowcaseClientPassword')
+        CLIENT_ID = credentials('VisionReturnAssistantShowcaseClientID')
+        CLIENT_PASSWORD = credentials('VisionReturnAssistantShowcaseClientPassword')
       }
       steps {
         sh 'scripts/create_keys_file.sh ${CLIENT_ID} ${CLIENT_PASSWORD}'
