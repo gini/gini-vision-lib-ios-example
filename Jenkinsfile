@@ -18,7 +18,7 @@ pipeline {
         failure {
 
           /* try to repo update just in case an outdated repo is the cause for the failed build so it's ready for the next */ 
-          lock('refs/remotes/origin/master') {
+          lock('refs/remotes/origin/return_assistant') {
             sh '/usr/local/bin/pod repo update'
           }
         }
