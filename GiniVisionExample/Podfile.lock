@@ -1,9 +1,9 @@
 PODS:
   - Gini/DocumentsAPI (1.0.0)
-  - GiniVision (5.6.2):
-    - GiniVision/Core (= 5.6.2)
-  - GiniVision/Core (5.6.2)
-  - GiniVision/Networking (5.6.2):
+  - GiniVision (5.6.3):
+    - GiniVision/Core (= 5.6.3)
+  - GiniVision/Core (5.6.3)
+  - GiniVision/Networking (5.6.3):
     - Gini/DocumentsAPI (~> 1.0)
     - GiniVision/Core
 
@@ -25,13 +25,13 @@ CHECKOUT OPTIONS:
     :commit: e4d56ad6a3d7ef9de411c50c12394451c0906674
     :git: https://github.com/gini/gini-ios.git
   GiniVision:
-    :commit: 5ca4e72e178e3933d84b5cfe6c0f62bf0780223c
+    :commit: e89a86227f4a8b093335da1335e35cb259210919
     :git: https://github.com/gini/gini-vision-lib-ios.git
 
 SPEC CHECKSUMS:
   Gini: cce9deb1247ceb1877e63c8f7d66b41cec4e8056
-  GiniVision: 82504cd3ca414d99efed8ae052d8e73bcc5707bf
+  GiniVision: 372651231ae01f52ba1c6daae21f1c5d2cc3e018
 
 PODFILE CHECKSUM: 2ab8e6a283350005a4d0b7ef77b30cec9b0c8cd5
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
