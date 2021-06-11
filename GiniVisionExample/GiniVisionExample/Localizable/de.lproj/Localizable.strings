@@ -10,7 +10,7 @@
 "cancel" = "Abbrechen";
 "done" = "Fertig";
 
-"start.analysis.button" = "Analyse starten";
+"start.analysis.button" = "FOTOÜBERWESUNG STARTEN";
 "help.screen.title" = "Hilfe";
 "help.screen.close.button" = "Schließen";
 "camera.permissions.denied.title" = "Nur mit Kamera-Zugriff können Sie die Gini Vision Library verwenden";
