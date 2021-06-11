@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ResultsTableViewCellDelegate: class {
+protocol ResultsTableViewCellDelegate: AnyObject {
     func results(tableViewCell: ResultsTableViewCell,
                  atIndexPath indexPath: IndexPath,
                  didChangeFieldValue fieldValue: String?)

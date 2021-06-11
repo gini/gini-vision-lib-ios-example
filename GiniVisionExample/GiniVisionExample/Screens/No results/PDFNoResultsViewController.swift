@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PDFNoResultsViewControllerDelegate: class {
+protocol PDFNoResultsViewControllerDelegate: AnyObject {
     func pdfNoResults(viewController: PDFNoResultsViewController, didTapStartOver: ())
 }
 
