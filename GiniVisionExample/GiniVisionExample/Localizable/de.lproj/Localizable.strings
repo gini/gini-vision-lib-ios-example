@@ -25,4 +25,5 @@
 "notvalid.document.toolarge" = "Diese Datei ist leider zu groß";
 "notvalid.document.toomanypages" = "Das Dokument darf nicht mehr als 10 Seiten haben";
 "startover.analysis.button" = "FOTOÜBERWESUNG RESTARTEN";
+"ginivision.navigationbar.help.backToMenu" = "Hilfe";
 
