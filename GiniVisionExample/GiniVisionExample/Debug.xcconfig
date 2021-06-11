@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gini. All rights reserved.
 //
 
-GSE_APP_NAME = Debug
+GSE_APP_NAME = Gini Pay FÜ
 GSE_APP_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.debug
 GSE_LAUNCH_SCREEN = LaunchScreen.xib
 GSE_PRIMARY_COLOR = 0066B3
