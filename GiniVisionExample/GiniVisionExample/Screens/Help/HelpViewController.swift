@@ -41,6 +41,7 @@ final class HelpViewController: UIViewController {
         
         return [("Id", credentials.id ?? ""), ("Password", password)]
     }()
+    let accentColor = UIColor(hex: 0xFF6600)
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {

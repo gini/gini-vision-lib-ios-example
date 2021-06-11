@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GiniVision
 protocol MainViewControllerDelegate: AnyObject {
     func main(viewController: MainViewController, didTapStartAnalysis: ())
     func main(viewController: MainViewController, didTapShowHelp: ())
@@ -64,6 +64,8 @@ final class MainViewController: UIViewController {
         logoImage.image = theme.logo
         helpButton.tintColor = theme.primaryColor
         analyzeButton.backgroundColor = theme.buttonsColor
+        analyzeButton.titleLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
+        analyzeButton.layer.cornerRadius = 7
         appVersion.textColor = theme.primaryColor
     }
 }
