@@ -24,7 +24,7 @@ enum HelpAction {
     }
 }
 
-protocol HelpViewControllerDelegate: class {
+protocol HelpViewControllerDelegate: AnyObject {
     func help(viewController: HelpViewController, didSelectLink link: HelpLink)
     func help(viewController: HelpViewController, didTapClose: ())
 }

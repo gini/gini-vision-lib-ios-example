@@ -9,7 +9,7 @@
 import UIKit
 import Gini
 
-protocol HelpCoordinatorDelegate: class {
+protocol HelpCoordinatorDelegate: AnyObject {
     func help(coordinator: HelpCoordinator, didFinish apiDomain: APIDomain)
 }
 

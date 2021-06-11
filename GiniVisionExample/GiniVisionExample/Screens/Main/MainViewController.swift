@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainViewControllerDelegate: class {
+protocol MainViewControllerDelegate: AnyObject {
     func main(viewController: MainViewController, didTapStartAnalysis: ())
     func main(viewController: MainViewController, didTapShowHelp: ())
 }
