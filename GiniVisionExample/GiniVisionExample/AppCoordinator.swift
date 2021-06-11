@@ -81,7 +81,7 @@ final class AppCoordinator: NSObject, Coordinator {
         let regular = UIFont(name: "HindMadurai-Regular", size: 20)
         let bold = UIFont(name: "HindMadurai-Bold", size: 20)
         let light = UIFont(name: "HindMadurai-Light", size: 20)
-        let thin = UIFont(name: "HindMadurai-SemiBold", size: 20)
+        let thin = UIFont(name: "HindMadurai-Light", size: 20)
         let defaultFont = UIFont.systemFont(ofSize: 14)
 
         configuration.customFont = GiniVisionFont(regular: regular ?? defaultFont, bold: bold ?? defaultFont, light: light ?? defaultFont, thin: thin ?? defaultFont)
