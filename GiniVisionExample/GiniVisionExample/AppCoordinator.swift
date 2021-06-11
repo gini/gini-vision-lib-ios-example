@@ -55,6 +55,8 @@ final class AppCoordinator: NSObject, Coordinator {
     
     lazy var giniConfiguration: GiniConfiguration = {
         let configuration = GiniConfiguration()
+        let primaryColor = UIColor(hex: 0x0066B3)
+        let accentColor = UIColor(hex: 0xFF6600)
         configuration.fileImportSupportedTypes = .pdf_and_images
         configuration.openWithEnabled = true
         configuration.navigationBarItemTintColor = theme.secondaryColor
@@ -62,15 +64,21 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.navigationBarTitleColor = theme.secondaryColor
         configuration.qrCodeScanningEnabled = true
         configuration.galleryPickerItemSelectedBackgroundCheckColor = theme.primaryColor
-        configuration.returnAssistantEnabled = true
+        configuration.returnAssistantEnabled = false
         configuration.multipagePageIndicatorColor = theme.primaryColor
         configuration.multipageToolbarItemsColor = theme.primaryColor
         configuration.noResultsBottomButtonColor = theme.buttonsColor
         configuration.stepIndicatorColor = theme.primaryColor
         configuration.imagesStackIndicatorLabelTextcolor = theme.primaryColor
         configuration.statusBarStyle = theme.statusBarStyle
+        configuration.reviewTextBottomColor = accentColor
         configuration.flashToggleEnabled = true
-        
+        configuration.imagesStackIndicatorLabelTextcolor = accentColor
+        configuration.multipagePageSelectedIndicatorColor = accentColor
+        configuration.analysisLoadingIndicatorColor = accentColor
+        configuration.stepIndicatorColor = accentColor
+        configuration.galleryPickerItemSelectedBackgroundCheckColor = accentColor
+
         return configuration
     }()
     
