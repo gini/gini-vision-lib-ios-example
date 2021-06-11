@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "vr_background1.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
