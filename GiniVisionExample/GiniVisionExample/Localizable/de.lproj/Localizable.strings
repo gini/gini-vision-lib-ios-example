@@ -24,3 +24,5 @@
 "notvalid.document.typenotsupported" = "Nur Dateien vom Format jpg, png, gif oder pdf können analysiert werden";
 "notvalid.document.toolarge" = "Diese Datei ist leider zu groß";
 "notvalid.document.toomanypages" = "Das Dokument darf nicht mehr als 10 Seiten haben";
+"startover.analysis.button" = "FOTOÜBERWESUNG RESTARTEN";
+

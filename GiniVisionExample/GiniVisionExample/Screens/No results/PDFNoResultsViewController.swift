@@ -37,8 +37,11 @@ final class PDFNoResultsViewController: UIViewController {
             startOverButton.layer.shadowRadius = 2
             startOverButton.layer.shadowOpacity = 0.2
             startOverButton.layer.masksToBounds = false
-            startOverButton.setTitle(NSLocalizedString("start.analysis.button",
-                                                     comment: "start anysis button on main screen"), for: .normal)
+            startOverButton.setTitle(NSLocalizedString("startover.analysis.button",
+                                                     comment: "start anysis over button on no pdf result screen"), for: .normal)
+            startOverButton.backgroundColor = UIColor(hex: 0x0066B3)
+            startOverButton.layer.cornerRadius = 7
+
         }
     }
     

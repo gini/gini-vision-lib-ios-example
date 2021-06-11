@@ -21,3 +21,4 @@
 "notvalid.document.typenotsupported" = "The following file formats can be analysed: JPEG, PNG, GIF and PDF";
 "notvalid.document.toolarge" = "This file is too large";
 "notvalid.document.toomanypages" = "The document cannot have more than 10 pages";
+"startover.analysis.button" = "Restart analysis";
