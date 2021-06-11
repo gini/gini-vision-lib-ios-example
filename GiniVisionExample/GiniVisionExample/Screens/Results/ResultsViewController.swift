@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GiniVision
 
 protocol ResultsViewControllerDelegate: AnyObject {
     func results(viewController: ResultsViewController, didTapDone: ())
@@ -19,6 +20,7 @@ final class ResultsViewController: UIViewController {
     let theme: Theme
     var resultsTableCellIdentifier = "ResultsTableCellIdentifier"
     
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -46,6 +48,8 @@ final class ResultsViewController: UIViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(done(_:)))
+        topLabel.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
+    }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -73,8 +77,9 @@ extension ResultsViewController: UITableViewDataSource {
         cell?.delegate = self
         cell?.indexPath = indexPath
         
-        let fontSize: CGFloat = indexPath.section == 0 ? 20.0 : 16.0
-        cell?.fieldName.font = cell?.fieldName.font.withSize(fontSize)
+        let fontSize: CGFloat = 16.0
+        cell?.fieldName.font = GiniConfiguration().customFont.with(weight: .light, size: fontSize, style: .caption1)
+        cell?.fieldValue.font = GiniConfiguration().customFont.with(weight: .light, size: 16, style: .caption1)
 
         return cell!
     }

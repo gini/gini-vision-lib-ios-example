@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultsViewController" customModule="GiniVisionExample" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="axU-f0-BVf" id="mgO-40-yXZ"/>
+                <outlet property="topLabel" destination="U6A-kf-wmn" id="X0w-ao-qsp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
