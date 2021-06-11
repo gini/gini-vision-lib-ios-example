@@ -53,6 +53,7 @@
 		1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocument.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		F452972D267208D900001749 /* Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F452972C267208D900001749 /* Credentials.plist */; };
+		F452973126736E3A00001749 /* GiniImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F452973026736E3A00001749 /* GiniImages.xcassets */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,7 @@
 		E590AC288005124C1F903100 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F418019B2536FE0C000AB71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F452972C267208D900001749 /* Credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
+		F452973026736E3A00001749 /* GiniImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GiniImages.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 				1F01FD3C1FC30D7100BAA47E /* Info.plist */,
 				1F01FD371FC30D7100BAA47E /* Assets.xcassets */,
 				1F21C4151FCF111700A67265 /* Keys.plist */,
+				F452973026736E3A00001749 /* GiniImages.xcassets */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F452973126736E3A00001749 /* GiniImages.xcassets in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
 				1F21C4161FCF111700A67265 /* Keys.plist in Resources */,
 				1F21C4291FD03A8F00A67265 /* HelpViewController.xib in Resources */,
