@@ -7,7 +7,7 @@
 //
 
 GSE_APP_NAME = Gini Pay FÜ
-GSE_APP_BUNDLE_IDENTIFIER = net.gini.ios.vision.showcase.release
+GSE_APP_BUNDLE_IDENTIFIER = net.gini.ios.vr.bank.showcase
 GSE_LAUNCH_SCREEN = LaunchScreen.xib
 GSE_PRIMARY_COLOR = 0066B3
 GSE_SECONDARY_COLOR = FFFFFF
