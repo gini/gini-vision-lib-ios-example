@@ -18,7 +18,6 @@ final class MainViewController: UIViewController {
     let theme: Theme
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var photoPaymentLabel: UILabel!
     @IBOutlet weak var analyzeButton: UIButton! {
         didSet {
             analyzeButton.layer.shadowColor = UIColor.black.cgColor
