@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ResultsViewControllerDelegate: class {
+protocol ResultsViewControllerDelegate: AnyObject {
     func results(viewController: ResultsViewController, didTapDone: ())
 }
 
