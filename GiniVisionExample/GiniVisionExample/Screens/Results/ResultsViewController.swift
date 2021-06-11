@@ -50,6 +50,8 @@ final class ResultsViewController: UIViewController {
                                                             action: #selector(done(_:)))
         topLabel.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     required init?(coder aDecoder: NSCoder) {

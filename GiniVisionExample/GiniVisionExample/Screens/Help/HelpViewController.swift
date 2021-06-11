@@ -43,6 +43,10 @@ final class HelpViewController: UIViewController {
     }()
     let accentColor = UIColor(hex: 0xFF6600)
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: linkCellReuseIdentifier)

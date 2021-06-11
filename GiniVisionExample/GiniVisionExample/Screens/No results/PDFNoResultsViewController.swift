@@ -55,4 +55,8 @@ final class PDFNoResultsViewController: UIViewController {
         super.viewDidLoad()
         title = NSLocalizedString("noresults.pdf.screen.title", comment: "title for pdf no results screen")
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

@@ -38,6 +38,10 @@ final class WebViewController: UIViewController {
         super.viewDidLayoutSubviews()
         webView.frame = view.frame
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: WKNavigationDelegate

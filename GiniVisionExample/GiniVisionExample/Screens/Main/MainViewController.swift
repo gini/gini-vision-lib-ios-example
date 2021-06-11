@@ -68,4 +68,8 @@ final class MainViewController: UIViewController {
         analyzeButton.layer.cornerRadius = 7
         appVersion.textColor = theme.primaryColor
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
