@@ -13,7 +13,7 @@ struct CredentialsHelper {
         let clientID = "client_id"
         let clientPassword = "client_password"
         
-        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist"),
+        if let path = Bundle.main.path(forResource: "Credentials", ofType: "plist"),
             let keys = NSDictionary(contentsOfFile: path),
             let client_id = keys[clientID] as? String,
             let client_password = keys[clientPassword] as? String,

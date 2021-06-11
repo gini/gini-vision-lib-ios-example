@@ -52,6 +52,7 @@
 		1F70B9761FC7028400930F35 /* DocumentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70B9751FC7028400930F35 /* DocumentServiceMock.swift */; };
 		1FB4003820E22EBD00DEB81D /* PartialDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB4003720E22EBD00DEB81D /* PartialDocument.swift */; };
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
+		F452972D267208D900001749 /* Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F452972C267208D900001749 /* Credentials.plist */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,7 @@
 		E33E7A5B0412E19E3E843B3B /* Pods-GiniVisionExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExample/Pods-GiniVisionExample.debug.xcconfig"; sourceTree = "<group>"; };
 		E590AC288005124C1F903100 /* Pods-GiniVisionExampleUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniVisionExampleUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniVisionExampleUnitTests/Pods-GiniVisionExampleUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F418019B2536FE0C000AB71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F452972C267208D900001749 /* Credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		1F01FD2F1FC30D7100BAA47E /* GiniVisionExample */ = {
 			isa = PBXGroup;
 			children = (
+				F452972C267208D900001749 /* Credentials.plist */,
 				1F21C4431FD03ACD00A67265 /* AppCoordinator.swift */,
 				1F21C4441FD03ACD00A67265 /* AppDelegate.swift */,
 				1F21C4401FD03ACD00A67265 /* Coordinator.swift */,
@@ -430,6 +433,7 @@
 				1F21C43A1FD03AAB00A67265 /* ResultsViewController.xib in Resources */,
 				1F21C4571FD03B0F00A67265 /* Localizable.strings in Resources */,
 				1F21C44C1FD03AE100A67265 /* LaunchScreen.xib in Resources */,
+				F452972D267208D900001749 /* Credentials.plist in Resources */,
 				1F21C4321FD03AA200A67265 /* PDFNoResultsViewController.xib in Resources */,
 				1F482B4120F4A3FF00EED5AE /* LaunchScreenTargeted.xib in Resources */,
 				1F21C42F1FD03A9900A67265 /* MainViewController.xib in Resources */,
