@@ -212,6 +212,7 @@ final class APISelectionTableViewCell: UITableViewCell {
         control.insertSegment(withTitle: "Default", at: 0, animated: false)
         control.insertSegment(withTitle: "Accounting", at: 1, animated: false)
         control.selectedSegmentIndex = 0
+        control.tintColor = GiniConfiguration().navigationBarTintColor
         let primaryColor = UIColor(hex: 0x0066B3)
         control.backgroundColor = primaryColor
         return control
