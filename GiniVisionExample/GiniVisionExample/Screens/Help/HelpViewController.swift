@@ -116,10 +116,13 @@ extension HelpViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: linkCellReuseIdentifier)
             cell?.textLabel?.text = links[indexPath.row].title
             cell?.accessoryType = .disclosureIndicator
+            cell?.textLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
         } else if let versions = items as? [HelpKeyValueItem] {
             cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
             cell?.textLabel?.text = versions[indexPath.row].title
             cell?.detailTextLabel?.text = versions[indexPath.row].version
+            cell?.detailTextLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
+            cell?.textLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
         } else if let others = items as? [HelpAction] {
             let item = others[indexPath.row]
             switch item {
@@ -127,6 +130,7 @@ extension HelpViewController: UITableViewDataSource {
                 cell = UITableViewCell(style: .value1, reuseIdentifier: versionCellReuseIdentifier)
                 cell?.textLabel?.text = item.title
                 cell?.textLabel?.textColor = .red
+                cell?.textLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
             case .apiSelection:
                 let cell = tableView.dequeueReusableCell(withIdentifier: APISelectionTableViewCell.identifier,
                                                          for: indexPath) as? APISelectionTableViewCell
@@ -142,6 +146,7 @@ extension HelpViewController: UITableViewDataSource {
                 
                 cell?.control.selectedSegmentIndex = isDefaultAPI ? 0 : 1
                 cell?.control.addTarget(self, action: #selector(apiSelectionDidChange), for: .valueChanged)
+                cell?.textLabel?.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
                 return cell!
             }
         }
@@ -150,6 +155,13 @@ extension HelpViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel!.font = GiniConfiguration().customFont.with(weight: .regular, size: 14, style: .caption1)
+            header.textLabel!.textColor = accentColor
+        }
     }
     
     @objc func apiSelectionDidChange(_ sender: UISegmentedControl) {
@@ -195,7 +207,7 @@ final class APISelectionTableViewCell: UITableViewCell {
         control.insertSegment(withTitle: "Default", at: 0, animated: false)
         control.insertSegment(withTitle: "Accounting", at: 1, animated: false)
         control.selectedSegmentIndex = 0
-        control.tintColor = .giniBlue
+        control.tintColor = GiniConfiguration().navigationBarTintColor
         
         return control
     }()
