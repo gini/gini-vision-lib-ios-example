@@ -30,6 +30,18 @@ final class PDFNoResultsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var startOverButton: UIButton! {
+        didSet {
+            startOverButton.layer.shadowColor = UIColor.black.cgColor
+            startOverButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+            startOverButton.layer.shadowRadius = 2
+            startOverButton.layer.shadowOpacity = 0.2
+            startOverButton.layer.masksToBounds = false
+            startOverButton.setTitle(NSLocalizedString("start.analysis.button",
+                                                     comment: "start anysis button on main screen"), for: .normal)
+        }
+    }
+    
     weak var delegate: PDFNoResultsViewControllerDelegate?
     
     @IBAction func startOver(_ sender: Any) {
