@@ -63,10 +63,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = theme.primaryColor
         logoImage.image = theme.logo
-        helpButton.tintColor = theme.secondaryColor
+        helpButton.tintColor = theme.primaryColor
         analyzeButton.backgroundColor = theme.buttonsColor
-        appVersion.textColor = theme.secondaryColor
-        photoPaymentLabel.textColor = theme.secondaryColor
-        photoPaymentLabel.isHidden = !theme.showPhotoPaymentLabel
+        appVersion.textColor = theme.primaryColor
     }
 }
