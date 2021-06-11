@@ -54,7 +54,11 @@
 		B7B798E90187F31CAF3CB650 /* Pods_GiniVisionExampleUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */; };
 		F452972D267208D900001749 /* Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F452972C267208D900001749 /* Credentials.plist */; };
 		F452973126736E3A00001749 /* GiniImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F452973026736E3A00001749 /* GiniImages.xcassets */; };
-		F452973326738CF100001749 /* Hind_Madurai in Resources */ = {isa = PBXBuildFile; fileRef = F452973226738CF100001749 /* Hind_Madurai */; };
+		F452973B2673993E00001749 /* HindMadurai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45297342673982000001749 /* HindMadurai-Bold.ttf */; };
+		F452973C2673994000001749 /* HindMadurai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45297382673982100001749 /* HindMadurai-Light.ttf */; };
+		F452973D2673994300001749 /* HindMadurai-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45297352673982000001749 /* HindMadurai-Medium.ttf */; };
+		F452973E2673994500001749 /* HindMadurai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45297362673982000001749 /* HindMadurai-Regular.ttf */; };
+		F452973F2673994800001749 /* HindMadurai-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F45297392673982100001749 /* HindMadurai-SemiBold.ttf */; };
 		FF91F54FC69C20C45CB339B7 /* Pods_GiniVisionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B9397ECC95BE4E5FFB207E /* Pods_GiniVisionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +141,12 @@
 		F418019B2536FE0C000AB71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F452972C267208D900001749 /* Credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
 		F452973026736E3A00001749 /* GiniImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GiniImages.xcassets; sourceTree = "<group>"; };
-		F452973226738CF100001749 /* Hind_Madurai */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hind_Madurai; sourceTree = "<group>"; };
+		F45297342673982000001749 /* HindMadurai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindMadurai-Bold.ttf"; sourceTree = "<group>"; };
+		F45297352673982000001749 /* HindMadurai-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindMadurai-Medium.ttf"; sourceTree = "<group>"; };
+		F45297362673982000001749 /* HindMadurai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindMadurai-Regular.ttf"; sourceTree = "<group>"; };
+		F45297372673982000001749 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		F45297382673982100001749 /* HindMadurai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindMadurai-Light.ttf"; sourceTree = "<group>"; };
+		F45297392673982100001749 /* HindMadurai-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindMadurai-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +265,7 @@
 		1F286D661FC4644A001C0DEF /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				F452973226738CF100001749 /* Hind_Madurai */,
+				F452973A2673983000001749 /* fonts */,
 				1F21C4551FD03B0F00A67265 /* Localizable.strings */,
 				1F286D4B1FC32BD8001C0DEF /* GiniVisionExample.entitlements */,
 				1F01FD3C1FC30D7100BAA47E /* Info.plist */,
@@ -336,6 +345,19 @@
 				452977AB14530135F9F0ECB5 /* Pods_GiniVisionExampleUnitTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F452973A2673983000001749 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F45297342673982000001749 /* HindMadurai-Bold.ttf */,
+				F45297382673982100001749 /* HindMadurai-Light.ttf */,
+				F45297352673982000001749 /* HindMadurai-Medium.ttf */,
+				F45297362673982000001749 /* HindMadurai-Regular.ttf */,
+				F45297392673982100001749 /* HindMadurai-SemiBold.ttf */,
+				F45297372673982000001749 /* OFL.txt */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,12 +455,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F452973F2673994800001749 /* HindMadurai-SemiBold.ttf in Resources */,
 				F452973126736E3A00001749 /* GiniImages.xcassets in Resources */,
-				F452973326738CF100001749 /* Hind_Madurai in Resources */,
+				F452973D2673994300001749 /* HindMadurai-Medium.ttf in Resources */,
 				1F01FD381FC30D7100BAA47E /* Assets.xcassets in Resources */,
+				F452973C2673994000001749 /* HindMadurai-Light.ttf in Resources */,
+				F452973B2673993E00001749 /* HindMadurai-Bold.ttf in Resources */,
 				1F21C4161FCF111700A67265 /* Keys.plist in Resources */,
 				1F21C4291FD03A8F00A67265 /* HelpViewController.xib in Resources */,
 				1F21C43A1FD03AAB00A67265 /* ResultsViewController.xib in Resources */,
+				F452973E2673994500001749 /* HindMadurai-Regular.ttf in Resources */,
 				1F21C4571FD03B0F00A67265 /* Localizable.strings in Resources */,
 				1F21C44C1FD03AE100A67265 /* LaunchScreen.xib in Resources */,
 				F452972D267208D900001749 /* Credentials.plist in Resources */,
