@@ -62,7 +62,7 @@ final class AppCoordinator: NSObject, Coordinator {
         configuration.navigationBarTitleColor = theme.secondaryColor
         configuration.qrCodeScanningEnabled = true
         configuration.galleryPickerItemSelectedBackgroundCheckColor = theme.primaryColor
-        configuration.returnAssistantEnabled = true
+        configuration.returnAssistantEnabled = false
         configuration.multipagePageIndicatorColor = theme.primaryColor
         configuration.multipageToolbarItemsColor = theme.primaryColor
         configuration.noResultsBottomButtonColor = theme.buttonsColor
